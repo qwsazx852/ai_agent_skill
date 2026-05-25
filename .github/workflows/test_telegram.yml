@@ -1,4 +1,4 @@
-name: 📱 測試 Telegram 通知 (v3)
+name: 📱 測試 Telegram 通知 (v4)
 
 on:
   push:
@@ -21,35 +21,57 @@ jobs:
           python3 - <<'EOF'
           import os, sys, requests
 
-          token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-          chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
+          # 清除多餘空白與換行
+          token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+          chat_id = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
 
           if not token or not chat_id:
               print("❌ TELEGRAM_BOT_TOKEN 或 TELEGRAM_CHAT_ID 未設定")
               sys.exit(1)
 
-          print(f"Bot Token 前10碼: {token[:10]}...")
-          print(f"Chat ID: {chat_id}")
+          # Debug: 顯示 token 資訊（不洩漏完整值）
+          print(f"Token 長度: {len(token)} 字元 (正確應為 46)")
+          print(f"Token 前15碼: {token[:15]}...")
+          print(f"Chat ID 長度: {len(chat_id)} 字元")
 
-          url = f"https://api.telegram.org/bot{token}/sendMessage"
-          payload = {
-              "chat_id": chat_id,
-              "parse_mode": "Markdown",
-              "text": (
-                  "✅ *台灣股市篩選系統* 設定成功！\n\n"
-                  "嗨 晉嘉，GitHub Actions 連線正常 🎉\n\n"
-                  "📊 每天台灣時間 *14:30* 自動推送今日精選股票。\n\n"
-                  "🇹🇼 準備好開始追蹤台股了！"
-              ),
-          }
+          # Step 1: 先驗證 Token 是否有效
+          print("\n[1/2] 驗證 Bot Token...")
+          r = requests.get(
+              f"https://api.telegram.org/bot{token}/getMe",
+              timeout=10
+          )
+          print(f"getMe 狀態: {r.status_code}")
+          print(f"getMe 回應: {r.text}")
 
-          resp = requests.post(url, json=payload, timeout=10)
-          print(f"HTTP Status: {resp.status_code}")
-          print(f"API 回應: {resp.text}")
+          if not r.json().get("ok"):
+              print("❌ Token 無效！請重新從 BotFather 複製")
+              sys.exit(1)
+
+          bot_name = r.json()["result"]["username"]
+          print(f"✅ Bot 驗證成功: @{bot_name}")
+
+          # Step 2: 傳送訊息
+          print("\n[2/2] 傳送測試訊息...")
+          resp = requests.post(
+              f"https://api.telegram.org/bot{token}/sendMessage",
+              json={
+                  "chat_id": chat_id,
+                  "parse_mode": "Markdown",
+                  "text": (
+                      "✅ *台灣股市篩選系統* 設定成功！\n\n"
+                      "嗨 晉嘉，GitHub Actions 連線正常 🎉\n\n"
+                      "📊 每天台灣時間 *14:30* 自動推送今日精選股票。\n\n"
+                      "🇹🇼 準備好開始追蹤台股了！"
+                  ),
+              },
+              timeout=10,
+          )
+          print(f"sendMessage 狀態: {resp.status_code}")
+          print(f"sendMessage 回應: {resp.text}")
 
           if resp.status_code == 200 and resp.json().get("ok"):
-              print("✅ Telegram 訊息傳送成功！")
+              print("\n✅ 成功！Telegram 應該已收到訊息")
           else:
-              print("❌ 傳送失敗")
+              print("\n❌ 傳送失敗")
               sys.exit(1)
           EOF
