@@ -322,5 +322,30 @@
         "grade": "B"
       }
     ]
+  },
+  {
+    "date": "2026-05-25",
+    "time": "14:55:15",
+    "total_analyzed": 175,
+    "top3": [
+      {
+        "stock_id": "6282",
+        "stock_name": "康舒",
+        "score": 82.7,
+        "grade": "A"
+      },
+      {
+        "stock_id": "2495",
+        "stock_name": "普安",
+        "score": 75.2,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "2241",
+        "stock_name": "艾姆勒",
+        "score": 74.5,
+        "grade": "B+"
+      }
+    ]
   }
 ]
