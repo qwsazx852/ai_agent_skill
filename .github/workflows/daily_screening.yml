@@ -88,8 +88,12 @@ jobs:
             echo "🚀 使用真實資料模式"
           fi
 
+          DASHBOARD_URL="${{ vars.STREAMLIT_DASHBOARD_URL }}"
           if [ "$NOTIFY" = "true" ] && [ -n "$TELEGRAM_BOT_TOKEN" ]; then
-            CMD="$CMD --notify --dashboard-url ${{ vars.STREAMLIT_DASHBOARD_URL }}"
+            CMD="$CMD --notify"
+            if [ -n "$DASHBOARD_URL" ]; then
+              CMD="$CMD --dashboard-url $DASHBOARD_URL"
+            fi
             echo "📱 將傳送 Telegram 通知"
           fi
 
