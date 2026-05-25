@@ -325,25 +325,75 @@
   },
   {
     "date": "2026-05-25",
-    "time": "14:55:15",
-    "total_analyzed": 175,
+    "time": "15:06:05",
+    "total_analyzed": 73,
     "top3": [
       {
-        "stock_id": "6282",
-        "stock_name": "康舒",
-        "score": 82.7,
+        "stock_id": "2498",
+        "stock_name": "2498",
+        "score": 86.0,
         "grade": "A"
       },
       {
-        "stock_id": "2495",
-        "stock_name": "普安",
-        "score": 75.2,
-        "grade": "B+"
+        "stock_id": "3045",
+        "stock_name": "3045",
+        "score": 84.0,
+        "grade": "A"
       },
       {
-        "stock_id": "2241",
-        "stock_name": "艾姆勒",
-        "score": 74.5,
+        "stock_id": "2353",
+        "stock_name": "2353",
+        "score": 78.0,
+        "grade": "A"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-25",
+    "time": "15:06:10",
+    "total_analyzed": 73,
+    "top3": [
+      {
+        "stock_id": "2404",
+        "stock_name": "2404",
+        "score": 83.5,
+        "grade": "A"
+      },
+      {
+        "stock_id": "2408",
+        "stock_name": "2408",
+        "score": 82.6,
+        "grade": "A"
+      },
+      {
+        "stock_id": "2330",
+        "stock_name": "2330",
+        "score": 76.8,
+        "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-25",
+    "time": "15:07:04",
+    "total_analyzed": 73,
+    "top3": [
+      {
+        "stock_id": "2454",
+        "stock_name": "2454",
+        "score": 80.3,
+        "grade": "A"
+      },
+      {
+        "stock_id": "5534",
+        "stock_name": "5534",
+        "score": 80.0,
+        "grade": "A"
+      },
+      {
+        "stock_id": "4938",
+        "stock_name": "4938",
+        "score": 77.0,
         "grade": "B+"
       }
     ]
