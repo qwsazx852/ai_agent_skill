@@ -1,0 +1,46 @@
+name: 📱 測試 Telegram 通知
+
+on:
+  push:
+    branches:
+      - claude/stock-screening-tool-Gggkw
+    paths:
+      - '.github/workflows/test_telegram.yml'
+
+jobs:
+  test-telegram:
+    name: 傳送測試訊息
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📱 傳送 Telegram 測試訊息
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "❌ 尚未設定 TELEGRAM_BOT_TOKEN 或 TELEGRAM_CHAT_ID"
+            echo "請至 GitHub Repo → Settings → Secrets → Actions 設定"
+            exit 1
+          fi
+
+          echo "📤 傳送測試訊息..."
+
+          RESPONSE=$(curl -s -X POST \
+            "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"chat_id\": \"${TELEGRAM_CHAT_ID}\",
+              \"parse_mode\": \"Markdown\",
+              \"text\": \"✅ *台灣股市篩選系統* 設定成功！\n\n嗨 晉嘉，GitHub Actions 連線正常 🎉\n\n📊 系統將於每天台灣時間 *14:30* 自動推送今日精選股票。\n\n🇹🇼 準備好開始追蹤台股了！\"
+            }")
+
+          echo "API 回應: $RESPONSE"
+
+          # 檢查是否成功
+          if echo "$RESPONSE" | grep -q '"ok":true'; then
+            echo "✅ Telegram 訊息傳送成功！"
+          else
+            echo "❌ 傳送失敗，請確認 Secrets 是否設定正確"
+            exit 1
+          fi
