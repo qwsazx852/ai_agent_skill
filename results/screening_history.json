@@ -98,5 +98,55 @@
         "grade": "B+"
       }
     ]
+  },
+  {
+    "date": "2026-05-25",
+    "time": "13:18:20",
+    "total_analyzed": 73,
+    "top3": [
+      {
+        "stock_id": "2227",
+        "stock_name": "2227",
+        "score": 73.1,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "2498",
+        "stock_name": "2498",
+        "score": 70.8,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "2454",
+        "stock_name": "2454",
+        "score": 68.4,
+        "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-25",
+    "time": "13:18:24",
+    "total_analyzed": 73,
+    "top3": [
+      {
+        "stock_id": "2888",
+        "stock_name": "2888",
+        "score": 70.5,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "3045",
+        "stock_name": "3045",
+        "score": 68.4,
+        "grade": "B"
+      },
+      {
+        "stock_id": "3008",
+        "stock_name": "3008",
+        "score": 67.7,
+        "grade": "B"
+      }
+    ]
   }
 ]
