@@ -1,0 +1,25 @@
+# 台灣股市每日篩選系統 - 依賴套件
+
+# 資料擷取
+yfinance>=0.2.36
+requests>=2.31.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# 技術分析
+# ta-lib (需要系統套件，可選)
+# ta>=0.11.0
+
+# Streamlit Dashboard
+streamlit>=1.32.0
+plotly>=5.18.0
+
+# 工具
+python-dateutil>=2.8.0
+pytz>=2024.1
+
+# 排程 (本機執行用)
+schedule>=1.2.0
+
+# 開發工具
+python-dotenv>=1.0.0

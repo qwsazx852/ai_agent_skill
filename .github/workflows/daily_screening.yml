@@ -1,0 +1,137 @@
+name: 🇹🇼 台灣股市每日篩選
+
+on:
+  # 每日台灣時間 14:30 自動執行 (UTC 06:30)
+  schedule:
+    - cron: "30 6 * * 1-5"  # 週一到週五
+
+  # 允許手動觸發
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "執行模式"
+        required: false
+        default: "real"
+        type: choice
+        options:
+          - real      # 真實資料
+          - mock      # 模擬資料（測試）
+      top_n:
+        description: "輸出前N名股票"
+        required: false
+        default: "30"
+        type: string
+      notify:
+        description: "傳送 Telegram 通知"
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write  # 允許 commit 結果
+
+jobs:
+  screen-stocks:
+    name: 每日股票篩選
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      # ── 取出程式碼 ────────────────────────────────────────────
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── Python 環境 ───────────────────────────────────────────
+      - name: 🐍 Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # ── 安裝依賴 ──────────────────────────────────────────────
+      - name: 📦 Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # ── 建立結果目錄 ──────────────────────────────────────────
+      - name: 📁 Create Results Directory
+        run: mkdir -p results
+
+      # ── 執行篩選 ──────────────────────────────────────────────
+      - name: 🔍 Run Stock Screening
+        env:
+          FINMIND_API_TOKEN: ${{ secrets.FINMIND_API_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          MODE="${{ github.event.inputs.mode || 'real' }}"
+          TOP_N="${{ github.event.inputs.top_n || '30' }}"
+          NOTIFY="${{ github.event.inputs.notify || 'true' }}"
+
+          CMD="python run_screener.py --top $TOP_N"
+
+          if [ "$MODE" = "mock" ]; then
+            CMD="$CMD --mock"
+            echo "🧪 使用模擬資料模式"
+          else
+            echo "🚀 使用真實資料模式"
+          fi
+
+          if [ "$NOTIFY" = "true" ] && [ -n "$TELEGRAM_BOT_TOKEN" ]; then
+            CMD="$CMD --notify --dashboard-url ${{ vars.STREAMLIT_DASHBOARD_URL }}"
+            echo "📱 將傳送 Telegram 通知"
+          fi
+
+          echo "執行命令: $CMD"
+          $CMD
+
+      # ── 儲存結果到 Repository ────────────────────────────────
+      - name: 💾 Commit Screening Results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Stock Screener Bot"
+
+          # 檢查是否有變更
+          if git diff --quiet results/; then
+            echo "No changes to commit"
+          else
+            git add results/
+            DATE=$(date +"%Y-%m-%d %H:%M UTC")
+            git commit -m "📊 每日篩選結果 - $DATE"
+            git push
+            echo "✅ 結果已提交至 repository"
+          fi
+
+      # ── 上傳結果為 Artifact ──────────────────────────────────
+      - name: 📤 Upload Results Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screening-results-${{ github.run_number }}
+          path: |
+            results/latest_screening.json
+            results/screening_history.json
+            results/*.log
+          retention-days: 30
+
+      # ── 失敗通知 ──────────────────────────────────────────────
+      - name: 🚨 Send Failure Alert
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
+            python -c "
+import os, requests
+token = os.environ['TELEGRAM_BOT_TOKEN']
+chat = os.environ['TELEGRAM_CHAT_ID']
+msg = '⚠️ 台股篩選系統執行失敗\n請檢查 GitHub Actions: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+requests.post(f'https://api.telegram.org/bot{token}/sendMessage',
+              json={'chat_id': chat, 'text': msg})
+            "
+          fi
