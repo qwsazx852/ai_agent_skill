@@ -1,12 +1,10 @@
 """
-Telegram Bot 通知模組
-每日篩選結果推送到 Telegram
+Telegram Bot 通知模組 - 精簡實用版分析報告
 
-功能:
-- 傳送文字訊息
-- 傳送 Markdown 格式報告
-- 傳送圖片/圖表
-- 傳送每日篩選摘要
+報告格式:
+- 今日強勢產業 TOP3
+- 精選股票（含籌碼/技術/產業三維分析）
+- 每檔股票重點訊號一目了然
 """
 
 import os
@@ -27,115 +25,32 @@ class TelegramNotifier:
         logger.info(f"Telegram 初始化 - Token前10碼: {self.bot_token[:10]}... 長度:{len(self.bot_token)}")
 
     def _is_configured(self) -> bool:
-        """確認 Telegram 設定是否完整"""
         return bool(self.bot_token and self.chat_id)
 
-    def send_message(
-        self,
-        text: str,
-        parse_mode: str = "Markdown",
-        disable_web_page_preview: bool = True
-    ) -> bool:
-        """
-        傳送文字訊息
-
-        Args:
-            text: 訊息內容 (支援 Markdown)
-            parse_mode: 格式化模式
-            disable_web_page_preview: 是否禁用預覽
-
-        Returns:
-            是否成功
-        """
+    def send_message(self, text: str, parse_mode: str = "Markdown") -> bool:
         if not self._is_configured():
             logger.warning("Telegram 未設定 BOT_TOKEN 或 CHAT_ID")
             return False
-
         try:
             import requests
-
-            url = f"{self.base_url}/sendMessage"
-            payload = {
-                "chat_id": self.chat_id,
-                "text": text,
-                "parse_mode": parse_mode,
-                "disable_web_page_preview": disable_web_page_preview,
-            }
-
-            resp = requests.post(url, json=payload, timeout=10)
+            resp = requests.post(
+                f"{self.base_url}/sendMessage",
+                json={
+                    "chat_id": self.chat_id,
+                    "text": text,
+                    "parse_mode": parse_mode,
+                    "disable_web_page_preview": True,
+                },
+                timeout=10,
+            )
             if resp.status_code == 200:
                 logger.info("Telegram 訊息傳送成功")
                 return True
             else:
                 logger.error(f"Telegram 傳送失敗: {resp.status_code} {resp.text}")
                 return False
-
         except Exception as e:
             logger.error(f"Telegram 傳送例外: {e}")
-            return False
-
-    def send_photo(self, photo_path: str, caption: str = "") -> bool:
-        """
-        傳送圖片
-
-        Args:
-            photo_path: 圖片路徑
-            caption: 圖片說明
-
-        Returns:
-            是否成功
-        """
-        if not self._is_configured():
-            return False
-
-        try:
-            import requests
-
-            url = f"{self.base_url}/sendPhoto"
-            with open(photo_path, "rb") as f:
-                files = {"photo": f}
-                data = {
-                    "chat_id": self.chat_id,
-                    "caption": caption,
-                    "parse_mode": "Markdown",
-                }
-                resp = requests.post(url, files=files, data=data, timeout=30)
-                return resp.status_code == 200
-
-        except Exception as e:
-            logger.error(f"Telegram 圖片傳送失敗: {e}")
-            return False
-
-    def send_document(self, file_path: str, caption: str = "") -> bool:
-        """
-        傳送文件
-
-        Args:
-            file_path: 文件路徑
-            caption: 說明
-
-        Returns:
-            是否成功
-        """
-        if not self._is_configured():
-            return False
-
-        try:
-            import requests
-
-            url = f"{self.base_url}/sendDocument"
-            with open(file_path, "rb") as f:
-                files = {"document": f}
-                data = {
-                    "chat_id": self.chat_id,
-                    "caption": caption,
-                    "parse_mode": "Markdown",
-                }
-                resp = requests.post(url, files=files, data=data, timeout=30)
-                return resp.status_code == 200
-
-        except Exception as e:
-            logger.error(f"Telegram 文件傳送失敗: {e}")
             return False
 
     def send_screening_report(
@@ -144,115 +59,180 @@ class TelegramNotifier:
         hot_industries: List[Dict],
         industry_signals: List[str],
         date: str = "",
-        dashboard_url: str = ""
+        dashboard_url: str = "",
     ) -> bool:
-        """
-        傳送每日股票篩選報告
-
-        Args:
-            top_stocks: 篩選排名前N名股票 (list of dicts)
-            hot_industries: 熱門產業清單
-            industry_signals: 產業輪動訊號
-            date: 報告日期
-            dashboard_url: Dashboard 網址
-
-        Returns:
-            是否成功
-        """
         if not date:
             date = datetime.now().strftime("%Y-%m-%d")
 
-        # ── 標題 ──────────────────────────────
-        messages = []
-
-        header = f"""🇹🇼 *台灣股市每日篩選報告*
-📅 {date} 收盤後分析
-{'─' * 30}"""
-        messages.append(header)
-
-        # ── 熱門產業 ──────────────────────────
-        if hot_industries:
-            industry_text = "🔥 *今日強勢產業 TOP5*\n"
-            for i, ind in enumerate(hot_industries[:5], 1):
-                ret5 = ind.get("avg_ret_5d", 0)
-                arrow = "▲" if ret5 >= 0 else "▼"
-                industry_text += f"{i}. {ind['industry']} {arrow}{abs(ret5):.1f}%\n"
-            messages.append(industry_text)
-
-        # ── 產業輪動訊號 ──────────────────────
-        if industry_signals:
-            signal_text = "🔄 *產業輪動觀察*\n"
-            for sig in industry_signals[:3]:
-                signal_text += f"• {sig}\n"
-            messages.append(signal_text)
-
-        # ── 今日精選股票 ──────────────────────
-        if top_stocks:
-            stock_text = f"⭐ *今日精選股票 TOP{min(len(top_stocks), 10)}*\n"
-            stock_text += "```\n"
-            stock_text += f"{'排名':<4} {'代號':<6} {'名稱':<8} {'評分':<6} {'評級'}\n"
-            stock_text += "─" * 36 + "\n"
-
-            for i, stock in enumerate(top_stocks[:10], 1):
-                sid = stock.get("stock_id", "")
-                name = stock.get("stock_name", sid)[:6]
-                score = stock.get("composite_score", 0)
-                grade = stock.get("grade", "")
-                stock_text += f"{i:<4} {sid:<6} {name:<8} {score:<6.1f} {grade}\n"
-
-            stock_text += "```"
-            messages.append(stock_text)
-
-        # ── 個股詳細訊號 ──────────────────────
-        if top_stocks:
-            detail_text = "📋 *精選股票重點*\n"
-            for stock in top_stocks[:5]:
-                sid = stock.get("stock_id", "")
-                name = stock.get("stock_name", sid)
-                score = stock.get("composite_score", 0)
-                grade = stock.get("grade", "")
-                key_points = stock.get("key_points", [])
-
-                grade_emoji = {
-                    "A+": "🌟", "A": "⭐", "B+": "✅",
-                    "B": "🔵", "C+": "🟡", "C": "🟠", "D": "🔴"
-                }.get(grade, "")
-
-                detail_text += f"\n{grade_emoji} *{sid} {name}* ({score:.0f}分/{grade})\n"
-                for point in key_points[:3]:
-                    detail_text += f"  • {point}\n"
-
-            messages.append(detail_text)
-
-        # ── Dashboard 連結 ─────────────────────
-        if dashboard_url:
-            footer = f"""
-{'─' * 30}
-🖥️ [查看完整 Dashboard]({dashboard_url})
-⏰ 自動生成於 {datetime.now().strftime('%H:%M')}"""
-            messages.append(footer)
-
-        # 組合並傳送訊息（Telegram 單則訊息有 4096 字元限制）
-        full_text = "\n\n".join(messages)
-
-        if len(full_text) <= 4000:
-            return self.send_message(full_text)
+        # ── 判斷今日大盤氣氛 ──────────────────────────────────────
+        all_scores = [s.get("composite_score", 0) for s in top_stocks[:20]]
+        avg_score = sum(all_scores) / len(all_scores) if all_scores else 0
+        if avg_score >= 75:
+            market_mood = "🔥 市場強勢，多頭氣氛濃厚"
+        elif avg_score >= 65:
+            market_mood = "📈 市場偏多，精選標的表現佳"
+        elif avg_score >= 55:
+            market_mood = "🔄 市場中性，個股分化明顯"
         else:
-            # 分段傳送
-            success = True
-            for msg in messages:
-                if msg.strip():
-                    if not self.send_message(msg):
-                        success = False
-            return success
+            market_mood = "⚠️ 市場偏弱，宜謹慎觀察"
+
+        success = True
+
+        # ════════════════════════════════════════════════════════
+        # 訊息一：今日總覽 + 強勢產業
+        # ════════════════════════════════════════════════════════
+        msg1 = (
+            f"🇹🇼 *台股每日篩選報告*\n"
+            f"📅 {date}  {datetime.now().strftime('%H:%M')}\n"
+            f"{'─' * 28}\n"
+            f"{market_mood}\n\n"
+        )
+
+        if hot_industries:
+            msg1 += "🏭 *今日強勢產業*\n"
+            medals = ["🥇", "🥈", "🥉", "4️⃣", "5️⃣"]
+            for i, ind in enumerate(hot_industries[:5]):
+                ret5 = ind.get("avg_ret_5d", 0)
+                ret1 = ind.get("avg_ret_1d", 0)
+                arrow = "▲" if ret5 >= 0 else "▼"
+                msg1 += (
+                    f"{medals[i]} {ind['industry']}  "
+                    f"{arrow}{abs(ret5):.1f}% (5日)  "
+                    f"今日{'+' if ret1>=0 else ''}{ret1:.1f}%\n"
+                )
+
+        if industry_signals:
+            msg1 += "\n🔄 *輪動觀察*\n"
+            for sig in industry_signals[:2]:
+                msg1 += f"• {sig}\n"
+
+        if not self.send_message(msg1):
+            success = False
+
+        # ════════════════════════════════════════════════════════
+        # 訊息二：精選股票詳細分析（每檔一段）
+        # ════════════════════════════════════════════════════════
+        grade_emoji = {
+            "A+": "🌟", "A": "⭐", "B+": "✅",
+            "B": "🔵", "C+": "🟡", "C": "🟠", "D": "🔴",
+        }
+
+        stocks_to_show = [s for s in top_stocks if s.get("grade") in
+                          ["A+", "A", "B+", "B"]][:8]
+
+        if stocks_to_show:
+            msg2 = f"📋 *精選股票分析 TOP{len(stocks_to_show)}*\n{'─' * 28}\n"
+
+            for i, stock in enumerate(stocks_to_show, 1):
+                sid    = stock.get("stock_id", "")
+                name   = stock.get("stock_name", sid)
+                score  = stock.get("composite_score", 0)
+                grade  = stock.get("grade", "")
+                ind    = stock.get("industry", "")
+                emoji  = grade_emoji.get(grade, "")
+
+                tech_s = stock.get("technical_score", 0)
+                inst_s = stock.get("institutional_score", 0)
+                ind_s  = stock.get("industry_score", 0)
+                fund_s = stock.get("fundamental_score", 0)
+
+                indicators   = stock.get("indicators", {})
+                inst_data    = stock.get("institutional_data", {})
+                industry_data = stock.get("industry_data", {})
+
+                price     = indicators.get("price", 0)
+                change_1d = indicators.get("change_1d", 0)
+                rsi       = indicators.get("rsi", 0)
+                k_val     = indicators.get("k", 0)
+                vol_ratio = indicators.get("volume_ratio", 1)
+                ma5       = indicators.get("ma5", 0)
+                ma20      = indicators.get("ma20", 0)
+
+                foreign_net = inst_data.get("foreign_net", 0) or 0
+                trust_net   = inst_data.get("trust_net", 0) or 0
+                margin_chg  = inst_data.get("margin_change", 0) or 0
+
+                ind_rank    = industry_data.get("rank", 0)
+                ind_total   = industry_data.get("total", 0)
+                ind_ret5    = industry_data.get("avg_ret_5d", 0)
+
+                price_arrow = "▲" if change_1d >= 0 else "▼"
+
+                # 技術面摘要
+                tech_notes = []
+                if ma5 and ma20 and ma5 > ma20:
+                    tech_notes.append("均線多頭")
+                if rsi and 45 <= rsi <= 70:
+                    tech_notes.append(f"RSI {rsi:.0f}")
+                if k_val and k_val > 50:
+                    tech_notes.append(f"K值{k_val:.0f}")
+                if vol_ratio and vol_ratio >= 1.3:
+                    tech_notes.append(f"量{vol_ratio:.1f}x")
+                tech_str = " | ".join(tech_notes) if tech_notes else "—"
+
+                # 籌碼面摘要
+                inst_notes = []
+                if foreign_net > 0:
+                    inst_notes.append(f"外資+{foreign_net:,}")
+                elif foreign_net < 0:
+                    inst_notes.append(f"外資{foreign_net:,}")
+                if trust_net > 0:
+                    inst_notes.append(f"投信+{trust_net:,}")
+                elif trust_net < 0:
+                    inst_notes.append(f"投信{trust_net:,}")
+                if margin_chg != 0:
+                    inst_notes.append(f"融資{'↑' if margin_chg>0 else '↓'}{abs(margin_chg):,}")
+                inst_str = " | ".join(inst_notes) if inst_notes else "法人資料待更新"
+
+                # 產業排名
+                ind_str = f"{ind}"
+                if ind_rank and ind_total:
+                    ind_str += f" #{ind_rank}/{ind_total}"
+                if ind_ret5:
+                    ind_str += f" ({'+' if ind_ret5>=0 else ''}{ind_ret5:.1f}%)"
+
+                msg2 += (
+                    f"\n{emoji} *{i}. {sid} {name}*  {score:.0f}分/{grade}\n"
+                    f"💰 現價 `{price:.1f}` {price_arrow}{abs(change_1d):.2f}%\n"
+                    f"📊 技術({tech_s:.0f})｜籌碼({inst_s:.0f})｜產業({ind_s:.0f})｜基本({fund_s:.0f})\n"
+                    f"📈 {tech_str}\n"
+                    f"🏦 {inst_str}\n"
+                    f"🏭 {ind_str}\n"
+                )
+
+            if not self.send_message(msg2):
+                success = False
+
+        # ════════════════════════════════════════════════════════
+        # 訊息三：今日觀察重點（關鍵訊號摘要）
+        # ════════════════════════════════════════════════════════
+        key_signals = []
+        for stock in stocks_to_show[:5]:
+            for sig in stock.get("technical_signals", [])[:1]:
+                if any(kw in sig for kw in ["黃金交叉", "爆量", "突破", "多頭排列"]):
+                    key_signals.append(f"• {stock['stock_id']} {stock.get('stock_name','')} — {sig}")
+            for sig in stock.get("institutional_signals", [])[:1]:
+                if any(kw in sig for kw in ["大買", "持續"]):
+                    key_signals.append(f"• {stock['stock_id']} {stock.get('stock_name','')} — {sig}")
+
+        if key_signals:
+            msg3 = "🔔 *今日重點訊號*\n" + "\n".join(key_signals[:6])
+            if dashboard_url:
+                msg3 += f"\n\n🖥️ [完整報告 Dashboard]({dashboard_url})"
+            msg3 += f"\n\n_⚠️ 本報告僅供參考，不構成投資建議_"
+            if not self.send_message(msg3):
+                success = False
+
+        return success
 
     def send_error_alert(self, error_msg: str) -> bool:
-        """傳送錯誤警告"""
-        text = f"⚠️ *股票篩選系統警告*\n\n{error_msg}\n\n時間: {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+        text = (
+            f"⚠️ *台股篩選系統警告*\n\n{error_msg}\n\n"
+            f"時間: {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+        )
         return self.send_message(text)
 
     def send_test_message(self) -> bool:
-        """傳送測試訊息"""
         text = (
             "✅ *台灣股市篩選系統* 測試訊息\n\n"
             "Telegram Bot 設定成功！\n"
