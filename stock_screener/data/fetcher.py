@@ -9,7 +9,11 @@ import logging
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple
 import warnings
+import logging as _logging
 warnings.filterwarnings("ignore")
+# 靜音 yfinance 的 "possibly delisted" 和 timezone 相關 error 訊息
+_logging.getLogger("yfinance").setLevel(_logging.CRITICAL)
+_logging.getLogger("peewee").setLevel(_logging.CRITICAL)
 
 import pandas as pd
 import numpy as np

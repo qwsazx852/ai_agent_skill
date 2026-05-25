@@ -84,6 +84,21 @@ def get_finmind_stock_list(token: str) -> pd.DataFrame:
                     logger.warning("FinMind TaiwanStockInfo 過濾後無資料")
                     return pd.DataFrame()
 
+                # 額外過濾：排除 ETF、特別股、存託憑證等非一般股
+                # 這些通常在 yfinance 找不到資料，會造成大量 error 訊息
+                EXCLUDE_KEYWORDS = [
+                    "ETF", "基金", "存託", "特別", "受益", "債券",
+                    "指數", "期貨", "期信", "不動產", "REITs"
+                ]
+                if "stock_name" in df.columns:
+                    pattern = "|".join(EXCLUDE_KEYWORDS)
+                    df = df[~df["stock_name"].str.contains(pattern, na=False)]
+
+                # 排除股票代號以 0 開頭（ETF）或 9 開頭（特殊）
+                df = df[~df["stock_id"].str.startswith(("0", "9"), na=False)]
+
+                logger.info(f"FinMind 過濾後有效股票: {len(df)} 檔")
+
                 result = pd.DataFrame()
                 result["stock_id"] = df["stock_id"].astype(str)
                 result["stock_name"] = df.get("stock_name", df["stock_id"])
