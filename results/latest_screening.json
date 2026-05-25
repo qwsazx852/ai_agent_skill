@@ -1,6 +1,6 @@
 {
   "date": "2026-05-25",
-  "time": "12:52:27",
+  "time": "13:04:12",
   "total_analyzed": 100,
   "hot_industries": [
     {
@@ -944,6 +944,1777 @@
         "🚀 EPS 高速成長 (+76%)",
         "⚠️ 投信賣超 (-1,421張)",
         "📊 現價 144.5 (▲3.21%)"
+      ]
+    },
+    {
+      "stock_id": "2365",
+      "stock_name": "昆盈",
+      "industry": "25",
+      "market": "TWSE",
+      "composite_score": 66.0,
+      "grade": "B",
+      "technical_score": 81,
+      "fundamental_score": 65,
+      "institutional_score": 45,
+      "industry_score": 80,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "✅ 站上年線",
+        "✅ MACD 多頭"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+68%)",
+        "❌ 營收衰退 (-17%)",
+        "🌟 ROE 優秀 (29.3%)"
+      ],
+      "institutional_signals": [
+        "✅ 投信買超 (+648張)",
+        "✅ 融資減少 (-2,305張)"
+      ],
+      "industry_signals": [
+        "✅ 產業表現強勢 (#5/21)",
+        "🚀 產業5日強勢 (+7.4%)"
+      ],
+      "indicators": {
+        "ma5": 36.61,
+        "ma10": 36.28,
+        "ma20": 36.16,
+        "ma60": 34.62,
+        "macd": 0.6377,
+        "macd_signal": 0.5381,
+        "macd_hist": 0.0996,
+        "rsi": 61.23,
+        "k": 64.35,
+        "d": 51.43,
+        "bb_upper": 38.55,
+        "bb_middle": 36.16,
+        "bb_lower": 33.78,
+        "bb_pct": 1.126,
+        "volume": 12003612,
+        "volume_ma5": 7509523,
+        "volume_ratio": 1.26,
+        "price": 39.15,
+        "change_1d": 7.11,
+        "change_5d": 7.7,
+        "change_20d": 14.31
+      },
+      "institutional_data": {
+        "foreign_net": "87",
+        "trust_net": "648",
+        "dealer_net": "-730",
+        "foreign_3d": "-9272",
+        "foreign_10d": "11695",
+        "margin_balance": "40729",
+        "margin_change": "-2305",
+        "short_balance": "3032"
+      },
+      "financial_data": {
+        "eps": 13.58,
+        "eps_growth": 0.6788,
+        "revenue_growth": -0.1745,
+        "roe": 0.2932,
+        "pe_ratio": 17.5,
+        "pb_ratio": 2.43,
+        "dividend_yield": 0.0118
+      },
+      "industry_data": {
+        "rank": 5,
+        "total": 21,
+        "avg_ret_1d": 4.31,
+        "avg_ret_5d": 7.38,
+        "avg_ret_20d": 13.3
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 EPS 高速成長 (+68%)",
+        "✅ 投信買超 (+648張)",
+        "📊 現價 39.1 (▲7.11%)"
+      ]
+    },
+    {
+      "stock_id": "2308",
+      "stock_name": "台達電",
+      "industry": "半導體",
+      "market": "TWSE",
+      "composite_score": 66.0,
+      "grade": "B",
+      "technical_score": 72,
+      "fundamental_score": 61,
+      "institutional_score": 57,
+      "industry_score": 80,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上年線",
+        "📈 MACD 動能增強",
+        "✅ KD 多頭",
+        "🌟 KD 黃金交叉"
+      ],
+      "fundamental_signals": [
+        "❌ EPS 大幅衰退 (-23%)",
+        "📈 營收成長 (+29%)",
+        "✅ ROE 良好 (17.0%)",
+        "💰 低本益比 (PE=12x)",
+        "💎 高殖利率 (5.2%)"
+      ],
+      "institutional_signals": [
+        "⚠️ 外資賣超 (-1,519張)",
+        "✅ 投信買超 (+1,386張)"
+      ],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#2/21)",
+        "🚀 產業5日強勢 (+5.3%)",
+        "⚠️ 個股弱於產業 (-21.0%)"
+      ],
+      "indicators": {
+        "ma5": 1995.0,
+        "ma10": 2081.0,
+        "ma20": 2121.75,
+        "ma60": 1730.33,
+        "macd": 54.1703,
+        "macd_signal": 95.7299,
+        "macd_hist": -41.5596,
+        "rsi": 42.24,
+        "k": 32.23,
+        "d": 24.53,
+        "bb_upper": 2325.64,
+        "bb_middle": 2121.75,
+        "bb_lower": 1917.86,
+        "bb_pct": 0.434,
+        "volume": 7818792,
+        "volume_ma5": 10056475,
+        "volume_ratio": 0.71,
+        "price": 2095.0,
+        "change_1d": 3.2,
+        "change_5d": 3.71,
+        "change_20d": 0.96
+      },
+      "institutional_data": {
+        "foreign_net": "-1519",
+        "trust_net": "1386",
+        "dealer_net": "688",
+        "foreign_3d": "3994",
+        "foreign_10d": "13673",
+        "margin_balance": "20655",
+        "margin_change": "2753",
+        "short_balance": "1181"
+      },
+      "financial_data": {
+        "eps": 17.08,
+        "eps_growth": -0.2296,
+        "revenue_growth": 0.2898,
+        "roe": 0.1703,
+        "pe_ratio": 11.5,
+        "pb_ratio": 2.02,
+        "dividend_yield": 0.052
+      },
+      "industry_data": {
+        "rank": 2,
+        "total": 21,
+        "avg_ret_1d": 3.99,
+        "avg_ret_5d": 5.31,
+        "avg_ret_20d": 21.95
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上年線",
+        "❌ EPS 大幅衰退 (-23%)",
+        "⚠️ 外資賣超 (-1,519張)",
+        "📊 現價 2095.0 (▲3.20%)"
+      ]
+    },
+    {
+      "stock_id": "3008",
+      "stock_name": "大立光",
+      "industry": "電子零組件",
+      "market": "TWSE",
+      "composite_score": 65.5,
+      "grade": "B",
+      "technical_score": 65,
+      "fundamental_score": 57,
+      "institutional_score": 56,
+      "industry_score": 100,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "✅ 站上年線",
+        "✅ MACD 多頭"
+      ],
+      "fundamental_signals": [
+        "❌ EPS 大幅衰退 (-23%)",
+        "🚀 營收大幅成長 (+47%)",
+        "✅ ROE 良好 (15.2%)"
+      ],
+      "institutional_signals": [
+        "✅ 外資買超 (+2,914張)",
+        "✅ 投信買超 (+1,332張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#3/21)",
+        "🚀 產業5日強勢 (+6.3%)",
+        "⭐ 個股優於產業 (+24.3%)"
+      ],
+      "indicators": {
+        "ma5": 3371.0,
+        "ma10": 3162.5,
+        "ma20": 2861.75,
+        "ma60": 2530.54,
+        "macd": 253.5917,
+        "macd_signal": 181.0986,
+        "macd_hist": 72.4931,
+        "rsi": 77.18,
+        "k": 83.66,
+        "d": 79.68,
+        "bb_upper": 3630.06,
+        "bb_middle": 2861.75,
+        "bb_lower": 2093.44,
+        "bb_pct": 0.941,
+        "volume": 1137340,
+        "volume_ma5": 2663958,
+        "volume_ratio": 0.56,
+        "price": 3540.0,
+        "change_1d": 2.31,
+        "change_5d": 7.6,
+        "change_20d": 40.48
+      },
+      "institutional_data": {
+        "foreign_net": "2914",
+        "trust_net": "1332",
+        "dealer_net": "-923",
+        "foreign_3d": "9047",
+        "foreign_10d": "7252",
+        "margin_balance": "17621",
+        "margin_change": "176",
+        "short_balance": "7669"
+      },
+      "financial_data": {
+        "eps": 16.83,
+        "eps_growth": -0.229,
+        "revenue_growth": 0.4667,
+        "roe": 0.1518,
+        "pe_ratio": 32.5,
+        "pb_ratio": 3.86,
+        "dividend_yield": 0.0418
+      },
+      "industry_data": {
+        "rank": 3,
+        "total": 21,
+        "avg_ret_1d": 3.97,
+        "avg_ret_5d": 6.27,
+        "avg_ret_20d": 16.15
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "❌ EPS 大幅衰退 (-23%)",
+        "✅ 外資買超 (+2,914張)",
+        "📊 現價 3540.0 (▲2.31%)"
+      ]
+    },
+    {
+      "stock_id": "1524",
+      "stock_name": "耿鼎",
+      "industry": "電機機械",
+      "market": "TWSE",
+      "composite_score": 65.3,
+      "grade": "B",
+      "technical_score": 90,
+      "fundamental_score": 49,
+      "institutional_score": 61,
+      "industry_score": 52,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "✅ 站上年線",
+        "✅ MACD 多頭",
+        "📈 MACD 動能增強"
+      ],
+      "fundamental_signals": [
+        "❌ EPS 大幅衰退 (-19%)",
+        "📈 營收成長 (+27%)",
+        "✅ ROE 良好 (20.1%)"
+      ],
+      "institutional_signals": [
+        "✅ 外資買超 (+1,082張)",
+        "✅ 融資減少 (-4,395張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [],
+      "indicators": {
+        "ma5": 28.94,
+        "ma10": 28.97,
+        "ma20": 28.65,
+        "ma60": 28.47,
+        "macd": 0.1566,
+        "macd_signal": 0.0851,
+        "macd_hist": 0.0715,
+        "rsi": 61.31,
+        "k": 60.62,
+        "d": 46.2,
+        "bb_upper": 30.15,
+        "bb_middle": 28.65,
+        "bb_lower": 27.16,
+        "bb_pct": 0.799,
+        "volume": 1749766,
+        "volume_ma5": 1099524,
+        "volume_ratio": 1.76,
+        "price": 29.55,
+        "change_1d": 0.68,
+        "change_5d": 4.42,
+        "change_20d": 6.29
+      },
+      "institutional_data": {
+        "foreign_net": "1082",
+        "trust_net": "140",
+        "dealer_net": "801",
+        "foreign_3d": "3435",
+        "foreign_10d": "-7812",
+        "margin_balance": "25728",
+        "margin_change": "-4395",
+        "short_balance": "8722"
+      },
+      "financial_data": {
+        "eps": 11.17,
+        "eps_growth": -0.1885,
+        "revenue_growth": 0.2703,
+        "roe": 0.2014,
+        "pe_ratio": 35.9,
+        "pb_ratio": 1.54,
+        "dividend_yield": 0.0003
+      },
+      "industry_data": {
+        "rank": 8,
+        "total": 21,
+        "avg_ret_1d": -0.01,
+        "avg_ret_5d": 0.83,
+        "avg_ret_20d": 4.99
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "❌ EPS 大幅衰退 (-19%)",
+        "✅ 外資買超 (+1,082張)",
+        "📊 現價 29.6 (▲0.68%)"
+      ]
+    },
+    {
+      "stock_id": "2377",
+      "stock_name": "微星",
+      "industry": "電子零組件",
+      "market": "TWSE",
+      "composite_score": 65.1,
+      "grade": "B",
+      "technical_score": 79,
+      "fundamental_score": 72,
+      "institutional_score": 28,
+      "industry_score": 100,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "✅ 站上年線",
+        "✅ MACD 多頭"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+61%)",
+        "📈 營收成長 (+16%)",
+        "✅ ROE 良好 (18.8%)"
+      ],
+      "institutional_signals": [
+        "⚠️ 外資賣超 (-4,879張)",
+        "⚠️ 投信賣超 (-1,077張)",
+        "✅ 融資減少 (-4,705張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#3/21)",
+        "🚀 產業5日強勢 (+6.3%)",
+        "⭐ 個股優於產業 (+14.2%)"
+      ],
+      "indicators": {
+        "ma5": 114.2,
+        "ma10": 112.8,
+        "ma20": 105.17,
+        "ma60": 96.64,
+        "macd": 5.9801,
+        "macd_signal": 4.7485,
+        "macd_hist": 1.2316,
+        "rsi": 77.32,
+        "k": 71.71,
+        "d": 64.42,
+        "bb_upper": 122.82,
+        "bb_middle": 105.17,
+        "bb_lower": 87.52,
+        "bb_pct": 1.033,
+        "volume": 53712430,
+        "volume_ma5": 28076288,
+        "volume_ratio": 1.71,
+        "price": 124.0,
+        "change_1d": 9.73,
+        "change_5d": 9.73,
+        "change_20d": 30.39
+      },
+      "institutional_data": {
+        "foreign_net": "-4879",
+        "trust_net": "-1077",
+        "dealer_net": "764",
+        "foreign_3d": "154",
+        "foreign_10d": "-11104",
+        "margin_balance": "23463",
+        "margin_change": "-4705",
+        "short_balance": "8910"
+      },
+      "financial_data": {
+        "eps": 5.39,
+        "eps_growth": 0.6058,
+        "revenue_growth": 0.1554,
+        "roe": 0.1875,
+        "pe_ratio": 36.5,
+        "pb_ratio": 3.23,
+        "dividend_yield": 0.0086
+      },
+      "industry_data": {
+        "rank": 3,
+        "total": 21,
+        "avg_ret_1d": 3.97,
+        "avg_ret_5d": 6.27,
+        "avg_ret_20d": 16.15
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 EPS 高速成長 (+61%)",
+        "⚠️ 外資賣超 (-4,879張)",
+        "📊 現價 124.0 (▲9.73%)"
+      ]
+    },
+    {
+      "stock_id": "2354",
+      "stock_name": "鴻準",
+      "industry": "電子零組件",
+      "market": "TWSE",
+      "composite_score": 63.5,
+      "grade": "B",
+      "technical_score": 66,
+      "fundamental_score": 87,
+      "institutional_score": 28,
+      "industry_score": 90,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "✅ 站上年線",
+        "✅ RSI 強勢區 (64.8)"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+51%)",
+        "🚀 營收大幅成長 (+45%)",
+        "✅ ROE 良好 (19.5%)"
+      ],
+      "institutional_signals": [
+        "⚠️ 外資賣超 (-1,966張)",
+        "⚠️ 投信賣超 (-1,275張)"
+      ],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#3/21)",
+        "🚀 產業5日強勢 (+6.3%)"
+      ],
+      "indicators": {
+        "ma5": 58.58,
+        "ma10": 59.61,
+        "ma20": 57.65,
+        "ma60": 54.78,
+        "macd": 1.5126,
+        "macd_signal": 1.6752,
+        "macd_hist": -0.1626,
+        "rsi": 64.83,
+        "k": 34.67,
+        "d": 35.3,
+        "bb_upper": 66.58,
+        "bb_middle": 57.65,
+        "bb_lower": 48.72,
+        "bb_pct": 0.643,
+        "volume": 10192897,
+        "volume_ma5": 8705198,
+        "volume_ratio": 0.53,
+        "price": 60.2,
+        "change_1d": 2.21,
+        "change_5d": 2.73,
+        "change_20d": 17.12
+      },
+      "institutional_data": {
+        "foreign_net": "-1966",
+        "trust_net": "-1275",
+        "dealer_net": "390",
+        "foreign_3d": "8701",
+        "foreign_10d": "-11311",
+        "margin_balance": "24748",
+        "margin_change": "-1507",
+        "short_balance": "2629"
+      },
+      "financial_data": {
+        "eps": 4.44,
+        "eps_growth": 0.5108,
+        "revenue_growth": 0.4546,
+        "roe": 0.1954,
+        "pe_ratio": 16.2,
+        "pb_ratio": 2.44,
+        "dividend_yield": 0.0341
+      },
+      "industry_data": {
+        "rank": 3,
+        "total": 21,
+        "avg_ret_1d": 3.97,
+        "avg_ret_5d": 6.27,
+        "avg_ret_20d": 16.15
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 EPS 高速成長 (+51%)",
+        "⚠️ 外資賣超 (-1,966張)",
+        "📊 現價 60.2 (▲2.21%)"
+      ]
+    },
+    {
+      "stock_id": "3293",
+      "stock_name": "鈊象",
+      "industry": "AI/雲端",
+      "market": "OTC",
+      "composite_score": 62.9,
+      "grade": "B",
+      "technical_score": 88,
+      "fundamental_score": 74,
+      "institutional_score": 25,
+      "industry_score": 70,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "✅ 站上年線",
+        "✅ MACD 多頭",
+        "📈 MACD 動能增強"
+      ],
+      "fundamental_signals": [
+        "📈 EPS 快速成長 (+36%)",
+        "🚀 營收大幅成長 (+44%)",
+        "💎 高殖利率 (5.2%)"
+      ],
+      "institutional_signals": [
+        "✅ 外資買超 (+3,992張)",
+        "⚠️ 投信賣超 (-1,582張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [
+        "✅ 產業表現強勢 (#6/21)",
+        "🚀 產業5日強勢 (+6.1%)",
+        "⚠️ 個股弱於產業 (-9.8%)"
+      ],
+      "indicators": {
+        "ma5": 732.2,
+        "ma10": 729.9,
+        "ma20": 736.25,
+        "ma60": 739.23,
+        "macd": -4.738,
+        "macd_signal": -5.9265,
+        "macd_hist": 1.1885,
+        "rsi": 52.48,
+        "k": 60.69,
+        "d": 43.76,
+        "bb_upper": 760.79,
+        "bb_middle": 736.25,
+        "bb_lower": 711.71,
+        "bb_pct": 0.739,
+        "volume": 2018065,
+        "volume_ma5": 1628512,
+        "volume_ratio": 1.35,
+        "price": 748.0,
+        "change_1d": 1.08,
+        "change_5d": 4.32,
+        "change_20d": -0.66
+      },
+      "institutional_data": {
+        "foreign_net": "3992",
+        "trust_net": "-1582",
+        "dealer_net": "-520",
+        "foreign_3d": "8164",
+        "foreign_10d": "-15741",
+        "margin_balance": "11396",
+        "margin_change": "-608",
+        "short_balance": "5968"
+      },
+      "financial_data": {
+        "eps": 2.99,
+        "eps_growth": 0.3645,
+        "revenue_growth": 0.4358,
+        "roe": 0.1137,
+        "pe_ratio": 27.0,
+        "pb_ratio": 4.18,
+        "dividend_yield": 0.0518
+      },
+      "industry_data": {
+        "rank": 6,
+        "total": 21,
+        "avg_ret_1d": 2.89,
+        "avg_ret_5d": 6.13,
+        "avg_ret_20d": 9.13
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "📈 EPS 快速成長 (+36%)",
+        "✅ 外資買超 (+3,992張)",
+        "📊 現價 748.0 (▲1.08%)"
+      ]
+    },
+    {
+      "stock_id": "2382",
+      "stock_name": "廣達",
+      "industry": "電子零組件",
+      "market": "TWSE",
+      "composite_score": 62.2,
+      "grade": "B",
+      "technical_score": 69,
+      "fundamental_score": 81,
+      "institutional_score": 31,
+      "industry_score": 80,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上年線",
+        "📈 MACD 動能增強",
+        "✅ KD 多頭",
+        "🌟 KD 黃金交叉"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+57%)",
+        "🚀 營收大幅成長 (+41%)",
+        "💎 高殖利率 (5.8%)"
+      ],
+      "institutional_signals": [
+        "✅ 外資買超 (+2,944張)",
+        "⚠️ 投信賣超 (-605張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#3/21)",
+        "🚀 產業5日強勢 (+6.3%)",
+        "⚠️ 個股弱於產業 (-18.3%)"
+      ],
+      "indicators": {
+        "ma5": 300.8,
+        "ma10": 316.85,
+        "ma20": 322.12,
+        "ma60": 305.81,
+        "macd": -2.0831,
+        "macd_signal": 2.1132,
+        "macd_hist": -4.1963,
+        "rsi": 49.15,
+        "k": 27.89,
+        "d": 27.4,
+        "bb_upper": 357.23,
+        "bb_middle": 322.12,
+        "bb_lower": 287.02,
+        "bb_pct": 0.413,
+        "volume": 35356329,
+        "volume_ma5": 35310724,
+        "volume_ratio": 1.43,
+        "price": 316.0,
+        "change_1d": 2.6,
+        "change_5d": 5.33,
+        "change_20d": -2.17
+      },
+      "institutional_data": {
+        "foreign_net": "2944",
+        "trust_net": "-605",
+        "dealer_net": "-464",
+        "foreign_3d": "7508",
+        "foreign_10d": "7556",
+        "margin_balance": "16527",
+        "margin_change": "-954",
+        "short_balance": "6552"
+      },
+      "financial_data": {
+        "eps": 7.63,
+        "eps_growth": 0.5747,
+        "revenue_growth": 0.4128,
+        "roe": 0.1451,
+        "pe_ratio": 28.9,
+        "pb_ratio": 3.37,
+        "dividend_yield": 0.0582
+      },
+      "industry_data": {
+        "rank": 3,
+        "total": 21,
+        "avg_ret_1d": 3.97,
+        "avg_ret_5d": 6.27,
+        "avg_ret_20d": 16.15
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上年線",
+        "🚀 EPS 高速成長 (+57%)",
+        "✅ 外資買超 (+2,944張)",
+        "📊 現價 316.0 (▲2.60%)"
+      ]
+    },
+    {
+      "stock_id": "2609",
+      "stock_name": "陽明",
+      "industry": "航運",
+      "market": "TWSE",
+      "composite_score": 61.5,
+      "grade": "B",
+      "technical_score": 80,
+      "fundamental_score": 45,
+      "institutional_score": 50,
+      "industry_score": 75,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "🌟 MA5 黃金交叉 MA20",
+        "✅ MACD 多頭"
+      ],
+      "fundamental_signals": [
+        "❌ 營收衰退 (-16%)",
+        "🌟 ROE 優秀 (31.5%)"
+      ],
+      "institutional_signals": [
+        "⚠️ 外資賣超 (-2,459張)",
+        "✅ 投信買超 (+1,518張)",
+        "✅ 融資減少 (-4,893張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [
+        "✅ 產業表現強勢 (#7/21)",
+        "🚀 產業5日強勢 (+7.7%)"
+      ],
+      "indicators": {
+        "ma5": 50.49,
+        "ma10": 49.92,
+        "ma20": 49.9,
+        "ma60": 53.43,
+        "macd": -0.2511,
+        "macd_signal": -0.6973,
+        "macd_hist": 0.4462,
+        "rsi": 65.02,
+        "k": 73.79,
+        "d": 57.15,
+        "bb_upper": 52.06,
+        "bb_middle": 49.9,
+        "bb_lower": 47.74,
+        "bb_pct": 1.219,
+        "volume": 44114173,
+        "volume_ma5": 24067635,
+        "volume_ratio": 2.45,
+        "price": 53.0,
+        "change_1d": 3.72,
+        "change_5d": 9.17,
+        "change_20d": 5.79
+      },
+      "institutional_data": {
+        "foreign_net": "-2459",
+        "trust_net": "1518",
+        "dealer_net": "32",
+        "foreign_3d": "-8826",
+        "foreign_10d": "12359",
+        "margin_balance": "44262",
+        "margin_change": "-4893",
+        "short_balance": "9885"
+      },
+      "financial_data": {
+        "eps": 17.71,
+        "eps_growth": 0.1304,
+        "revenue_growth": -0.1589,
+        "roe": 0.3149,
+        "pe_ratio": 39.6,
+        "pb_ratio": 4.31,
+        "dividend_yield": 0.0352
+      },
+      "industry_data": {
+        "rank": 7,
+        "total": 21,
+        "avg_ret_1d": 2.51,
+        "avg_ret_5d": 7.69,
+        "avg_ret_20d": 8.0
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "❌ 營收衰退 (-16%)",
+        "⚠️ 外資賣超 (-2,459張)",
+        "📊 現價 53.0 (▲3.72%)"
+      ]
+    },
+    {
+      "stock_id": "2383",
+      "stock_name": "台光電",
+      "industry": "電子零組件",
+      "market": "TWSE",
+      "composite_score": 61.4,
+      "grade": "B",
+      "technical_score": 74,
+      "fundamental_score": 62,
+      "institutional_score": 39,
+      "industry_score": 80,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "✅ 站上年線",
+        "📈 MACD 動能增強",
+        "✅ RSI 強勢區 (57.0)"
+      ],
+      "fundamental_signals": [
+        "🚀 營收大幅成長 (+38%)"
+      ],
+      "institutional_signals": [
+        "✅ 外資買超 (+1,770張)",
+        "✅ 融資減少 (-3,395張)"
+      ],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#3/21)",
+        "🚀 產業5日強勢 (+6.3%)",
+        "⚠️ 個股弱於產業 (-4.3%)"
+      ],
+      "indicators": {
+        "ma5": 4634.0,
+        "ma10": 4738.5,
+        "ma20": 4704.75,
+        "ma60": 3518.58,
+        "macd": 270.7936,
+        "macd_signal": 339.3785,
+        "macd_hist": -68.5849,
+        "rsi": 56.98,
+        "k": 47.93,
+        "d": 43.23,
+        "bb_upper": 5113.41,
+        "bb_middle": 4704.75,
+        "bb_lower": 4296.09,
+        "bb_pct": 0.867,
+        "volume": 2735717,
+        "volume_ma5": 2380527,
+        "volume_ratio": 0.97,
+        "price": 5005.0,
+        "change_1d": 6.72,
+        "change_5d": 10.12,
+        "change_20d": 11.84
+      },
+      "institutional_data": {
+        "foreign_net": "1770",
+        "trust_net": "-317",
+        "dealer_net": "-99",
+        "foreign_3d": "6531",
+        "foreign_10d": "-1942",
+        "margin_balance": "1378",
+        "margin_change": "-3395",
+        "short_balance": "1528"
+      },
+      "financial_data": {
+        "eps": 9.0,
+        "eps_growth": 0.0999,
+        "revenue_growth": 0.3786,
+        "roe": 0.0523,
+        "pe_ratio": 12.6,
+        "pb_ratio": 1.24,
+        "dividend_yield": 0.0353
+      },
+      "industry_data": {
+        "rank": 3,
+        "total": 21,
+        "avg_ret_1d": 3.97,
+        "avg_ret_5d": 6.27,
+        "avg_ret_20d": 16.15
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 營收大幅成長 (+38%)",
+        "✅ 外資買超 (+1,770張)",
+        "📊 現價 5005.0 (▲6.72%)"
+      ]
+    },
+    {
+      "stock_id": "3481",
+      "stock_name": "群創",
+      "industry": "26",
+      "market": "TWSE",
+      "composite_score": 61.4,
+      "grade": "B",
+      "technical_score": 58,
+      "fundamental_score": 69,
+      "institutional_score": 39,
+      "industry_score": 100,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "✅ 站上年線",
+        "✅ MACD 多頭"
+      ],
+      "fundamental_signals": [
+        "⚠️ EPS 小幅衰退 (-5%)",
+        "🚀 營收大幅成長 (+43%)",
+        "🌟 ROE 優秀 (28.4%)",
+        "💎 高殖利率 (7.6%)"
+      ],
+      "institutional_signals": [
+        "⚠️ 外資賣超 (-4,412張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#1/21)",
+        "🚀 產業5日強勢 (+15.3%)",
+        "⭐ 個股優於產業 (+30.9%)"
+      ],
+      "indicators": {
+        "ma5": 39.67,
+        "ma10": 37.52,
+        "ma20": 31.72,
+        "ma60": 28.18,
+        "macd": 3.9728,
+        "macd_signal": 2.797,
+        "macd_hist": 1.1758,
+        "rsi": 85.13,
+        "k": 92.58,
+        "d": 88.32,
+        "bb_upper": 44.9,
+        "bb_middle": 31.72,
+        "bb_lower": 18.54,
+        "bb_pct": 0.99,
+        "volume": 386510344,
+        "volume_ma5": 636475879,
+        "volume_ratio": 0.66,
+        "price": 44.65,
+        "change_1d": 9.98,
+        "change_5d": 15.37,
+        "change_20d": 90.81
+      },
+      "institutional_data": {
+        "foreign_net": "-4412",
+        "trust_net": "422",
+        "dealer_net": "-957",
+        "foreign_3d": "8119",
+        "foreign_10d": "12697",
+        "margin_balance": "39204",
+        "margin_change": "1187",
+        "short_balance": "5809"
+      },
+      "financial_data": {
+        "eps": 12.51,
+        "eps_growth": -0.0529,
+        "revenue_growth": 0.4342,
+        "roe": 0.2839,
+        "pe_ratio": 26.5,
+        "pb_ratio": 3.94,
+        "dividend_yield": 0.0765
+      },
+      "industry_data": {
+        "rank": 1,
+        "total": 21,
+        "avg_ret_1d": 9.94,
+        "avg_ret_5d": 15.35,
+        "avg_ret_20d": 59.94
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "⚠️ EPS 小幅衰退 (-5%)",
+        "⚠️ 外資賣超 (-4,412張)",
+        "📊 現價 44.6 (▲9.98%)"
+      ]
+    },
+    {
+      "stock_id": "2881",
+      "stock_name": "富邦金",
+      "industry": "金融保險",
+      "market": "TWSE",
+      "composite_score": 61.2,
+      "grade": "B",
+      "technical_score": 72,
+      "fundamental_score": 56,
+      "institutional_score": 57,
+      "industry_score": 57,
+      "technical_signals": [
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "✅ 站上年線",
+        "✅ MACD 多頭",
+        "✅ RSI 強勢區 (62.1)"
+      ],
+      "fundamental_signals": [
+        "✅ EPS 成長 (+17%)",
+        "⚠️ 營收微幅下滑 (-4%)",
+        "✅ ROE 良好 (19.6%)",
+        "💰 低股淨比 (PB=0.9x)"
+      ],
+      "institutional_signals": [
+        "✅ 外資買超 (+1,863張)",
+        "✅ 投信買超 (+1,882張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [],
+      "indicators": {
+        "ma5": 95.88,
+        "ma10": 95.4,
+        "ma20": 93.34,
+        "ma60": 90.32,
+        "macd": 1.7918,
+        "macd_signal": 1.6961,
+        "macd_hist": 0.0958,
+        "rsi": 62.13,
+        "k": 49.89,
+        "d": 58.79,
+        "bb_upper": 99.3,
+        "bb_middle": 93.34,
+        "bb_lower": 87.38,
+        "bb_pct": 0.648,
+        "volume": 41582008,
+        "volume_ma5": 32809145,
+        "volume_ratio": 1.22,
+        "price": 95.1,
+        "change_1d": -1.04,
+        "change_5d": -0.11,
+        "change_20d": 8.31
+      },
+      "institutional_data": {
+        "foreign_net": "1863",
+        "trust_net": "1882",
+        "dealer_net": "981",
+        "foreign_3d": "-5535",
+        "foreign_10d": "-3215",
+        "margin_balance": "24901",
+        "margin_change": "-1116",
+        "short_balance": "6973"
+      },
+      "financial_data": {
+        "eps": 19.44,
+        "eps_growth": 0.1656,
+        "revenue_growth": -0.0437,
+        "roe": 0.1963,
+        "pe_ratio": 30.2,
+        "pb_ratio": 0.92,
+        "dividend_yield": 0.0371
+      },
+      "industry_data": {
+        "rank": 9,
+        "total": 21,
+        "avg_ret_1d": 0.05,
+        "avg_ret_5d": 0.82,
+        "avg_ret_20d": 3.77
+      },
+      "key_points": [
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "✅ EPS 成長 (+17%)",
+        "✅ 外資買超 (+1,863張)",
+        "📊 現價 95.1 (▼1.04%)"
+      ]
+    },
+    {
+      "stock_id": "3533",
+      "stock_name": "嘉澤",
+      "industry": "半導體",
+      "market": "TWSE",
+      "composite_score": 61.2,
+      "grade": "B",
+      "technical_score": 72,
+      "fundamental_score": 65,
+      "institutional_score": 38,
+      "industry_score": 80,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上年線",
+        "📈 MACD 動能增強",
+        "✅ KD 多頭",
+        "🌟 KD 黃金交叉"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+68%)",
+        "🚀 營收大幅成長 (+43%)"
+      ],
+      "institutional_signals": [
+        "⚠️ 外資賣超 (-3,017張)",
+        "✅ 投信買超 (+1,829張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#2/21)",
+        "🚀 產業5日強勢 (+5.3%)",
+        "⚠️ 個股弱於產業 (-20.6%)"
+      ],
+      "indicators": {
+        "ma5": 2418.0,
+        "ma10": 2511.0,
+        "ma20": 2583.0,
+        "ma60": 2213.92,
+        "macd": 24.3629,
+        "macd_signal": 64.8686,
+        "macd_hist": -40.5057,
+        "rsi": 48.2,
+        "k": 35.25,
+        "d": 31.28,
+        "bb_upper": 2918.68,
+        "bb_middle": 2583.0,
+        "bb_lower": 2247.32,
+        "bb_pct": 0.458,
+        "volume": 1466978,
+        "volume_ma5": 1556869,
+        "volume_ratio": 0.79,
+        "price": 2555.0,
+        "change_1d": 1.19,
+        "change_5d": 9.89,
+        "change_20d": 1.39
+      },
+      "institutional_data": {
+        "foreign_net": "-3017",
+        "trust_net": "1829",
+        "dealer_net": "-717",
+        "foreign_3d": "8124",
+        "foreign_10d": "-7383",
+        "margin_balance": "7614",
+        "margin_change": "3367",
+        "short_balance": "6933"
+      },
+      "financial_data": {
+        "eps": 19.19,
+        "eps_growth": 0.6835,
+        "revenue_growth": 0.4344,
+        "roe": 0.0905,
+        "pe_ratio": 30.1,
+        "pb_ratio": 2.75,
+        "dividend_yield": 0.0056
+      },
+      "industry_data": {
+        "rank": 2,
+        "total": 21,
+        "avg_ret_1d": 3.99,
+        "avg_ret_5d": 5.31,
+        "avg_ret_20d": 21.95
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上年線",
+        "🚀 EPS 高速成長 (+68%)",
+        "⚠️ 外資賣超 (-3,017張)",
+        "📊 現價 2555.0 (▲1.19%)"
+      ]
+    },
+    {
+      "stock_id": "2379",
+      "stock_name": "瑞昱",
+      "industry": "半導體",
+      "market": "TWSE",
+      "composite_score": 60.8,
+      "grade": "B",
+      "technical_score": 71,
+      "fundamental_score": 75,
+      "institutional_score": 29,
+      "industry_score": 80,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "✅ 站上年線",
+        "📈 MACD 動能增強"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+73%)",
+        "📈 營收成長 (+20%)",
+        "🌟 ROE 優秀 (34.9%)"
+      ],
+      "institutional_signals": [
+        "⚠️ 外資賣超 (-1,168張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#2/21)",
+        "🚀 產業5日強勢 (+5.3%)",
+        "⚠️ 個股弱於產業 (-14.7%)"
+      ],
+      "indicators": {
+        "ma5": 567.0,
+        "ma10": 563.6,
+        "ma20": 555.75,
+        "ma60": 513.96,
+        "macd": 12.3265,
+        "macd_signal": 12.3521,
+        "macd_hist": -0.0256,
+        "rsi": 61.06,
+        "k": 55.89,
+        "d": 43.52,
+        "bb_upper": 592.02,
+        "bb_middle": 555.75,
+        "bb_lower": 519.48,
+        "bb_pct": 0.807,
+        "volume": 3667471,
+        "volume_ma5": 3854206,
+        "volume_ratio": 0.84,
+        "price": 578.0,
+        "change_1d": 0.52,
+        "change_5d": 3.21,
+        "change_20d": 7.24
+      },
+      "institutional_data": {
+        "foreign_net": "-1168",
+        "trust_net": "136",
+        "dealer_net": "-863",
+        "foreign_3d": "1382",
+        "foreign_10d": "4437",
+        "margin_balance": "49782",
+        "margin_change": "3200",
+        "short_balance": "9514"
+      },
+      "financial_data": {
+        "eps": 11.15,
+        "eps_growth": 0.7268,
+        "revenue_growth": 0.1984,
+        "roe": 0.3487,
+        "pe_ratio": 38.4,
+        "pb_ratio": 4.85,
+        "dividend_yield": 0.007
+      },
+      "industry_data": {
+        "rank": 2,
+        "total": 21,
+        "avg_ret_1d": 3.99,
+        "avg_ret_5d": 5.31,
+        "avg_ret_20d": 21.95
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 EPS 高速成長 (+73%)",
+        "⚠️ 外資賣超 (-1,168張)",
+        "📊 現價 578.0 (▲0.52%)"
+      ]
+    },
+    {
+      "stock_id": "3711",
+      "stock_name": "日月光投控",
+      "industry": "半導體",
+      "market": "TWSE",
+      "composite_score": 60.6,
+      "grade": "B",
+      "technical_score": 74,
+      "fundamental_score": 65,
+      "institutional_score": 34,
+      "industry_score": 80,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "✅ 站上年線",
+        "📈 MACD 動能增強",
+        "✅ RSI 強勢區 (56.9)"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+69%)",
+        "✅ 營收小幅成長 (+10%)",
+        "💎 高殖利率 (7.2%)"
+      ],
+      "institutional_signals": [],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#2/21)",
+        "🚀 產業5日強勢 (+5.3%)",
+        "⚠️ 個股弱於產業 (-8.8%)"
+      ],
+      "indicators": {
+        "ma5": 505.8,
+        "ma10": 526.4,
+        "ma20": 517.12,
+        "ma60": 422.55,
+        "macd": 23.0857,
+        "macd_signal": 28.8939,
+        "macd_hist": -5.8082,
+        "rsi": 56.92,
+        "k": 47.44,
+        "d": 40.89,
+        "bb_upper": 572.86,
+        "bb_middle": 517.12,
+        "bb_lower": 461.39,
+        "bb_pct": 0.894,
+        "volume": 29731074,
+        "volume_ma5": 26440982,
+        "volume_ratio": 1.17,
+        "price": 561.0,
+        "change_1d": 10.0,
+        "change_5d": 10.0,
+        "change_20d": 13.1
+      },
+      "institutional_data": {
+        "foreign_net": "791",
+        "trust_net": "-49",
+        "dealer_net": "833",
+        "foreign_3d": "-1330",
+        "foreign_10d": "-17902",
+        "margin_balance": "6328",
+        "margin_change": "-1833",
+        "short_balance": "3550"
+      },
+      "financial_data": {
+        "eps": 10.27,
+        "eps_growth": 0.6916,
+        "revenue_growth": 0.1035,
+        "roe": 0.0826,
+        "pe_ratio": 19.2,
+        "pb_ratio": 4.46,
+        "dividend_yield": 0.072
+      },
+      "industry_data": {
+        "rank": 2,
+        "total": 21,
+        "avg_ret_1d": 3.99,
+        "avg_ret_5d": 5.31,
+        "avg_ret_20d": 21.95
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 EPS 高速成長 (+69%)",
+        "🏆 強勢產業前段班 (#2/21)",
+        "📊 現價 561.0 (▲10.00%)"
+      ]
+    },
+    {
+      "stock_id": "2357",
+      "stock_name": "華碩",
+      "industry": "電子零組件",
+      "market": "TWSE",
+      "composite_score": 59.7,
+      "grade": "C+",
+      "technical_score": 76,
+      "fundamental_score": 66,
+      "institutional_score": 23,
+      "industry_score": 90,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "✅ 站上年線",
+        "✅ MACD 多頭",
+        "📈 MACD 動能增強"
+      ],
+      "fundamental_signals": [
+        "❌ EPS 大幅衰退 (-22%)",
+        "🚀 營收大幅成長 (+46%)",
+        "✅ ROE 良好 (16.2%)",
+        "💎 高殖利率 (6.8%)"
+      ],
+      "institutional_signals": [
+        "✅ 外資買超 (+4,275張)",
+        "⚠️ 投信賣超 (-1,230張)"
+      ],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#3/21)",
+        "🚀 產業5日強勢 (+6.3%)"
+      ],
+      "indicators": {
+        "ma5": 651.0,
+        "ma10": 659.7,
+        "ma20": 631.3,
+        "ma60": 586.8,
+        "macd": 20.3843,
+        "macd_signal": 19.7578,
+        "macd_hist": 0.6266,
+        "rsi": 69.7,
+        "k": 55.26,
+        "d": 50.55,
+        "bb_upper": 704.62,
+        "bb_middle": 631.3,
+        "bb_lower": 557.98,
+        "bb_pct": 0.846,
+        "volume": 5223247,
+        "volume_ma5": 4464437,
+        "volume_ratio": 0.99,
+        "price": 682.0,
+        "change_1d": 3.96,
+        "change_5d": 7.4,
+        "change_20d": 16.58
+      },
+      "institutional_data": {
+        "foreign_net": "4275",
+        "trust_net": "-1230",
+        "dealer_net": "-345",
+        "foreign_3d": "8762",
+        "foreign_10d": "-6105",
+        "margin_balance": "19283",
+        "margin_change": "-1187",
+        "short_balance": "2584"
+      },
+      "financial_data": {
+        "eps": 4.66,
+        "eps_growth": -0.2179,
+        "revenue_growth": 0.4567,
+        "roe": 0.1619,
+        "pe_ratio": 16.0,
+        "pb_ratio": 1.95,
+        "dividend_yield": 0.068
+      },
+      "industry_data": {
+        "rank": 3,
+        "total": 21,
+        "avg_ret_1d": 3.97,
+        "avg_ret_5d": 6.27,
+        "avg_ret_20d": 16.15
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "❌ EPS 大幅衰退 (-22%)",
+        "✅ 外資買超 (+4,275張)",
+        "📊 現價 682.0 (▲3.96%)"
+      ]
+    },
+    {
+      "stock_id": "3045",
+      "stock_name": "台灣大",
+      "industry": "電信",
+      "market": "TWSE",
+      "composite_score": 59.7,
+      "grade": "C+",
+      "technical_score": 65,
+      "fundamental_score": 75,
+      "institutional_score": 56,
+      "industry_score": 31,
+      "technical_signals": [
+        "🚀 均線多頭排列",
+        "✅ 站上年線",
+        "✅ MACD 多頭",
+        "✅ RSI 強勢區 (55.6)"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+73%)",
+        "🚀 營收大幅成長 (+44%)",
+        "💰 低本益比 (PE=12x)"
+      ],
+      "institutional_signals": [
+        "✅ 投信買超 (+1,719張)"
+      ],
+      "industry_signals": [],
+      "indicators": {
+        "ma5": 114.2,
+        "ma10": 113.25,
+        "ma20": 112.15,
+        "ma60": 110.21,
+        "macd": 0.9284,
+        "macd_signal": 0.834,
+        "macd_hist": 0.0943,
+        "rsi": 55.56,
+        "k": 53.86,
+        "d": 60.84,
+        "bb_upper": 116.18,
+        "bb_middle": 112.15,
+        "bb_lower": 108.12,
+        "bb_pct": 0.481,
+        "volume": 17068730,
+        "volume_ma5": 16981704,
+        "volume_ratio": 1.38,
+        "price": 112.0,
+        "change_1d": -1.32,
+        "change_5d": -1.75,
+        "change_20d": -0.88
+      },
+      "institutional_data": {
+        "foreign_net": "-993",
+        "trust_net": "1719",
+        "dealer_net": "775",
+        "foreign_3d": "8208",
+        "foreign_10d": "-11640",
+        "margin_balance": "8097",
+        "margin_change": "1642",
+        "short_balance": "1290"
+      },
+      "financial_data": {
+        "eps": 18.67,
+        "eps_growth": 0.726,
+        "revenue_growth": 0.4373,
+        "roe": 0.0935,
+        "pe_ratio": 11.8,
+        "pb_ratio": 2.76,
+        "dividend_yield": 0.0188
+      },
+      "industry_data": {
+        "rank": 11,
+        "total": 21,
+        "avg_ret_1d": -0.63,
+        "avg_ret_5d": -1.03,
+        "avg_ret_20d": -0.31
+      },
+      "key_points": [
+        "🚀 均線多頭排列",
+        "✅ 站上年線",
+        "🚀 EPS 高速成長 (+73%)",
+        "✅ 投信買超 (+1,719張)",
+        "📊 現價 112.0 (▼1.32%)"
+      ]
+    },
+    {
+      "stock_id": "2610",
+      "stock_name": "華航",
+      "industry": "航運",
+      "market": "TWSE",
+      "composite_score": 59.4,
+      "grade": "C+",
+      "technical_score": 63,
+      "fundamental_score": 60,
+      "institutional_score": 50,
+      "industry_score": 70,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "✅ MACD 多頭",
+        "✅ RSI 強勢區 (58.7)"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+62%)",
+        "⚠️ 營收微幅下滑 (-8%)",
+        "🌟 ROE 優秀 (34.9%)"
+      ],
+      "institutional_signals": [
+        "⚠️ 外資賣超 (-1,506張)",
+        "✅ 投信買超 (+1,260張)",
+        "✅ 融資減少 (-4,793張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [
+        "✅ 產業表現強勢 (#7/21)",
+        "🚀 產業5日強勢 (+7.7%)",
+        "⚠️ 個股弱於產業 (-4.1%)"
+      ],
+      "indicators": {
+        "ma5": 18.44,
+        "ma10": 18.6,
+        "ma20": 18.34,
+        "ma60": 18.6,
+        "macd": 0.0225,
+        "macd_signal": -0.0112,
+        "macd_hist": 0.0337,
+        "rsi": 58.73,
+        "k": 32.99,
+        "d": 38.2,
+        "bb_upper": 19.09,
+        "bb_middle": 18.34,
+        "bb_lower": 17.6,
+        "bb_pct": 0.637,
+        "volume": 30597236,
+        "volume_ma5": 22553349,
+        "volume_ratio": 1.19,
+        "price": 18.55,
+        "change_1d": -0.8,
+        "change_5d": 1.09,
+        "change_20d": 3.92
+      },
+      "institutional_data": {
+        "foreign_net": "-1506",
+        "trust_net": "1260",
+        "dealer_net": "283",
+        "foreign_3d": "-6638",
+        "foreign_10d": "-19022",
+        "margin_balance": "49813",
+        "margin_change": "-4793",
+        "short_balance": "7940"
+      },
+      "financial_data": {
+        "eps": 16.49,
+        "eps_growth": 0.6248,
+        "revenue_growth": -0.0823,
+        "roe": 0.3489,
+        "pe_ratio": 33.3,
+        "pb_ratio": 4.36,
+        "dividend_yield": 0.0053
+      },
+      "industry_data": {
+        "rank": 7,
+        "total": 21,
+        "avg_ret_1d": 2.51,
+        "avg_ret_5d": 7.69,
+        "avg_ret_20d": 8.0
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 EPS 高速成長 (+62%)",
+        "⚠️ 外資賣超 (-1,506張)",
+        "📊 現價 18.6 (▼0.80%)"
+      ]
+    },
+    {
+      "stock_id": "2301",
+      "stock_name": "光寶科",
+      "industry": "25",
+      "market": "TWSE",
+      "composite_score": 59.0,
+      "grade": "C+",
+      "technical_score": 58,
+      "fundamental_score": 67,
+      "institutional_score": 38,
+      "industry_score": 90,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "✅ 站上年線",
+        "✅ RSI 強勢區 (67.1)"
+      ],
+      "fundamental_signals": [
+        "🚀 營收大幅成長 (+39%)",
+        "✅ ROE 良好 (18.0%)",
+        "💎 高殖利率 (7.0%)"
+      ],
+      "institutional_signals": [
+        "⚠️ 外資賣超 (-1,430張)",
+        "✅ 投信買超 (+952張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [
+        "✅ 產業表現強勢 (#5/21)",
+        "🚀 產業5日強勢 (+7.4%)",
+        "⭐ 個股優於產業 (+8.8%)"
+      ],
+      "indicators": {
+        "ma5": 205.9,
+        "ma10": 211.1,
+        "ma20": 194.9,
+        "ma60": 171.18,
+        "macd": 11.0909,
+        "macd_signal": 11.7298,
+        "macd_hist": -0.6389,
+        "rsi": 67.15,
+        "k": 27.95,
+        "d": 39.45,
+        "bb_upper": 235.81,
+        "bb_middle": 194.9,
+        "bb_lower": 153.99,
+        "bb_pct": 0.648,
+        "volume": 19436659,
+        "volume_ma5": 23291991,
+        "volume_ratio": 0.47,
+        "price": 207.0,
+        "change_1d": 1.22,
+        "change_5d": -0.24,
+        "change_20d": 22.12
+      },
+      "institutional_data": {
+        "foreign_net": "-1430",
+        "trust_net": "952",
+        "dealer_net": "-689",
+        "foreign_3d": "6860",
+        "foreign_10d": "-427",
+        "margin_balance": "22205",
+        "margin_change": "4038",
+        "short_balance": "9323"
+      },
+      "financial_data": {
+        "eps": 15.02,
+        "eps_growth": 0.077,
+        "revenue_growth": 0.3901,
+        "roe": 0.1798,
+        "pe_ratio": 37.8,
+        "pb_ratio": 4.56,
+        "dividend_yield": 0.0703
+      },
+      "industry_data": {
+        "rank": 5,
+        "total": 21,
+        "avg_ret_1d": 4.31,
+        "avg_ret_5d": 7.38,
+        "avg_ret_20d": 13.3
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 營收大幅成長 (+39%)",
+        "⚠️ 外資賣超 (-1,430張)",
+        "📊 現價 207.0 (▲1.22%)"
+      ]
+    },
+    {
+      "stock_id": "4938",
+      "stock_name": "和碩",
+      "industry": "25",
+      "market": "TWSE",
+      "composite_score": 59.0,
+      "grade": "C+",
+      "technical_score": 63,
+      "fundamental_score": 73,
+      "institutional_score": 38,
+      "industry_score": 70,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上年線",
+        "📈 MACD 動能增強",
+        "✅ KD 多頭"
+      ],
+      "fundamental_signals": [
+        "✅ EPS 成長 (+20%)",
+        "📈 營收成長 (+29%)",
+        "✅ ROE 良好 (23.4%)",
+        "💎 高殖利率 (5.6%)"
+      ],
+      "institutional_signals": [
+        "✅ 外資買超 (+3,315張)",
+        "⚠️ 投信賣超 (-1,881張)",
+        "💡 融券多 (軋空潛力)"
+      ],
+      "industry_signals": [
+        "✅ 產業表現強勢 (#5/21)",
+        "🚀 產業5日強勢 (+7.4%)",
+        "⚠️ 個股弱於產業 (-17.6%)"
+      ],
+      "indicators": {
+        "ma5": 78.08,
+        "ma10": 79.02,
+        "ma20": 80.99,
+        "ma60": 78.24,
+        "macd": -0.4851,
+        "macd_signal": -0.0293,
+        "macd_hist": -0.4558,
+        "rsi": 48.19,
+        "k": 35.63,
+        "d": 26.16,
+        "bb_upper": 86.57,
+        "bb_middle": 80.99,
+        "bb_lower": 75.4,
+        "bb_pct": 0.474,
+        "volume": 12108335,
+        "volume_ma5": 10432685,
+        "volume_ratio": 1.03,
+        "price": 80.7,
+        "change_1d": 2.02,
+        "change_5d": 5.49,
+        "change_20d": -4.27
+      },
+      "institutional_data": {
+        "foreign_net": "3315",
+        "trust_net": "-1881",
+        "dealer_net": "911",
+        "foreign_3d": "4031",
+        "foreign_10d": "-11327",
+        "margin_balance": "30988",
+        "margin_change": "2729",
+        "short_balance": "5791"
+      },
+      "financial_data": {
+        "eps": 1.57,
+        "eps_growth": 0.1955,
+        "revenue_growth": 0.2911,
+        "roe": 0.2336,
+        "pe_ratio": 26.4,
+        "pb_ratio": 1.53,
+        "dividend_yield": 0.0559
+      },
+      "industry_data": {
+        "rank": 5,
+        "total": 21,
+        "avg_ret_1d": 4.31,
+        "avg_ret_5d": 7.38,
+        "avg_ret_20d": 13.3
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "✅ 站上年線",
+        "✅ EPS 成長 (+20%)",
+        "✅ 外資買超 (+3,315張)",
+        "📊 現價 80.7 (▲2.02%)"
       ]
     }
   ],
