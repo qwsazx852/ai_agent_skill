@@ -252,6 +252,55 @@ def fetch_finmind_revenue(
     return None
 
 
+def fetch_finmind_shareholding(
+    stock_id: str,
+    token: str = ""
+) -> Optional[pd.DataFrame]:
+    """
+    擷取集保大戶持股分散表
+    dataset: TaiwanStockHoldingSharesPer
+    回傳最近兩期資料，計算大戶持股比例變化
+
+    Args:
+        stock_id: 股票代號 (e.g., "2330")
+        token: FinMind API token
+
+    Returns:
+        DataFrame with shareholding distribution data or None
+    """
+    try:
+        import requests
+
+        # 取近 90 天以確保能拿到兩期（每週更新一次）
+        start_date = (datetime.now() - timedelta(days=90)).strftime("%Y-%m-%d")
+        url = "https://api.finmindtrade.com/api/v4/data"
+        params = {
+            "dataset": "TaiwanStockHoldingSharesPer",
+            "data_id": stock_id,
+            "start_date": start_date,
+            "token": token,
+        }
+
+        resp = requests.get(url, params=params, timeout=15)
+        time.sleep(0.3)
+
+        if resp.status_code == 200:
+            data = resp.json()
+            if data.get("status") == 200 and data.get("data"):
+                df = pd.DataFrame(data["data"])
+                if not df.empty and "date" in df.columns:
+                    df["date"] = pd.to_datetime(df["date"])
+                    # 只回傳最近兩期
+                    latest_dates = sorted(df["date"].unique(), reverse=True)[:2]
+                    df = df[df["date"].isin(latest_dates)]
+                    return df
+
+    except Exception as e:
+        logger.warning(f"FinMind 大戶持股資料擷取失敗 {stock_id}: {e}")
+
+    return None
+
+
 def get_mock_institutional_data(stock_id: str) -> Dict:
     """
     當 API 不可用時，產生模擬法人資料（用於測試）

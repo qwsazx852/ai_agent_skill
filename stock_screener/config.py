@@ -26,20 +26,21 @@ class Config:
     # 技術面資料天數
     LOOKBACK_DAYS: int = 120
     # 每次篩選最多股票數
-    MAX_STOCKS: int = 100
+    MAX_STOCKS: int = 300
     # 最終輸出排行榜數量
     TOP_N: int = 30
 
     # === 評分權重 ===
-    WEIGHT_TECHNICAL: float = 0.30      # 技術面 30%
-    WEIGHT_FUNDAMENTAL: float = 0.25    # 基本面 25%
-    WEIGHT_INSTITUTIONAL: float = 0.30  # 籌碼面 30%
+    WEIGHT_TECHNICAL: float = 0.35      # 技術面 35%
+    WEIGHT_FUNDAMENTAL: float = 0.15    # 基本面 15%
+    WEIGHT_INSTITUTIONAL: float = 0.35  # 籌碼面 35%
     WEIGHT_INDUSTRY: float = 0.15       # 產業趨勢 15%
 
     # === 結果儲存 ===
     RESULTS_DIR: str = "results"
     RESULTS_FILE: str = "results/latest_screening.json"
     HISTORY_FILE: str = "results/screening_history.json"
+    SHAREHOLDING_CACHE_FILE: str = "results/shareholding_cache.json"
 
     # === 市場時間 (台灣時區 UTC+8) ===
     MARKET_CLOSE_HOUR: int = 13

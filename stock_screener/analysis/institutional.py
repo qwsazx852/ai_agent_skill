@@ -8,17 +8,139 @@
 - 自營商買賣超
 - 融資增減
 - 融券增減
+- 大戶持股分散表分析
 """
 
 import numpy as np
 import pandas as pd
-from typing import Dict, Optional
+from typing import Dict, List, Optional
 import logging
 
 logger = logging.getLogger(__name__)
 
 
-def analyze_institutional(inst_data: Dict) -> Dict:
+def analyze_shareholding(df: Optional[pd.DataFrame]) -> Dict:
+    """
+    分析集保大戶持股分散表，計算持有超過 400張、1000張、2000張 的大戶持股比例變化
+
+    Args:
+        df: FinMind TaiwanStockHoldingSharesPer DataFrame（最近兩期）
+
+    Returns:
+        Dict with score (0-30), signals, and detail data
+    """
+    result = {
+        "score": 15,  # 預設中性分數
+        "signals": [],
+        "data": {}
+    }
+
+    if df is None or df.empty:
+        result["signals"].append("⚠️ 大戶持股資料不足，給予中性評分")
+        return result
+
+    try:
+        # 確認欄位存在
+        required_cols = {"date", "HoldingSharesLevel", "percent"}
+        if not required_cols.issubset(set(df.columns)):
+            # 嘗試常見替代欄位名稱
+            col_aliases = {
+                "HoldingSharesLevel": ["holding_shares_level", "level"],
+                "percent": ["percent", "Percent", "ratio"],
+            }
+            for col, aliases in col_aliases.items():
+                if col not in df.columns:
+                    for alias in aliases:
+                        if alias in df.columns:
+                            df = df.rename(columns={alias: col})
+                            break
+
+        if "HoldingSharesLevel" not in df.columns or "percent" not in df.columns:
+            result["signals"].append("⚠️ 大戶持股欄位格式不符，跳過分析")
+            return result
+
+        # 大戶門檻定義 (張數)
+        whale_levels_keywords = {
+            "400張以上": ["400", "400-", "400~"],
+            "1000張以上": ["1000", "1,000"],
+            "2000張以上": ["2000", "2,000"],
+        }
+
+        df["percent"] = pd.to_numeric(df["percent"], errors="coerce").fillna(0)
+        df["date"] = pd.to_datetime(df["date"])
+
+        sorted_dates = sorted(df["date"].unique(), reverse=True)
+        if len(sorted_dates) < 2:
+            result["signals"].append("⚠️ 大戶持股期數不足（需至少兩期）")
+            return result
+
+        latest_date = sorted_dates[0]
+        prev_date = sorted_dates[1]
+
+        latest_df = df[df["date"] == latest_date]
+        prev_df = df[df["date"] == prev_date]
+
+        # 計算大戶 (持有超過 400 張以上) 的總持股比例
+        def _sum_whale_pct(sub_df: pd.DataFrame, min_lots: int) -> float:
+            """加總持有超過 min_lots 張以上的持股比例"""
+            total = 0.0
+            for _, row in sub_df.iterrows():
+                level_str = str(row.get("HoldingSharesLevel", ""))
+                # 簡單判斷：取 level 中的數字，看是否 >= min_lots
+                import re
+                nums = re.findall(r"[\d,]+", level_str.replace(",", ""))
+                for n in nums:
+                    try:
+                        if int(n) >= min_lots:
+                            total += float(row["percent"])
+                            break
+                    except ValueError:
+                        pass
+            return total
+
+        score = 0
+        signals: List[str] = []
+        data: Dict = {}
+
+        for label, min_lots in [("400張", 400), ("1000張", 1000), ("2000張", 2000)]:
+            latest_pct = _sum_whale_pct(latest_df, min_lots)
+            prev_pct = _sum_whale_pct(prev_df, min_lots)
+            change = latest_pct - prev_pct
+
+            data[f"whale_{label}_latest"] = round(latest_pct, 2)
+            data[f"whale_{label}_prev"] = round(prev_pct, 2)
+            data[f"whale_{label}_change"] = round(change, 2)
+
+            # 評分邏輯
+            if change > 1.0:
+                score += 10
+                signals.append(f"🐋 大戶({label})增加 +{change:.1f}%（正面）")
+            elif change > 0.3:
+                score += 6
+                signals.append(f"✅ 大戶({label})小幅增加 +{change:.1f}%")
+            elif change < -1.0:
+                score -= 8
+                signals.append(f"⚠️ 大戶({label})減少 {change:.1f}%（負面）")
+            elif change < -0.3:
+                score -= 4
+            else:
+                score += 3  # 持平，給予些微正分
+
+        # 限制分數範圍 0-30
+        final_score = max(0, min(30, score + 15))  # 中心點 15
+
+        result["score"] = final_score
+        result["signals"] = signals[:4]
+        result["data"] = data
+
+    except Exception as e:
+        logger.warning(f"大戶持股分析失敗: {e}")
+        result["signals"].append("⚠️ 大戶持股分析異常，給予中性評分")
+
+    return result
+
+
+def analyze_institutional(inst_data: Dict, shareholding_score: int = 0) -> Dict:
     """
     籌碼面評分
 

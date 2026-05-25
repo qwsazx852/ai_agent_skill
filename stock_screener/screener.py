@@ -24,6 +24,8 @@ from typing import Dict, List, Optional, Tuple
 import warnings
 warnings.filterwarnings("ignore")
 
+import pandas as pd
+
 from .config import config
 from .data.tw_stock_list import get_combined_stock_list, get_industry_map
 from .data.fetcher import (
@@ -31,12 +33,14 @@ from .data.fetcher import (
     fetch_finmind_institutional,
     fetch_finmind_financials,
     fetch_finmind_revenue,
+    fetch_finmind_shareholding,
     get_mock_institutional_data,
     get_mock_financial_data,
 )
 from .analysis.technical import analyze_technical
 from .analysis.fundamental import analyze_fundamental, parse_finmind_financials, parse_finmind_revenue
-from .analysis.institutional import analyze_institutional, parse_finmind_institutional
+from .analysis.institutional import analyze_institutional, analyze_shareholding, parse_finmind_institutional
+from .analysis.patterns import detect_patterns
 from .analysis.industry import (
     calculate_industry_performance,
     get_industry_score,
@@ -82,7 +86,8 @@ class StockScreener:
         logger.info("📋 Step 1: 取得股票清單...")
         stock_df = get_combined_stock_list(
             custom_list=custom_stocks,
-            max_stocks=self.cfg.MAX_STOCKS
+            max_stocks=self.cfg.MAX_STOCKS,
+            finmind_token=self.cfg.FINMIND_API_TOKEN,
         )
         industry_map = get_industry_map()
 
@@ -154,6 +159,18 @@ class StockScreener:
             # --- 技術分析 ---
             tech_result = analyze_technical(price_df)
 
+            # --- 技術形態偵測 ---
+            pattern_result = detect_patterns(price_df)
+            pattern_score = pattern_result.get("pattern_score", 0)
+            # 將形態評分（0-20）換算後加入技術評分（原 0-100，加入後仍 cap 在 100）
+            raw_tech_score = tech_result.get("score", 0)
+            boosted_tech_score = min(raw_tech_score + pattern_score, 100)
+            tech_result = dict(tech_result)
+            tech_result["score"] = boosted_tech_score
+            if pattern_result.get("patterns"):
+                pattern_signals = [f"📐 形態: {p}" for p in pattern_result["patterns"]]
+                tech_result["signals"] = tech_result.get("signals", []) + pattern_signals
+
             # --- 基本面分析 ---
             if use_mock_data:
                 fin_data = get_mock_financial_data(stock_id)
@@ -162,13 +179,22 @@ class StockScreener:
 
             fund_result = analyze_fundamental(fin_data)
 
-            # --- 籌碼分析 ---
+            # --- 大戶持股分析 ---
+            shareholding_score = 0
+            if not use_mock_data and self.cfg.FINMIND_API_TOKEN:
+                shareholding_df = self._fetch_shareholding_data(stock_id)
+                sh_result = analyze_shareholding(shareholding_df)
+                shareholding_score = sh_result.get("score", 15)
+            else:
+                shareholding_score = 15  # 模擬模式給予中性分數
+
+            # --- 籌碼分析（整合大戶持股評分）---
             if use_mock_data:
                 inst_data = get_mock_institutional_data(stock_id)
             else:
                 inst_data = self._fetch_institutional_data(stock_id, api_date)
 
-            inst_result = analyze_institutional(inst_data)
+            inst_result = analyze_institutional(inst_data, shareholding_score=shareholding_score)
 
             # --- 產業分析 ---
             stock_ret_20d = tech_result.get("indicators", {}).get("change_20d", 0)
@@ -275,6 +301,62 @@ class StockScreener:
             logger.debug(f"籌碼資料擷取失敗 {stock_id}: {e}")
 
         return get_mock_institutional_data(stock_id)
+
+    def _fetch_shareholding_data(self, stock_id: str) -> Optional[pd.DataFrame]:
+        """
+        擷取大戶持股資料，附帶 JSON 快取（每週更新一次）
+
+        快取存於 results/shareholding_cache.json
+        """
+        import json as _json
+        import pandas as _pd
+
+        cache_file = self.cfg.SHAREHOLDING_CACHE_FILE
+        cache: Dict = {}
+
+        # 讀取快取
+        try:
+            if os.path.exists(cache_file):
+                with open(cache_file, "r", encoding="utf-8") as f:
+                    cache = _json.load(f)
+        except Exception:
+            cache = {}
+
+        today = datetime.now().strftime("%Y-%m-%d")
+        cache_entry = cache.get(stock_id)
+
+        # 若快取存在且是本週內，直接回傳快取資料
+        if cache_entry:
+            cached_date = cache_entry.get("date", "")
+            cached_data = cache_entry.get("data", [])
+            try:
+                from datetime import timedelta
+                cache_dt = datetime.strptime(cached_date, "%Y-%m-%d")
+                if (datetime.now() - cache_dt).days < 7 and cached_data:
+                    return _pd.DataFrame(cached_data)
+            except Exception:
+                pass
+
+        # 快取過期或不存在，從 API 擷取
+        try:
+            df = fetch_finmind_shareholding(stock_id, self.cfg.FINMIND_API_TOKEN)
+            if df is not None and not df.empty:
+                # 更新快取
+                cache[stock_id] = {
+                    "date": today,
+                    "data": df.to_dict(orient="records"),
+                }
+                try:
+                    os.makedirs(self.cfg.RESULTS_DIR, exist_ok=True)
+                    with open(cache_file, "w", encoding="utf-8") as f:
+                        _json.dump(cache, f, ensure_ascii=False, default=str)
+                except Exception as e:
+                    logger.debug(f"大戶持股快取寫入失敗: {e}")
+                return df
+        except Exception as e:
+            logger.debug(f"大戶持股擷取失敗 {stock_id}: {e}")
+
+        return None
 
     def _generate_mock_price_data(self, stock_df) -> Dict:
         """產生模擬價格資料（測試用）"""

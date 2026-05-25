@@ -1,8 +1,10 @@
 """
 台灣股市股票清單擷取
 - 支援上市 (TWSE) 與上櫃 (OTC) 股票
+- 支援 FinMind API 取得完整台股清單
 """
 
+import time
 import requests
 import pandas as pd
 from typing import List, Dict, Optional
@@ -44,6 +46,79 @@ DEFAULT_WATCH_LIST = [
     # AI/雲端/伺服器
     "3661", "6669", "4977", "3293", "6770",
 ]
+
+
+def get_finmind_stock_list(token: str) -> pd.DataFrame:
+    """
+    呼叫 FinMind API TaiwanStockInfo 取得完整台股清單
+
+    Args:
+        token: FinMind API token
+
+    Returns:
+        DataFrame with columns: stock_id, stock_name, industry, market, yf_ticker
+        過濾條件：只保留 4 碼數字代號、type 為上市或上櫃
+    """
+    try:
+        url = "https://api.finmindtrade.com/api/v4/data"
+        params = {
+            "dataset": "TaiwanStockInfo",
+            "token": token,
+        }
+        resp = requests.get(url, params=params, timeout=15)
+        time.sleep(0.3)
+
+        if resp.status_code == 200:
+            data = resp.json()
+            if data.get("status") == 200 and data.get("data"):
+                df = pd.DataFrame(data["data"])
+
+                # 只保留 4 碼數字代號
+                df = df[df["stock_id"].str.match(r"^\d{4}$", na=False)]
+
+                # 過濾 type: 上市 (twse) 或 上櫃 (otc)
+                if "type" in df.columns:
+                    df = df[df["type"].str.lower().isin(["twse", "otc", "上市", "上櫃"])]
+
+                if df.empty:
+                    logger.warning("FinMind TaiwanStockInfo 過濾後無資料")
+                    return pd.DataFrame()
+
+                result = pd.DataFrame()
+                result["stock_id"] = df["stock_id"].astype(str)
+                result["stock_name"] = df.get("stock_name", df["stock_id"])
+                result["industry"] = df.get("industry_category", "未分類")
+
+                # 依 type 決定市場別與 ticker 後綴
+                if "type" in df.columns:
+                    def _market(t):
+                        t = str(t).lower()
+                        if t in ("otc", "上櫃"):
+                            return "OTC"
+                        return "TWSE"
+
+                    def _suffix(t):
+                        t = str(t).lower()
+                        if t in ("otc", "上櫃"):
+                            return ".TWO"
+                        return ".TW"
+
+                    result["market"] = df["type"].apply(_market).values
+                    result["yf_ticker"] = (
+                        df["stock_id"].astype(str) + df["type"].apply(_suffix)
+                    ).values
+                else:
+                    result["market"] = "TWSE"
+                    result["yf_ticker"] = df["stock_id"].astype(str) + ".TW"
+
+                result = result.reset_index(drop=True)
+                logger.info(f"FinMind 取得台股清單: {len(result)} 檔")
+                return result
+
+    except Exception as e:
+        logger.warning(f"FinMind TaiwanStockInfo 擷取失敗: {e}")
+
+    return pd.DataFrame()
 
 
 def get_twse_stock_list() -> pd.DataFrame:
@@ -116,7 +191,8 @@ def _get_default_stock_df(market: str) -> pd.DataFrame:
 def get_combined_stock_list(
     include_otc: bool = True,
     custom_list: Optional[List[str]] = None,
-    max_stocks: int = 200
+    max_stocks: int = 300,
+    finmind_token: str = ""
 ) -> pd.DataFrame:
     """
     取得合併股票清單
@@ -125,6 +201,7 @@ def get_combined_stock_list(
         include_otc: 是否包含上櫃股票
         custom_list: 自訂股票代號清單
         max_stocks: 最大股票數量
+        finmind_token: FinMind API token（有則優先用 FinMind 取得完整清單）
 
     Returns:
         DataFrame with stock information
@@ -141,7 +218,20 @@ def get_combined_stock_list(
             })
         return pd.DataFrame(rows)
 
-    # 取得上市股票
+    # 若有 FinMind token，優先使用 FinMind 取得完整清單
+    if finmind_token:
+        finmind_df = get_finmind_stock_list(finmind_token)
+        if not finmind_df.empty:
+            finmind_df = finmind_df.drop_duplicates(subset=["stock_id"])
+            default_ids = set(DEFAULT_WATCH_LIST)
+            priority = finmind_df[finmind_df["stock_id"].isin(default_ids)]
+            others = finmind_df[~finmind_df["stock_id"].isin(default_ids)]
+            result = pd.concat([priority, others]).head(max_stocks)
+            result = result.reset_index(drop=True)
+            logger.info(f"最終股票池 (FinMind): {len(result)} 檔")
+            return result
+
+    # 取得上市股票（fallback：TWSE + OTC 公開 API）
     twse_df = get_twse_stock_list()
     logger.info(f"取得上市股票: {len(twse_df)} 檔")
 
