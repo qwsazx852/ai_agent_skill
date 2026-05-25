@@ -1,0 +1,90 @@
+name: 📊 月營收篩選
+
+on:
+  # 每月10日 台灣時間 15:30 執行 (UTC 07:30)
+  schedule:
+    - cron: "30 7 10 * *"
+
+  # 允許手動觸發
+  workflow_dispatch:
+    inputs:
+      notify:
+        description: "傳送 Telegram 通知"
+        required: false
+        default: true
+        type: boolean
+      mock:
+        description: "使用模擬資料（測試）"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  monthly-revenue:
+    name: 月營收篩選
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 📦 Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 📊 Run Monthly Revenue Analysis
+        env:
+          FINMIND_API_TOKEN: ${{ secrets.FINMIND_API_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          MOCK="${{ github.event.inputs.mock || 'false' }}"
+          NOTIFY="${{ github.event.inputs.notify || 'true' }}"
+
+          CMD="python run_monthly_revenue.py --top 20"
+
+          if [ "$MOCK" = "true" ]; then
+            CMD="$CMD --mock"
+            echo "🧪 使用模擬資料"
+          fi
+
+          if [ "$NOTIFY" = "true" ] && [ -n "$TELEGRAM_BOT_TOKEN" ]; then
+            CMD="$CMD --notify"
+            echo "📱 將傳送 Telegram 通知"
+          fi
+
+          echo "執行命令: $CMD"
+          $CMD
+
+      - name: 🚨 Send Failure Alert
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 - <<'EOF'
+          import os, requests
+          token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+          chat  = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+          url   = os.environ.get("RUN_URL", "")
+          if token and chat:
+              requests.post(
+                  f"https://api.telegram.org/bot{token}/sendMessage",
+                  json={"chat_id": chat,
+                        "text": f"⚠️ 月營收篩選執行失敗\n{url}"},
+                  timeout=10,
+              )
+          EOF
