@@ -131,14 +131,18 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
-            python -c "
-import os, requests
-token = os.environ['TELEGRAM_BOT_TOKEN']
-chat = os.environ['TELEGRAM_CHAT_ID']
-msg = '⚠️ 台股篩選系統執行失敗\n請檢查 GitHub Actions: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'
-requests.post(f'https://api.telegram.org/bot{token}/sendMessage',
-              json={'chat_id': chat, 'text': msg})
-            "
-          fi
+          python3 - <<'EOF'
+          import os, requests
+          token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+          chat  = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+          url   = os.environ.get("RUN_URL", "")
+          if token and chat:
+              requests.post(
+                  f"https://api.telegram.org/bot{token}/sendMessage",
+                  json={"chat_id": chat,
+                        "text": f"⚠️ 台股篩選系統執行失敗\n請檢查 Actions:\n{url}"},
+                  timeout=10,
+              )
+          EOF
