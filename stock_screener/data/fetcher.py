@@ -20,6 +20,86 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 
+# 標準 OHLCV 欄位名稱
+_OHLCV_COLS = ["open", "high", "low", "close", "volume"]
+
+
+def _normalize_df(df: pd.DataFrame) -> Optional[pd.DataFrame]:
+    """
+    將 yfinance 回傳的 DataFrame 正規化為標準 OHLCV 格式（欄位小寫）
+
+    處理兩種格式：
+    1. 新版 MultiIndex: columns = (ticker, price_type) 或 (price_type, ticker)
+    2. 舊版 flat: columns = ['Open', 'High', 'Low', 'Close', 'Volume']
+    """
+    if df is None or df.empty:
+        return None
+    try:
+        # 若是 MultiIndex，先展平
+        if hasattr(df.columns, 'levels'):
+            # 嘗試判斷哪個 level 是 price type
+            lv0 = df.columns.get_level_values(0).tolist()
+            lv1 = df.columns.get_level_values(1).tolist()
+            price_keys = {"close", "open", "high", "low", "volume",
+                          "Close", "Open", "High", "Low", "Volume",
+                          "Adj Close", "adj close"}
+            if any(str(v).title() in price_keys or str(v).lower() in price_keys for v in lv0):
+                # Level 0 是 price type (舊格式)
+                df.columns = [str(c[0]).lower().replace(" ", "_") for c in df.columns]
+            else:
+                # Level 0 是 ticker，Level 1 是 price type (新格式)
+                df.columns = [str(c[1]).lower().replace(" ", "_") for c in df.columns]
+        else:
+            df.columns = [str(c).lower().replace(" ", "_") for c in df.columns]
+
+        # 統一欄位名稱：adj_close → close（若 close 不存在）
+        if "close" not in df.columns and "adj_close" in df.columns:
+            df = df.rename(columns={"adj_close": "close"})
+
+        # 確認必要欄位存在
+        if "close" not in df.columns or "volume" not in df.columns:
+            return None
+
+        df.index = pd.to_datetime(df.index)
+        df = df.dropna(subset=["close"])
+        return df if len(df) >= 5 else None
+
+    except Exception as e:
+        logger.debug(f"DataFrame 正規化失敗: {e}")
+        return None
+
+
+def _extract_ticker_df(data: pd.DataFrame, ticker: str) -> Optional[pd.DataFrame]:
+    """
+    從 yfinance 批次下載結果中取出指定 ticker 的 DataFrame 並正規化
+
+    支援新舊版 yfinance 格式
+    """
+    if data is None or data.empty:
+        return None
+    try:
+        # 嘗試 MultiIndex 方式：data[ticker]
+        if hasattr(data.columns, 'levels'):
+            lv0_vals = data.columns.get_level_values(0).tolist()
+            lv1_vals = data.columns.get_level_values(1).tolist()
+
+            if ticker in lv0_vals:
+                # 新格式: Level 0 = ticker
+                df = data[ticker].copy()
+            elif ticker in lv1_vals:
+                # 舊格式: Level 1 = ticker
+                df = data.xs(ticker, level=1, axis=1).copy()
+            else:
+                return None
+        else:
+            # flat 格式（單一股票舊版）
+            df = data.copy()
+
+        return _normalize_df(df)
+    except Exception as e:
+        logger.debug(f"提取 {ticker} 失敗: {e}")
+        return None
+
 
 def fetch_price_data(
     ticker: str,
@@ -57,9 +137,9 @@ def fetch_price_data(
                 timeout=10,
             )
             if df is not None and len(df) >= 20:
-                df.columns = [c.lower() for c in df.columns]
-                df.index = pd.to_datetime(df.index)
-                return df.tail(days)
+                df = _normalize_df(df)
+                if df is not None:
+                    return df.tail(days)
         except Exception as e:
             if attempt < retry - 1:
                 time.sleep(2 ** attempt)
@@ -116,24 +196,16 @@ def fetch_batch_price_data(
             if data.empty:
                 continue
 
-            # 處理單一股票與多股票的不同格式
-            if len(batch) == 1:
-                ticker = batch[0]
-                if len(data) >= 20:
-                    df = data.copy()
-                    df.columns = [c.lower() for c in df.columns]
-                    results[ticker] = df.tail(days)
-            else:
-                for ticker in batch:
-                    try:
-                        if ticker in data.columns.get_level_values(0):
-                            df = data[ticker].copy()
-                            df.columns = [c.lower() for c in df.columns]
-                            df = df.dropna(how="all")
-                            if len(df) >= 20:
-                                results[ticker] = df.tail(days)
-                    except Exception as e:
-                        logger.debug(f"處理 {ticker} 失敗: {e}")
+            # 新版 yfinance 不論單一或多檔，統一使用 MultiIndex 格式
+            # Level 0 = ticker, Level 1 = price type (Open/High/Low/Close/Volume)
+            # 使用統一的正規化函式處理
+            for ticker in batch:
+                try:
+                    df = _extract_ticker_df(data, ticker)
+                    if df is not None and len(df) >= 20:
+                        results[ticker] = df.tail(days)
+                except Exception as e:
+                    logger.debug(f"處理 {ticker} 失敗: {e}")
 
         except Exception as e:
             logger.warning(f"批次下載失敗: {e}")

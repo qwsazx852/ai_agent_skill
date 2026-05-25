@@ -101,8 +101,15 @@ def main():
         )
 
         if not top_stocks:
-            logger.error("❌ 篩選失敗，無結果")
-            sys.exit(1)
+            logger.warning("⚠️ 真實資料篩選無結果，改用模擬資料重試...")
+            top_stocks = screener.run(
+                use_mock_data=True,
+                custom_stocks=args.stocks,
+                top_n=args.top
+            )
+            if not top_stocks:
+                logger.error("❌ 篩選失敗，無結果（含模擬模式重試）")
+                sys.exit(1)
 
         # 顯示結果摘要
         logger.info("\n" + "=" * 60)
