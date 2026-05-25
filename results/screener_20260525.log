@@ -393,3 +393,248 @@ NameError: name 'avg_ret_1d' is not defined
 2026-05-25 13:24:29 [INFO]   航運: +2.3%
 2026-05-25 13:24:29 [INFO] 
 ✅ 篩選完成！
+2026-05-25 13:26:42 [INFO] ============================================================
+2026-05-25 13:26:42 [INFO] 🇹🇼 台灣股市每日篩選系統
+2026-05-25 13:26:42 [INFO] 執行時間: 2026-05-25 13:26:42
+2026-05-25 13:26:42 [INFO] 模式: 真實資料
+2026-05-25 13:26:42 [INFO] ============================================================
+2026-05-25 13:26:43 [INFO] 🚀 開始每日股票篩選 - 2026-05-25
+2026-05-25 13:26:43 [INFO] 📋 Step 1: 取得股票清單...
+2026-05-25 13:26:44 [INFO] FinMind 取得台股清單: 1994 檔
+2026-05-25 13:26:44 [INFO] 最終股票池 (FinMind): 300 檔
+2026-05-25 13:26:44 [INFO] 股票池: 300 檔
+2026-05-25 13:26:44 [INFO] 📥 Step 2: 下載股票價格資料...
+2026-05-25 13:26:44 [INFO] 下載批次 1: ['2475.TW', '2888.TW', '5534.TW']...
+2026-05-25 13:26:45 [ERROR] $2475.TW: possibly delisted; no timezone found
+2026-05-25 13:26:45 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: 2888.TW"}}}
+2026-05-25 13:26:45 [ERROR] $2888.TW: possibly delisted; no timezone found
+2026-05-25 13:26:45 [ERROR] 
+2 Failed downloads:
+2026-05-25 13:26:45 [ERROR] ['2475.TW', '2888.TW']: possibly delisted; no timezone found
+2026-05-25 13:26:46 [INFO] 下載批次 2: ['2382.TW', '2383.TW', '2449.TW']...
+2026-05-25 13:26:47 [INFO] 下載批次 3: ['1216.TW', '1303.TW', '1326.TW']...
+2026-05-25 13:26:49 [INFO] 下載批次 4: ['2609.TW', '2610.TW', '2615.TW']...
+2026-05-25 13:26:50 [INFO] 下載批次 5: ['6431.TW', '2495.TW', '6869.TW']...
+2026-05-25 13:26:52 [INFO] 下載批次 6: ['2705.TW', '8940.TW', '9943.TW']...
+2026-05-25 13:26:54 [INFO] 下載批次 7: ['6641.TW', '9910.TW', '6581.TW']...
+2026-05-25 13:26:56 [INFO] 下載批次 8: ['6689.TW', '1439.TW', '1736.TW']...
+2026-05-25 13:26:57 [ERROR] $1523.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:57 [ERROR] $1606.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:57 [ERROR] $1311.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:57 [ERROR] $4733.TW: possibly delisted; no timezone found
+2026-05-25 13:26:57 [ERROR] $3598.TW: possibly delisted; no timezone found
+2026-05-25 13:26:57 [ERROR] $9151.TW: possibly delisted; no timezone found
+2026-05-25 13:26:57 [ERROR] $2391.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:57 [ERROR] $1230.TW: possibly delisted; no timezone found
+2026-05-25 13:26:57 [ERROR] $2469.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:58 [ERROR] $1601.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:58 [ERROR] $1716.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:59 [ERROR] $9188.TW: possibly delisted; no timezone found
+2026-05-25 13:26:59 [ERROR] 
+12 Failed downloads:
+2026-05-25 13:26:59 [ERROR] ['1523.TW', '1606.TW', '1311.TW', '2391.TW', '2469.TW', '1601.TW', '1716.TW']: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:59 [ERROR] ['4733.TW', '3598.TW', '9151.TW', '1230.TW', '9188.TW']: possibly delisted; no timezone found
+2026-05-25 13:26:59 [INFO] 下載批次 9: ['3142.TW', '9157.TW', '3573.TW']...
+2026-05-25 13:26:59 [ERROR] $0060.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:59 [ERROR] $2446.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:59 [ERROR] $2384.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:59 [ERROR] $3599.TW: possibly delisted; no timezone found
+2026-05-25 13:26:59 [ERROR] $9922.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:26:59 [ERROR] $3584.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:00 [ERROR] $2463.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:00 [ERROR] $3009.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:00 [ERROR] $3142.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:00 [ERROR] $3061.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:00 [ERROR] $2447.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:00 [ERROR] $9157.TW: possibly delisted; no timezone found
+2026-05-25 13:27:00 [ERROR] $6702.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:01 [ERROR] $3573.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:01 [ERROR] 
+14 Failed downloads:
+2026-05-25 13:27:01 [ERROR] ['0060.TW', '2446.TW', '2384.TW', '9922.TW', '3584.TW', '2463.TW', '3009.TW', '3142.TW', '3061.TW', '2447.TW', '6702.TW', '3573.TW']: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:01 [ERROR] ['3599.TW', '9157.TW']: possibly delisted; no timezone found
+2026-05-25 13:27:01 [INFO] 下載批次 10: ['3080.TW', '2494.TW', '3534.TW']...
+2026-05-25 13:27:02 [ERROR] $2452.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $3534.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $3053.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $3063.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $2494.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $3614.TW: possibly delisted; no timezone found
+2026-05-25 13:27:02 [ERROR] $2396.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $6004.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $2526.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $1520.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $8008.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $3697.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $5854.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $6255.TW: possibly delisted; no timezone found
+2026-05-25 13:27:02 [ERROR] $6012.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $2473.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $1107.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $2403.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:02 [ERROR] $2381.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:03 [ERROR] $3080.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:03 [ERROR] 
+20 Failed downloads:
+2026-05-25 13:27:03 [ERROR] ['2452.TW', '3534.TW', '3053.TW', '3063.TW', '2494.TW', '2396.TW', '6004.TW', '2526.TW', '1520.TW', '8008.TW', '3697.TW', '5854.TW', '6012.TW', '2473.TW', '1107.TW', '2403.TW', '2381.TW', '3080.TW']: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:03 [ERROR] ['3614.TW', '6255.TW']: possibly delisted; no timezone found
+2026-05-25 13:27:03 [INFO] 下載批次 11: ['6119.TW', '3638.TW', '2479.TW']...
+2026-05-25 13:27:03 [ERROR] $6286.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:03 [ERROR] $3638.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:03 [ERROR] $3020.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:03 [ERROR] $6423.TW: possibly delisted; no timezone found
+2026-05-25 13:27:03 [ERROR] $3474.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:03 [ERROR] $2837.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] $3271.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] $2847.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] $3214.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] $6119.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] $8199.TW: possibly delisted; no timezone found
+2026-05-25 13:27:04 [ERROR] $2336.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] $2479.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] $9915.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] $3367.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] $2341.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] $3007.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] 
+17 Failed downloads:
+2026-05-25 13:27:04 [ERROR] ['6286.TW', '3638.TW', '3020.TW', '3474.TW', '2837.TW', '3271.TW', '2847.TW', '3214.TW', '6119.TW', '2336.TW', '2479.TW', '9915.TW', '3367.TW', '2341.TW', '3007.TW']: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:04 [ERROR] ['6423.TW', '8199.TW']: possibly delisted; no timezone found
+2026-05-25 13:27:05 [INFO] 下載批次 12: ['8162.TW', '2254.TW', '0081.TW']...
+2026-05-25 13:27:05 [ERROR] $6280.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:06 [ERROR] $0081.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:06 [ERROR] $5280.TW: possibly delisted; no timezone found
+2026-05-25 13:27:06 [ERROR] $2827.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:06 [ERROR] $2361.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:06 [ERROR] $2411.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:06 [ERROR] $2854.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:06 [ERROR] $2807.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:06 [ERROR] $2831.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:07 [ERROR] $0080.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:07 [ERROR] $2833.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:07 [ERROR] $2315.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:07 [ERROR] 
+12 Failed downloads:
+2026-05-25 13:27:07 [ERROR] ['6280.TW', '0081.TW', '2827.TW', '2361.TW', '2411.TW', '2854.TW', '2807.TW', '2831.TW', '0080.TW', '2833.TW', '2315.TW']: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:07 [ERROR] ['5280.TW']: possibly delisted; no timezone found
+2026-05-25 13:27:07 [INFO] 下載批次 13: ['9104.TW', '2350.TW', '9101.TW']...
+2026-05-25 13:27:07 [ERROR] $9104.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:07 [ERROR] $0058.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:08 [ERROR] $8497.TW: possibly delisted; no timezone found
+2026-05-25 13:27:08 [ERROR] $9102.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:08 [ERROR] $9101.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:08 [ERROR] $2350.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:09 [ERROR] $6288.TW: possibly delisted; no timezone found
+2026-05-25 13:27:09 [ERROR] $8078.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:09 [ERROR] $3315.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:09 [ERROR] $9106.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:09 [ERROR] $0054.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:09 [ERROR] $2437.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:09 [ERROR] $3559.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:09 [ERROR] $1729.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:09 [ERROR] $2418.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:09 [ERROR] $1613.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:10 [ERROR] $0059.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:10 [ERROR] 
+17 Failed downloads:
+2026-05-25 13:27:10 [ERROR] ['9104.TW', '0058.TW', '9102.TW', '9101.TW', '2350.TW', '8078.TW', '3315.TW', '9106.TW', '0054.TW', '2437.TW', '3559.TW', '1729.TW', '2418.TW', '1613.TW', '0059.TW']: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:10 [ERROR] ['8497.TW', '6288.TW']: possibly delisted; no timezone found
+2026-05-25 13:27:10 [INFO] 下載批次 14: ['1715.TW', '2456.TW', '6251.TW']...
+2026-05-25 13:27:11 [ERROR] $1262.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $1715.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:11 [ERROR] $6422.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $2358.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:11 [ERROR] $2443.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:11 [ERROR] $2936.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $1724.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $6452.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $8480.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $2456.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $4141.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $4144.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $4725.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $6251.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $8427.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $2841.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $1704.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:11 [ERROR] $1592.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] $1701.TW: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] 
+19 Failed downloads:
+2026-05-25 13:27:11 [ERROR] ['1262.TW', '6422.TW', '2936.TW', '1724.TW', '6452.TW', '8480.TW', '2456.TW', '4141.TW', '4144.TW', '4725.TW', '6251.TW', '8427.TW', '2841.TW', '1592.TW', '1701.TW']: possibly delisted; no timezone found
+2026-05-25 13:27:11 [ERROR] ['1715.TW', '2358.TW', '2443.TW', '1704.TW']: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:12 [INFO] 下載批次 15: ['1902.TW', '3514.TW', '3682.TW']...
+2026-05-25 13:27:12 [ERROR] $5259.TW: possibly delisted; no timezone found
+2026-05-25 13:27:12 [ERROR] $3682.TW: possibly delisted; no timezone found
+2026-05-25 13:27:12 [ERROR] $3579.TW: possibly delisted; no timezone found
+2026-05-25 13:27:12 [ERROR] $2325.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:12 [ERROR] $6131.TW: possibly delisted; no timezone found
+2026-05-25 13:27:12 [ERROR] $6145.TW: possibly delisted; no timezone found
+2026-05-25 13:27:12 [ERROR] $1902.TW: possibly delisted; no timezone found
+2026-05-25 13:27:12 [ERROR] $6289.TW: possibly delisted; no timezone found
+2026-05-25 13:27:12 [ERROR] $5264.TW: possibly delisted; no timezone found
+2026-05-25 13:27:12 [ERROR] $4984.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:13 [ERROR] $5305.TW: possibly delisted; no timezone found
+2026-05-25 13:27:13 [ERROR] $3536.TW: possibly delisted; no timezone found
+2026-05-25 13:27:13 [ERROR] $3514.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:13 [ERROR] $3561.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:13 [ERROR] $3383.TW: possibly delisted; no timezone found
+2026-05-25 13:27:13 [ERROR] $2499.TW: possibly delisted; no timezone found
+2026-05-25 13:27:14 [ERROR] $2311.TW: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:14 [ERROR] $3519.TW: possibly delisted; no timezone found
+2026-05-25 13:27:14 [ERROR] $6172.TW: possibly delisted; no timezone found
+2026-05-25 13:27:14 [ERROR] $3698.TW: possibly delisted; no timezone found
+2026-05-25 13:27:14 [ERROR] 
+20 Failed downloads:
+2026-05-25 13:27:14 [ERROR] ['5259.TW', '3682.TW', '3579.TW', '6131.TW', '6145.TW', '1902.TW', '6289.TW', '5264.TW', '5305.TW', '3536.TW', '3383.TW', '2499.TW', '3519.TW', '6172.TW', '3698.TW']: possibly delisted; no timezone found
+2026-05-25 13:27:14 [ERROR] ['2325.TW', '4984.TW', '3514.TW', '3561.TW', '2311.TW']: possibly delisted; no price data found  (1d 2025-12-26 -> 2026-05-25)
+2026-05-25 13:27:14 [INFO] 成功下載 167/300 檔股票資料
+2026-05-25 13:27:14 [INFO] 成功下載 167/300 檔價格資料
+2026-05-25 13:27:14 [INFO] 🏭 Step 3: 分析產業趨勢...
+2026-05-25 13:27:14 [INFO] 分析了 30 個產業
+2026-05-25 13:27:14 [INFO] 分析 30 個產業
+2026-05-25 13:27:14 [INFO] 最強產業: 其他電子業 (+16.2%)
+2026-05-25 13:27:14 [INFO] 🔍 Step 4: 逐檔個股分析...
+2026-05-25 13:28:01 [INFO]   已分析 20/300 檔...
+2026-05-25 13:28:47 [INFO]   已分析 40/300 檔...
+2026-05-25 13:29:34 [INFO]   已分析 60/300 檔...
+2026-05-25 13:30:28 [INFO]   已分析 80/300 檔...
+2026-05-25 13:31:37 [INFO]   已分析 100/300 檔...
+2026-05-25 13:32:19 [INFO]   已分析 120/300 檔...
+2026-05-25 13:33:00 [INFO]   已分析 140/300 檔...
+2026-05-25 13:33:42 [INFO]   已分析 160/300 檔...
+2026-05-25 13:33:56 [INFO] ✅ 分析完成: 167 檔股票
+2026-05-25 13:33:56 [INFO] 🏆 Step 5: 排名與篩選...
+2026-05-25 13:33:56 [INFO] 篩選完成，輸出前 10 名
+2026-05-25 13:33:56 [INFO] 🥇 第一名: 2241 艾姆勒 (74.9分/B+)
+2026-05-25 13:33:56 [INFO] 📁 結果已儲存至 results/latest_screening.json
+2026-05-25 13:33:56 [INFO] 
+============================================================
+2026-05-25 13:33:56 [INFO] 🏆 篩選結果 TOP 10
+2026-05-25 13:33:56 [INFO] ============================================================
+2026-05-25 13:33:56 [INFO] 排名   代號       名稱           綜合分      評級
+2026-05-25 13:33:56 [INFO] --------------------------------------------------
+2026-05-25 13:33:56 [INFO] 1    2241     艾姆勒          74.9     B+
+2026-05-25 13:33:56 [INFO] 2    2495     普安           71.8     B+
+2026-05-25 13:33:56 [INFO] 3    2454     聯發科          70.8     B+
+2026-05-25 13:33:56 [INFO] 4    2404     漢唐           70.4     B+
+2026-05-25 13:33:56 [INFO] 5    2365     昆盈           68.7     B
+2026-05-25 13:33:56 [INFO] 6    2308     台達電          66.9     B
+2026-05-25 13:33:56 [INFO] 7    2408     南亞科          66.4     B
+2026-05-25 13:33:56 [INFO] 8    1524     耿鼎           66.3     B
+2026-05-25 13:33:56 [INFO] 9    2344     華邦電          66.0     B
+2026-05-25 13:33:56 [INFO] 10   2615     萬海           66.0     B
+2026-05-25 13:33:56 [INFO] ============================================================
+2026-05-25 13:33:56 [INFO] 
+🏭 熱門產業:
+2026-05-25 13:33:56 [INFO]   其他電子業: +16.2%
+2026-05-25 13:33:56 [INFO]   光電業: +9.2%
+2026-05-25 13:33:56 [INFO]   化學工業: +8.2%
+2026-05-25 13:33:56 [INFO] 
+📱 傳送 Telegram 通知...
+2026-05-25 13:33:56 [INFO] Telegram 初始化 - Token前10碼: 8969224197... 長度:46
+2026-05-25 13:33:57 [INFO] Telegram 訊息傳送成功
+2026-05-25 13:33:58 [INFO] Telegram 訊息傳送成功
+2026-05-25 13:33:58 [INFO] ✅ Telegram 通知已傳送
+2026-05-25 13:33:58 [INFO] 
+✅ 篩選完成！
