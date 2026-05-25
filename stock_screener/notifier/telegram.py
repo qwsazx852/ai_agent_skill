@@ -1,10 +1,10 @@
 """
-Telegram Bot 通知模組 - 精簡實用版分析報告
+Telegram Bot 通知模組 - 主題概念股報告版
 
 報告格式:
-- 今日強勢產業 TOP3
-- 精選股票（含籌碼/技術/產業三維分析）
-- 每檔股票重點訊號一目了然
+- 訊息一：今日大盤氣氛 + 熱門概念主題 TOP5
+- 訊息二：TOP 15 精選股（依主題分群顯示）
+- 訊息三：今日重點訊號
 """
 
 import os
@@ -13,6 +13,11 @@ from typing import Dict, List, Optional
 from datetime import datetime
 
 logger = logging.getLogger(__name__)
+
+GRADE_EMOJI = {
+    "A+": "🌟", "A": "⭐", "B+": "✅",
+    "B": "🔵", "C+": "🟡", "C": "🟠", "D": "🔴",
+}
 
 
 class TelegramNotifier:
@@ -60,11 +65,15 @@ class TelegramNotifier:
         industry_signals: List[str],
         date: str = "",
         dashboard_url: str = "",
+        hot_themes: Optional[List[Dict]] = None,
     ) -> bool:
         if not date:
             date = datetime.now().strftime("%Y-%m-%d")
 
-        # ── 判斷今日大盤氣氛 ──────────────────────────────────────
+        hot_themes = hot_themes or []
+        success = True
+
+        # ── 判斷今日大盤氣氛 ──────────────────────────────────
         all_scores = [s.get("composite_score", 0) for s in top_stocks[:20]]
         avg_score = sum(all_scores) / len(all_scores) if all_scores else 0
         if avg_score >= 75:
@@ -76,11 +85,9 @@ class TelegramNotifier:
         else:
             market_mood = "⚠️ 市場偏弱，宜謹慎觀察"
 
-        success = True
-
-        # ════════════════════════════════════════════════════════
-        # 訊息一：今日總覽 + 強勢產業
-        # ════════════════════════════════════════════════════════
+        # ════════════════════════════════════════════════════
+        # 訊息一：今日總覽 + 熱門概念主題
+        # ════════════════════════════════════════════════════
         msg1 = (
             f"🇹🇼 *台股每日篩選報告*\n"
             f"📅 {date}  {datetime.now().strftime('%H:%M')}\n"
@@ -88,7 +95,25 @@ class TelegramNotifier:
             f"{market_mood}\n\n"
         )
 
-        if hot_industries:
+        # 優先顯示熱門概念主題
+        if hot_themes:
+            msg1 += "🔥 *今日熱門概念主題*\n"
+            medals = ["🥇", "🥈", "🥉", "4️⃣", "5️⃣"]
+            for i, theme in enumerate(hot_themes[:5]):
+                ret5 = theme.get("avg_ret_5d", 0)
+                ret1 = theme.get("avg_ret_1d", 0)
+                arrow = "▲" if ret5 >= 0 else "▼"
+                count = theme.get("active_count", 0)
+                emoji = theme.get("emoji", "")
+                name = theme.get("name", "")
+                msg1 += (
+                    f"{medals[i]} {emoji}{name}  "
+                    f"{arrow}{abs(ret5):.1f}%(5日)  "
+                    f"今日{'+' if ret1>=0 else ''}{ret1:.1f}%  "
+                    f"({count}檔)\n"
+                )
+        elif hot_industries:
+            # fallback 到傳統產業
             msg1 += "🏭 *今日強勢產業*\n"
             medals = ["🥇", "🥈", "🥉", "4️⃣", "5️⃣"]
             for i, ind in enumerate(hot_industries[:5]):
@@ -97,133 +122,153 @@ class TelegramNotifier:
                 arrow = "▲" if ret5 >= 0 else "▼"
                 msg1 += (
                     f"{medals[i]} {ind['industry']}  "
-                    f"{arrow}{abs(ret5):.1f}% (5日)  "
+                    f"{arrow}{abs(ret5):.1f}%(5日)  "
                     f"今日{'+' if ret1>=0 else ''}{ret1:.1f}%\n"
                 )
 
         if industry_signals:
-            msg1 += "\n🔄 *輪動觀察*\n"
+            msg1 += "\n🔄 *產業輪動觀察*\n"
             for sig in industry_signals[:2]:
                 msg1 += f"• {sig}\n"
 
         if not self.send_message(msg1):
             success = False
 
-        # ════════════════════════════════════════════════════════
-        # 訊息二：精選股票詳細分析（每檔一段）
-        # ════════════════════════════════════════════════════════
-        grade_emoji = {
-            "A+": "🌟", "A": "⭐", "B+": "✅",
-            "B": "🔵", "C+": "🟡", "C": "🟠", "D": "🔴",
-        }
-
-        stocks_to_show = [s for s in top_stocks if s.get("grade") in
-                          ["A+", "A", "B+", "B"]][:8]
+        # ════════════════════════════════════════════════════
+        # 訊息二：TOP 15 精選股（依主題分群）
+        # ════════════════════════════════════════════════════
+        stocks_to_show = [
+            s for s in top_stocks
+            if s.get("grade") in ["A+", "A", "B+", "B"]
+        ][:15]
 
         if stocks_to_show:
-            msg2 = f"📋 *精選股票分析 TOP{len(stocks_to_show)}*\n{'─' * 28}\n"
+            # 依主題分群
+            theme_groups: Dict[str, List[Dict]] = {}
+            no_theme: List[Dict] = []
 
-            for i, stock in enumerate(stocks_to_show, 1):
-                sid    = stock.get("stock_id", "")
-                name   = stock.get("stock_name", sid)
-                score  = stock.get("composite_score", 0)
-                grade  = stock.get("grade", "")
-                ind    = stock.get("industry", "")
-                emoji  = grade_emoji.get(grade, "")
+            for stock in stocks_to_show:
+                themes = stock.get("themes", [])
+                if themes:
+                    primary_theme = themes[0]
+                    if primary_theme not in theme_groups:
+                        theme_groups[primary_theme] = []
+                    theme_groups[primary_theme].append(stock)
+                else:
+                    no_theme.append(stock)
 
-                tech_s = stock.get("technical_score", 0)
-                inst_s = stock.get("institutional_score", 0)
-                ind_s  = stock.get("industry_score", 0)
-                fund_s = stock.get("fundamental_score", 0)
+            msg2 = f"📋 *精選股 TOP{len(stocks_to_show)}*\n{'─' * 28}\n"
+            rank = 1
 
-                indicators   = stock.get("indicators", {})
-                inst_data    = stock.get("institutional_data", {})
-                industry_data = stock.get("industry_data", {})
+            # 依熱門主題排序輸出
+            hot_theme_ids = [t.get("theme_id", "") for t in hot_themes]
+            sorted_theme_ids = sorted(
+                theme_groups.keys(),
+                key=lambda t: hot_theme_ids.index(t) if t in hot_theme_ids else 999
+            )
 
-                price     = indicators.get("price", 0)
-                change_1d = indicators.get("change_1d", 0)
-                rsi       = indicators.get("rsi", 0)
-                k_val     = indicators.get("k", 0)
-                vol_ratio = indicators.get("volume_ratio", 1)
-                ma5       = indicators.get("ma5", 0)
-                ma20      = indicators.get("ma20", 0)
+            for theme_id in sorted_theme_ids:
+                stocks_in_theme = theme_groups[theme_id]
+                # 找主題標籤
+                theme_label = f"📌 *{theme_id}*"
+                for t in hot_themes:
+                    if t.get("theme_id") == theme_id:
+                        theme_label = f"{t.get('emoji','')} *{t.get('name','')} 概念*"
+                        break
 
-                foreign_net = inst_data.get("foreign_net", 0) or 0
-                trust_net   = inst_data.get("trust_net", 0) or 0
-                margin_chg  = inst_data.get("margin_change", 0) or 0
+                msg2 += f"\n{theme_label}\n"
+                for stock in stocks_in_theme:
+                    msg2 += self._format_stock_line(rank, stock)
+                    rank += 1
 
-                ind_rank    = industry_data.get("rank", 0)
-                ind_total   = industry_data.get("total", 0)
-                ind_ret5    = industry_data.get("avg_ret_5d", 0)
-
-                price_arrow = "▲" if change_1d >= 0 else "▼"
-
-                # 技術面摘要
-                tech_notes = []
-                if ma5 and ma20 and ma5 > ma20:
-                    tech_notes.append("均線多頭")
-                if rsi and 45 <= rsi <= 70:
-                    tech_notes.append(f"RSI {rsi:.0f}")
-                if k_val and k_val > 50:
-                    tech_notes.append(f"K值{k_val:.0f}")
-                if vol_ratio and vol_ratio >= 1.3:
-                    tech_notes.append(f"量{vol_ratio:.1f}x")
-                tech_str = " | ".join(tech_notes) if tech_notes else "—"
-
-                # 籌碼面摘要
-                inst_notes = []
-                if foreign_net > 0:
-                    inst_notes.append(f"外資+{foreign_net:,}")
-                elif foreign_net < 0:
-                    inst_notes.append(f"外資{foreign_net:,}")
-                if trust_net > 0:
-                    inst_notes.append(f"投信+{trust_net:,}")
-                elif trust_net < 0:
-                    inst_notes.append(f"投信{trust_net:,}")
-                if margin_chg != 0:
-                    inst_notes.append(f"融資{'↑' if margin_chg>0 else '↓'}{abs(margin_chg):,}")
-                inst_str = " | ".join(inst_notes) if inst_notes else "法人資料待更新"
-
-                # 產業排名
-                ind_str = f"{ind}"
-                if ind_rank and ind_total:
-                    ind_str += f" #{ind_rank}/{ind_total}"
-                if ind_ret5:
-                    ind_str += f" ({'+' if ind_ret5>=0 else ''}{ind_ret5:.1f}%)"
-
-                msg2 += (
-                    f"\n{emoji} *{i}. {sid} {name}*  {score:.0f}分/{grade}\n"
-                    f"💰 現價 `{price:.1f}` {price_arrow}{abs(change_1d):.2f}%\n"
-                    f"📊 技術({tech_s:.0f})｜籌碼({inst_s:.0f})｜產業({ind_s:.0f})｜基本({fund_s:.0f})\n"
-                    f"📈 {tech_str}\n"
-                    f"🏦 {inst_str}\n"
-                    f"🏭 {ind_str}\n"
-                )
+            if no_theme:
+                msg2 += "\n📊 *其他精選*\n"
+                for stock in no_theme:
+                    msg2 += self._format_stock_line(rank, stock)
+                    rank += 1
 
             if not self.send_message(msg2):
                 success = False
 
-        # ════════════════════════════════════════════════════════
-        # 訊息三：今日觀察重點（關鍵訊號摘要）
-        # ════════════════════════════════════════════════════════
+        # ════════════════════════════════════════════════════
+        # 訊息三：今日重點訊號
+        # ════════════════════════════════════════════════════
         key_signals = []
-        for stock in stocks_to_show[:5]:
-            for sig in stock.get("technical_signals", [])[:1]:
-                if any(kw in sig for kw in ["黃金交叉", "爆量", "突破", "多頭排列"]):
-                    key_signals.append(f"• {stock['stock_id']} {stock.get('stock_name','')} — {sig}")
+        for stock in stocks_to_show[:8]:
+            sid = stock["stock_id"]
+            name = stock.get("stock_name", sid)
+            for sig in stock.get("technical_signals", [])[:2]:
+                if any(kw in sig for kw in ["黃金交叉", "爆量", "突破", "多頭排列", "形態"]):
+                    key_signals.append(f"• `{sid}` {name} — {sig}")
             for sig in stock.get("institutional_signals", [])[:1]:
                 if any(kw in sig for kw in ["大買", "持續"]):
-                    key_signals.append(f"• {stock['stock_id']} {stock.get('stock_name','')} — {sig}")
+                    key_signals.append(f"• `{sid}` {name} — {sig}")
 
         if key_signals:
-            msg3 = "🔔 *今日重點訊號*\n" + "\n".join(key_signals[:6])
+            msg3 = "🔔 *今日重點訊號*\n" + "\n".join(key_signals[:8])
             if dashboard_url:
-                msg3 += f"\n\n🖥️ [完整報告 Dashboard]({dashboard_url})"
+                msg3 += f"\n\n🖥️ [完整報告]({dashboard_url})"
             msg3 += f"\n\n_⚠️ 本報告僅供參考，不構成投資建議_"
             if not self.send_message(msg3):
                 success = False
 
         return success
+
+    def _format_stock_line(self, rank: int, stock: Dict) -> str:
+        """格式化單一股票顯示行"""
+        sid       = stock.get("stock_id", "")
+        name      = stock.get("stock_name", sid)[:5]
+        score     = stock.get("composite_score", 0)
+        grade     = stock.get("grade", "")
+        emoji     = GRADE_EMOJI.get(grade, "")
+        tech_s    = stock.get("technical_score", 0)
+        inst_s    = stock.get("institutional_score", 0)
+        indicators = stock.get("indicators", {})
+        inst_data  = stock.get("institutional_data", {})
+
+        price     = indicators.get("price", 0)
+        change_1d = indicators.get("change_1d", 0)
+        rsi       = indicators.get("rsi", 0)
+        vol_ratio = indicators.get("volume_ratio", 1)
+        ma5       = indicators.get("ma5", 0)
+        ma20      = indicators.get("ma20", 0)
+
+        foreign_net = int(inst_data.get("foreign_net", 0) or 0)
+        trust_net   = int(inst_data.get("trust_net", 0) or 0)
+
+        price_arrow = "▲" if change_1d >= 0 else "▼"
+
+        # 技術摘要
+        tech_notes = []
+        if ma5 and ma20 and ma5 > ma20:
+            tech_notes.append("多頭")
+        if rsi and 45 <= rsi <= 72:
+            tech_notes.append(f"RSI{rsi:.0f}")
+        if vol_ratio and vol_ratio >= 1.5:
+            tech_notes.append(f"量{vol_ratio:.1f}x")
+        patterns = stock.get("patterns", [])
+        if patterns:
+            p = patterns[0].replace("📐 形態: ", "").replace("📐", "").strip()
+            tech_notes.append(p[:6])
+        tech_str = "|".join(tech_notes) if tech_notes else "—"
+
+        # 籌碼摘要
+        inst_parts = []
+        if foreign_net > 0:
+            inst_parts.append(f"外資+{foreign_net:,}")
+        elif foreign_net < -500:
+            inst_parts.append(f"外資{foreign_net:,}")
+        if trust_net > 0:
+            inst_parts.append(f"投信+{trust_net:,}")
+        inst_str = " ".join(inst_parts) if inst_parts else "—"
+
+        return (
+            f"{emoji}`{rank:>2}. {sid} {name}`"
+            f" {score:.0f}/{grade}"
+            f" {price_arrow}{abs(change_1d):.1f}%\n"
+            f"    技{tech_s:.0f} 籌{inst_s:.0f}｜{tech_str}\n"
+            f"    {inst_str}\n"
+        )
 
     def send_error_alert(self, error_msg: str) -> bool:
         text = (

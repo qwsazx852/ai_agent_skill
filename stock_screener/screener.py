@@ -48,6 +48,7 @@ from .analysis.industry import (
     identify_rotation_opportunities,
 )
 from .analysis.scorer import score_stock, rank_stocks, StockScore
+from .analysis.themes import analyze_themes, get_stock_themes, get_theme_display_name, THEMES
 
 logger = logging.getLogger(__name__)
 
@@ -238,7 +239,8 @@ class StockScreener:
         ranked = rank_stocks(scored_stocks)
         self.results = ranked
 
-        top_stocks = [s.to_dict() for s in ranked[:top_n]]
+        all_stock_dicts = [s.to_dict() for s in ranked]
+        top_stocks = all_stock_dicts[:top_n]
 
         logger.info(f"篩選完成，輸出前 {top_n} 名")
         if top_stocks:
@@ -246,15 +248,38 @@ class StockScreener:
             logger.info(f"🥇 第一名: {best['stock_id']} {best['stock_name']} "
                        f"({best['composite_score']:.1f}分/{best['grade']})")
 
+        # ─── Step 5.5: 主題概念分析 ───────────────────────────
+        logger.info("🎯 Step 5.5: 主題概念分析...")
+        stock_ticker_map = {
+            row["stock_id"]: row["yf_ticker"]
+            for _, row in stock_df.iterrows()
+        }
+        theme_result = analyze_themes(price_data, stock_ticker_map, all_stock_dicts)
+        hot_themes = theme_result.get("hot_themes", [])
+        stock_themes = theme_result.get("stock_themes", {})
+
+        # 將主題標籤寫回每支股票
+        for s in top_stocks:
+            sid = s.get("stock_id", "")
+            themes = stock_themes.get(sid, [])
+            s["themes"] = themes
+            s["theme_names"] = [
+                f"{THEMES[t]['emoji']} {THEMES[t]['name']}"
+                for t in themes if t in THEMES
+            ]
+
+        logger.info(f"熱門主題 TOP3: {[t['name'] for t in hot_themes[:3]]}")
+
         # ─── Step 6: 儲存結果 ──────────────────────────────────
         output = {
             "date": self.screening_date,
             "time": self.screening_time,
             "total_analyzed": analyzed_count,
             "hot_industries": hot_industries,
+            "hot_themes": hot_themes,
             "industry_signals": rotation_signals,
             "top_stocks": top_stocks,
-            "all_stocks": [s.to_dict() for s in ranked],
+            "all_stocks": all_stock_dicts,
         }
 
         self._save_results(output)
@@ -446,10 +471,22 @@ class StockScreener:
         hot_industries = get_hot_industries(self.industry_stats)
         rotation_signals = identify_rotation_opportunities(self.industry_stats)
 
+        # 從最新結果中取得 hot_themes
+        hot_themes = []
+        try:
+            import json as _json
+            if os.path.exists(self.cfg.RESULTS_FILE):
+                with open(self.cfg.RESULTS_FILE, "r", encoding="utf-8") as f:
+                    saved = _json.load(f)
+                    hot_themes = saved.get("hot_themes", [])
+        except Exception:
+            pass
+
         return notifier.send_screening_report(
             top_stocks=top_stocks,
             hot_industries=hot_industries,
             industry_signals=rotation_signals,
             date=self.screening_date,
             dashboard_url=dashboard_url,
+            hot_themes=hot_themes,
         )
