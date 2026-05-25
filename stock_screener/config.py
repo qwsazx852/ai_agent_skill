@@ -10,8 +10,8 @@ from typing import List
 @dataclass
 class Config:
     # === Telegram 設定 ===
-    TELEGRAM_BOT_TOKEN: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
-    TELEGRAM_CHAT_ID: str = os.getenv("TELEGRAM_CHAT_ID", "")
+    TELEGRAM_BOT_TOKEN: str = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+    TELEGRAM_CHAT_ID: str = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 
     # === FinMind API 設定 ===
     FINMIND_API_TOKEN: str = os.getenv("FINMIND_API_TOKEN", "")

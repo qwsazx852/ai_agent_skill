@@ -21,9 +21,10 @@ class TelegramNotifier:
     """Telegram Bot 通知器"""
 
     def __init__(self, bot_token: str = "", chat_id: str = ""):
-        self.bot_token = bot_token or os.getenv("TELEGRAM_BOT_TOKEN", "")
-        self.chat_id = chat_id or os.getenv("TELEGRAM_CHAT_ID", "")
+        self.bot_token = (bot_token or os.getenv("TELEGRAM_BOT_TOKEN", "")).strip()
+        self.chat_id = (chat_id or os.getenv("TELEGRAM_CHAT_ID", "")).strip()
         self.base_url = f"https://api.telegram.org/bot{self.bot_token}"
+        logger.info(f"Telegram 初始化 - Token前10碼: {self.bot_token[:10]}... 長度:{len(self.bot_token)}")
 
     def _is_configured(self) -> bool:
         """確認 Telegram 設定是否完整"""
