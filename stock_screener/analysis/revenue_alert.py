@@ -244,10 +244,11 @@ def format_revenue_telegram_message(
         msg1 += "\n📈 *連續成長（3個月以上）*\n"
         for r in consecutive[:5]:
             c = r.get("consecutive_growth", 0)
-            yoy = r.get("yoy", 0) or 0
+            yoy = r.get("yoy")
+            yoy_str = f"YoY{'+' if yoy>=0 else ''}{yoy:.0f}%" if yoy is not None else ""
             msg1 += (
                 f"• `{r['stock_id']}` {r.get('stock_name','')} "
-                f"連{c}月↑ YoY{'+' if yoy>=0 else ''}{yoy:.0f}%\n"
+                f"連{c}月↑ {yoy_str}\n"
             )
 
     messages.append(msg1)
