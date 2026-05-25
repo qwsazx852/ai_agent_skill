@@ -394,6 +394,101 @@ def analyze_technical(df: pd.DataFrame) -> Dict:
     score += vol_score
 
     # ========================
+    # 7. Weinstein Stage 分析 (最高 +15，最低 -25)
+    # ========================
+    # Stage 1 (底部整理): 股價在 MA60 附近盤整，MA20 走平
+    # Stage 2 (上升趨勢): 股價 > MA20 > MA60，MA20 斜率向上 ← 主要進場區
+    # Stage 3 (頭部): 股價仍高但 MA20 走平或開始下彎
+    # Stage 4 (下跌趨勢): 股價 < MA60，MA20 斜率向下 ← 絕對迴避
+    stage_score = 0
+    stage = "unknown"
+    try:
+        if ma60 is not None and len(ma20) >= 10:
+            m60 = ma60.iloc[-1]
+            ma20_slope_pct = (ma20.iloc[-1] - ma20.iloc[-5]) / (ma20.iloc[-5] + 1e-10) * 100
+            ma60_slope_pct = (ma60.iloc[-1] - ma60.iloc[-10]) / (ma60.iloc[-10] + 1e-10) * 100
+
+            above_ma20 = c > m20
+            above_ma60 = c > m60
+            ma20_rising = ma20_slope_pct > 0.1   # MA20 每5日上升超過 0.1%
+            ma20_falling = ma20_slope_pct < -0.1
+
+            indicators["ma20_slope"] = round(ma20_slope_pct, 2)
+            indicators["ma60_slope"] = round(ma60_slope_pct, 2)
+
+            if above_ma20 and above_ma60 and ma20_rising:
+                # Stage 2: 最強趨勢
+                stage = "stage2"
+                stage_score = 15
+                signals.append("🚀 Stage2: 多頭趨勢確立（MA20↑ MA60 站穩）")
+
+            elif above_ma60 and (abs(ma20_slope_pct) <= 0.3) and not above_ma20:
+                # Stage 1 晚期: 底部整理即將突破
+                stage = "stage1"
+                stage_score = 5
+                signals.append("📊 Stage1: 底部整理，留意突破")
+
+            elif above_ma20 and above_ma60 and not ma20_rising:
+                # Stage 3: 上升趨勢末段，MA20 開始走平
+                stage = "stage3"
+                stage_score = -5
+                signals.append("⚠️ Stage3: 趨勢可能轉折，謹慎追高")
+
+            elif not above_ma60 and ma20_falling:
+                # Stage 4: 確認空頭，強烈迴避
+                stage = "stage4"
+                stage_score = -25
+                signals.append("🚫 Stage4: 下跌趨勢，嚴格迴避")
+
+            else:
+                stage = "transition"
+                stage_score = -3
+
+        indicators["stage"] = stage
+
+    except Exception as e:
+        logger.debug(f"Stage 分析錯誤: {e}")
+
+    sub_scores["stage"] = stage_score
+    score += stage_score
+
+    # ========================
+    # 8. 52週高點接近度 (最高 +8，最低 -5)
+    # ========================
+    # 股價接近52週高點 + Stage2 = 突破潛力最高
+    high_52w_score = 0
+    try:
+        window_52w = min(len(close), 252)
+        high_52w = close.rolling(window_52w).max().iloc[-1]
+        low_52w = close.rolling(window_52w).min().iloc[-1]
+        proximity_52w = c / (high_52w + 1e-10)
+
+        indicators["high_52w"] = round(high_52w, 2)
+        indicators["low_52w"] = round(low_52w, 2)
+        indicators["proximity_52w"] = round(proximity_52w, 3)
+
+        if proximity_52w >= 0.97:
+            # 接近或突破52週高點
+            high_52w_score = 8
+            if stage == "stage2":
+                signals.append("🏆 近52週高點突破（Stage2 強力確認）")
+            else:
+                signals.append("🏆 接近52週高點")
+        elif proximity_52w >= 0.90:
+            high_52w_score = 4
+        elif proximity_52w >= 0.80:
+            high_52w_score = 0
+        elif proximity_52w < 0.60:
+            # 遠離高點，股價積弱
+            high_52w_score = -5
+
+    except Exception as e:
+        logger.debug(f"52週高點分析錯誤: {e}")
+
+    sub_scores["high_52w"] = high_52w_score
+    score += high_52w_score
+
+    # ========================
     # 整理最終結果
     # ========================
     # 計算近期漲跌幅
@@ -405,8 +500,8 @@ def analyze_technical(df: pd.DataFrame) -> Dict:
     except Exception:
         pass
 
-    result["score"] = min(round(score), 100)
-    result["signals"] = signals[:5]  # 最多顯示5個訊號
+    result["score"] = max(0, min(round(score), 100))
+    result["signals"] = signals[:6]  # 最多顯示6個訊號
     result["indicators"] = indicators
     result["sub_scores"] = sub_scores
 

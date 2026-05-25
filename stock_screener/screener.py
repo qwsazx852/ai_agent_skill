@@ -49,6 +49,7 @@ from .analysis.industry import (
 )
 from .analysis.scorer import score_stock, rank_stocks, StockScore
 from .analysis.themes import analyze_themes, get_stock_themes, get_theme_display_name, THEMES
+from .analysis.market_env import get_market_environment
 
 logger = logging.getLogger(__name__)
 
@@ -116,6 +117,16 @@ class StockScreener:
             )
 
         logger.info(f"成功下載 {len(price_data)}/{len(tickers)} 檔價格資料")
+
+        # ─── Step 2.5: 市場環境評估 ────────────────────────────
+        logger.info("🌐 Step 2.5: 評估大盤市場環境...")
+        market_env = get_market_environment(price_data_cache=price_data)
+        market_multiplier = market_env.get("score_multiplier", 1.0)
+        market_status = market_env.get("status", "unknown")
+        logger.info(f"大盤狀態: {market_env.get('description', '未知')} "
+                    f"(評分乘數: {market_multiplier})")
+        if market_env.get("signals"):
+            logger.info(f"市場信號: {' | '.join(market_env['signals'])}")
 
         # ─── Step 3: 產業趨勢分析 ──────────────────────────────
         logger.info("🏭 Step 3: 分析產業趨勢...")
@@ -223,7 +234,8 @@ class StockScreener:
                     "fundamental": self.cfg.WEIGHT_FUNDAMENTAL,
                     "institutional": self.cfg.WEIGHT_INSTITUTIONAL,
                     "industry": self.cfg.WEIGHT_INDUSTRY,
-                }
+                },
+                market_multiplier=market_multiplier,
             )
 
             scored_stocks.append(stock_score)
@@ -275,6 +287,13 @@ class StockScreener:
             "date": self.screening_date,
             "time": self.screening_time,
             "total_analyzed": analyzed_count,
+            "market_env": {
+                "status": market_status,
+                "description": market_env.get("description", ""),
+                "score_multiplier": market_multiplier,
+                "signals": market_env.get("signals", []),
+                "indicators": market_env.get("indicators", {}),
+            },
             "hot_industries": hot_industries,
             "hot_themes": hot_themes,
             "industry_signals": rotation_signals,
