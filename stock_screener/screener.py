@@ -34,12 +34,13 @@ from .data.fetcher import (
     fetch_finmind_financials,
     fetch_finmind_revenue,
     fetch_finmind_shareholding,
+    fetch_finmind_margin,
     get_mock_institutional_data,
     get_mock_financial_data,
 )
 from .analysis.technical import analyze_technical
 from .analysis.fundamental import analyze_fundamental, parse_finmind_financials, parse_finmind_revenue
-from .analysis.institutional import analyze_institutional, analyze_shareholding, parse_finmind_institutional
+from .analysis.institutional import analyze_institutional, analyze_shareholding, parse_finmind_institutional, parse_finmind_margin
 from .analysis.patterns import detect_patterns
 from .analysis.industry import (
     calculate_industry_performance,
@@ -344,19 +345,31 @@ class StockScreener:
             return get_mock_financial_data(stock_id)
 
     def _fetch_institutional_data(self, stock_id: str, date: str) -> Dict:
-        """擷取籌碼資料"""
+        """擷取籌碼資料（三大法人 + 融資融券）"""
         if not self.cfg.FINMIND_API_TOKEN:
             return get_mock_institutional_data(stock_id)
 
         try:
+            # ── 三大法人（含 10 日累計、投信3日累計）
             inst_df = fetch_finmind_institutional(
                 stock_id, date, self.cfg.FINMIND_API_TOKEN
             )
-
+            data = {}
             if inst_df is not None:
                 data = parse_finmind_institutional(inst_df)
-                time.sleep(0.2)
-                return data if data else get_mock_institutional_data(stock_id)
+
+            # ── 融資融券（真實資料）
+            try:
+                margin_df = fetch_finmind_margin(stock_id, self.cfg.FINMIND_API_TOKEN)
+                if margin_df is not None:
+                    margin_data = parse_finmind_margin(margin_df)
+                    data.update(margin_data)   # 合併到同一字典
+            except Exception as me:
+                logger.debug(f"融資融券擷取失敗 {stock_id}: {me}")
+
+            time.sleep(0.2)
+            return data if data else get_mock_institutional_data(stock_id)
+
         except Exception as e:
             logger.debug(f"籌碼資料擷取失敗 {stock_id}: {e}")
 

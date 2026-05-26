@@ -379,6 +379,46 @@ def fetch_finmind_shareholding(
     return None
 
 
+def fetch_finmind_margin(
+    stock_id: str,
+    token: str = ""
+) -> Optional[pd.DataFrame]:
+    """
+    擷取融資融券資料
+    dataset: TaiwanStockMarginPurchaseShortSale
+
+    Args:
+        stock_id: 股票代號 (e.g., "2330")
+        token: FinMind API token
+
+    Returns:
+        DataFrame with margin/short data or None
+    """
+    try:
+        import requests
+        start_date = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
+        url = "https://api.finmindtrade.com/api/v4/data"
+        params = {
+            "dataset": "TaiwanStockMarginPurchaseShortSale",
+            "data_id": stock_id,
+            "start_date": start_date,
+            "token": token,
+        }
+        resp = requests.get(url, params=params, timeout=10)
+        time.sleep(0.2)
+        if resp.status_code == 200:
+            data = resp.json()
+            if data.get("status") == 200 and data.get("data"):
+                df = pd.DataFrame(data["data"])
+                if not df.empty and "date" in df.columns:
+                    df["date"] = pd.to_datetime(df["date"])
+                    df = df.sort_values("date", ascending=False)
+                    return df
+    except Exception as e:
+        logger.warning(f"FinMind 融資融券擷取失敗 {stock_id}: {e}")
+    return None
+
+
 def get_mock_institutional_data(stock_id: str) -> Dict:
     """
     當 API 不可用時，產生模擬法人資料（用於測試）

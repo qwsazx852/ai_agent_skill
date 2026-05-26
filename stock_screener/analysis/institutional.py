@@ -19,6 +19,65 @@ import logging
 logger = logging.getLogger(__name__)
 
 
+def parse_finmind_margin(df: pd.DataFrame) -> Dict:
+    """
+    解析 FinMind 融資融券資料 (TaiwanStockMarginPurchaseShortSale)
+
+    Returns:
+        {
+          margin_balance: 融資餘額（今日）
+          margin_change:  融資增減（今日 vs 昨日）
+          margin_5d_change: 融資5日淨變化（正=增加=風險，負=減少=乾淨）
+          short_balance:  融券餘額（今日）
+          short_change:   融券增減
+          margin_ratio:   融資使用率（現值/前高）
+        }
+    """
+    result = {}
+    if df is None or df.empty:
+        return result
+    try:
+        df = df.copy()
+        df["date"] = pd.to_datetime(df["date"])
+        df = df.sort_values("date", ascending=False)
+
+        # 欄位對應：FinMind MarginPurchaseShortSale
+        col_map = {
+            "MarginPurchaseToday": "margin_balance",
+            "ShortSaleToday": "short_balance",
+            "MarginPurchaseBuy": "margin_buy",
+            "MarginPurchaseSell": "margin_sell",
+            "ShortSaleBuy": "short_buy",
+            "ShortSaleSell": "short_sell",
+        }
+        for src, dst in col_map.items():
+            if src in df.columns:
+                df[dst] = pd.to_numeric(df[src], errors="coerce").fillna(0)
+
+        if "margin_balance" in df.columns and len(df) >= 1:
+            result["margin_balance"] = int(df["margin_balance"].iloc[0])
+        if "short_balance" in df.columns and len(df) >= 1:
+            result["short_balance"] = int(df["short_balance"].iloc[0])
+
+        # 今日融資增減
+        if "margin_buy" in df.columns and "margin_sell" in df.columns and len(df) >= 1:
+            result["margin_change"] = int(df["margin_buy"].iloc[0] - df["margin_sell"].iloc[0])
+
+        # 近5日融資淨變化
+        if "margin_balance" in df.columns and len(df) >= 5:
+            result["margin_5d_change"] = int(df["margin_balance"].iloc[0] - df["margin_balance"].iloc[4])
+
+        # 融資使用率：現值相對近20日最高點
+        if "margin_balance" in df.columns and len(df) >= 5:
+            recent_max = df["margin_balance"].head(20).max()
+            if recent_max > 0:
+                result["margin_ratio"] = round(df["margin_balance"].iloc[0] / recent_max, 3)
+
+    except Exception as e:
+        logger.warning(f"解析融資融券失敗: {e}")
+    return result
+
+
 def analyze_shareholding(df: Optional[pd.DataFrame]) -> Dict:
     """
     分析集保大戶持股分散表，計算持有超過 400張、1000張、2000張 的大戶持股比例變化
@@ -230,22 +289,30 @@ def analyze_institutional(inst_data: Dict, shareholding_score: int = 0) -> Dict:
     # ========================
     trust_score = 0
     trust_net = inst_data.get("trust_net", 0) or 0
+    trust_3d = inst_data.get("trust_3d", 0) or 0
 
     if trust_net > 2000:
-        trust_score = 35
+        trust_score = 28
         signals.append(f"🏦 投信大買 (+{trust_net:,}張)")
     elif trust_net > 500:
-        trust_score = 25
+        trust_score = 20
         signals.append(f"✅ 投信買超 (+{trust_net:,}張)")
     elif trust_net > 100:
-        trust_score = 18
+        trust_score = 14
     elif trust_net > 0:
-        trust_score = 12
+        trust_score = 9
     elif trust_net > -500:
-        trust_score = 8
+        trust_score = 6
     else:
         trust_score = 0
         signals.append(f"⚠️ 投信賣超 ({trust_net:,}張)")
+
+    # 投信3日累計加分：連續買才有意義
+    if trust_3d > 3000:
+        trust_score = min(trust_score + 7, 35)
+        signals.append(f"🔥 投信3日持續買超 (+{trust_3d:,}張)")
+    elif trust_3d > 1000:
+        trust_score = min(trust_score + 4, 35)
 
     sub_scores["trust"] = trust_score
     score += trust_score
@@ -272,33 +339,43 @@ def analyze_institutional(inst_data: Dict, shareholding_score: int = 0) -> Dict:
     score += dealer_score
 
     # ========================
-    # 4. 融資融券調整 (加減分)
+    # 4. 融資融券分析 (加減分，最大 ±10)
     # ========================
     margin_change = inst_data.get("margin_change", 0) or 0
+    margin_5d_change = inst_data.get("margin_5d_change", 0) or 0
+    margin_ratio = inst_data.get("margin_ratio", 0.5) or 0.5
     short_balance = inst_data.get("short_balance", 0) or 0
     margin_balance = inst_data.get("margin_balance", 0) or 0
 
     margin_adjust = 0
 
-    # 融資增加過多視為風險
-    if margin_change > 5000:
-        margin_adjust -= 5
-        signals.append(f"⚠️ 融資大增 (+{margin_change:,}張)")
-    elif margin_change > 2000:
-        margin_adjust -= 2
-    elif margin_change < -2000:
-        margin_adjust += 3  # 融資減少視為籌碼乾淨
-        signals.append(f"✅ 融資減少 ({margin_change:,}張)")
-
-    # 融資餘額佔比（若過高風險較大）
-    if margin_balance > 50000:
+    # 融資5日趨勢（比單日更可靠）
+    if margin_5d_change < -3000:
+        margin_adjust += 5   # 融資持續減少 = 籌碼乾淨，健康
+        signals.append(f"✅ 融資5日淨減 {margin_5d_change:,}張（籌碼乾淨）")
+    elif margin_5d_change < 0:
+        margin_adjust += 2
+    elif margin_5d_change > 5000:
+        margin_adjust -= 6   # 散戶融資大量湧入 = 風險
+        signals.append(f"⚠️ 融資5日大增 +{margin_5d_change:,}張（散戶追高風險）")
+    elif margin_5d_change > 2000:
         margin_adjust -= 3
 
-    # 融券放空多代表未來軋空潛力
-    if short_balance > 5000:
-        margin_adjust += 2
-        signals.append(f"💡 融券多 (軋空潛力)")
+    # 融資使用率（相對近期高點）
+    if margin_ratio >= 0.95:
+        margin_adjust -= 4   # 融資接近歷史高點，賣壓沉重
+        signals.append(f"⚠️ 融資使用率高（{margin_ratio:.0%}，賣壓風險）")
+    elif margin_ratio <= 0.5:
+        margin_adjust += 3   # 融資低位，有增長空間
 
+    # 融券多代表市場看空，若股價仍強 = 軋空潛力
+    if short_balance > 5000:
+        margin_adjust += 3
+        signals.append(f"💡 融券多 ({short_balance:,}張，潛在軋空)")
+    elif short_balance > 2000:
+        margin_adjust += 1
+
+    margin_adjust = max(-10, min(10, margin_adjust))
     final_score = max(0, min(score + margin_adjust, 100))
     sub_scores["margin_adjust"] = margin_adjust
 
@@ -344,16 +421,36 @@ def parse_finmind_institutional(df: pd.DataFrame) -> Dict:
         if not dealer.empty:
             result["dealer_net"] = int(dealer["buy"].sum() - dealer["sell"].sum())
 
-        # 計算3日累計外資
+        # 計算累計外資（3日、10日）與累計投信（3日）
         df["date"] = pd.to_datetime(df["date"])
         df_sorted = df.sort_values("date", ascending=False)
-        dates_3d = df_sorted["date"].unique()[:3]
-        foreign_3d = df[
+        all_dates = df_sorted["date"].unique()
+
+        # 外資 3日累計
+        dates_3d = all_dates[:3]
+        foreign_3d_df = df[
             (df["date"].isin(dates_3d)) &
             (df["name"].str.contains("外陸資", na=False))
         ]
-        if not foreign_3d.empty:
-            result["foreign_3d"] = int(foreign_3d["buy"].sum() - foreign_3d["sell"].sum())
+        if not foreign_3d_df.empty:
+            result["foreign_3d"] = int(foreign_3d_df["buy"].sum() - foreign_3d_df["sell"].sum())
+
+        # 外資 10日累計
+        dates_10d = all_dates[:10]
+        foreign_10d_df = df[
+            (df["date"].isin(dates_10d)) &
+            (df["name"].str.contains("外陸資", na=False))
+        ]
+        if not foreign_10d_df.empty:
+            result["foreign_10d"] = int(foreign_10d_df["buy"].sum() - foreign_10d_df["sell"].sum())
+
+        # 投信 3日累計
+        trust_3d_df = df[
+            (df["date"].isin(dates_3d)) &
+            (df["name"] == "投信")
+        ]
+        if not trust_3d_df.empty:
+            result["trust_3d"] = int(trust_3d_df["buy"].sum() - trust_3d_df["sell"].sum())
 
         return result
 
