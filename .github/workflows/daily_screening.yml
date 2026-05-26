@@ -9,28 +9,6 @@ on:
       - claude/stock-screening-tool-Gggkw
 
   workflow_dispatch:
-    inputs:
-      mode:
-        description: "Run mode: real or mock"
-        required: false
-        default: "real"
-        type: choice
-        options:
-          - real
-          - mock
-      top_n:
-        description: "Number of top stocks to output"
-        required: false
-        default: "10"
-        type: string
-      notify:
-        description: "Send Telegram notification"
-        required: false
-        default: "true"
-        type: choice
-        options:
-          - "true"
-          - "false"
 
 permissions:
   contents: write
@@ -69,30 +47,8 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          MODE="${{ github.event.inputs.mode || 'real' }}"
-          TOP_N="${{ github.event.inputs.top_n || '10' }}"
-          NOTIFY="${{ github.event.inputs.notify || 'true' }}"
-
-          CMD="python run_screener.py --top $TOP_N"
-
-          if [ "$MODE" = "mock" ]; then
-            CMD="$CMD --mock"
-            echo "Using mock data mode"
-          else
-            echo "Using real data mode"
-          fi
-
-          DASHBOARD_URL="${{ vars.STREAMLIT_DASHBOARD_URL }}"
-          if [ "$NOTIFY" = "true" ] && [ -n "$TELEGRAM_BOT_TOKEN" ]; then
-            CMD="$CMD --notify"
-            if [ -n "$DASHBOARD_URL" ]; then
-              CMD="$CMD --dashboard-url $DASHBOARD_URL"
-            fi
-            echo "Telegram notification enabled"
-          fi
-
-          echo "Running: $CMD"
-          $CMD
+          echo "Running stock screening with real data..."
+          python run_screener.py --top 10 --notify
 
       - name: Commit Screening Results
         run: |
@@ -108,10 +64,10 @@ jobs:
 
             for i in 1 2 3; do
               if git push origin claude/stock-screening-tool-Gggkw; then
-                echo "Results committed to repository"
+                echo "Results committed"
                 break
               else
-                echo "Push conflict, retrying with rebase ($i/3)..."
+                echo "Push conflict, retrying ($i/3)..."
                 git pull --rebase origin claude/stock-screening-tool-Gggkw
               fi
             done
@@ -144,7 +100,7 @@ jobs:
               requests.post(
                   f"https://api.telegram.org/bot{token}/sendMessage",
                   json={"chat_id": chat,
-                        "text": f"Stock screening failed\nCheck Actions: {url}"},
+                        "text": f"Stock screening failed. Check: {url}"},
                   timeout=10,
               )
           EOF
