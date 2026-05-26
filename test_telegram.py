@@ -4,15 +4,28 @@ Telegram Bot 測試腳本
 
 執行方式:
     python test_telegram.py
+
+⚠️  請勿在此檔案硬編碼 token！
+    使用環境變數或 .env 檔案（已加入 .gitignore）
 """
 
+import os
 import sys
 import requests
+from dotenv import load_dotenv
 
-# ── 設定你的資訊 ──────────────────────────────────────────────────
-BOT_TOKEN = "8296994753:AAE8UMxeKx-BVBEIhAY2517NO-e0T3e81lM"
-CHAT_ID = "6312156679"
+load_dotenv()
+
+# ── 從環境變數讀取（不要直接寫在這裡！）──────────────────────────
+BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 # ─────────────────────────────────────────────────────────────────
+
+if not BOT_TOKEN or not CHAT_ID:
+    print("❌ 錯誤：請先設定環境變數或 .env 檔案")
+    print("   TELEGRAM_BOT_TOKEN=你的token")
+    print("   TELEGRAM_CHAT_ID=你的chatid")
+    sys.exit(1)
 
 
 def test_bot():
@@ -34,11 +47,11 @@ def test_bot():
         sys.exit(1)
 
     # 2. 傳送測試訊息
-    print(f"\n[2/2] 傳送測試訊息到 Chat ID: {CHAT_ID}...")
+    print(f"\n[2/2] 傳送測試訊息...")
     message = (
         "✅ *台灣股市篩選系統* 設定成功！\n\n"
-        "嗨 晉嘉，Bot 連線正常 🎉\n\n"
-        "📊 系統每天台灣時間 *14:30* 收盤後\n"
+        "Bot 連線正常 🎉\n\n"
+        "📊 系統每天台灣時間 *15:45* 收盤後\n"
         "自動傳送今日精選股票報告給你。\n\n"
         "🇹🇼 準備好開始追蹤台股了！"
     )
@@ -62,10 +75,7 @@ def test_bot():
     print("\n" + "=" * 50)
     print("🎉 全部測試通過！")
     print("=" * 50)
-    print("\n接下來請到 GitHub 設定 Secrets：")
-    print(f"  TELEGRAM_BOT_TOKEN = {BOT_TOKEN}")
-    print(f"  TELEGRAM_CHAT_ID   = {CHAT_ID}")
-    print("\n設定路徑:")
+    print("\nGitHub Secrets 設定路徑:")
     print("  GitHub Repo → Settings → Secrets and variables")
     print("  → Actions → New repository secret")
 
