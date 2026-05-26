@@ -112,8 +112,17 @@ jobs:
             git add results/
             DATE=$(date +"%Y-%m-%d %H:%M UTC")
             git commit -m "📊 每日篩選結果 - $DATE"
-            git push
-            echo "✅ 結果已提交至 repository"
+
+            # 處理 non-fast-forward: rebase 後再 push，最多重試 3 次
+            for i in 1 2 3; do
+              if git push origin claude/stock-screening-tool-Gggkw; then
+                echo "✅ 結果已提交至 repository"
+                break
+              else
+                echo "⚠️ Push 衝突，嘗試 rebase 後重試 ($i/3)..."
+                git pull --rebase origin claude/stock-screening-tool-Gggkw
+              fi
+            done
           fi
 
       # ── 上傳結果為 Artifact ──────────────────────────────────
