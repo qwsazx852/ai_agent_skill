@@ -1,8 +1,6 @@
 name: Send AI Stocks Valuation to Telegram
 
 on:
-  schedule:
-    - cron: "22 13 26 5 *"
   workflow_dispatch:
 
 jobs:
@@ -12,25 +10,26 @@ jobs:
     steps:
       - name: Debug - Check Token Setup
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TOKEN_FROM_VAR: ${{ vars.TELEGRAM_BOT_TOKEN_VAR }}
+          TOKEN_FROM_SECRET: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          echo "Token length: ${#TELEGRAM_BOT_TOKEN}"
+          echo "Token from VAR length: ${#TOKEN_FROM_VAR}"
+          echo "Token from SECRET length: ${#TOKEN_FROM_SECRET}"
           echo "Chat ID length: ${#TELEGRAM_CHAT_ID}"
-          if [ -z "$TELEGRAM_BOT_TOKEN" ]; then
-            echo "ERROR: TELEGRAM_BOT_TOKEN is EMPTY! Please set secrets.TELEGRAM_BOT_TOKEN in GitHub"
+          if [ -n "$TOKEN_FROM_VAR" ]; then
+            echo "Using token from VARIABLE"
+          elif [ -n "$TOKEN_FROM_SECRET" ]; then
+            echo "Using token from SECRET"
+          else
+            echo "ERROR: Both tokens are EMPTY!"
+            echo "Please set vars.TELEGRAM_BOT_TOKEN_VAR in GitHub Variables"
             exit 1
           fi
-          if [ -z "$TELEGRAM_CHAT_ID" ]; then
-            echo "ERROR: TELEGRAM_CHAT_ID is EMPTY!"
-            exit 1
-          fi
-          echo "Token starts with: ${TELEGRAM_BOT_TOKEN:0:10}..."
-          echo "All credentials present, proceeding..."
 
       - name: Send AI Stock Valuation Table
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ vars.TELEGRAM_BOT_TOKEN_VAR || secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python3 - <<'EOF'
