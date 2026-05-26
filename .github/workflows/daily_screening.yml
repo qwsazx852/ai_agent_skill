@@ -2,6 +2,7 @@ name: Taiwan Stock Daily Screening
 
 on:
   schedule:
+    - cron: "35 12 * * 2"
     - cron: "45 7 * * 1-5"
 
   push:
