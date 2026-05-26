@@ -123,8 +123,9 @@ def fetch_price_data(
         logger.error("yfinance 未安裝，請執行: pip install yfinance")
         return None
 
-    end = datetime.now()
-    start = end - timedelta(days=days + 30)  # 多抓一些以確保有足夠交易日
+    # yfinance end 日期為 exclusive，需加 1 天才能包含今日收盤資料
+    end = datetime.now() + timedelta(days=1)
+    start = end - timedelta(days=days + 31)  # 多抓一些以確保有足夠交易日
 
     for attempt in range(retry):
         try:
@@ -174,8 +175,9 @@ def fetch_batch_price_data(
         return {}
 
     results = {}
-    end = datetime.now()
-    start = end - timedelta(days=days + 30)
+    # yfinance end 日期為 exclusive，需加 1 天才能包含今日收盤資料
+    end = datetime.now() + timedelta(days=1)
+    start = end - timedelta(days=days + 31)
 
     # 分批下載
     for i in range(0, len(tickers), batch_size):
