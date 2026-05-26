@@ -522,5 +522,30 @@
         "grade": "A"
       }
     ]
+  },
+  {
+    "date": "2026-05-26",
+    "time": "16:28:29",
+    "total_analyzed": 178,
+    "top3": [
+      {
+        "stock_id": "6456",
+        "stock_name": "GIS-KY",
+        "score": 83.9,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6426",
+        "stock_name": "統新",
+        "score": 80.8,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6412",
+        "stock_name": "群電",
+        "score": 79.3,
+        "grade": "A"
+      }
+    ]
   }
 ]
