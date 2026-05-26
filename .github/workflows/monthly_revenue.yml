@@ -11,13 +11,19 @@ on:
       notify:
         description: "傳送 Telegram 通知"
         required: false
-        default: true
-        type: boolean
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
       mock:
         description: "使用模擬資料（測試）"
         required: false
-        default: false
-        type: boolean
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
 
 permissions:
   contents: read

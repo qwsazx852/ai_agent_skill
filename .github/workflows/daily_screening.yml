@@ -28,10 +28,13 @@ on:
         default: "30"
         type: string
       notify:
-        description: "傳送 Telegram 通知"
+        description: "傳送 Telegram 通知 (true/false)"
         required: false
-        default: true
-        type: boolean
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
 
 permissions:
   contents: write  # 允許 commit 結果
