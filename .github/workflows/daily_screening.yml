@@ -1,34 +1,30 @@
-name: 🇹🇼 台灣股市每日篩選
+name: Taiwan Stock Daily Screening
 
 on:
-  # 每日台灣時間 15:45 自動執行 (UTC 07:45)
-  # 理由：13:30 收盤 → 15:00 FinMind 三大法人資料發布 → 15:45 確保資料完整
   schedule:
-    - cron: "45 7 * * 1-5"  # 週一到週五 (台灣時間 15:45)
+    - cron: "45 7 * * 1-5"
 
-  # Push 觸發 - 每次推送程式碼時自動驗證
   push:
     branches:
       - claude/stock-screening-tool-Gggkw
 
-  # 允許手動觸發 (上次觸發: 2026-05-26 11:30)
   workflow_dispatch:
     inputs:
       mode:
-        description: "執行模式"
+        description: "Run mode: real or mock"
         required: false
         default: "real"
         type: choice
         options:
-          - real      # 真實資料
-          - mock      # 模擬資料（測試）
+          - real
+          - mock
       top_n:
-        description: "輸出前N名股票"
+        description: "Number of top stocks to output"
         required: false
-        default: "30"
+        default: "10"
         type: string
       notify:
-        description: "傳送 Telegram 通知 (true/false)"
+        description: "Send Telegram notification"
         required: false
         default: "true"
         type: choice
@@ -37,41 +33,36 @@ on:
           - "false"
 
 permissions:
-  contents: write  # 允許 commit 結果
+  contents: write
 
 jobs:
   screen-stocks:
-    name: 每日股票篩選
+    name: Daily Stock Screening
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
     steps:
-      # ── 取出程式碼 ────────────────────────────────────────────
-      - name: 📥 Checkout Repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          ref: claude/stock-screening-tool-Gggkw   # 明確指定分支，確保 cron 也取到正確代碼
+          ref: claude/stock-screening-tool-Gggkw
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # ── Python 環境 ───────────────────────────────────────────
-      - name: 🐍 Setup Python 3.11
+      - name: Setup Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
 
-      # ── 安裝依賴 ──────────────────────────────────────────────
-      - name: 📦 Install Dependencies
+      - name: Install Dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      # ── 建立結果目錄 ──────────────────────────────────────────
-      - name: 📁 Create Results Directory
+      - name: Create Results Directory
         run: mkdir -p results
 
-      # ── 執行篩選 ──────────────────────────────────────────────
-      - name: 🔍 Run Stock Screening
+      - name: Run Stock Screening
         env:
           FINMIND_API_TOKEN: ${{ secrets.FINMIND_API_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -86,9 +77,9 @@ jobs:
 
           if [ "$MODE" = "mock" ]; then
             CMD="$CMD --mock"
-            echo "🧪 使用模擬資料模式"
+            echo "Using mock data mode"
           else
-            echo "🚀 使用真實資料模式"
+            echo "Using real data mode"
           fi
 
           DASHBOARD_URL="${{ vars.STREAMLIT_DASHBOARD_URL }}"
@@ -97,40 +88,36 @@ jobs:
             if [ -n "$DASHBOARD_URL" ]; then
               CMD="$CMD --dashboard-url $DASHBOARD_URL"
             fi
-            echo "📱 將傳送 Telegram 通知"
+            echo "Telegram notification enabled"
           fi
 
-          echo "執行命令: $CMD"
+          echo "Running: $CMD"
           $CMD
 
-      # ── 儲存結果到 Repository ────────────────────────────────
-      - name: 💾 Commit Screening Results
+      - name: Commit Screening Results
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Stock Screener Bot"
 
-          # 檢查是否有變更
           if git diff --quiet results/; then
             echo "No changes to commit"
           else
             git add results/
             DATE=$(date +"%Y-%m-%d %H:%M UTC")
-            git commit -m "📊 每日篩選結果 - $DATE"
+            git commit -m "Daily screening results - $DATE"
 
-            # 處理 non-fast-forward: rebase 後再 push，最多重試 3 次
             for i in 1 2 3; do
               if git push origin claude/stock-screening-tool-Gggkw; then
-                echo "✅ 結果已提交至 repository"
+                echo "Results committed to repository"
                 break
               else
-                echo "⚠️ Push 衝突，嘗試 rebase 後重試 ($i/3)..."
+                echo "Push conflict, retrying with rebase ($i/3)..."
                 git pull --rebase origin claude/stock-screening-tool-Gggkw
               fi
             done
           fi
 
-      # ── 上傳結果為 Artifact ──────────────────────────────────
-      - name: 📤 Upload Results Artifact
+      - name: Upload Results Artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -141,8 +128,7 @@ jobs:
             results/*.log
           retention-days: 30
 
-      # ── 失敗通知 ──────────────────────────────────────────────
-      - name: 🚨 Send Failure Alert
+      - name: Send Failure Alert
         if: failure()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -158,7 +144,7 @@ jobs:
               requests.post(
                   f"https://api.telegram.org/bot{token}/sendMessage",
                   json={"chat_id": chat,
-                        "text": f"⚠️ 台股篩選系統執行失敗\n請檢查 Actions:\n{url}"},
+                        "text": f"Stock screening failed\nCheck Actions: {url}"},
                   timeout=10,
               )
           EOF
