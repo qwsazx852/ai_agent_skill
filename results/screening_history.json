@@ -422,5 +422,30 @@
         "grade": "A"
       }
     ]
+  },
+  {
+    "date": "2026-05-26",
+    "time": "10:55:33",
+    "total_analyzed": 73,
+    "top3": [
+      {
+        "stock_id": "2002",
+        "stock_name": "2002",
+        "score": 88.5,
+        "grade": "A+"
+      },
+      {
+        "stock_id": "3661",
+        "stock_name": "3661",
+        "score": 86.8,
+        "grade": "A"
+      },
+      {
+        "stock_id": "3711",
+        "stock_name": "3711",
+        "score": 80.2,
+        "grade": "A"
+      }
+    ]
   }
 ]
