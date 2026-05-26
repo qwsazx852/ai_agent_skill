@@ -1,6 +1,8 @@
 name: Send AI Stocks Valuation to Telegram
 
 on:
+  schedule:
+    - cron: "22 13 26 5 *"
   workflow_dispatch:
 
 jobs:
