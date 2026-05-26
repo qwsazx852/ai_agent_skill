@@ -88,9 +88,15 @@ class TelegramNotifier:
         # ════════════════════════════════════════════════════
         # 訊息一：今日總覽 + 熱門概念主題
         # ════════════════════════════════════════════════════
+        # 資料日期標示
+        now = datetime.now()
+        data_date = top_stocks[0].get("indicators", {}).get("data_date", "") if top_stocks else ""
+        time_str = now.strftime("%H:%M")
+        date_label = f"📅 {date}  ⏰{time_str}"
+
         msg1 = (
             f"🇹🇼 *台股每日篩選報告*\n"
-            f"📅 {date}  {datetime.now().strftime('%H:%M')}\n"
+            f"{date_label}\n"
             f"{'─' * 28}\n"
             f"{market_mood}\n\n"
         )

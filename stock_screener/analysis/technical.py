@@ -491,12 +491,18 @@ def analyze_technical(df: pd.DataFrame) -> Dict:
     # ========================
     # 整理最終結果
     # ========================
-    # 計算近期漲跌幅
+    # 計算近期漲跌幅 + 資料日期
     try:
         indicators["price"] = round(close.iloc[-1], 2)
         indicators["change_1d"] = round((close.iloc[-1] / close.iloc[-2] - 1) * 100, 2)
         indicators["change_5d"] = round((close.iloc[-1] / close.iloc[-5] - 1) * 100, 2)
         indicators["change_20d"] = round((close.iloc[-1] / close.iloc[-20] - 1) * 100, 2)
+        # 記錄最新資料日期（用於驗證資料新鮮度）
+        latest_idx = df.index[-1]
+        if hasattr(latest_idx, 'strftime'):
+            indicators["data_date"] = latest_idx.strftime("%Y-%m-%d")
+        else:
+            indicators["data_date"] = str(latest_idx)[:10]
     except Exception:
         pass
 

@@ -118,6 +118,22 @@ class StockScreener:
 
         logger.info(f"成功下載 {len(price_data)}/{len(tickers)} 檔價格資料")
 
+        # ─── Step 2.2: 資料新鮮度驗證 ─────────────────────────
+        if not use_mock_data and price_data:
+            from datetime import date, timedelta
+            import pandas as pd
+            today = date.today()
+            sample = next(iter(price_data.values()))
+            latest_date = sample.index[-1].date() if hasattr(sample.index[-1], 'date') else today
+            days_old = (today - latest_date).days
+            if days_old == 0:
+                logger.info(f"✅ 資料新鮮度: 今日盤後資料（{latest_date}）")
+            elif days_old == 1:
+                logger.warning(f"⚠️ 資料新鮮度: 昨日收盤資料（{latest_date}）"
+                               f"— 可能因非交易日或執行時間過早")
+            else:
+                logger.warning(f"⚠️ 資料新鮮度: 資料已 {days_old} 天未更新（最新: {latest_date}）")
+
         # ─── Step 2.5: 市場環境評估 ────────────────────────────
         logger.info("🌐 Step 2.5: 評估大盤市場環境...")
         market_env = get_market_environment(price_data_cache=price_data)
