@@ -12,13 +12,13 @@ jobs:
     steps:
       - name: Debug - Check Token Setup
         env:
-          TELEGRAM_BOT_TOKEN: ${{ vars.TELEGRAM_BOT_TOKEN_VAR }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           echo "Token length: ${#TELEGRAM_BOT_TOKEN}"
           echo "Chat ID length: ${#TELEGRAM_CHAT_ID}"
           if [ -z "$TELEGRAM_BOT_TOKEN" ]; then
-            echo "ERROR: TELEGRAM_BOT_TOKEN is EMPTY! Please set vars.TELEGRAM_BOT_TOKEN_VAR in GitHub"
+            echo "ERROR: TELEGRAM_BOT_TOKEN is EMPTY! Please set secrets.TELEGRAM_BOT_TOKEN in GitHub"
             exit 1
           fi
           if [ -z "$TELEGRAM_CHAT_ID" ]; then
@@ -30,7 +30,7 @@ jobs:
 
       - name: Send AI Stock Valuation Table
         env:
-          TELEGRAM_BOT_TOKEN: ${{ vars.TELEGRAM_BOT_TOKEN_VAR }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python3 - <<'EOF'
