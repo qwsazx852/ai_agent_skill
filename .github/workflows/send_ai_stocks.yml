@@ -10,6 +10,24 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Debug - Check Token Setup
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ vars.TELEGRAM_BOT_TOKEN_VAR }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          echo "Token length: ${#TELEGRAM_BOT_TOKEN}"
+          echo "Chat ID length: ${#TELEGRAM_CHAT_ID}"
+          if [ -z "$TELEGRAM_BOT_TOKEN" ]; then
+            echo "ERROR: TELEGRAM_BOT_TOKEN is EMPTY! Please set vars.TELEGRAM_BOT_TOKEN_VAR in GitHub"
+            exit 1
+          fi
+          if [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "ERROR: TELEGRAM_CHAT_ID is EMPTY!"
+            exit 1
+          fi
+          echo "Token starts with: ${TELEGRAM_BOT_TOKEN:0:10}..."
+          echo "All credentials present, proceeding..."
+
       - name: Send AI Stock Valuation Table
         env:
           TELEGRAM_BOT_TOKEN: ${{ vars.TELEGRAM_BOT_TOKEN_VAR }}
