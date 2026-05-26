@@ -5,12 +5,10 @@ on:
   schedule:
     - cron: "30 6 * * 1-5"  # 週一到週五 (台灣時間 14:30)
 
-  # Push 觸發（測試用，之後可移除）
+  # Push 觸發 - 每次推送程式碼時自動驗證
   push:
     branches:
       - claude/stock-screening-tool-Gggkw
-    paths:
-      - '.github/workflows/daily_screening.yml'
 
   # 允許手動觸發
   workflow_dispatch:
@@ -48,6 +46,7 @@ jobs:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
         with:
+          ref: claude/stock-screening-tool-Gggkw   # 明確指定分支，確保 cron 也取到正確代碼
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # ── Python 環境 ───────────────────────────────────────────
