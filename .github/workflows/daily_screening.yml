@@ -11,7 +11,7 @@ on:
     branches:
       - claude/stock-screening-tool-Gggkw
 
-  # 允許手動觸發
+  # 允許手動觸發 (上次觸發: 2026-05-26 11:30)
   workflow_dispatch:
     inputs:
       mode:
