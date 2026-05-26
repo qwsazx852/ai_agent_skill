@@ -44,8 +44,8 @@ jobs:
       - name: Run Stock Screening
         env:
           FINMIND_API_TOKEN: ${{ secrets.FINMIND_API_TOKEN }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ vars.TELEGRAM_BOT_TOKEN_VAR }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID_VAR || secrets.TELEGRAM_CHAT_ID }}
           PYTHONPATH: ${{ github.workspace }}
         run: |
           echo "Running stock screening with real data..."
@@ -88,8 +88,8 @@ jobs:
       - name: Send Failure Alert
         if: failure()
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ vars.TELEGRAM_BOT_TOKEN_VAR }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID_VAR || secrets.TELEGRAM_CHAT_ID }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           python3 - <<'EOF'
