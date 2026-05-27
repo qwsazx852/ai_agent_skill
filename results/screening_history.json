@@ -547,5 +547,30 @@
         "grade": "A"
       }
     ]
+  },
+  {
+    "date": "2026-05-27",
+    "time": "04:23:31",
+    "total_analyzed": 179,
+    "top3": [
+      {
+        "stock_id": "6277",
+        "stock_name": "宏正",
+        "score": 81.2,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6405",
+        "stock_name": "悅城",
+        "score": 80.2,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6412",
+        "stock_name": "群電",
+        "score": 75.0,
+        "grade": "B+"
+      }
+    ]
   }
 ]
