@@ -10,6 +10,11 @@ on:
       - claude/stock-screening-tool-Gggkw
 
   workflow_dispatch:
+    inputs:
+      telegram_token_override:
+        description: "Telegram Token (留空則用 Variable)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -44,7 +49,7 @@ jobs:
       - name: Run Stock Screening
         env:
           FINMIND_API_TOKEN: ${{ secrets.FINMIND_API_TOKEN }}
-          TELEGRAM_BOT_TOKEN: ${{ vars.TELEGRAM_BOT_TOKEN_VAR }}
+          TELEGRAM_BOT_TOKEN: ${{ github.event.inputs.telegram_token_override || vars.TELEGRAM_BOT_TOKEN_VAR || secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID_VAR || secrets.TELEGRAM_CHAT_ID }}
           PYTHONPATH: ${{ github.workspace }}
         run: |
@@ -88,7 +93,7 @@ jobs:
       - name: Send Failure Alert
         if: failure()
         env:
-          TELEGRAM_BOT_TOKEN: ${{ vars.TELEGRAM_BOT_TOKEN_VAR }}
+          TELEGRAM_BOT_TOKEN: ${{ github.event.inputs.telegram_token_override || vars.TELEGRAM_BOT_TOKEN_VAR || secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID_VAR || secrets.TELEGRAM_CHAT_ID }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
