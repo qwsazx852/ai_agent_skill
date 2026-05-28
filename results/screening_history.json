@@ -597,5 +597,30 @@
         "grade": "A"
       }
     ]
+  },
+  {
+    "date": "2026-05-28",
+    "time": "11:24:56",
+    "total_analyzed": 176,
+    "top3": [
+      {
+        "stock_id": "6552",
+        "stock_name": "易華電",
+        "score": 86.0,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6282",
+        "stock_name": "康舒",
+        "score": 84.7,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6277",
+        "stock_name": "宏正",
+        "score": 77.5,
+        "grade": "B+"
+      }
+    ]
   }
 ]
