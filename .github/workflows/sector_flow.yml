@@ -1,0 +1,104 @@
+name: Taiwan Stock Sector Flow Analysis
+
+on:
+  schedule:
+    # 台灣時間 14:00（UTC+8）= UTC 06:00，週一至週五盤後執行
+    - cron: "0 6 * * 1-5"
+
+  workflow_dispatch:
+    inputs:
+      top_n:
+        description: "各取前幾名（預設10）"
+        required: false
+        default: "10"
+
+permissions:
+  contents: write
+
+jobs:
+  sector-flow:
+    name: Sector Flow Analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: claude/similar-analysis-approach-RX04N
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create Results Directory
+        run: mkdir -p results
+
+      - name: Run Sector Flow Analysis
+        env:
+          FINMIND_API_TOKEN: ${{ secrets.FINMIND_API_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ vars.TELEGRAM_BOT_TOKEN_VAR || secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID_VAR || secrets.TELEGRAM_CHAT_ID }}
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          TOP=${{ github.event.inputs.top_n || '10' }}
+          python run_sector_flow.py --top $TOP
+
+      - name: Commit Results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Sector Flow Bot"
+
+          if git diff --quiet results/; then
+            echo "No changes to commit"
+          else
+            git add results/latest_sector_flow.json
+            DATE=$(date +"%Y-%m-%d %H:%M UTC")
+            git commit -m "Sector flow results - $DATE"
+
+            for i in 1 2 3; do
+              if git push origin claude/similar-analysis-approach-RX04N; then
+                break
+              else
+                echo "Push conflict, retrying ($i/3)..."
+                git pull --rebase origin claude/similar-analysis-approach-RX04N
+              fi
+            done
+          fi
+
+      - name: Upload Results Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sector-flow-${{ github.run_number }}
+          path: results/latest_sector_flow.json
+          retention-days: 30
+
+      - name: Send Failure Alert
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ vars.TELEGRAM_BOT_TOKEN_VAR || secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID_VAR || secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 - <<'EOF'
+          import os, requests
+          token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+          chat  = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+          url   = os.environ.get("RUN_URL", "")
+          if token and chat:
+              requests.post(
+                  f"https://api.telegram.org/bot{token}/sendMessage",
+                  json={"chat_id": chat,
+                        "text": f"⚠️ 族群資金流向分析失敗，請檢查: {url}"},
+                  timeout=10,
+              )
+          EOF

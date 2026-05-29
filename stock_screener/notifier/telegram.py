@@ -276,6 +276,57 @@ class TelegramNotifier:
             f"    {inst_str}\n"
         )
 
+    def send_sector_flow_report(
+        self,
+        top_buy: List[Dict],
+        top_sell: List[Dict],
+        date: str = "",
+        stocks_analyzed: int = 0,
+    ) -> bool:
+        """
+        傳送族群資金流向報告（仿盤後大戶資金流向格式）
+
+        Args:
+            top_buy:  買超 TOP N 列表，每項含 name/emoji/net_flow_yi/avg_change_pct
+            top_sell: 賣超 TOP N 列表
+            date:     報告日期
+            stocks_analyzed: 分析股票數
+        """
+        if not date:
+            date = datetime.now().strftime("%Y-%m-%d")
+
+        medals = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"]
+
+        def _flow_line(i: int, item: Dict, is_buy: bool) -> str:
+            sign = "+" if is_buy else ""
+            flow = item["net_flow_yi"]
+            chg = item["avg_change_pct"]
+            chg_str = f"+{chg:.2f}%" if chg >= 0 else f"{chg:.2f}%"
+            medal = medals[i] if i < len(medals) else f"{i+1}."
+            return (
+                f"{medal} {item['emoji']}{item['name']}  "
+                f"`{sign}{flow:.1f}億`  {chg_str}\n"
+            )
+
+        # ── 買超表 ──
+        buy_lines = "".join(_flow_line(i, t, True) for i, t in enumerate(top_buy))
+        # ── 賣超表 ──
+        sell_lines = "".join(_flow_line(i, t, False) for i, t in enumerate(top_sell))
+
+        msg = (
+            f"📊 *盤後族群資金流向*\n"
+            f"📅 {date}  （三大法人合計）\n"
+            f"{'─' * 30}\n\n"
+            f"🟢 *法人買超 TOP{len(top_buy)}*\n"
+            f"{buy_lines}\n"
+            f"🔴 *法人賣超 TOP{len(top_sell)}*\n"
+            f"{sell_lines}\n"
+            f"{'─' * 30}\n"
+            f"_分析 {stocks_analyzed} 支主題股，僅供參考_"
+        )
+
+        return self.send_message(msg)
+
     def send_error_alert(self, error_msg: str) -> bool:
         text = (
             f"⚠️ *台股篩選系統警告*\n\n{error_msg}\n\n"
