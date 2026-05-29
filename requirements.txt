@@ -10,6 +10,9 @@ numpy>=1.24.0
 # ta-lib (需要系統套件，可選)
 # ta>=0.11.0
 
+# 圖表生成
+matplotlib>=3.8.0
+
 # Streamlit Dashboard
 streamlit>=1.32.0
 plotly>=5.18.0

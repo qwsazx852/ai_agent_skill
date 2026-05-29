@@ -79,10 +79,10 @@ def main():
         json.dump(result, f, ensure_ascii=False, indent=2)
     logger.info(f"結果已儲存至 {out_file}")
 
-    # ── Telegram 通知 ─────────────────────────────────────────
+    # ── Telegram 通知（圖片格式）────────────────────────────────
     if not args.no_notify:
         notifier = TelegramNotifier()
-        ok = notifier.send_sector_flow_report(
+        ok = notifier.send_sector_flow_image(
             top_buy=top_buy,
             top_sell=top_sell,
             date=date,

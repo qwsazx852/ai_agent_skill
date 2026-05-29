@@ -276,6 +276,64 @@ class TelegramNotifier:
             f"    {inst_str}\n"
         )
 
+    def send_photo(self, image_bytes: bytes, caption: str = "") -> bool:
+        """透過 Telegram sendPhoto API 傳送圖片"""
+        if not self._is_configured():
+            logger.warning("Telegram 未設定 BOT_TOKEN 或 CHAT_ID")
+            return False
+        try:
+            import requests
+            resp = requests.post(
+                f"{self.base_url}/sendPhoto",
+                data={"chat_id": self.chat_id, "caption": caption},
+                files={"photo": ("sector_flow.png", image_bytes, "image/png")},
+                timeout=30,
+            )
+            if resp.status_code == 200:
+                logger.info("Telegram 圖片傳送成功")
+                return True
+            logger.error(f"Telegram 圖片傳送失敗: {resp.status_code} {resp.text}")
+            return False
+        except Exception as e:
+            logger.error(f"Telegram 圖片傳送例外: {e}")
+            return False
+
+    def send_sector_flow_image(
+        self,
+        top_buy: List[Dict],
+        top_sell: List[Dict],
+        date: str = "",
+        stocks_analyzed: int = 0,
+    ) -> bool:
+        """
+        生成族群資金流向圖片並傳送（仿盤後大戶資金流向格式）
+        圖片生成失敗時自動降級為文字訊息
+        """
+        if not date:
+            date = datetime.now().strftime("%Y-%m-%d")
+
+        try:
+            from .image_report import generate_sector_flow_image
+            image_bytes = generate_sector_flow_image(
+                top_buy=top_buy,
+                top_sell=top_sell,
+                date=date,
+                stocks_analyzed=stocks_analyzed,
+            )
+            if image_bytes:
+                caption = f"盤後族群資金流向  {date}"
+                return self.send_photo(image_bytes, caption=caption)
+        except Exception as e:
+            logger.warning(f"圖片生成失敗，降級為文字: {e}")
+
+        # 降級：傳送文字版本
+        return self.send_sector_flow_report(
+            top_buy=top_buy,
+            top_sell=top_sell,
+            date=date,
+            stocks_analyzed=stocks_analyzed,
+        )
+
     def send_sector_flow_report(
         self,
         top_buy: List[Dict],
