@@ -13,24 +13,76 @@ from typing import Dict, List, Optional, Tuple
 logger = logging.getLogger(__name__)
 
 # ── emoji 字元範圍（CJK 字型不支援）──────────────────────────────────────
-# 只保留 BMP 基本字元（U+0000–U+FFFF 中的非符號部分）及中英數字
-_EMOJI_RE = re.compile(
-    "["
-    "\U0001F000-\U0001FFFF"   # Supplemental symbols, emoji, mahjong…
-    "\U00002600-\U000027BF"   # Misc symbols, dingbats
-    "\U0000FE00-\U0000FE0F"   # Variation selectors
-    "\U0000200D"               # Zero-width joiner
-    "\U000023CF"               # Eject (correct 8-digit form)
-    "\U000023E9-\U000023F3"   # Clock/media symbols
-    "\U000023F8-\U000023FA"
-    "\U000025AA-\U000025FE"   # Geometric shapes
-    "\U00002702-\U000027B0"   # Dingbats
-    "\U00002B00-\U00002BFF"   # Misc symbols and arrows
-    "\U00003030"
-    "\U0000303D"
-    "]+",
-    flags=re.UNICODE,
-)
+# Build the pattern programmatically to avoid Unicode-escape edge cases in
+# string literal concatenation.
+_EMOJI_RANGES = [
+    (0x1F300, 0x1F9FF),
+    (0x1FA00, 0x1FA6F),
+    (0x1FA70, 0x1FAFF),
+    (0x2702,  0x27B0),
+    (0xFE00,  0xFE0F),
+    (0x2640,  0x2642),
+    (0x2600,  0x2B55),
+    (0x200D,  0x200D),
+    (0x23CF,  0x23CF),
+    (0x23E9,  0x23F3),
+    (0x23F8,  0x23FA),
+    (0x25AA,  0x25FE),
+    (0x2614,  0x2615),
+    (0x2648,  0x2653),
+    (0x267F,  0x267F),
+    (0x2693,  0x2693),
+    (0x26A1,  0x26A1),
+    (0x26AA,  0x26AB),
+    (0x26BD,  0x26BE),
+    (0x26C4,  0x26C5),
+    (0x26CE,  0x26CE),
+    (0x26D4,  0x26D4),
+    (0x26EA,  0x26EA),
+    (0x26F2,  0x26F3),
+    (0x26F5,  0x26F5),
+    (0x26FA,  0x26FA),
+    (0x26FD,  0x26FD),
+    (0x2702,  0x2702),
+    (0x2705,  0x2705),
+    (0x2708,  0x270D),
+    (0x270F,  0x270F),
+    (0x2712,  0x2712),
+    (0x2714,  0x2714),
+    (0x2716,  0x2716),
+    (0x271D,  0x271D),
+    (0x2721,  0x2721),
+    (0x2728,  0x2728),
+    (0x2733,  0x2734),
+    (0x2744,  0x2744),
+    (0x2747,  0x2747),
+    (0x274C,  0x274C),
+    (0x274E,  0x274E),
+    (0x2753,  0x2755),
+    (0x2757,  0x2757),
+    (0x2763,  0x2764),
+    (0x2795,  0x2797),
+    (0x27A1,  0x27A1),
+    (0x27B0,  0x27B0),
+    (0x27BF,  0x27BF),
+    (0x2934,  0x2935),
+    (0x2B05,  0x2B07),
+    (0x2B1B,  0x2B1C),
+    (0x2B50,  0x2B50),
+    (0x2B55,  0x2B55),
+    (0x3030,  0x3030),
+    (0x303D,  0x303D),
+    (0x329D,  0x329D),
+    (0x3297,  0x3297),
+    (0x3299,  0x3299),
+]
+
+_EMOJI_PATTERN = "[" + "".join(
+    chr(lo) if lo == hi else f"{chr(lo)}-{chr(hi)}"
+    for lo, hi in _EMOJI_RANGES
+) + "]+"
+
+_EMOJI_RE = re.compile(_EMOJI_PATTERN, flags=re.UNICODE)
 
 
 def _strip_emoji(text: str) -> str:
@@ -508,12 +560,12 @@ def generate_sector_flow_image(
         )
         fig.add_artist(quote_patch)
 
-        # 大引號裝飾
+        # 大引號裝飾（左上角）
         add_text(
             QUOTE_X + QUOTE_W * 0.12,
             analysis_bot + fh(ANALYSIS_H) - fh(0.28),
-            "66",   # decorative open-quote using ASCII double-6 style
-            size=28, color=C['quote_brd'], weight="bold", ha="center", zorder=6,
+            "❝",   # ❝ HEAVY DOUBLE TURNED COMMA QUOTATION MARK ORNAMENT
+            size=30, color=C['quote_brd'], ha="center", zorder=6,
         )
 
         # 引言文字（手動換行，每行約 16 字）
