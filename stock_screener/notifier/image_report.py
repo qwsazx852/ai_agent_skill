@@ -1,190 +1,233 @@
 """
-族群資金流向圖片生成器 — 漫畫 / Manga 風格
-輸出卡通漫畫感 PNG，仿照盤後大戶資金流向版面
+族群資金流向圖片生成器 — Pillow 高品質版
+使用 PIL 實現漸層、陰影、圓角面板，仿照盤後大戶資金流向風格
 """
 
 import io
 import logging
-import math
 import os
 import re
 from typing import Dict, List, Optional, Tuple
 
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
+
 logger = logging.getLogger(__name__)
 
-# ── emoji 字元範圍（CJK 字型不支援）──────────────────────────────────────
-# Build the pattern programmatically to avoid Unicode-escape edge cases in
-# string literal concatenation.
+# ── emoji 剝離（程式化建立，避免 Unicode escape 問題）────────────────────
 _EMOJI_RANGES = [
-    (0x1F300, 0x1F9FF),
-    (0x1FA00, 0x1FA6F),
-    (0x1FA70, 0x1FAFF),
-    (0x2702,  0x27B0),
-    (0xFE00,  0xFE0F),
-    (0x2640,  0x2642),
-    (0x2600,  0x2B55),
-    (0x200D,  0x200D),
-    (0x23CF,  0x23CF),
-    (0x23E9,  0x23F3),
-    (0x23F8,  0x23FA),
-    (0x25AA,  0x25FE),
-    (0x2614,  0x2615),
-    (0x2648,  0x2653),
-    (0x267F,  0x267F),
-    (0x2693,  0x2693),
-    (0x26A1,  0x26A1),
-    (0x26AA,  0x26AB),
-    (0x26BD,  0x26BE),
-    (0x26C4,  0x26C5),
-    (0x26CE,  0x26CE),
-    (0x26D4,  0x26D4),
-    (0x26EA,  0x26EA),
-    (0x26F2,  0x26F3),
-    (0x26F5,  0x26F5),
-    (0x26FA,  0x26FA),
-    (0x26FD,  0x26FD),
-    (0x2702,  0x2702),
-    (0x2705,  0x2705),
-    (0x2708,  0x270D),
-    (0x270F,  0x270F),
-    (0x2712,  0x2712),
-    (0x2714,  0x2714),
-    (0x2716,  0x2716),
-    (0x271D,  0x271D),
-    (0x2721,  0x2721),
-    (0x2728,  0x2728),
-    (0x2733,  0x2734),
-    (0x2744,  0x2744),
-    (0x2747,  0x2747),
-    (0x274C,  0x274C),
-    (0x274E,  0x274E),
-    (0x2753,  0x2755),
-    (0x2757,  0x2757),
-    (0x2763,  0x2764),
-    (0x2795,  0x2797),
-    (0x27A1,  0x27A1),
-    (0x27B0,  0x27B0),
-    (0x27BF,  0x27BF),
-    (0x2934,  0x2935),
-    (0x2B05,  0x2B07),
-    (0x2B1B,  0x2B1C),
-    (0x2B50,  0x2B50),
-    (0x2B55,  0x2B55),
-    (0x3030,  0x3030),
-    (0x303D,  0x303D),
-    (0x329D,  0x329D),
-    (0x3297,  0x3297),
-    (0x3299,  0x3299),
+    (0x1F300, 0x1F9FF), (0x1FA00, 0x1FAFF),
+    (0x2600,  0x27BF),  (0xFE00,  0xFE0F),
+    (0x200D,  0x200D),  (0x23CF,  0x23CF),
+    (0x23E9,  0x23FA),  (0x25AA,  0x25FE),
+    (0x2B00,  0x2BFF),  (0x3030,  0x303D),
 ]
-
-_EMOJI_PATTERN = "[" + "".join(
-    chr(lo) if lo == hi else f"{chr(lo)}-{chr(hi)}"
-    for lo, hi in _EMOJI_RANGES
-) + "]+"
-
-_EMOJI_RE = re.compile(_EMOJI_PATTERN, flags=re.UNICODE)
+_EMOJI_RE = re.compile(
+    "[" + "".join(
+        chr(lo) if lo == hi else f"{chr(lo)}-{chr(hi)}"
+        for lo, hi in _EMOJI_RANGES
+    ) + "]+",
+    flags=re.UNICODE,
+)
 
 
 def _strip_emoji(text: str) -> str:
-    """移除 CJK 字型不支援的 emoji，保留中英文"""
     return _EMOJI_RE.sub("", text).strip()
 
 
-def _find_cjk_font() -> Optional[str]:
+# ── 字型載入 ──────────────────────────────────────────────────────────────
+
+def _find_font(bold: bool = False) -> Optional[str]:
     """
-    尋找系統上可用的 CJK 字型，回傳完整路徑或 None
-    優先順序: Noto Sans CJK TC > WenQuanYi > 任何含 noto/cjk/wqy 的字型
+    搜尋系統 CJK 字型，優先找 Bold/Heavy 字重
+    回傳 TTF/OTF/TTC 完整路徑，找不到回傳 None
     """
     try:
         import matplotlib.font_manager as fm
-
-        # 先讓 matplotlib 重新掃描（確保剛安裝的字型被識別）
         try:
             fm._load_fontmanager(try_read_cache=False)
         except Exception:
             pass
+        name_to = {f.name: f.fname for f in fm.fontManager.ttflist}
 
-        preferred = [
-            "Noto Sans CJK TC", "Noto Sans TC",
-            "Noto Sans CJK SC", "Noto Sans CJK JP",
-            "WenQuanYi Zen Hei", "AR PL UMing TW",
-        ]
-        name_to_path = {f.name: f.fname for f in fm.fontManager.ttflist}
-        for name in preferred:
-            if name in name_to_path:
-                logger.debug(f"找到中文字型: {name}")
-                return name_to_path[name]
+        if bold:
+            for name in ["Noto Sans CJK TC", "Noto Sans TC",
+                         "Noto Sans CJK SC", "Noto Sans CJK JP"]:
+                if name in name_to:
+                    return name_to[name]
+        # fallback to regular
+        for name in ["Noto Sans CJK TC", "Noto Sans TC",
+                     "Noto Sans CJK SC", "WenQuanYi Zen Hei", "AR PL UMing TW"]:
+            if name in name_to:
+                return name_to[name]
+    except Exception:
+        pass
 
-        # 搜尋字型目錄（GitHub Actions / Linux 路徑）
-        keywords = ["notosanscjk", "noto_sans_cjk", "wqy", "wenquanyi", "cjk"]
-        for base in ["/usr/share/fonts", "/usr/local/share/fonts",
-                     os.path.expanduser("~/.fonts")]:
-            if not os.path.isdir(base):
-                continue
-            for root, _, files in os.walk(base):
-                for f in files:
-                    if not f.lower().endswith((".ttf", ".otf", ".ttc")):
-                        continue
-                    fl = f.lower().replace("-", "").replace("_", "")
-                    if any(kw in fl for kw in keywords):
-                        path = os.path.join(root, f)
-                        logger.debug(f"找到字型檔案: {path}")
-                        return path
-    except Exception as e:
-        logger.debug(f"字型搜尋失敗: {e}")
+    # 直接掃目錄
+    bold_kw  = ["bold", "heavy", "black", "medium"] if bold else []
+    base_kw  = ["notosanscjk", "noto_sans_cjk", "wqy", "wenquanyi"]
+    for base in ["/usr/share/fonts", "/usr/local/share/fonts",
+                 os.path.expanduser("~/.fonts")]:
+        if not os.path.isdir(base):
+            continue
+        for root, _, files in os.walk(base):
+            for f in files:
+                if not f.lower().endswith((".ttf", ".otf", ".ttc")):
+                    continue
+                fl = f.lower().replace("-", "").replace("_", "")
+                is_cjk = any(k in fl for k in base_kw)
+                is_bold = any(k in fl for k in bold_kw)
+                if is_cjk and (not bold or is_bold):
+                    return os.path.join(root, f)
     return None
 
+
+class _Fonts:
+    """按尺寸快取 ImageFont，自動回退到 default"""
+    def __init__(self):
+        self._bold_path   = _find_font(bold=True)
+        self._regular_path = _find_font(bold=False)
+        self._cache: Dict[Tuple, ImageFont.FreeTypeFont] = {}
+        logger.debug(f"Bold font:   {self._bold_path}")
+        logger.debug(f"Regular font:{self._regular_path}")
+
+    def get(self, size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
+        key = (size, bold)
+        if key not in self._cache:
+            path = (self._bold_path if bold else None) or self._regular_path
+            if path:
+                try:
+                    self._cache[key] = ImageFont.truetype(path, size)
+                    return self._cache[key]
+                except Exception:
+                    pass
+            self._cache[key] = ImageFont.load_default(size=size)
+        return self._cache[key]
+
+
+# ── 繪圖工具 ──────────────────────────────────────────────────────────────
+
+def _hex(c: str) -> Tuple[int, int, int]:
+    c = c.lstrip("#")
+    return int(c[0:2], 16), int(c[2:4], 16), int(c[4:6], 16)
+
+
+def _gradient(w: int, h: int,
+               c1: Tuple, c2: Tuple,
+               vertical: bool = True) -> Image.Image:
+    """線性漸層，回傳 RGBA Image"""
+    arr = np.zeros((h, w, 4), dtype=np.uint8)
+    t = (np.linspace(0, 1, h if vertical else w)
+         .reshape(-1, 1) if vertical else
+         np.linspace(0, 1, w).reshape(1, -1))
+    for ch in range(3):
+        val = (c1[ch] * (1 - t) + c2[ch] * t).astype(np.uint8)
+        if vertical:
+            arr[:, :, ch] = np.broadcast_to(val, (h, w))
+        else:
+            arr[:, :, ch] = np.broadcast_to(val, (h, w))
+    arr[:, :, 3] = 255
+    return Image.fromarray(arr, "RGBA")
+
+
+def _shadow_layer(canvas_size: Tuple[int, int],
+                  x: int, y: int, w: int, h: int,
+                  radius: int,
+                  shadow_color: Tuple = (0, 0, 0),
+                  alpha: int = 140,
+                  blur: int = 14,
+                  offset: Tuple[int, int] = (4, 8)) -> Image.Image:
+    layer = Image.new("RGBA", canvas_size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    sx, sy = x + offset[0], y + offset[1]
+    d.rounded_rectangle([sx, sy, sx + w, sy + h], radius=radius,
+                         fill=(*shadow_color, alpha))
+    return layer.filter(ImageFilter.GaussianBlur(blur))
+
+
+def _draw_text_centered(draw: ImageDraw.ImageDraw,
+                         cx: int, cy: int, text: str,
+                         font: ImageFont.FreeTypeFont,
+                         fill: Tuple,
+                         stroke_width: int = 0,
+                         stroke_fill: Optional[Tuple] = None):
+    """水平垂直置中繪製文字"""
+    bbox = font.getbbox(text)
+    tw = bbox[2] - bbox[0]
+    th = bbox[3] - bbox[1]
+    x = cx - tw // 2 - bbox[0]
+    y = cy - th // 2 - bbox[1]
+    kw: dict = {"fill": fill}
+    if stroke_width:
+        kw["stroke_width"] = stroke_width
+        kw["stroke_fill"] = stroke_fill or (0, 0, 0)
+    draw.text((x, y), text, font=font, **kw)
+
+
+def _draw_text_left(draw: ImageDraw.ImageDraw,
+                     x: int, cy: int, text: str,
+                     font: ImageFont.FreeTypeFont,
+                     fill: Tuple,
+                     stroke_width: int = 0,
+                     stroke_fill: Optional[Tuple] = None):
+    """左對齊、垂直置中繪製文字"""
+    bbox = font.getbbox(text)
+    th = bbox[3] - bbox[1]
+    y = cy - th // 2 - bbox[1]
+    kw: dict = {"fill": fill}
+    if stroke_width:
+        kw["stroke_width"] = stroke_width
+        kw["stroke_fill"] = stroke_fill or (0, 0, 0)
+    draw.text((x, y), text, font=font, **kw)
+
+
+def _draw_text_right(draw: ImageDraw.ImageDraw,
+                      rx: int, cy: int, text: str,
+                      font: ImageFont.FreeTypeFont,
+                      fill: Tuple,
+                      stroke_width: int = 0,
+                      stroke_fill: Optional[Tuple] = None):
+    """右對齊、垂直置中繪製文字"""
+    bbox = font.getbbox(text)
+    tw = bbox[2] - bbox[0]
+    th = bbox[3] - bbox[1]
+    x = rx - tw - bbox[0]
+    y = cy - th // 2 - bbox[1]
+    kw: dict = {"fill": fill}
+    if stroke_width:
+        kw["stroke_width"] = stroke_width
+        kw["stroke_fill"] = stroke_fill or (0, 0, 0)
+    draw.text((x, y), text, font=font, **kw)
+
+
+# ── 自動生成分析文字 ───────────────────────────────────────────────────────
 
 def _generate_analysis(
     top_buy: List[Dict],
     top_sell: List[Dict],
 ) -> Tuple[List[str], str]:
-    """
-    根據買超/賣超資料自動生成分析觀察重點與結語
+    buy3 = "、".join(_strip_emoji(t.get("name", "")) for t in top_buy[:3]) or "—"
+    sell2 = "、".join(_strip_emoji(t.get("name", "")) for t in top_sell[:2]) or "—"
 
-    Returns:
-        (bullets, quote) — bullets 有 4 條，quote 為一句話
-    """
-    # ── Bullet 1: 大戶資金聚焦（前三買超） ──────────────────────────
-    buy_names_3 = "、".join(
-        _strip_emoji(item.get("name", "")) for item in top_buy[:3]
-    ) if top_buy else "—"
-    b1 = f"大戶資金聚焦：{buy_names_3}，資金明顯流入"
+    b1 = f"大戶資金聚焦：{buy3}，資金明顯流入"
 
-    # ── Bullet 2: 買超前三強平均漲幅 ────────────────────────────────
     if top_buy:
-        buy_total = sum(item.get("net_flow_yi", 0) for item in top_buy)
-        top3_changes = [
-            item.get("avg_change_pct", 0) for item in top_buy[:3]
-        ]
-        avg_chg = sum(top3_changes) / len(top3_changes) if top3_changes else 0
-        b2 = (
-            f"買超前三強平均漲幅 +{avg_chg:.2f}%，"
-            f"{buy_total:.0f}億強勢入場"
-        )
+        total = sum(t.get("net_flow_yi", 0) for t in top_buy)
+        avg3  = sum(t.get("avg_change_pct", 0) for t in top_buy[:3]) / 3
+        b2 = f"買超前三強均漲 +{avg3:.2f}%，{total:.0f}億強勢入場"
     else:
         b2 = "買超資料暫無，請關注後續法人動向"
 
-    # ── Bullet 3: 賣超前兩名 ─────────────────────────────────────────
-    sell_names_2 = "、".join(
-        _strip_emoji(item.get("name", "")) for item in top_sell[:2]
-    ) if top_sell else "—"
-    b3 = f"{sell_names_2} 遭法人調節，資金轉向上游題材"
+    b3 = f"{sell2} 遭法人調節，資金轉向上游題材"
 
-    # ── Bullet 4: 市場輪動判斷 ─────────────────────────────────────────
-    any_high = any(
-        item.get("avg_change_pct", 0) > 3.0 for item in top_buy
-    )
-    if any_high:
-        b4 = "市場輪動加速，聚焦高成長與低基期標的"
-    else:
-        b4 = "族群分化明顯，選股優於選市"
+    any_high = any(t.get("avg_change_pct", 0) > 3.0 for t in top_buy)
+    b4 = "市場輪動加速，聚焦高成長與低基期標的" if any_high else "族群分化明顯，選股優於選市"
 
-    # ── Quote ───────────────────────────────────────────────────────────
     quote = "資金不會說謊，大戶的選擇，就是下一波趨勢的線索！"
-
     return [b1, b2, b3, b4], quote
 
+
+# ── 主要生成函式 ───────────────────────────────────────────────────────────
 
 def generate_sector_flow_image(
     top_buy: List[Dict],
@@ -193,414 +236,282 @@ def generate_sector_flow_image(
     stocks_analyzed: int = 0,
 ) -> Optional[bytes]:
     """
-    生成漫畫/Manga 風格的族群資金流向圖片
-
-    Args:
-        top_buy:         買超族群列表 [{name, emoji, net_flow_yi, avg_change_pct}, ...]
-        top_sell:        賣超族群列表
-        date:            報告日期字串
-        stocks_analyzed: 分析股票總數
+    生成高品質族群資金流向圖片（Pillow 版）
 
     Returns:
-        PNG bytes，生成失敗回傳 None
+        PNG bytes or None
     """
     try:
-        import matplotlib
-        matplotlib.use("Agg")
-        import matplotlib.pyplot as plt
-        import matplotlib.patches as mpa
-        import matplotlib.patheffects as pe
-        from matplotlib.font_manager import FontProperties
-        from matplotlib.lines import Line2D
+        fonts = _Fonts()
 
-        # ── 字型 ──────────────────────────────────────────────────────────
-        font_path = _find_cjk_font()
-        FP: Optional[FontProperties] = (
-            FontProperties(fname=font_path) if font_path else None
-        )
-        matplotlib.rcParams["axes.unicode_minus"] = False
-        if FP:
-            matplotlib.rcParams["font.family"] = [FP.get_name(), "DejaVu Sans"]
+        # ── 配色 ──────────────────────────────────────────────────────────
+        BG        = _hex("#0d0d1a")
+        TITLE_G1  = _hex("#1e1e42")   # 標題漸層上
+        TITLE_G2  = _hex("#0d0d1a")   # 標題漸層下
+        BUY_G1    = _hex("#c0001e")   # 買超標頭漸層上
+        BUY_G2    = _hex("#800012")   # 買超標頭漸層下
+        SELL_G1   = _hex("#007040")   # 賣超標頭漸層上
+        SELL_G2   = _hex("#004428")   # 賣超標頭漸層下
+        BUY_BG    = _hex("#160408")   # 買超面板底色
+        SELL_BG   = _hex("#040e08")   # 賣超面板底色
+        BUY_BRD   = _hex("#ff3355")
+        SELL_BRD  = _hex("#00dd66")
+        COL_BG    = _hex("#181e2c")   # 欄位標頭底色
+        ROW_A     = _hex("#0d0d1a")
+        ROW_B     = _hex("#131322")
+        ANAL_BG   = _hex("#1a1600")   # 分析區底色
+        ANAL_BRD  = _hex("#ffcc00")
+        QUOTE_BG  = _hex("#10102a")
+        QUOTE_BRD = _hex("#ff8800")
+        WHITE     = (255, 255, 255)
+        GOLD      = _hex("#ffd700")
+        SILVER    = _hex("#c8c8c8")
+        BRONZE    = _hex("#cd7f32")
+        SUB       = _hex("#7a7a9a")
+        BUY_VAL   = _hex("#ff7070")
+        SELL_VAL  = _hex("#55ee88")
+        POS       = _hex("#44dd77")
+        NEG       = _hex("#ff5555")
+        DECO_LINE = _hex("#ffcc00")
 
-        # ── 漫畫配色 ──────────────────────────────────────────────────────
-        C = {
-            'bg':           '#0d0d1a',   # very dark navy
-            'title_bg':     '#1a1a3a',   # dark purple-blue for title area
-            'title_line':   '#ffdd00',   # yellow gold for speed lines / decorations
-            'buy_hdr':      '#cc0022',   # saturated red for buy header
-            'sell_hdr':     '#007744',   # saturated green for sell header
-            'buy_border':   '#ff3355',   # bright red border
-            'sell_border':  '#00dd66',   # bright green border
-            'buy_bg':       '#1a0508',   # dark red tint background
-            'sell_bg':      '#051a08',   # dark green tint background
-            'col_hdr':      '#1f2937',   # dark gray for column header row
-            'row_a':        '#0d0d1a',   # same as bg
-            'row_b':        '#151525',   # slightly lighter for alternating rows
-            'white':        '#ffffff',
-            'gold':         '#ffd700',
-            'silver':       '#c0c0c0',
-            'bronze':       '#cd7f32',
-            'sub':          '#8b8ba0',
-            'buy_val':      '#ff6b6b',   # light red for buy amounts
-            'sell_val':     '#69ff94',   # light green for sell amounts
-            'pos':          '#4ade80',   # green for positive % change
-            'neg':          '#f87171',   # red for negative % change
-            'analysis_bg':  '#1e1a00',   # dark yellow tint for analysis bg
-            'analysis_brd': '#ffdd00',   # yellow border for analysis section
-            'quote_bg':     '#1a1a3a',   # same as title bg for quote
-            'quote_brd':    '#ff9900',   # orange for quote border
-        }
+        # ── Layout (px) ────────────────────────────────────────────────────
+        W         = 1600
+        PAD       = 24          # 外邊距
+        GAP       = 18          # 左右面板間距
+        TITLE_H   = 200
+        SEC_H     = 64          # 族群標頭高
+        COL_H     = 46          # 欄位標頭高
+        ROW_H     = 56          # 資料行高
+        ANAL_H    = 220         # 分析區高
+        FOOT_H    = 44
+        RADIUS    = 14          # 圓角半徑
 
-        # ── Layout（英寸）─────────────────────────────────────────────────
-        FW       = 14.0    # 圖片寬度（英寸）
-        TITLE_H  = 1.90    # 標題區高度
-        SEC_H    = 0.55    # 族群標頭高度
-        COL_H    = 0.42    # 欄位標頭高度
-        ROW_H    = 0.50    # 每筆資料行高度
-        ANALYSIS_H = 2.0   # 分析區高度
-        FOOT_H   = 0.30    # 頁尾高度
+        n         = max(len(top_buy), len(top_sell), 1)
+        PANEL_H   = SEC_H + COL_H + n * ROW_H
+        H         = TITLE_H + PANEL_H + ANAL_H + FOOT_H + PAD * 3
 
-        n = max(len(top_buy), len(top_sell), 1)
-        FH = TITLE_H + SEC_H + COL_H + n * ROW_H + ANALYSIS_H + FOOT_H
+        PW        = (W - PAD * 2 - GAP) // 2   # 單一面板寬
+        LX        = PAD                          # 左面板 x
+        RX        = PAD + PW + GAP              # 右面板 x
+        PANEL_Y   = TITLE_H + PAD               # 面板頂部 y
+        ANAL_Y    = PANEL_Y + PANEL_H + PAD     # 分析區頂部 y
+        FOOT_Y    = ANAL_Y + ANAL_H + PAD // 2
 
-        fig = plt.figure(figsize=(FW, FH), facecolor=C['bg'], dpi=150)
+        # ── 建立畫布（RGBA 支援陰影合成）────────────────────────────────
+        img = Image.new("RGBA", (W, H), (*BG, 255))
 
-        # 英寸 → figure 正規化座標
-        def fh(inches: float) -> float:
-            return inches / FH
+        # ── ① 標題漸層背景 ────────────────────────────────────────────
+        title_grad = _gradient(W, TITLE_H, TITLE_G1, TITLE_G2)
+        img.paste(title_grad, (0, 0))
 
-        # ── 各區域邊界（figure 座標，y=0 在底部） ────────────────────────
-        title_bot   = 1.0 - fh(TITLE_H)
-        sec_bot     = title_bot - fh(SEC_H)
-        col_bot     = sec_bot - fh(COL_H)
+        # 上下裝飾金線
+        draw = ImageDraw.Draw(img)
+        for yy, thick in [(3, 3), (TITLE_H - 4, 2)]:
+            draw.rectangle([PAD, yy, W - PAD, yy + thick], fill=(*DECO_LINE, 200))
 
-        def row_bot(i: int) -> float:
-            return col_bot - fh((i + 1) * ROW_H)
+        # 標題文字
+        t_cx = W // 2
+        f_title = fonts.get(54, bold=True)
+        f_sub   = fonts.get(24, bold=False)
+        f_info  = fonts.get(19, bold=False)
 
-        analysis_bot = row_bot(n - 1) - fh(ANALYSIS_H)
-        foot_cen     = fh(FOOT_H) / 2
+        _draw_text_centered(draw, t_cx, 72, "盤後族群資金流向",
+                            f_title, GOLD, stroke_width=2,
+                            stroke_fill=_hex("#0d0d1a"))
+        _draw_text_centered(draw, t_cx, 128,
+                            "三大法人在買什麼？賣什麼？",
+                            f_sub, WHITE)
+        _draw_text_centered(draw, t_cx, 167,
+                            f"{date}　|　分析 {stocks_analyzed} 支主題股票",
+                            f_info, SUB)
 
-        # ── 通用繪圖工具 ──────────────────────────────────────────────────
-        def add_rect(x, y, w, h_inch, color, zorder=1, edgecolor="none", lw=0,
-                     radius=0.0):
-            if radius > 0:
-                patch = mpa.FancyBboxPatch(
-                    (x, y), w, fh(h_inch),
-                    boxstyle=f"round,pad={radius}",
-                    transform=fig.transFigure,
-                    facecolor=color, edgecolor=edgecolor,
-                    linewidth=lw, zorder=zorder,
-                )
-            else:
-                patch = mpa.Rectangle(
-                    (x, y), w, fh(h_inch),
-                    transform=fig.transFigure,
-                    facecolor=color, edgecolor=edgecolor,
-                    linewidth=lw, zorder=zorder,
-                )
-            fig.add_artist(patch)
-            return patch
+        # ── ② 面板陰影 ────────────────────────────────────────────────
+        for px in [LX, RX]:
+            shadow = _shadow_layer((W, H), px, PANEL_Y, PW, PANEL_H,
+                                   RADIUS, shadow_color=(0, 0, 0),
+                                   alpha=160, blur=18, offset=(6, 10))
+            img = Image.alpha_composite(img, shadow)
 
-        def add_text(x, y, s, size=11, color=None, weight="normal",
-                     ha="center", va="center", zorder=5,
-                     stroke=False, stroke_lw=3, stroke_fg=None):
-            color = color or C['white']
-            kw: dict = dict(
-                transform=fig.transFigure,
-                fontsize=size, color=color,
-                fontweight=weight, ha=ha, va=va, zorder=zorder,
-            )
-            if FP:
-                kw["fontproperties"] = FP
-            txt = fig.text(x, y, s, **kw)
-            if stroke:
-                fg = stroke_fg or C['bg']
-                txt.set_path_effects([
-                    pe.withStroke(linewidth=stroke_lw, foreground=fg)
-                ])
-            return txt
+        draw = ImageDraw.Draw(img)
 
-        # ── ① 標題區背景 ─────────────────────────────────────────────────
-        add_rect(0, title_bot, 1.0, TITLE_H, C['title_bg'], zorder=1)
+        # ── ③ 面板主體 ────────────────────────────────────────────────
+        def draw_panel(px: int, items: List[Dict], is_buy: bool):
+            bg     = BUY_BG   if is_buy else SELL_BG
+            brd    = BUY_BRD  if is_buy else SELL_BRD
+            g1, g2 = (BUY_G1, BUY_G2) if is_buy else (SELL_G1, SELL_G2)
+            v_col  = BUY_VAL  if is_buy else SELL_VAL
+            arrow  = "▲" if is_buy else "▼"
+            label  = f"法人買超  TOP{len(items)}  {arrow}" if is_buy \
+                     else f"法人賣超  TOP{len(items)}  {arrow}"
 
-        # ── ② 速度線（漫畫感） ─────────────────────────────────────────
-        for angle_deg in range(-160, -20, 10):
-            rad = math.radians(angle_deg)
-            x1 = 0.5 + 0.05 * math.cos(rad)
-            y1 = 1.0 + 0.05 * math.sin(rad)
-            x2 = 0.5 + 0.28 * math.cos(rad)
-            y2 = 1.0 + 0.28 * math.sin(rad)
-            line = Line2D(
-                [x1, x2], [y1, y2],
-                transform=fig.transFigure,
-                color=C['title_line'], alpha=0.20, linewidth=0.8, zorder=2,
-            )
-            fig.add_artist(line)
-
-        # ── ③ 標題裝飾線（左右各一） ──────────────────────────────────
-        deco_y = title_bot + fh(TITLE_H) * 0.50
-        deco_w = 0.16
-        for x_start, x_end in [(0.04, 0.04 + deco_w), (0.96 - deco_w, 0.96)]:
-            dline = Line2D(
-                [x_start, x_end], [deco_y, deco_y],
-                transform=fig.transFigure,
-                color=C['title_line'], alpha=0.85, linewidth=1.5, zorder=3,
-            )
-            fig.add_artist(dline)
-
-        # ── ④ 標題文字 ────────────────────────────────────────────────
-        t_cen = title_bot + fh(TITLE_H) / 2
-        add_text(
-            0.5, t_cen + fh(0.38),
-            "盤後族群資金流向",
-            size=28, color=C['gold'], weight="bold", zorder=5,
-            stroke=True, stroke_lw=4, stroke_fg=C['bg'],
-        )
-        add_text(
-            0.5, t_cen - fh(0.08),
-            "三大法人在買什麼？賣什麼？",
-            size=13, color=C['white'], zorder=5,
-            stroke=True, stroke_lw=2, stroke_fg=C['bg'],
-        )
-        add_text(
-            0.5, t_cen - fh(0.48),
-            f"{date}　|　分析 {stocks_analyzed} 支主題股票",
-            size=10, color=C['sub'], zorder=5,
-        )
-
-        # ── ⑤ 兩欄面板 ───────────────────────────────────────────────
-        MARGIN = 0.010
-        GAP    = 0.008
-        LX = MARGIN
-        LW = 0.5 - MARGIN - GAP / 2
-        RX = 0.5 + GAP / 2
-        RW = 0.5 - MARGIN - GAP / 2
-
-        # Panel 外框高度 = sec + col + n 列 (英寸)
-        panel_h_inch = SEC_H + COL_H + n * ROW_H
-
-        def draw_panel(px: float, pw: float, items: List[Dict], is_buy: bool):
-            sec_color   = C['buy_hdr']    if is_buy else C['sell_hdr']
-            bg_color    = C['buy_bg']     if is_buy else C['sell_bg']
-            border_c    = C['buy_border'] if is_buy else C['sell_border']
-            val_color   = C['buy_val']    if is_buy else C['sell_val']
-            arrow       = "▲" if is_buy else "▼"
-            side_label  = (
-                f"法人買超 TOP{len(items)} {arrow}"
-                if is_buy else
-                f"法人賣超 TOP{len(items)} {arrow}"
+            # 面板底色 + 邊框
+            draw.rounded_rectangle(
+                [px, PANEL_Y, px + PW, PANEL_Y + PANEL_H],
+                radius=RADIUS, fill=(*bg, 255),
+                outline=(*brd, 255), width=2,
             )
 
-            # 面板資料區底色
-            add_rect(
-                px, row_bot(n - 1), pw, panel_h_inch,
-                bg_color, zorder=2,
+            # 族群標頭漸層
+            hdr_grad = _gradient(PW - 4, SEC_H - 4, g1, g2)
+            img.paste(hdr_grad, (px + 2, PANEL_Y + 2))
+            # 重畫圓角遮罩（擦掉標頭直角）
+            draw.rounded_rectangle(
+                [px, PANEL_Y, px + PW, PANEL_Y + PANEL_H],
+                radius=RADIUS, outline=(*brd, 255), width=2,
             )
 
-            # 漫畫感外框（FancyBboxPatch）
-            frame = mpa.FancyBboxPatch(
-                (px, row_bot(n - 1)),
-                pw, fh(panel_h_inch),
-                boxstyle="round,pad=0.005",
-                transform=fig.transFigure,
-                facecolor="none",
-                edgecolor=border_c,
-                linewidth=2.5, zorder=8,
-            )
-            fig.add_artist(frame)
+            f_sec  = fonts.get(26, bold=True)
+            f_col  = fonts.get(19, bold=False)
+            f_name = fonts.get(22, bold=False)
+            f_val  = fonts.get(22, bold=True)
+            f_chg  = fonts.get(20, bold=False)
+            f_rank = fonts.get(18, bold=True)
 
-            # 族群標頭（紅/綠背景）
-            add_rect(px, sec_bot, pw, SEC_H, sec_color, zorder=3)
-            add_text(
-                px + pw / 2, sec_bot + fh(SEC_H) / 2,
-                side_label, size=14, color=C['white'], weight="bold", zorder=5,
-            )
+            # 標頭文字
+            _draw_text_centered(draw,
+                                px + PW // 2,
+                                PANEL_Y + SEC_H // 2,
+                                label, f_sec, WHITE)
 
-            # 欄位標頭
-            add_rect(px, col_bot, pw, COL_H, C['col_hdr'], zorder=3)
-            col_defs = [
-                (0.055, "排名",      "center"),
-                (0.105, "族群",      "left"),
-                (0.790, "大戶差(億)", "right"),
-                (0.980, "漲幅",      "right"),
-            ]
-            for ratio, label, align in col_defs:
-                add_text(
-                    px + pw * ratio,
-                    col_bot + fh(COL_H) / 2,
-                    label, size=10, color=C['sub'], ha=align, zorder=5,
-                )
+            # 欄位標頭背景 + 文字
+            col_y = PANEL_Y + SEC_H
+            draw.rectangle([px + 2, col_y, px + PW - 2, col_y + COL_H],
+                           fill=(*COL_BG, 255))
 
-            # 資料列
-            rank_badge_colors = [C['gold'], C['silver'], C['bronze']]
+            # 欄位定義 (x比例, 文字, 對齊)
+            COL_RANK  = int(px + PW * 0.055)
+            COL_NAME  = int(px + PW * 0.105)
+            COL_VAL_R = int(px + PW * 0.790)
+            COL_CHG_R = int(px + PW * 0.975)
 
-            # Radius for rank badge circle — account for aspect ratio so it's round
-            badge_r = 0.022 / (FH / FW)
+            col_cy = col_y + COL_H // 2
+            for cx_or_x, text, align in [
+                (COL_RANK,  "排名",      "c"),
+                (COL_NAME,  "族群",      "l"),
+                (COL_VAL_R, "大戶差(億)", "r"),
+                (COL_CHG_R, "漲幅",      "r"),
+            ]:
+                if align == "c":
+                    _draw_text_centered(draw, cx_or_x, col_cy, text, f_col, SUB)
+                elif align == "l":
+                    _draw_text_left(draw, cx_or_x, col_cy, text, f_col, SUB)
+                else:
+                    _draw_text_right(draw, cx_or_x, col_cy, text, f_col, SUB)
 
-            for i, item in enumerate(items):
-                ry  = row_bot(i)
-                cy  = ry + fh(ROW_H) / 2
+            # 資料行
+            BADGE_R   = 20
+            RANK_COLS = [GOLD, SILVER, BRONZE]
 
-                # 行底色
-                add_rect(
-                    px, ry, pw, ROW_H,
-                    C['row_a'] if i % 2 == 0 else C['row_b'],
-                    zorder=2,
-                )
+            for i in range(n):
+                ry  = col_y + COL_H + i * ROW_H
+                cy  = ry + ROW_H // 2
+                row_bg = ROW_A if i % 2 == 0 else ROW_B
+                draw.rectangle([px + 2, ry, px + PW - 2, ry + ROW_H],
+                               fill=(*row_bg, 255))
 
-                # ── 排名徽章圓圈 ─────────────────────────────────
-                badge_color = rank_badge_colors[i] if i < 3 else '#2d3748'
-                circle = mpa.Circle(
-                    (px + pw * 0.055, cy),
-                    radius=badge_r,
-                    transform=fig.transFigure,
-                    facecolor=badge_color, edgecolor='none', zorder=6,
-                )
-                fig.add_artist(circle)
+                if i < len(items):
+                    item = items[i]
 
-                # 排名數字
-                txt_color = C['bg'] if i < 3 else C['silver']
-                add_text(
-                    px + pw * 0.055, cy,
-                    str(i + 1),
-                    size=12, color=txt_color, weight="bold",
-                    ha="center", va="center", zorder=7,
-                )
+                    # 排名徽章
+                    badge_c = RANK_COLS[i] if i < 3 else _hex("#2a3040")
+                    draw.ellipse(
+                        [COL_RANK - BADGE_R, cy - BADGE_R,
+                         COL_RANK + BADGE_R, cy + BADGE_R],
+                        fill=(*badge_c, 255),
+                    )
+                    num_c = _hex("#1a1a1a") if i < 3 else SILVER
+                    _draw_text_centered(draw, COL_RANK, cy,
+                                        str(i + 1), f_rank, num_c)
 
-                # 族群名稱
-                raw_name = f"{item.get('emoji', '')}{item.get('name', '')}"
-                name = _strip_emoji(raw_name)
-                add_text(
-                    px + pw * 0.105, cy,
-                    name, size=11, color=C['white'], ha="left", zorder=5,
-                )
+                    # 族群名稱
+                    name = _strip_emoji(
+                        f"{item.get('emoji','')}{item.get('name','')}"
+                    )
+                    _draw_text_left(draw, COL_NAME, cy, name, f_name, WHITE)
 
-                # 大戶差（億）
-                flow = item.get("net_flow_yi", 0)
-                f_str = f"+{flow:.2f}億" if flow >= 0 else f"{flow:.2f}億"
-                add_text(
-                    px + pw * 0.790, cy,
-                    f_str, size=12, color=val_color, weight="bold",
-                    ha="right", zorder=5,
-                )
+                    # 大戶差
+                    flow = item.get("net_flow_yi", 0)
+                    f_str = f"+{flow:.2f}億" if flow >= 0 else f"{flow:.2f}億"
+                    _draw_text_right(draw, COL_VAL_R, cy, f_str, f_val, v_col)
 
-                # 漲幅
-                chg = item.get("avg_change_pct", 0)
-                chg_str = f"+{chg:.2f}%" if chg >= 0 else f"{chg:.2f}%"
-                add_text(
-                    px + pw * 0.980, cy,
-                    chg_str, size=11,
-                    color=C['pos'] if chg >= 0 else C['neg'],
-                    ha="right", zorder=5,
-                )
+                    # 漲幅
+                    chg = item.get("avg_change_pct", 0)
+                    chg_str = f"+{chg:.2f}%" if chg >= 0 else f"{chg:.2f}%"
+                    _draw_text_right(draw, COL_CHG_R, cy, chg_str,
+                                     f_chg, POS if chg >= 0 else NEG)
 
-            # 填滿空列（讓兩欄等高）
-            for i in range(len(items), n):
-                ry = row_bot(i)
-                add_rect(
-                    px, ry, pw, ROW_H,
-                    C['row_a'] if i % 2 == 0 else C['row_b'],
-                    zorder=2,
-                )
+        draw_panel(LX, top_buy,  is_buy=True)
+        draw_panel(RX, top_sell, is_buy=False)
 
-        draw_panel(LX, LW, top_buy,  is_buy=True)
-        draw_panel(RX, RW, top_sell, is_buy=False)
-
-        # ── ⑥ 分析觀察區 ────────────────────────────────────────────
+        # ── ④ 分析觀察區 ─────────────────────────────────────────────
         bullets, quote = _generate_analysis(top_buy, top_sell)
 
-        # 左 65% 分析面板 / 右 35% 引言框
-        ANALY_X  = MARGIN
-        ANALY_W  = 0.62 - MARGIN
-        QUOTE_X  = 0.63
-        QUOTE_W  = 0.37 - MARGIN
+        ANALY_W = int((W - PAD * 2) * 0.62)
+        QUOTE_X = PAD + ANALY_W + GAP
+        QUOTE_W = W - PAD - QUOTE_X
 
-        # 分析面板底色與外框
-        analy_patch = mpa.FancyBboxPatch(
-            (ANALY_X, analysis_bot),
-            ANALY_W, fh(ANALYSIS_H),
-            boxstyle="round,pad=0.005",
-            transform=fig.transFigure,
-            facecolor=C['analysis_bg'],
-            edgecolor=C['analysis_brd'],
-            linewidth=2, zorder=4,
-        )
-        fig.add_artist(analy_patch)
+        # 陰影
+        for ax, aw in [(PAD, ANALY_W), (QUOTE_X, QUOTE_W)]:
+            sh = _shadow_layer((W, H), ax, ANAL_Y, aw, ANAL_H,
+                               RADIUS, alpha=130, blur=14, offset=(4, 8))
+            img = Image.alpha_composite(img, sh)
+        draw = ImageDraw.Draw(img)
 
-        # 分析面板標頭
-        analy_hdr_y = analysis_bot + fh(ANALYSIS_H) - fh(0.32)
-        add_text(
-            ANALY_X + 0.015,
-            analy_hdr_y + fh(0.16),
-            "分析觀察",
-            size=13, color=C['gold'], weight="bold",
-            ha="left", zorder=6,
+        # 分析面板
+        draw.rounded_rectangle(
+            [PAD, ANAL_Y, PAD + ANALY_W, ANAL_Y + ANAL_H],
+            radius=RADIUS, fill=(*ANAL_BG, 255),
+            outline=(*ANAL_BRD, 255), width=2,
         )
 
-        # 子彈點
-        bullet_start_y = analy_hdr_y - fh(0.10)
-        bullet_step    = fh(0.40)
-        for idx, b in enumerate(bullets):
-            by = bullet_start_y - idx * bullet_step
-            add_text(
-                ANALY_X + 0.018, by,
-                f"◆ {_strip_emoji(b)}",
-                size=11, color=C['white'], ha="left", zorder=6,
-            )
+        f_ahdr  = fonts.get(24, bold=True)
+        f_abody = fonts.get(21, bold=False)
 
-        # 引言框底色與外框
-        quote_patch = mpa.FancyBboxPatch(
-            (QUOTE_X, analysis_bot),
-            QUOTE_W, fh(ANALYSIS_H),
-            boxstyle="round,pad=0.005",
-            transform=fig.transFigure,
-            facecolor=C['quote_bg'],
-            edgecolor=C['quote_brd'],
-            linewidth=2, zorder=4,
-        )
-        fig.add_artist(quote_patch)
+        _draw_text_left(draw, PAD + 22, ANAL_Y + 30,
+                        "分析觀察", f_ahdr, GOLD)
 
-        # 大引號裝飾（左上角）
-        add_text(
-            QUOTE_X + QUOTE_W * 0.12,
-            analysis_bot + fh(ANALYSIS_H) - fh(0.28),
-            "❝",   # ❝ HEAVY DOUBLE TURNED COMMA QUOTATION MARK ORNAMENT
-            size=30, color=C['quote_brd'], ha="center", zorder=6,
+        for idx, bullet in enumerate(bullets):
+            by = ANAL_Y + 68 + idx * 38
+            _draw_text_left(draw, PAD + 22, by,
+                            f"◆  {_strip_emoji(bullet)}", f_abody, WHITE)
+
+        # 引言框
+        draw.rounded_rectangle(
+            [QUOTE_X, ANAL_Y, QUOTE_X + QUOTE_W, ANAL_Y + ANAL_H],
+            radius=RADIUS, fill=(*QUOTE_BG, 255),
+            outline=(*QUOTE_BRD, 255), width=2,
         )
 
-        # 引言文字（手動換行，每行約 16 字）
-        q_stripped = _strip_emoji(quote)
-        chunk = 16
-        lines = [
-            q_stripped[i:i + chunk]
-            for i in range(0, len(q_stripped), chunk)
-        ]
-        q_total_h = len(lines) * fh(0.38)
-        q_start_y = analysis_bot + fh(ANALYSIS_H) / 2 + q_total_h / 2 - fh(0.18)
+        f_qdeco = fonts.get(52, bold=True)
+        f_qtext = fonts.get(22, bold=False)
+
+        # 裝飾引號
+        _draw_text_left(draw, QUOTE_X + 18, ANAL_Y + 18,
+                        '"', f_qdeco, (*QUOTE_BRD, 200))
+
+        # 引言文字自動換行（每 14 字換行）
+        q_clean = _strip_emoji(quote)
+        chunk   = 14
+        lines   = [q_clean[i:i + chunk] for i in range(0, len(q_clean), chunk)]
+        line_h  = 38
+        total_h = len(lines) * line_h
+        q_start = ANAL_Y + (ANAL_H - total_h) // 2 + 10
+        qcx     = QUOTE_X + QUOTE_W // 2
         for li, ln in enumerate(lines):
-            add_text(
-                QUOTE_X + QUOTE_W / 2,
-                q_start_y - li * fh(0.38),
-                ln, size=12, color=C['white'],
-                ha="center", zorder=6,
-            )
+            _draw_text_centered(draw, qcx, q_start + li * line_h,
+                                ln, f_qtext, WHITE)
 
-        # ── ⑦ 頁尾 ───────────────────────────────────────────────────
-        add_text(
-            0.5, foot_cen,
-            "本報告基於三大法人買賣超資料推算，僅供參考，不構成投資建議",
-            size=9, color=C['sub'],
-        )
+        # ── ⑤ 頁尾 ───────────────────────────────────────────────────
+        f_foot = fonts.get(17, bold=False)
+        _draw_text_centered(draw, W // 2, FOOT_Y + FOOT_H // 2,
+                            "本報告基於三大法人買賣超資料推算，僅供參考，不構成投資建議",
+                            f_foot, SUB)
 
-        # ── ⑧ 輸出 PNG ─────────────────────────────────────────────
+        # ── 輸出 RGB PNG ──────────────────────────────────────────────
+        out = img.convert("RGB")
         buf = io.BytesIO()
-        plt.savefig(
-            buf, format="png", dpi=150,
-            bbox_inches="tight",
-            facecolor=C['bg'], edgecolor="none",
-        )
+        out.save(buf, format="PNG", optimize=False)
         buf.seek(0)
-        plt.close(fig)
         return buf.read()
 
     except Exception as e:
