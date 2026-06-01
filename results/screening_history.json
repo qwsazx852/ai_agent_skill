@@ -647,5 +647,30 @@
         "grade": "B+"
       }
     ]
+  },
+  {
+    "date": "2026-06-01",
+    "time": "13:18:19",
+    "total_analyzed": 181,
+    "top3": [
+      {
+        "stock_id": "6412",
+        "stock_name": "群電",
+        "score": 85.1,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6405",
+        "stock_name": "悅城",
+        "score": 83.4,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6552",
+        "stock_name": "易華電",
+        "score": 82.5,
+        "grade": "A"
+      }
+    ]
   }
 ]
