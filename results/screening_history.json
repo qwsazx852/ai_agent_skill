@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-05-25",
-    "time": "11:30:55",
-    "total_analyzed": 73,
-    "top3": [
-      {
-        "stock_id": "3661",
-        "stock_name": "3661",
-        "score": 70.0,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "2884",
-        "stock_name": "2884",
-        "score": 65.5,
-        "grade": "B"
-      },
-      {
-        "stock_id": "2404",
-        "stock_name": "2404",
-        "score": 64.2,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-25",
     "time": "12:52:27",
     "total_analyzed": 100,
     "top3": [
@@ -670,6 +645,31 @@
         "stock_name": "GIS-KY",
         "score": 83.0,
         "grade": "A"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-02",
+    "time": "17:05:13",
+    "total_analyzed": 175,
+    "top3": [
+      {
+        "stock_id": "6456",
+        "stock_name": "GIS-KY",
+        "score": 92.0,
+        "grade": "A+"
+      },
+      {
+        "stock_id": "6451",
+        "stock_name": "訊芯-KY",
+        "score": 79.0,
+        "grade": "A"
+      },
+      {
+        "stock_id": "5269",
+        "stock_name": "祥碩",
+        "score": 72.3,
+        "grade": "B+"
       }
     ]
   }
