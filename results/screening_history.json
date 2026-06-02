@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-05-25",
-    "time": "11:30:08",
-    "total_analyzed": 73,
-    "top3": [
-      {
-        "stock_id": "2498",
-        "stock_name": "2498",
-        "score": 49.2,
-        "grade": "C"
-      },
-      {
-        "stock_id": "2404",
-        "stock_name": "2404",
-        "score": 47.8,
-        "grade": "C"
-      },
-      {
-        "stock_id": "2454",
-        "stock_name": "2454",
-        "score": 46.8,
-        "grade": "C"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-25",
     "time": "11:30:55",
     "total_analyzed": 73,
     "top3": [
@@ -669,6 +644,31 @@
         "stock_id": "6552",
         "stock_name": "易華電",
         "score": 82.5,
+        "grade": "A"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-02",
+    "time": "11:52:49",
+    "total_analyzed": 184,
+    "top3": [
+      {
+        "stock_id": "5469",
+        "stock_name": "瀚宇博",
+        "score": 86.4,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6451",
+        "stock_name": "訊芯-KY",
+        "score": 83.2,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6456",
+        "stock_name": "GIS-KY",
+        "score": 83.0,
         "grade": "A"
       }
     ]
