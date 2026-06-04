@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-05-25",
-    "time": "13:04:12",
-    "total_analyzed": 100,
-    "top3": [
-      {
-        "stock_id": "2454",
-        "stock_name": "聯發科",
-        "score": 75.9,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "2498",
-        "stock_name": "宏達電",
-        "score": 73.7,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "3661",
-        "stock_name": "世芯-KY",
-        "score": 71.0,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-25",
     "time": "13:18:20",
     "total_analyzed": 73,
     "top3": [
@@ -669,6 +644,31 @@
         "stock_id": "6409",
         "stock_name": "旭隼",
         "score": 84.9,
+        "grade": "A"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-04",
+    "time": "10:51:16",
+    "total_analyzed": 183,
+    "top3": [
+      {
+        "stock_id": "6205",
+        "stock_name": "詮欣",
+        "score": 87.8,
+        "grade": "A"
+      },
+      {
+        "stock_id": "8201",
+        "stock_name": "無敵",
+        "score": 82.8,
+        "grade": "A"
+      },
+      {
+        "stock_id": "8404",
+        "stock_name": "百和興業-KY",
+        "score": 79.7,
         "grade": "A"
       }
     ]
