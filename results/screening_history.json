@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-05-25",
-    "time": "13:18:20",
-    "total_analyzed": 73,
-    "top3": [
-      {
-        "stock_id": "2227",
-        "stock_name": "2227",
-        "score": 73.1,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "2498",
-        "stock_name": "2498",
-        "score": 70.8,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "2454",
-        "stock_name": "2454",
-        "score": 68.4,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-25",
     "time": "13:18:24",
     "total_analyzed": 73,
     "top3": [
@@ -670,6 +645,31 @@
         "stock_name": "百和興業-KY",
         "score": 79.7,
         "grade": "A"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-05",
+    "time": "11:00:23",
+    "total_analyzed": 175,
+    "top3": [
+      {
+        "stock_id": "5388",
+        "stock_name": "中磊",
+        "score": 78.8,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6491",
+        "stock_name": "晶碩",
+        "score": 78.0,
+        "grade": "A"
+      },
+      {
+        "stock_id": "5269",
+        "stock_name": "祥碩",
+        "score": 69.8,
+        "grade": "B+"
       }
     ]
   }
