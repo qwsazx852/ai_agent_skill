@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-05-25",
-    "time": "13:18:24",
-    "total_analyzed": 73,
-    "top3": [
-      {
-        "stock_id": "2888",
-        "stock_name": "2888",
-        "score": 70.5,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "3045",
-        "stock_name": "3045",
-        "score": 68.4,
-        "grade": "B"
-      },
-      {
-        "stock_id": "3008",
-        "stock_name": "3008",
-        "score": 67.7,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-25",
     "time": "13:24:27",
     "total_analyzed": 73,
     "top3": [
@@ -669,6 +644,31 @@
         "stock_id": "5269",
         "stock_name": "祥碩",
         "score": 69.8,
+        "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "time": "12:17:13",
+    "total_analyzed": 175,
+    "top3": [
+      {
+        "stock_id": "6491",
+        "stock_name": "晶碩",
+        "score": 84.2,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6456",
+        "stock_name": "GIS-KY",
+        "score": 74.4,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6464",
+        "stock_name": "台數科",
+        "score": 70.6,
         "grade": "B+"
       }
     ]
