@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-05-25",
-    "time": "14:02:53",
-    "total_analyzed": 73,
-    "top3": [
-      {
-        "stock_id": "2227",
-        "stock_name": "2227",
-        "score": 70.0,
-        "grade": "B"
-      },
-      {
-        "stock_id": "2609",
-        "stock_name": "2609",
-        "score": 68.9,
-        "grade": "B"
-      },
-      {
-        "stock_id": "2888",
-        "stock_name": "2888",
-        "score": 67.2,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-25",
     "time": "14:31:39",
     "total_analyzed": 73,
     "top3": [
@@ -670,6 +645,31 @@
         "stock_name": "訊芯-KY",
         "score": 74.1,
         "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-10",
+    "time": "11:26:32",
+    "total_analyzed": 175,
+    "top3": [
+      {
+        "stock_id": "6951",
+        "stock_name": "青新-創",
+        "score": 68.5,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "5306",
+        "stock_name": "桂盟",
+        "score": 66.3,
+        "grade": "B"
+      },
+      {
+        "stock_id": "3130",
+        "stock_name": "一零四",
+        "score": 64.3,
+        "grade": "B"
       }
     ]
   }
