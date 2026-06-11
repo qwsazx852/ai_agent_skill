@@ -1,0 +1,147 @@
+2026-06-11 12:00:05 [INFO] ============================================================
+2026-06-11 12:00:05 [INFO] 🇹🇼 台灣股市每日篩選系統
+2026-06-11 12:00:05 [INFO] 執行時間: 2026-06-11 12:00:05
+2026-06-11 12:00:05 [INFO] 模式: 真實資料
+2026-06-11 12:00:05 [INFO] ============================================================
+2026-06-11 12:00:07 [INFO] 🚀 開始每日股票篩選 - 2026-06-11
+2026-06-11 12:00:07 [INFO] 📋 Step 1: 取得股票清單...
+2026-06-11 12:00:08 [INFO] FinMind 過濾後有效股票: 1918 檔
+2026-06-11 12:00:08 [INFO] FinMind 取得台股清單: 1918 檔
+2026-06-11 12:00:08 [INFO] 最終股票池 (FinMind): 300 檔
+2026-06-11 12:00:08 [INFO] 股票池: 300 檔
+2026-06-11 12:00:08 [INFO] 📥 Step 2: 下載股票價格資料...
+2026-06-11 12:00:08 [INFO] 下載批次 1: ['2475.TW', '2888.TW', '4938.TW']...
+2026-06-11 12:00:11 [INFO] 下載批次 2: ['2382.TW', '2383.TW', '2449.TW']...
+2026-06-11 12:00:14 [INFO] 下載批次 3: ['1216.TW', '1303.TW', '1326.TW']...
+2026-06-11 12:00:16 [INFO] 下載批次 4: ['2610.TW', '2615.TW', '2498.TW']...
+2026-06-11 12:00:19 [INFO] 下載批次 5: ['2340.TW', '6873.TW', '6869.TW']...
+2026-06-11 12:00:21 [INFO] 下載批次 6: ['2707.TW', '6806.TW', '6807.TW']...
+2026-06-11 12:00:24 [INFO] 下載批次 7: ['6768.TW', '3708.TW', '3130.TW']...
+2026-06-11 12:00:26 [INFO] 下載批次 8: ['1523.TW', '2446.TW', '2336.TW']...
+2026-06-11 12:00:28 [INFO] 下載批次 9: ['6702.TW', '2447.TW', '6534.TW']...
+2026-06-11 12:00:31 [INFO] 下載批次 10: ['2833.TW', '2384.TW', '3367.TW']...
+2026-06-11 12:00:33 [INFO] 下載批次 11: ['2479.TW', '6004.TW', '6012.TW']...
+2026-06-11 12:00:35 [INFO] 下載批次 12: ['2437.TW', '8497.TW', '6288.TW']...
+2026-06-11 12:00:37 [INFO] 下載批次 13: ['4984.TW', '2499.TW', '3561.TW']...
+2026-06-11 12:00:40 [INFO] 下載批次 14: ['6452.TW', '1724.TW', '4725.TW']...
+2026-06-11 12:00:42 [INFO] 下載批次 15: ['6285.TW', '4942.TW', '6592.TW']...
+2026-06-11 12:00:44 [INFO] 成功下載 175/300 檔股票資料
+2026-06-11 12:00:44 [INFO] 成功下載 175/300 檔價格資料
+2026-06-11 12:00:44 [INFO] ✅ 資料新鮮度: 今日盤後資料（2026-06-11）
+2026-06-11 12:00:44 [INFO] 🌐 Step 2.5: 評估大盤市場環境...
+2026-06-11 12:00:45 [INFO] 大盤狀態: ⚠️ 大盤短線修正，謹慎追高 (評分乘數: 0.88)
+2026-06-11 12:00:45 [INFO] 市場信號: ⚠️ 0050 跌破 MA20，短線偏弱
+2026-06-11 12:00:45 [INFO] 🏭 Step 3: 分析產業趨勢...
+2026-06-11 12:00:45 [INFO] 分析了 32 個產業
+2026-06-11 12:00:45 [INFO] 分析 32 個產業
+2026-06-11 12:00:45 [INFO] 最強產業: 建材營造 (+5.9%)
+2026-06-11 12:00:45 [INFO] 🔍 Step 4: 逐檔個股分析...
+2026-06-11 12:01:13 [WARNING] FinMind 財報資料擷取失敗 5880: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:01:32 [WARNING] FinMind 月營收擷取失敗 5534: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:02:13 [WARNING] FinMind 財報資料擷取失敗 1730: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:02:33 [WARNING] FinMind 月營收擷取失敗 1524: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:02:44 [WARNING] FinMind 法人資料擷取失敗 1524: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:03:12 [WARNING] FinMind 融資融券擷取失敗 2408: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:03:37 [WARNING] FinMind 法人資料擷取失敗 2377: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:03:52 [INFO]   已分析 20/300 檔...
+2026-06-11 12:04:50 [WARNING] FinMind 財報資料擷取失敗 2365: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:05:03 [WARNING] FinMind 財報資料擷取失敗 2354: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:05:34 [INFO]   已分析 40/300 檔...
+2026-06-11 12:06:06 [WARNING] FinMind 法人資料擷取失敗 3481: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:06:23 [WARNING] FinMind 財報資料擷取失敗 4904: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:06:40 [WARNING] FinMind 月營收擷取失敗 2882: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:07:07 [WARNING] FinMind 財報資料擷取失敗 2887: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:07:37 [INFO]   已分析 60/300 檔...
+2026-06-11 12:08:07 [WARNING] FinMind 財報資料擷取失敗 1443: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:08:17 [WARNING] FinMind 月營收擷取失敗 1443: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:08:39 [WARNING] FinMind 財報資料擷取失敗 2459: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:09:25 [WARNING] FinMind 月營收擷取失敗 8499: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:10:27 [WARNING] FinMind 財報資料擷取失敗 2495: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:10:40 [WARNING] FinMind 財報資料擷取失敗 6431: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:10:50 [WARNING] FinMind 月營收擷取失敗 6431: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:11:09 [WARNING] FinMind 財報資料擷取失敗 2340: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:11:34 [INFO]   已分析 80/300 檔...
+2026-06-11 12:12:02 [WARNING] FinMind 月營收擷取失敗 8462: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:12:20 [WARNING] FinMind 月營收擷取失敗 2739: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:12:38 [WARNING] FinMind 財報資料擷取失敗 2731: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:12:48 [WARNING] FinMind 月營收擷取失敗 2731: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:13:39 [WARNING] FinMind 財報資料擷取失敗 2722: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:14:24 [WARNING] FinMind 財報資料擷取失敗 2753: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:15:16 [WARNING] FinMind 融資融券擷取失敗 2712: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:16:13 [WARNING] FinMind 月營收擷取失敗 2705: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:16:35 [WARNING] FinMind 月營收擷取失敗 2702: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:16:54 [WARNING] FinMind 財報資料擷取失敗 2701: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:17:24 [WARNING] FinMind 財報資料擷取失敗 6806: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:17:34 [WARNING] FinMind 月營收擷取失敗 6806: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:17:45 [WARNING] FinMind 法人資料擷取失敗 6806: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:17:52 [INFO]   已分析 100/300 檔...
+2026-06-11 12:18:02 [WARNING] FinMind 財報資料擷取失敗 6807: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:18:18 [WARNING] FinMind 法人資料擷取失敗 6807: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:18:51 [WARNING] FinMind 月營收擷取失敗 8454: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:19:07 [WARNING] FinMind 融資融券擷取失敗 8454: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:19:47 [WARNING] FinMind 財報資料擷取失敗 6641: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:19:57 [WARNING] FinMind 月營收擷取失敗 6641: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:20:14 [WARNING] FinMind 月營收擷取失敗 8341: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:20:26 [WARNING] FinMind 財報資料擷取失敗 2062: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:21:11 [WARNING] FinMind 融資融券擷取失敗 8467: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:21:24 [WARNING] FinMind 法人資料擷取失敗 2424: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:22:13 [WARNING] FinMind 財報資料擷取失敗 8473: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:22:24 [WARNING] FinMind 月營收擷取失敗 8473: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:22:42 [WARNING] FinMind 法人資料擷取失敗 1598: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:22:55 [WARNING] FinMind 融資融券擷取失敗 3054: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:23:06 [WARNING] FinMind 財報資料擷取失敗 6754: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:23:20 [WARNING] FinMind 法人資料擷取失敗 6754: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:23:30 [WARNING] FinMind 融資融券擷取失敗 6754: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:23:54 [WARNING] FinMind 法人資料擷取失敗 3708: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:23:55 [INFO]   已分析 120/300 檔...
+2026-06-11 12:24:27 [WARNING] FinMind 融資融券擷取失敗 1432: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:24:50 [WARNING] FinMind 財報資料擷取失敗 1439: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:25:02 [WARNING] FinMind 融資融券擷取失敗 1439: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:26:13 [WARNING] FinMind 融資融券擷取失敗 1472: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:26:49 [WARNING] FinMind 財報資料擷取失敗 6951: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:27:26 [WARNING] FinMind 融資融券擷取失敗 6949: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:27:48 [WARNING] FinMind 月營收擷取失敗 6969: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:28:04 [INFO]   已分析 140/300 檔...
+2026-06-11 12:28:15 [WARNING] FinMind 財報資料擷取失敗 6988: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:28:48 [WARNING] FinMind 法人資料擷取失敗 6794: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:29:16 [WARNING] FinMind 融資融券擷取失敗 8162: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:29:32 [WARNING] FinMind 法人資料擷取失敗 2601: HTTPSConnectionPool(host='api.finmindtrade.com', port=443): Read timed out. (read timeout=10)
+2026-06-11 12:30:13 [INFO]   已分析 160/300 檔...
+2026-06-11 12:30:59 [INFO] ✅ 分析完成: 175 檔股票
+2026-06-11 12:30:59 [INFO] 🏆 Step 5: 排名與篩選...
+2026-06-11 12:30:59 [INFO] 篩選完成，輸出前 10 名
+2026-06-11 12:30:59 [INFO] 🥇 第一名: 6491 晶碩 (69.2分/B+)
+2026-06-11 12:30:59 [INFO] 🎯 Step 5.5: 主題概念分析...
+2026-06-11 12:30:59 [INFO] 熱門主題 TOP3: ['金融/數位金融', '綠能/儲能', '高階PCB/基板']
+2026-06-11 12:30:59 [INFO] 📁 結果已儲存至 results/latest_screening.json
+2026-06-11 12:30:59 [INFO] 
+============================================================
+2026-06-11 12:30:59 [INFO] 🏆 篩選結果 TOP 10
+2026-06-11 12:30:59 [INFO] ============================================================
+2026-06-11 12:30:59 [INFO] 排名   代號       名稱           綜合分      評級
+2026-06-11 12:30:59 [INFO] --------------------------------------------------
+2026-06-11 12:30:59 [INFO] 1    6491     晶碩           69.2     B+
+2026-06-11 12:30:59 [INFO] 2    6405     悅城           62.7     B
+2026-06-11 12:30:59 [INFO] 3    6409     旭隼           62.4     B
+2026-06-11 12:30:59 [INFO] 4    6949     沛爾生醫-創       60.7     B
+2026-06-11 12:30:59 [INFO] 5    4958     臻鼎-KY        58.5     B
+2026-06-11 12:30:59 [INFO] 6    1432     大魯閣          55.8     C+
+2026-06-11 12:30:59 [INFO] 7    6592     和潤企業         54.1     C+
+2026-06-11 12:30:59 [INFO] 8    2408     南亞科          53.4     C+
+2026-06-11 12:30:59 [INFO] 9    6414     樺漢           53.1     C+
+2026-06-11 12:30:59 [INFO] 10   6412     群電           51.2     C+
+2026-06-11 12:30:59 [INFO] ============================================================
+2026-06-11 12:30:59 [INFO] 
+🏭 熱門產業:
+2026-06-11 12:30:59 [INFO]   建材營造: +5.9%
+2026-06-11 12:30:59 [INFO]   電信: +4.3%
+2026-06-11 12:30:59 [INFO]   食品: +2.4%
+2026-06-11 12:30:59 [INFO] 
+📱 傳送 Telegram 通知...
+2026-06-11 12:30:59 [INFO] Telegram 初始化 - Token前10碼: 8969224197... 長度:46
+2026-06-11 12:31:01 [ERROR] Telegram 傳送失敗: 401 {"ok":false,"error_code":401,"description":"Unauthorized"}
+2026-06-11 12:31:01 [ERROR] Telegram 傳送失敗: 401 {"ok":false,"error_code":401,"description":"Unauthorized"}
+2026-06-11 12:31:02 [ERROR] Telegram 傳送失敗: 401 {"ok":false,"error_code":401,"description":"Unauthorized"}
+2026-06-11 12:31:02 [WARNING] ⚠️ Telegram 通知傳送失敗（請確認 BOT_TOKEN 和 CHAT_ID）
+2026-06-11 12:31:02 [INFO] 
+✅ 篩選完成！
