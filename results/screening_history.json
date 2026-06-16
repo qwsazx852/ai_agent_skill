@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-05-25",
-    "time": "14:48:47",
-    "total_analyzed": 0,
-    "top3": []
-  },
-  {
-    "date": "2026-05-25",
     "time": "14:49:10",
     "total_analyzed": 0,
     "top3": []
@@ -708,6 +702,31 @@
         "stock_name": "台數科",
         "score": 62.9,
         "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-16",
+    "time": "17:34:24",
+    "total_analyzed": 175,
+    "top3": [
+      {
+        "stock_id": "2527",
+        "stock_name": "宏璟",
+        "score": 87.3,
+        "grade": "A"
+      },
+      {
+        "stock_id": "2506",
+        "stock_name": "太設",
+        "score": 78.8,
+        "grade": "A"
+      },
+      {
+        "stock_id": "3052",
+        "stock_name": "夆典",
+        "score": 76.9,
+        "grade": "B+"
       }
     ]
   }
