@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-05-25",
-    "time": "14:47:44",
-    "total_analyzed": 0,
-    "top3": []
-  },
-  {
-    "date": "2026-05-25",
     "time": "14:48:47",
     "total_analyzed": 0,
     "top3": []
@@ -688,6 +682,31 @@
         "stock_id": "6446",
         "stock_name": "藥華藥",
         "score": 67.7,
+        "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-16",
+    "time": "12:32:11",
+    "total_analyzed": 175,
+    "top3": [
+      {
+        "stock_id": "6446",
+        "stock_name": "藥華藥",
+        "score": 75.5,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6115",
+        "stock_name": "鎰勝",
+        "score": 70.8,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6464",
+        "stock_name": "台數科",
+        "score": 62.9,
         "grade": "B"
       }
     ]
