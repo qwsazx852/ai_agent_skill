@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-05-25",
-    "time": "14:49:10",
-    "total_analyzed": 0,
-    "top3": []
-  },
-  {
-    "date": "2026-05-25",
     "time": "14:53:39",
     "total_analyzed": 73,
     "top3": [
@@ -726,6 +720,31 @@
         "stock_id": "3052",
         "stock_name": "夆典",
         "score": 76.9,
+        "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-17",
+    "time": "12:07:51",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "5469",
+        "stock_name": "瀚宇博",
+        "score": 86.1,
+        "grade": "A"
+      },
+      {
+        "stock_id": "5434",
+        "stock_name": "崇越",
+        "score": 74.1,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6515",
+        "stock_name": "穎崴",
+        "score": 68.5,
         "grade": "B+"
       }
     ]
