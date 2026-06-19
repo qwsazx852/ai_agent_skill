@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-05-25",
-    "time": "15:06:05",
-    "total_analyzed": 73,
-    "top3": [
-      {
-        "stock_id": "2498",
-        "stock_name": "2498",
-        "score": 86.0,
-        "grade": "A"
-      },
-      {
-        "stock_id": "3045",
-        "stock_name": "3045",
-        "score": 84.0,
-        "grade": "A"
-      },
-      {
-        "stock_id": "2353",
-        "stock_name": "2353",
-        "score": 78.0,
-        "grade": "A"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-25",
     "time": "15:06:10",
     "total_analyzed": 73,
     "top3": [
@@ -727,6 +702,31 @@
   {
     "date": "2026-06-18",
     "time": "11:39:44",
+    "total_analyzed": 175,
+    "top3": [
+      {
+        "stock_id": "6491",
+        "stock_name": "晶碩",
+        "score": 87.1,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6541",
+        "stock_name": "泰福-KY",
+        "score": 82.7,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6525",
+        "stock_name": "捷敏-KY",
+        "score": 71.8,
+        "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-19",
+    "time": "11:54:20",
     "total_analyzed": 175,
     "top3": [
       {
