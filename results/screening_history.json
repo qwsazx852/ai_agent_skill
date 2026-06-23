@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-05-25",
-    "time": "15:07:04",
-    "total_analyzed": 73,
-    "top3": [
-      {
-        "stock_id": "2454",
-        "stock_name": "2454",
-        "score": 80.3,
-        "grade": "A"
-      },
-      {
-        "stock_id": "5534",
-        "stock_name": "5534",
-        "score": 80.0,
-        "grade": "A"
-      },
-      {
-        "stock_id": "4938",
-        "stock_name": "4938",
-        "score": 77.0,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
     "date": "2026-05-26",
     "time": "10:34:17",
     "total_analyzed": 73,
@@ -746,6 +721,31 @@
         "stock_name": "旭隼",
         "score": 74.0,
         "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-23",
+    "time": "10:49:41",
+    "total_analyzed": 179,
+    "top3": [
+      {
+        "stock_id": "6168",
+        "stock_name": "宏齊",
+        "score": 89.2,
+        "grade": "A+"
+      },
+      {
+        "stock_id": "8070",
+        "stock_name": "長華*",
+        "score": 82.0,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6409",
+        "stock_name": "旭隼",
+        "score": 81.5,
+        "grade": "A"
       }
     ]
   }
