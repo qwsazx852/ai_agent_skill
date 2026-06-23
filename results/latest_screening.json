@@ -1,6 +1,6 @@
 {
   "date": "2026-06-23",
-  "time": "10:49:41",
+  "time": "15:36:31",
   "total_analyzed": 179,
   "market_env": {
     "status": "bull",
@@ -85,8 +85,8 @@
       "description": "AI伺服器整機組裝、機櫃、電源供應",
       "avg_ret_1d": -2.44,
       "avg_ret_5d": 22.8,
-      "avg_score": 37.4,
-      "heat_score": 15.17,
+      "avg_score": 37.5,
+      "heat_score": 15.18,
       "active_count": 10,
       "active_stocks": [
         "2382",
@@ -876,83 +876,86 @@
       "theme_names": []
     },
     {
-      "stock_id": "3450",
-      "stock_name": "聯鈞",
+      "stock_id": "6196",
+      "stock_name": "帆宣",
       "industry": "其他電子業",
       "market": "TWSE",
-      "composite_score": 72.7,
+      "composite_score": 72.6,
       "grade": "B+",
-      "technical_score": 100.0,
-      "fundamental_score": 40.0,
-      "institutional_score": 52.0,
-      "industry_score": 90.0,
+      "technical_score": 85.0,
+      "fundamental_score": 76.0,
+      "institutional_score": 27.0,
+      "industry_score": 80.0,
       "technical_signals": [
-        "✅ 站上 MA5",
         "✅ 站上 MA20",
         "🚀 均線多頭排列",
         "✅ 站上年線",
-        "✅ MACD 多頭",
-        "📈 MACD 動能增強",
-        "📐 形態: 🚀 突破近20日高點 (600.8)",
-        "📐 形態: 🌟 MA5 剛黃金交叉 MA20",
+        "✅ RSI 強勢區 (55.0)",
+        "🚀 Stage2: 多頭趨勢確立（MA20↑ MA60 站穩）",
         "📐 形態: 📊 低點持續墊高 (N字上升)"
       ],
       "fundamental_signals": [
-        "❌ EPS 大幅衰退 (-71%)",
-        "🚀 營收大幅成長 (+50%)"
+        "📈 EPS 快速成長 (+49%)",
+        "📈 營收成長 (+26%)",
+        "💎 高殖利率 (7.2%)"
       ],
       "institutional_signals": [
-        "✅ 外資買超 (+2,088張)",
-        "✅ 投信買超 (+819張)"
+        "✅ 外資買超 (+2,519張)",
+        "⚠️ 投信賣超 (-1,291張)"
       ],
       "industry_signals": [
         "🏆 強勢產業前段班 (#5/30)",
-        "🚀 產業5日強勢 (+7.0%)"
+        "🚀 產業5日強勢 (+7.0%)",
+        "⚠️ 個股弱於產業 (-7.9%)"
       ],
       "indicators": {
-        "ma5": 549.3,
-        "ma10": 514.12,
-        "ma20": 512.52,
-        "ma60": 402.56,
-        "macd": 35.2232,
-        "macd_signal": 29.7353,
-        "macd_hist": 5.488,
-        "rsi": 58.6,
-        "k": 80.06,
-        "d": 63.97,
-        "bb_upper": 593.39,
-        "bb_middle": 512.52,
-        "bb_lower": 431.65,
-        "bb_pct": 1.115,
-        "volume": 20381937,
-        "volume_ma5": 14534878,
-        "volume_ratio": 1.58,
-        "ma20_slope": 4.46,
-        "ma60_slope": 9.76,
+        "ma5": 550.4,
+        "ma10": 539.7,
+        "ma20": 522.28,
+        "ma60": 419.72,
+        "macd": 32.6836,
+        "macd_signal": 33.5708,
+        "macd_hist": -0.8872,
+        "rsi": 55.02,
+        "k": 63.15,
+        "d": 67.12,
+        "bb_upper": 573.41,
+        "bb_middle": 522.28,
+        "bb_lower": 471.14,
+        "bb_pct": 0.683,
+        "volume": 1459284,
+        "volume_ma5": 1961218,
+        "volume_ratio": 0.58,
+        "ma20_slope": 4.5,
+        "ma60_slope": 10.2,
         "stage": "stage2",
-        "high_52w": 612.0,
-        "low_52w": 240.52,
-        "proximity_52w": 1.0,
-        "price": 612.0,
-        "change_1d": 9.87,
-        "change_5d": 22.77,
-        "change_20d": 15.7,
+        "high_52w": 573.0,
+        "low_52w": 258.0,
+        "proximity_52w": 0.944,
+        "price": 541.0,
+        "change_1d": -3.74,
+        "change_5d": 0.0,
+        "change_20d": 6.92,
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "foreign_net": "2088",
-        "trust_net": "819",
-        "dealer_net": "-973",
-        "foreign_3d": "9375",
-        "foreign_10d": "14627",
-        "margin_balance": "29782",
-        "margin_change": "3003",
-        "short_balance": "1534"
+        "foreign_net": "2519",
+        "trust_net": "-1291",
+        "dealer_net": "-952",
+        "foreign_3d": "3049",
+        "foreign_10d": "-15841",
+        "margin_balance": "15899",
+        "margin_change": "-625",
+        "short_balance": "3240"
       },
       "financial_data": {
-        "eps": 0.69,
-        "eps_growth": -0.7051282051282052,
-        "revenue_growth": 0.4991272715918316
+        "eps": 4.37,
+        "eps_growth": 0.4875,
+        "revenue_growth": 0.2567,
+        "roe": 0.1412,
+        "pe_ratio": 18.2,
+        "pb_ratio": 1.32,
+        "dividend_yield": 0.0723
       },
       "industry_data": {
         "rank": 5,
@@ -962,22 +965,21 @@
         "avg_ret_20d": 14.85
       },
       "score_detail": {
-        "base_score": 72.7,
-        "conviction_bonus": 0.0,
+        "base_score": 62.6,
+        "conviction_bonus": 10.0,
         "veto_cap": null,
         "market_multiplier": 1.0,
         "veto_reasons": [],
         "conviction_reasons": [
-          "🔥 量價齊揚配合技術強勢 +5",
-          "⚠️ 近期已漲16%，注意追高 -5"
+          "✅ 雙維度共振 +10"
         ]
       },
       "key_points": [
-        "🔥 量價齊揚配合技術強勢 +5",
-        "⚠️ 近期已漲16%，注意追高 -5",
-        "✅ 站上 MA5",
-        "✅ 外資買超 (+2,088張)",
-        "❌ EPS 大幅衰退 (-71%)"
+        "✅ 雙維度共振 +10",
+        "✅ 站上 MA20",
+        "✅ 外資買超 (+2,519張)",
+        "📈 EPS 快速成長 (+49%)",
+        "📊 現價 541.0 (▼3.74%)"
       ],
       "patterns": [],
       "themes": [],
@@ -1204,87 +1206,87 @@
       "theme_names": []
     },
     {
-      "stock_id": "6414",
-      "stock_name": "樺漢",
-      "industry": "電腦及週邊設備業",
+      "stock_id": "8072",
+      "stock_name": "陞泰",
+      "industry": "電子通路業",
       "market": "TWSE",
       "composite_score": 64.0,
       "grade": "B",
-      "technical_score": 91.0,
+      "technical_score": 100.0,
       "fundamental_score": 40.0,
-      "institutional_score": 47.0,
+      "institutional_score": 38.0,
       "industry_score": 65.0,
       "technical_signals": [
         "✅ 站上 MA5",
         "✅ 站上 MA20",
         "🚀 均線多頭排列",
         "✅ 站上年線",
-        "🚀 Stage2: 多頭趨勢確立（MA20↑ MA60 站穩）",
-        "🏆 近52週高點突破（Stage2 強力確認）"
+        "✅ MACD 多頭",
+        "📈 MACD 動能增強",
+        "📐 形態: 🌟 MA5 剛黃金交叉 MA20",
+        "📐 形態: 📊 低點持續墊高 (N字上升)"
       ],
       "fundamental_signals": [
-        "⚠️ 營收微幅下滑 (-2%)",
-        "💎 高殖利率 (7.3%)"
+        "❌ EPS 大幅衰退 (-24%)",
+        "🚀 營收大幅成長 (+31%)"
       ],
       "institutional_signals": [
-        "✅ 投信買超 (+597張)"
+        "⚠️ 投信賣超 (-553張)"
       ],
-      "industry_signals": [],
+      "industry_signals": [
+        "✅ 產業表現強勢 (#8/30)"
+      ],
       "indicators": {
-        "ma5": 375.8,
-        "ma10": 374.99,
-        "ma20": 366.65,
-        "ma60": 324.2,
-        "macd": 12.4271,
-        "macd_signal": 13.3821,
-        "macd_hist": -0.955,
-        "rsi": 53.56,
-        "k": 55.26,
-        "d": 58.1,
-        "bb_upper": 393.92,
-        "bb_middle": 366.65,
-        "bb_lower": 339.39,
-        "bb_pct": 0.699,
-        "volume": 1771024,
-        "volume_ma5": 1877081,
-        "volume_ratio": 0.89,
-        "ma20_slope": 2.36,
-        "ma60_slope": 5.46,
+        "ma5": 29.69,
+        "ma10": 29.15,
+        "ma20": 28.91,
+        "ma60": 28.33,
+        "macd": 0.4836,
+        "macd_signal": 0.2873,
+        "macd_hist": 0.1963,
+        "rsi": 56.28,
+        "k": 67.26,
+        "d": 55.88,
+        "bb_upper": 31.1,
+        "bb_middle": 28.91,
+        "bb_lower": 26.73,
+        "bb_pct": 0.886,
+        "volume": 893282,
+        "volume_ma5": 559147,
+        "volume_ratio": 1.59,
+        "ma20_slope": 1.62,
+        "ma60_slope": 0.72,
         "stage": "stage2",
-        "high_52w": 386.51,
-        "low_52w": 249.16,
-        "proximity_52w": 0.977,
-        "price": 377.5,
-        "change_1d": -0.92,
-        "change_5d": 2.86,
-        "change_20d": 10.17,
+        "high_52w": 32.45,
+        "low_52w": 26.35,
+        "proximity_52w": 0.943,
+        "price": 30.6,
+        "change_1d": -2.08,
+        "change_5d": 8.13,
+        "change_20d": 10.07,
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "foreign_net": "-439",
-        "trust_net": "597",
-        "dealer_net": "224",
-        "foreign_3d": "-4838",
-        "foreign_10d": "-3064",
-        "margin_balance": "4603",
-        "margin_change": "4135",
-        "short_balance": "2069"
+        "foreign_net": "473",
+        "trust_net": "-553",
+        "dealer_net": "860",
+        "foreign_3d": "3422",
+        "foreign_10d": "-11419",
+        "margin_balance": "35779",
+        "margin_change": "-2948",
+        "short_balance": "3940"
       },
       "financial_data": {
-        "eps": 13.34,
-        "eps_growth": 0.0974,
-        "revenue_growth": -0.0193,
-        "roe": 0.0721,
-        "pe_ratio": 14.4,
-        "pb_ratio": 4.25,
-        "dividend_yield": 0.0726
+        "eps": 0.29,
+        "eps_growth": -0.23684210526315796,
+        "revenue_growth": 0.3137287745231465
       },
       "industry_data": {
-        "rank": 12,
+        "rank": 8,
         "total": 30,
-        "avg_ret_1d": -2.72,
-        "avg_ret_5d": 4.68,
-        "avg_ret_20d": 6.62
+        "avg_ret_1d": -0.16,
+        "avg_ret_5d": 4.3,
+        "avg_ret_20d": 10.57
       },
       "score_detail": {
         "base_score": 64.0,
@@ -1296,9 +1298,9 @@
       },
       "key_points": [
         "✅ 站上 MA5",
-        "✅ 投信買超 (+597張)",
-        "⚠️ 營收微幅下滑 (-2%)",
-        "📊 現價 377.5 (▼0.92%)"
+        "⚠️ 投信賣超 (-553張)",
+        "❌ EPS 大幅衰退 (-24%)",
+        "📊 現價 30.6 (▼2.08%)"
       ],
       "patterns": [],
       "themes": [],
@@ -1982,83 +1984,86 @@
       "theme_names": []
     },
     {
-      "stock_id": "3450",
-      "stock_name": "聯鈞",
+      "stock_id": "6196",
+      "stock_name": "帆宣",
       "industry": "其他電子業",
       "market": "TWSE",
-      "composite_score": 72.7,
+      "composite_score": 72.6,
       "grade": "B+",
-      "technical_score": 100.0,
-      "fundamental_score": 40.0,
-      "institutional_score": 52.0,
-      "industry_score": 90.0,
+      "technical_score": 85.0,
+      "fundamental_score": 76.0,
+      "institutional_score": 27.0,
+      "industry_score": 80.0,
       "technical_signals": [
-        "✅ 站上 MA5",
         "✅ 站上 MA20",
         "🚀 均線多頭排列",
         "✅ 站上年線",
-        "✅ MACD 多頭",
-        "📈 MACD 動能增強",
-        "📐 形態: 🚀 突破近20日高點 (600.8)",
-        "📐 形態: 🌟 MA5 剛黃金交叉 MA20",
+        "✅ RSI 強勢區 (55.0)",
+        "🚀 Stage2: 多頭趨勢確立（MA20↑ MA60 站穩）",
         "📐 形態: 📊 低點持續墊高 (N字上升)"
       ],
       "fundamental_signals": [
-        "❌ EPS 大幅衰退 (-71%)",
-        "🚀 營收大幅成長 (+50%)"
+        "📈 EPS 快速成長 (+49%)",
+        "📈 營收成長 (+26%)",
+        "💎 高殖利率 (7.2%)"
       ],
       "institutional_signals": [
-        "✅ 外資買超 (+2,088張)",
-        "✅ 投信買超 (+819張)"
+        "✅ 外資買超 (+2,519張)",
+        "⚠️ 投信賣超 (-1,291張)"
       ],
       "industry_signals": [
         "🏆 強勢產業前段班 (#5/30)",
-        "🚀 產業5日強勢 (+7.0%)"
+        "🚀 產業5日強勢 (+7.0%)",
+        "⚠️ 個股弱於產業 (-7.9%)"
       ],
       "indicators": {
-        "ma5": 549.3,
-        "ma10": 514.12,
-        "ma20": 512.52,
-        "ma60": 402.56,
-        "macd": 35.2232,
-        "macd_signal": 29.7353,
-        "macd_hist": 5.488,
-        "rsi": 58.6,
-        "k": 80.06,
-        "d": 63.97,
-        "bb_upper": 593.39,
-        "bb_middle": 512.52,
-        "bb_lower": 431.65,
-        "bb_pct": 1.115,
-        "volume": 20381937,
-        "volume_ma5": 14534878,
-        "volume_ratio": 1.58,
-        "ma20_slope": 4.46,
-        "ma60_slope": 9.76,
+        "ma5": 550.4,
+        "ma10": 539.7,
+        "ma20": 522.28,
+        "ma60": 419.72,
+        "macd": 32.6836,
+        "macd_signal": 33.5708,
+        "macd_hist": -0.8872,
+        "rsi": 55.02,
+        "k": 63.15,
+        "d": 67.12,
+        "bb_upper": 573.41,
+        "bb_middle": 522.28,
+        "bb_lower": 471.14,
+        "bb_pct": 0.683,
+        "volume": 1459284,
+        "volume_ma5": 1961218,
+        "volume_ratio": 0.58,
+        "ma20_slope": 4.5,
+        "ma60_slope": 10.2,
         "stage": "stage2",
-        "high_52w": 612.0,
-        "low_52w": 240.52,
-        "proximity_52w": 1.0,
-        "price": 612.0,
-        "change_1d": 9.87,
-        "change_5d": 22.77,
-        "change_20d": 15.7,
+        "high_52w": 573.0,
+        "low_52w": 258.0,
+        "proximity_52w": 0.944,
+        "price": 541.0,
+        "change_1d": -3.74,
+        "change_5d": 0.0,
+        "change_20d": 6.92,
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "foreign_net": "2088",
-        "trust_net": "819",
-        "dealer_net": "-973",
-        "foreign_3d": "9375",
-        "foreign_10d": "14627",
-        "margin_balance": "29782",
-        "margin_change": "3003",
-        "short_balance": "1534"
+        "foreign_net": "2519",
+        "trust_net": "-1291",
+        "dealer_net": "-952",
+        "foreign_3d": "3049",
+        "foreign_10d": "-15841",
+        "margin_balance": "15899",
+        "margin_change": "-625",
+        "short_balance": "3240"
       },
       "financial_data": {
-        "eps": 0.69,
-        "eps_growth": -0.7051282051282052,
-        "revenue_growth": 0.4991272715918316
+        "eps": 4.37,
+        "eps_growth": 0.4875,
+        "revenue_growth": 0.2567,
+        "roe": 0.1412,
+        "pe_ratio": 18.2,
+        "pb_ratio": 1.32,
+        "dividend_yield": 0.0723
       },
       "industry_data": {
         "rank": 5,
@@ -2068,22 +2073,21 @@
         "avg_ret_20d": 14.85
       },
       "score_detail": {
-        "base_score": 72.7,
-        "conviction_bonus": 0.0,
+        "base_score": 62.6,
+        "conviction_bonus": 10.0,
         "veto_cap": null,
         "market_multiplier": 1.0,
         "veto_reasons": [],
         "conviction_reasons": [
-          "🔥 量價齊揚配合技術強勢 +5",
-          "⚠️ 近期已漲16%，注意追高 -5"
+          "✅ 雙維度共振 +10"
         ]
       },
       "key_points": [
-        "🔥 量價齊揚配合技術強勢 +5",
-        "⚠️ 近期已漲16%，注意追高 -5",
-        "✅ 站上 MA5",
-        "✅ 外資買超 (+2,088張)",
-        "❌ EPS 大幅衰退 (-71%)"
+        "✅ 雙維度共振 +10",
+        "✅ 站上 MA20",
+        "✅ 外資買超 (+2,519張)",
+        "📈 EPS 快速成長 (+49%)",
+        "📊 現價 541.0 (▼3.74%)"
       ],
       "patterns": [],
       "themes": [],
@@ -2310,6 +2314,107 @@
       "theme_names": []
     },
     {
+      "stock_id": "8072",
+      "stock_name": "陞泰",
+      "industry": "電子通路業",
+      "market": "TWSE",
+      "composite_score": 64.0,
+      "grade": "B",
+      "technical_score": 100.0,
+      "fundamental_score": 40.0,
+      "institutional_score": 38.0,
+      "industry_score": 65.0,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "✅ 站上年線",
+        "✅ MACD 多頭",
+        "📈 MACD 動能增強",
+        "📐 形態: 🌟 MA5 剛黃金交叉 MA20",
+        "📐 形態: 📊 低點持續墊高 (N字上升)"
+      ],
+      "fundamental_signals": [
+        "❌ EPS 大幅衰退 (-24%)",
+        "🚀 營收大幅成長 (+31%)"
+      ],
+      "institutional_signals": [
+        "⚠️ 投信賣超 (-553張)"
+      ],
+      "industry_signals": [
+        "✅ 產業表現強勢 (#8/30)"
+      ],
+      "indicators": {
+        "ma5": 29.69,
+        "ma10": 29.15,
+        "ma20": 28.91,
+        "ma60": 28.33,
+        "macd": 0.4836,
+        "macd_signal": 0.2873,
+        "macd_hist": 0.1963,
+        "rsi": 56.28,
+        "k": 67.26,
+        "d": 55.88,
+        "bb_upper": 31.1,
+        "bb_middle": 28.91,
+        "bb_lower": 26.73,
+        "bb_pct": 0.886,
+        "volume": 893282,
+        "volume_ma5": 559147,
+        "volume_ratio": 1.59,
+        "ma20_slope": 1.62,
+        "ma60_slope": 0.72,
+        "stage": "stage2",
+        "high_52w": 32.45,
+        "low_52w": 26.35,
+        "proximity_52w": 0.943,
+        "price": 30.6,
+        "change_1d": -2.08,
+        "change_5d": 8.13,
+        "change_20d": 10.07,
+        "data_date": "2026-06-23"
+      },
+      "institutional_data": {
+        "foreign_net": "473",
+        "trust_net": "-553",
+        "dealer_net": "860",
+        "foreign_3d": "3422",
+        "foreign_10d": "-11419",
+        "margin_balance": "35779",
+        "margin_change": "-2948",
+        "short_balance": "3940"
+      },
+      "financial_data": {
+        "eps": 0.29,
+        "eps_growth": -0.23684210526315796,
+        "revenue_growth": 0.3137287745231465
+      },
+      "industry_data": {
+        "rank": 8,
+        "total": 30,
+        "avg_ret_1d": -0.16,
+        "avg_ret_5d": 4.3,
+        "avg_ret_20d": 10.57
+      },
+      "score_detail": {
+        "base_score": 64.0,
+        "conviction_bonus": 0.0,
+        "veto_cap": null,
+        "market_multiplier": 1.0,
+        "veto_reasons": [],
+        "conviction_reasons": []
+      },
+      "key_points": [
+        "✅ 站上 MA5",
+        "⚠️ 投信賣超 (-553張)",
+        "❌ EPS 大幅衰退 (-24%)",
+        "📊 現價 30.6 (▼2.08%)"
+      ],
+      "patterns": [],
+      "themes": [],
+      "theme_names": []
+    },
+    {
       "stock_id": "6414",
       "stock_name": "樺漢",
       "industry": "電腦及週邊設備業",
@@ -2406,9 +2511,7 @@
         "⚠️ 營收微幅下滑 (-2%)",
         "📊 現價 377.5 (▼0.92%)"
       ],
-      "patterns": [],
-      "themes": [],
-      "theme_names": []
+      "patterns": []
     },
     {
       "stock_id": "8046",
@@ -2836,106 +2939,6 @@
       "patterns": []
     },
     {
-      "stock_id": "6196",
-      "stock_name": "帆宣",
-      "industry": "其他電子業",
-      "market": "TWSE",
-      "composite_score": 59.5,
-      "grade": "B",
-      "technical_score": 85.0,
-      "fundamental_score": 55.0,
-      "institutional_score": 27.0,
-      "industry_score": 80.0,
-      "technical_signals": [
-        "✅ 站上 MA20",
-        "🚀 均線多頭排列",
-        "✅ 站上年線",
-        "✅ RSI 強勢區 (55.0)",
-        "🚀 Stage2: 多頭趨勢確立（MA20↑ MA60 站穩）",
-        "📐 形態: 📊 低點持續墊高 (N字上升)"
-      ],
-      "fundamental_signals": [
-        "✅ EPS 成長 (+15%)",
-        "🚀 營收大幅成長 (+65%)"
-      ],
-      "institutional_signals": [
-        "✅ 外資買超 (+2,519張)",
-        "⚠️ 投信賣超 (-1,291張)"
-      ],
-      "industry_signals": [
-        "🏆 強勢產業前段班 (#5/30)",
-        "🚀 產業5日強勢 (+7.0%)",
-        "⚠️ 個股弱於產業 (-7.9%)"
-      ],
-      "indicators": {
-        "ma5": 550.4,
-        "ma10": 539.7,
-        "ma20": 522.28,
-        "ma60": 419.72,
-        "macd": 32.6836,
-        "macd_signal": 33.5708,
-        "macd_hist": -0.8872,
-        "rsi": 55.02,
-        "k": 63.15,
-        "d": 67.12,
-        "bb_upper": 573.41,
-        "bb_middle": 522.28,
-        "bb_lower": 471.14,
-        "bb_pct": 0.683,
-        "volume": 1459284,
-        "volume_ma5": 1961218,
-        "volume_ratio": 0.58,
-        "ma20_slope": 4.5,
-        "ma60_slope": 10.2,
-        "stage": "stage2",
-        "high_52w": 573.0,
-        "low_52w": 258.0,
-        "proximity_52w": 0.944,
-        "price": 541.0,
-        "change_1d": -3.74,
-        "change_5d": 0.0,
-        "change_20d": 6.92,
-        "data_date": "2026-06-23"
-      },
-      "institutional_data": {
-        "foreign_net": "2519",
-        "trust_net": "-1291",
-        "dealer_net": "-952",
-        "foreign_3d": "3049",
-        "foreign_10d": "-15841",
-        "margin_balance": "15899",
-        "margin_change": "-625",
-        "short_balance": "3240"
-      },
-      "financial_data": {
-        "eps": 5.08,
-        "eps_growth": 0.15192743764172334,
-        "revenue_growth": 0.6489222551092452
-      },
-      "industry_data": {
-        "rank": 5,
-        "total": 30,
-        "avg_ret_1d": 0.34,
-        "avg_ret_5d": 7.04,
-        "avg_ret_20d": 14.85
-      },
-      "score_detail": {
-        "base_score": 59.5,
-        "conviction_bonus": 0.0,
-        "veto_cap": null,
-        "market_multiplier": 1.0,
-        "veto_reasons": [],
-        "conviction_reasons": []
-      },
-      "key_points": [
-        "✅ 站上 MA20",
-        "✅ 外資買超 (+2,519張)",
-        "✅ EPS 成長 (+15%)",
-        "📊 現價 541.0 (▼3.74%)"
-      ],
-      "patterns": []
-    },
-    {
       "stock_id": "6283",
       "stock_name": "淳安",
       "industry": "其他電子業",
@@ -3249,6 +3252,110 @@
       "patterns": []
     },
     {
+      "stock_id": "3481",
+      "stock_name": "群創",
+      "industry": "光電業",
+      "market": "TWSE",
+      "composite_score": 55.4,
+      "grade": "C+",
+      "technical_score": 100.0,
+      "fundamental_score": 55.0,
+      "institutional_score": 39.0,
+      "industry_score": 90.0,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "✅ 站上年線",
+        "✅ MACD 多頭",
+        "📈 MACD 動能增強",
+        "📐 形態: 🌟 MA5 剛黃金交叉 MA20"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+67%)",
+        "✅ 營收小幅成長 (+10%)"
+      ],
+      "institutional_signals": [
+        "⚠️ 外資賣超 (-4,412張)",
+        "💡 融券多 (5,809張，潛在軋空)"
+      ],
+      "industry_signals": [
+        "✅ 產業表現強勢 (#6/30)",
+        "🚀 產業5日強勢 (+12.9%)",
+        "⭐ 個股優於產業 (+35.9%)"
+      ],
+      "indicators": {
+        "ma5": 61.66,
+        "ma10": 54.65,
+        "ma20": 52.88,
+        "ma60": 36.7,
+        "macd": 6.404,
+        "macd_signal": 5.3213,
+        "macd_hist": 1.0827,
+        "rsi": 63.16,
+        "k": 84.06,
+        "d": 74.97,
+        "bb_upper": 66.63,
+        "bb_middle": 52.88,
+        "bb_lower": 39.12,
+        "bb_pct": 0.977,
+        "volume": 762489858,
+        "volume_ma5": 587814170,
+        "volume_ratio": 1.33,
+        "ma20_slope": 9.03,
+        "ma60_slope": 13.54,
+        "stage": "stage2",
+        "high_52w": 66.0,
+        "low_52w": 20.48,
+        "proximity_52w": 1.0,
+        "price": 66.0,
+        "change_1d": 0.0,
+        "change_5d": 23.83,
+        "change_20d": 47.76,
+        "data_date": "2026-06-23"
+      },
+      "institutional_data": {
+        "foreign_net": "-4412",
+        "trust_net": "422",
+        "dealer_net": "-957",
+        "foreign_3d": "8119",
+        "foreign_10d": "12697",
+        "margin_balance": "39204",
+        "margin_change": "1187",
+        "short_balance": "5809"
+      },
+      "financial_data": {
+        "eps": 0.2,
+        "eps_growth": 0.6666666666666669,
+        "revenue_growth": 0.102755602535801
+      },
+      "industry_data": {
+        "rank": 6,
+        "total": 30,
+        "avg_ret_1d": 0.28,
+        "avg_ret_5d": 12.91,
+        "avg_ret_20d": 11.9
+      },
+      "score_detail": {
+        "base_score": 70.4,
+        "conviction_bonus": -15.0,
+        "veto_cap": null,
+        "market_multiplier": 1.0,
+        "veto_reasons": [],
+        "conviction_reasons": [
+          "⚠️ 20日漲幅48%，追高風險 -15"
+        ]
+      },
+      "key_points": [
+        "⚠️ 20日漲幅48%，追高風險 -15",
+        "✅ 站上 MA5",
+        "⚠️ 外資賣超 (-4,412張)",
+        "🚀 EPS 高速成長 (+67%)",
+        "📊 現價 66.0 (▲0.00%)"
+      ],
+      "patterns": []
+    },
+    {
       "stock_id": "8011",
       "stock_name": "台通",
       "industry": "通信網路業",
@@ -3347,6 +3454,102 @@
         "✅ 外資買超 (+3,003張)",
         "📈 EPS 快速成長 (+44%)",
         "📊 現價 17.6 (▼2.49%)"
+      ],
+      "patterns": []
+    },
+    {
+      "stock_id": "5534",
+      "stock_name": "長虹",
+      "industry": "建材營造",
+      "market": "TWSE",
+      "composite_score": 53.2,
+      "grade": "C+",
+      "technical_score": 78.0,
+      "fundamental_score": 40.0,
+      "institutional_score": 44.0,
+      "industry_score": 30.0,
+      "technical_signals": [
+        "✅ 站上 MA20",
+        "✅ 站上年線",
+        "✅ MACD 多頭",
+        "✅ RSI 強勢區 (60.7)",
+        "🚀 Stage2: 多頭趨勢確立（MA20↑ MA60 站穩）"
+      ],
+      "fundamental_signals": [
+        "❌ EPS 大幅衰退 (-78%)",
+        "🚀 營收大幅成長 (+453%)"
+      ],
+      "institutional_signals": [
+        "✅ 投信買超 (+1,536張)"
+      ],
+      "industry_signals": [
+        "📉 產業近期弱勢 (-4.1%)"
+      ],
+      "indicators": {
+        "ma5": 81.7,
+        "ma10": 81.75,
+        "ma20": 78.34,
+        "ma60": 78.32,
+        "macd": 1.3023,
+        "macd_signal": 1.1243,
+        "macd_hist": 0.1781,
+        "rsi": 60.66,
+        "k": 44.65,
+        "d": 62.52,
+        "bb_upper": 86.29,
+        "bb_middle": 78.34,
+        "bb_lower": 70.39,
+        "bb_pct": 0.535,
+        "volume": 945072,
+        "volume_ma5": 2093569,
+        "volume_ratio": 0.41,
+        "ma20_slope": 1.58,
+        "ma60_slope": 1.06,
+        "stage": "stage2",
+        "high_52w": 85.2,
+        "low_52w": 73.6,
+        "proximity_52w": 0.926,
+        "price": 78.9,
+        "change_1d": 0.0,
+        "change_5d": -4.13,
+        "change_20d": 5.06,
+        "data_date": "2026-06-23"
+      },
+      "institutional_data": {
+        "foreign_net": "810",
+        "trust_net": "1536",
+        "dealer_net": "-689",
+        "foreign_3d": "1484",
+        "foreign_10d": "15265",
+        "margin_balance": "8028",
+        "margin_change": "-1270",
+        "short_balance": "3125"
+      },
+      "financial_data": {
+        "eps": 0.19,
+        "eps_growth": -0.7816091954022988,
+        "revenue_growth": 4.525877921790185
+      },
+      "industry_data": {
+        "rank": 16,
+        "total": 30,
+        "avg_ret_1d": 0.0,
+        "avg_ret_5d": -4.13,
+        "avg_ret_20d": 5.06
+      },
+      "score_detail": {
+        "base_score": 53.2,
+        "conviction_bonus": 0.0,
+        "veto_cap": null,
+        "market_multiplier": 1.0,
+        "veto_reasons": [],
+        "conviction_reasons": []
+      },
+      "key_points": [
+        "✅ 站上 MA20",
+        "✅ 投信買超 (+1,536張)",
+        "❌ EPS 大幅衰退 (-78%)",
+        "📊 現價 78.9 (▲0.00%)"
       ],
       "patterns": []
     },
@@ -3508,7 +3711,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 15184
+        "margin_change": -18422
       },
       "financial_data": {
         "eps": 3.36,
@@ -3602,7 +3805,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 784
+        "margin_change": 1159
       },
       "financial_data": {
         "eps": -0.16,
@@ -3691,7 +3894,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -30
+        "margin_change": -47
       },
       "financial_data": {
         "eps": 1.66,
@@ -3780,7 +3983,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -12
+        "margin_change": -5
       },
       "financial_data": {
         "eps": 13.35,
@@ -3868,7 +4071,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 20
+        "margin_change": 0
       },
       "financial_data": {
         "eps": 1.48,
@@ -3962,7 +4165,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 13890
+        "margin_change": -3650
       },
       "financial_data": {
         "eps": 1.29,
@@ -4058,7 +4261,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -139
+        "margin_change": -118
       },
       "financial_data": {
         "eps": 16.31,
@@ -4154,7 +4357,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 1833
+        "margin_change": -12739
       },
       "financial_data": {
         "eps": 8.41,
@@ -4253,7 +4456,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 31485
+        "margin_change": -37116
       },
       "financial_data": {
         "eps": -0.15,
@@ -4347,7 +4550,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -90
+        "margin_change": 14
       },
       "financial_data": {
         "eps": 14.9,
@@ -4439,7 +4642,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 206
+        "margin_change": -107
       },
       "financial_data": {
         "eps": 22.08,
@@ -4536,7 +4739,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -165
+        "margin_change": -79
       },
       "financial_data": {
         "eps": 0.52,
@@ -4630,7 +4833,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 6721
+        "margin_change": -14198
       },
       "financial_data": {
         "eps": 2.25,
@@ -4727,7 +4930,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -1964
+        "margin_change": -3265
       },
       "financial_data": {
         "eps": 1.87,
@@ -4822,7 +5025,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 347
+        "margin_change": 670
       },
       "financial_data": {
         "eps": 1.07,
@@ -4918,7 +5121,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 119
+        "margin_change": 134
       },
       "financial_data": {
         "eps": 0.51,
@@ -5013,7 +5216,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 5113
+        "margin_change": -7649
       },
       "financial_data": {
         "eps": 1.8,
@@ -5111,7 +5314,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 693
+        "margin_change": -1291
       },
       "financial_data": {
         "eps": 3.24,
@@ -5204,7 +5407,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -103
+        "margin_change": -137
       },
       "financial_data": {
         "eps": 12.28,
@@ -5298,7 +5501,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 496
+        "margin_change": 314
       },
       "financial_data": {
         "eps": 0.33,
@@ -5387,7 +5590,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -8
+        "margin_change": 54
       },
       "financial_data": {
         "eps": 1.03,
@@ -5478,7 +5681,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -84
+        "margin_change": -45
       },
       "financial_data": {
         "eps": 0.5,
@@ -5569,7 +5772,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -32
+        "margin_change": -65
       },
       "financial_data": {
         "eps": 0.45,
@@ -5661,7 +5864,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -550
+        "margin_change": -800
       },
       "financial_data": {
         "eps": 0.61,
@@ -5755,7 +5958,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 219
+        "margin_change": 82
       },
       "financial_data": {
         "eps": 0.74,
@@ -5851,7 +6054,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -284
+        "margin_change": 309
       },
       "financial_data": {
         "eps": 15.17,
@@ -5938,7 +6141,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 95
+        "margin_change": -64
       },
       "financial_data": {
         "eps": 1.37,
@@ -6028,7 +6231,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -439
+        "margin_change": 86
       },
       "financial_data": {
         "eps": 1.02,
@@ -6124,7 +6327,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 764
+        "margin_change": -817
       },
       "financial_data": {
         "eps": 6.19,
@@ -6216,7 +6419,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -1
+        "margin_change": -23
       },
       "financial_data": {
         "eps": 2.61,
@@ -6245,6 +6448,104 @@
         "✅ 站上 MA5",
         "⚠️ EPS 小幅衰退 (-5%)",
         "📊 現價 312.0 (▼3.70%)"
+      ],
+      "patterns": []
+    },
+    {
+      "stock_id": "3450",
+      "stock_name": "聯鈞",
+      "industry": "其他電子業",
+      "market": "TWSE",
+      "composite_score": 50,
+      "grade": "C+",
+      "technical_score": 100.0,
+      "fundamental_score": 40.0,
+      "institutional_score": 22.0,
+      "industry_score": 90.0,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "✅ 站上年線",
+        "✅ MACD 多頭",
+        "📈 MACD 動能增強",
+        "📐 形態: 🚀 突破近20日高點 (600.8)",
+        "📐 形態: 🌟 MA5 剛黃金交叉 MA20",
+        "📐 形態: 📊 低點持續墊高 (N字上升)"
+      ],
+      "fundamental_signals": [
+        "❌ EPS 大幅衰退 (-71%)",
+        "🚀 營收大幅成長 (+50%)"
+      ],
+      "institutional_signals": [],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#5/30)",
+        "🚀 產業5日強勢 (+7.0%)"
+      ],
+      "indicators": {
+        "ma5": 549.3,
+        "ma10": 514.12,
+        "ma20": 512.52,
+        "ma60": 402.56,
+        "macd": 35.2232,
+        "macd_signal": 29.7353,
+        "macd_hist": 5.488,
+        "rsi": 58.6,
+        "k": 80.06,
+        "d": 63.97,
+        "bb_upper": 593.39,
+        "bb_middle": 512.52,
+        "bb_lower": 431.65,
+        "bb_pct": 1.115,
+        "volume": 20381937,
+        "volume_ma5": 14534878,
+        "volume_ratio": 1.58,
+        "ma20_slope": 4.46,
+        "ma60_slope": 9.76,
+        "stage": "stage2",
+        "high_52w": 612.0,
+        "low_52w": 240.52,
+        "proximity_52w": 1.0,
+        "price": 612.0,
+        "change_1d": 9.87,
+        "change_5d": 22.77,
+        "change_20d": 15.7,
+        "data_date": "2026-06-23"
+      },
+      "institutional_data": {
+        "margin_change": 458
+      },
+      "financial_data": {
+        "eps": 0.69,
+        "eps_growth": -0.7051282051282052,
+        "revenue_growth": 0.4991272715918316
+      },
+      "industry_data": {
+        "rank": 5,
+        "total": 30,
+        "avg_ret_1d": 0.34,
+        "avg_ret_5d": 7.04,
+        "avg_ret_20d": 14.85
+      },
+      "score_detail": {
+        "base_score": 62.2,
+        "conviction_bonus": 0.0,
+        "veto_cap": 50,
+        "market_multiplier": 1.0,
+        "veto_reasons": [
+          "⚠️ 籌碼極弱，評分上限50分"
+        ],
+        "conviction_reasons": [
+          "🔥 量價齊揚配合技術強勢 +5",
+          "⚠️ 近期已漲16%，注意追高 -5"
+        ]
+      },
+      "key_points": [
+        "🔥 量價齊揚配合技術強勢 +5",
+        "⚠️ 近期已漲16%，注意追高 -5",
+        "⚠️ 籌碼極弱，評分上限50分",
+        "✅ 站上 MA5",
+        "❌ EPS 大幅衰退 (-71%)"
       ],
       "patterns": []
     },
@@ -6307,7 +6608,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -380
+        "margin_change": -735
       },
       "financial_data": {
         "eps": -0.15,
@@ -6400,7 +6701,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -199
+        "margin_change": 28
       },
       "financial_data": {
         "eps": 0.33,
@@ -6493,7 +6794,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 788
+        "margin_change": 54
       },
       "financial_data": {
         "eps": -0.49,
@@ -6583,7 +6884,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -6
+        "margin_change": 6
       },
       "financial_data": {
         "eps": 0.26,
@@ -6670,7 +6971,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 3
+        "margin_change": -1
       },
       "financial_data": {
         "eps": 5.73,
@@ -6759,7 +7060,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 2
+        "margin_change": 12
       },
       "financial_data": {
         "eps": 0.16,
@@ -6848,7 +7149,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 1
+        "margin_change": -10
       },
       "financial_data": {
         "eps": 1.3,
@@ -6936,7 +7237,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 7
+        "margin_change": -14
       },
       "financial_data": {
         "eps": 5.04,
@@ -7024,7 +7325,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 7
+        "margin_change": -6
       },
       "financial_data": {
         "eps": 2.42,
@@ -7199,7 +7500,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 6
+        "margin_change": -83
       },
       "financial_data": {
         "eps": 0.62,
@@ -7293,7 +7594,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -27
+        "margin_change": -89
       },
       "financial_data": {
         "eps": 1.02,
@@ -7389,7 +7690,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -28
+        "margin_change": -20
       },
       "financial_data": {
         "eps": -0.54,
@@ -7480,7 +7781,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -86
+        "margin_change": 157
       },
       "financial_data": {
         "eps": 0.21,
@@ -7571,7 +7872,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -24
+        "margin_change": 17
       },
       "financial_data": {
         "eps": 6.96,
@@ -7663,7 +7964,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -59
+        "margin_change": 83
       },
       "financial_data": {
         "eps": 2.91,
@@ -7757,7 +8058,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 215
+        "margin_change": 68
       },
       "financial_data": {
         "eps": 0.12,
@@ -7848,7 +8149,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 11
+        "margin_change": 2
       },
       "financial_data": {
         "eps": 1.64,
@@ -7940,7 +8241,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 12
+        "margin_change": -6
       },
       "financial_data": {
         "eps": -0.02,
@@ -8063,98 +8364,6 @@
         "✅ 站上 MA5",
         "🚀 EPS 高速成長 (+1900%)",
         "📊 現價 23.9 (▲0.00%)"
-      ],
-      "patterns": []
-    },
-    {
-      "stock_id": "8072",
-      "stock_name": "陞泰",
-      "industry": "電子通路業",
-      "market": "TWSE",
-      "composite_score": 50,
-      "grade": "C+",
-      "technical_score": 100.0,
-      "fundamental_score": 40.0,
-      "institutional_score": 22.0,
-      "industry_score": 65.0,
-      "technical_signals": [
-        "✅ 站上 MA5",
-        "✅ 站上 MA20",
-        "🚀 均線多頭排列",
-        "✅ 站上年線",
-        "✅ MACD 多頭",
-        "📈 MACD 動能增強",
-        "📐 形態: 🌟 MA5 剛黃金交叉 MA20",
-        "📐 形態: 📊 低點持續墊高 (N字上升)"
-      ],
-      "fundamental_signals": [
-        "❌ EPS 大幅衰退 (-24%)",
-        "🚀 營收大幅成長 (+31%)"
-      ],
-      "institutional_signals": [],
-      "industry_signals": [
-        "✅ 產業表現強勢 (#8/30)"
-      ],
-      "indicators": {
-        "ma5": 29.69,
-        "ma10": 29.15,
-        "ma20": 28.91,
-        "ma60": 28.33,
-        "macd": 0.4836,
-        "macd_signal": 0.2873,
-        "macd_hist": 0.1963,
-        "rsi": 56.28,
-        "k": 67.26,
-        "d": 55.88,
-        "bb_upper": 31.1,
-        "bb_middle": 28.91,
-        "bb_lower": 26.73,
-        "bb_pct": 0.886,
-        "volume": 893282,
-        "volume_ma5": 559147,
-        "volume_ratio": 1.59,
-        "ma20_slope": 1.62,
-        "ma60_slope": 0.72,
-        "stage": "stage2",
-        "high_52w": 32.45,
-        "low_52w": 26.35,
-        "proximity_52w": 0.943,
-        "price": 30.6,
-        "change_1d": -2.08,
-        "change_5d": 8.13,
-        "change_20d": 10.07,
-        "data_date": "2026-06-23"
-      },
-      "institutional_data": {
-        "margin_change": -92
-      },
-      "financial_data": {
-        "eps": 0.29,
-        "eps_growth": -0.23684210526315796,
-        "revenue_growth": 0.3137287745231465
-      },
-      "industry_data": {
-        "rank": 8,
-        "total": 30,
-        "avg_ret_1d": -0.16,
-        "avg_ret_5d": 4.3,
-        "avg_ret_20d": 10.57
-      },
-      "score_detail": {
-        "base_score": 58.5,
-        "conviction_bonus": 0.0,
-        "veto_cap": 50,
-        "market_multiplier": 1.0,
-        "veto_reasons": [
-          "⚠️ 籌碼極弱，評分上限50分"
-        ],
-        "conviction_reasons": []
-      },
-      "key_points": [
-        "⚠️ 籌碼極弱，評分上限50分",
-        "✅ 站上 MA5",
-        "❌ EPS 大幅衰退 (-24%)",
-        "📊 現價 30.6 (▼2.08%)"
       ],
       "patterns": []
     },
@@ -8544,7 +8753,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 4
+        "margin_change": 0
       },
       "financial_data": {
         "eps": -0.21,
@@ -8638,7 +8847,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -644
+        "margin_change": 262
       },
       "financial_data": {
         "eps": -0.29,
@@ -8724,7 +8933,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 3
+        "margin_change": 51
       },
       "financial_data": {
         "eps": 1.15,
@@ -8815,7 +9024,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -448
+        "margin_change": -436
       },
       "financial_data": {
         "eps": 2.14,
@@ -8847,102 +9056,6 @@
         "✅ 站上 MA5",
         "⚠️ EPS 小幅衰退 (-1%)",
         "📊 現價 137.5 (▼0.72%)"
-      ],
-      "patterns": []
-    },
-    {
-      "stock_id": "3481",
-      "stock_name": "群創",
-      "industry": "光電業",
-      "market": "TWSE",
-      "composite_score": 49.5,
-      "grade": "C+",
-      "technical_score": 100.0,
-      "fundamental_score": 55.0,
-      "institutional_score": 22.0,
-      "industry_score": 90.0,
-      "technical_signals": [
-        "✅ 站上 MA5",
-        "✅ 站上 MA20",
-        "🚀 均線多頭排列",
-        "✅ 站上年線",
-        "✅ MACD 多頭",
-        "📈 MACD 動能增強",
-        "📐 形態: 🌟 MA5 剛黃金交叉 MA20"
-      ],
-      "fundamental_signals": [
-        "🚀 EPS 高速成長 (+67%)",
-        "✅ 營收小幅成長 (+10%)"
-      ],
-      "institutional_signals": [],
-      "industry_signals": [
-        "✅ 產業表現強勢 (#6/30)",
-        "🚀 產業5日強勢 (+12.9%)",
-        "⭐ 個股優於產業 (+35.9%)"
-      ],
-      "indicators": {
-        "ma5": 61.66,
-        "ma10": 54.65,
-        "ma20": 52.88,
-        "ma60": 36.7,
-        "macd": 6.404,
-        "macd_signal": 5.3213,
-        "macd_hist": 1.0827,
-        "rsi": 63.16,
-        "k": 84.06,
-        "d": 74.97,
-        "bb_upper": 66.63,
-        "bb_middle": 52.88,
-        "bb_lower": 39.12,
-        "bb_pct": 0.977,
-        "volume": 762489858,
-        "volume_ma5": 587814170,
-        "volume_ratio": 1.33,
-        "ma20_slope": 9.03,
-        "ma60_slope": 13.54,
-        "stage": "stage2",
-        "high_52w": 66.0,
-        "low_52w": 20.48,
-        "proximity_52w": 1.0,
-        "price": 66.0,
-        "change_1d": 0.0,
-        "change_5d": 23.83,
-        "change_20d": 47.76,
-        "data_date": "2026-06-23"
-      },
-      "institutional_data": {
-        "margin_change": 6228
-      },
-      "financial_data": {
-        "eps": 0.2,
-        "eps_growth": 0.6666666666666669,
-        "revenue_growth": 0.102755602535801
-      },
-      "industry_data": {
-        "rank": 6,
-        "total": 30,
-        "avg_ret_1d": 0.28,
-        "avg_ret_5d": 12.91,
-        "avg_ret_20d": 11.9
-      },
-      "score_detail": {
-        "base_score": 64.5,
-        "conviction_bonus": -15.0,
-        "veto_cap": 50,
-        "market_multiplier": 1.0,
-        "veto_reasons": [
-          "⚠️ 籌碼極弱，評分上限50分"
-        ],
-        "conviction_reasons": [
-          "⚠️ 20日漲幅48%，追高風險 -15"
-        ]
-      },
-      "key_points": [
-        "⚠️ 20日漲幅48%，追高風險 -15",
-        "⚠️ 籌碼極弱，評分上限50分",
-        "✅ 站上 MA5",
-        "🚀 EPS 高速成長 (+67%)",
-        "📊 現價 66.0 (▲0.00%)"
       ],
       "patterns": []
     },
@@ -9001,7 +9114,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -9
+        "margin_change": -4
       },
       "financial_data": {
         "eps": 0.14,
@@ -9030,6 +9143,96 @@
         "✅ 站上 MA20",
         "✅ EPS 成長 (+17%)",
         "📊 現價 12.4 (▼0.40%)"
+      ],
+      "patterns": []
+    },
+    {
+      "stock_id": "3661",
+      "stock_name": "世芯-KY",
+      "industry": "AI/雲端",
+      "market": "TWSE",
+      "composite_score": 49.0,
+      "grade": "C+",
+      "technical_score": 73.0,
+      "fundamental_score": 25.0,
+      "institutional_score": 22.0,
+      "industry_score": 80.0,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "✅ 站上 MA20",
+        "✅ 站上年線",
+        "📈 MACD 動能增強",
+        "✅ KD 多頭",
+        "✅ 量價齊揚",
+        "📐 形態: 📊 低點持續墊高 (N字上升)"
+      ],
+      "fundamental_signals": [
+        "❌ 營收衰退 (-33%)"
+      ],
+      "institutional_signals": [],
+      "industry_signals": [
+        "🏆 強勢產業前段班 (#1/30)",
+        "🚀 產業5日強勢 (+72.7%)",
+        "⚠️ 個股弱於產業 (-60.1%)"
+      ],
+      "indicators": {
+        "ma5": 4343.0,
+        "ma10": 4242.0,
+        "ma20": 4354.75,
+        "ma60": 4064.75,
+        "macd": -20.4604,
+        "macd_signal": -13.4799,
+        "macd_hist": -6.9805,
+        "rsi": 41.53,
+        "k": 66.43,
+        "d": 57.72,
+        "bb_upper": 4759.92,
+        "bb_middle": 4354.75,
+        "bb_lower": 3949.58,
+        "bb_pct": 0.525,
+        "volume": 2237090,
+        "volume_ma5": 1756462,
+        "volume_ratio": 1.38,
+        "ma20_slope": -2.13,
+        "ma60_slope": 3.97,
+        "stage": "stage3",
+        "high_52w": 5375.0,
+        "low_52w": 2485.0,
+        "proximity_52w": 0.814,
+        "price": 4375.0,
+        "change_1d": 1.16,
+        "change_5d": 1.39,
+        "change_20d": -5.71,
+        "data_date": "2026-06-23"
+      },
+      "institutional_data": {
+        "margin_change": 73
+      },
+      "financial_data": {
+        "revenue_growth": -0.33450353898941143
+      },
+      "industry_data": {
+        "rank": 1,
+        "total": 30,
+        "avg_ret_1d": -1.81,
+        "avg_ret_5d": 72.69,
+        "avg_ret_20d": 54.39
+      },
+      "score_detail": {
+        "base_score": 49.0,
+        "conviction_bonus": 0.0,
+        "veto_cap": 50,
+        "market_multiplier": 1.0,
+        "veto_reasons": [
+          "⚠️ 籌碼極弱，評分上限50分"
+        ],
+        "conviction_reasons": []
+      },
+      "key_points": [
+        "⚠️ 籌碼極弱，評分上限50分",
+        "✅ 站上 MA5",
+        "❌ 營收衰退 (-33%)",
+        "📊 現價 4375.0 (▲1.16%)"
       ],
       "patterns": []
     },
@@ -9182,7 +9385,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -50
+        "margin_change": 154
       },
       "financial_data": {
         "eps": 1.3,
@@ -9273,7 +9476,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 45
+        "margin_change": 0
       },
       "financial_data": {
         "eps": 3.61,
@@ -9302,99 +9505,6 @@
         "✅ 站上 MA20",
         "❌ EPS 大幅衰退 (-29%)",
         "📊 現價 164.5 (▼0.30%)"
-      ],
-      "patterns": []
-    },
-    {
-      "stock_id": "3661",
-      "stock_name": "世芯-KY",
-      "industry": "AI/雲端",
-      "market": "TWSE",
-      "composite_score": 47.9,
-      "grade": "C",
-      "technical_score": 73.0,
-      "fundamental_score": 18.0,
-      "institutional_score": 22.0,
-      "industry_score": 80.0,
-      "technical_signals": [
-        "✅ 站上 MA5",
-        "✅ 站上 MA20",
-        "✅ 站上年線",
-        "📈 MACD 動能增強",
-        "✅ KD 多頭",
-        "✅ 量價齊揚",
-        "📐 形態: 📊 低點持續墊高 (N字上升)"
-      ],
-      "fundamental_signals": [
-        "⚠️ EPS 小幅衰退 (-3%)",
-        "❌ 營收衰退 (-33%)"
-      ],
-      "institutional_signals": [],
-      "industry_signals": [
-        "🏆 強勢產業前段班 (#1/30)",
-        "🚀 產業5日強勢 (+72.7%)",
-        "⚠️ 個股弱於產業 (-60.1%)"
-      ],
-      "indicators": {
-        "ma5": 4343.0,
-        "ma10": 4242.0,
-        "ma20": 4354.75,
-        "ma60": 4064.75,
-        "macd": -20.4604,
-        "macd_signal": -13.4799,
-        "macd_hist": -6.9805,
-        "rsi": 41.53,
-        "k": 66.43,
-        "d": 57.72,
-        "bb_upper": 4759.92,
-        "bb_middle": 4354.75,
-        "bb_lower": 3949.58,
-        "bb_pct": 0.525,
-        "volume": 2237090,
-        "volume_ma5": 1756462,
-        "volume_ratio": 1.38,
-        "ma20_slope": -2.13,
-        "ma60_slope": 3.97,
-        "stage": "stage3",
-        "high_52w": 5375.0,
-        "low_52w": 2485.0,
-        "proximity_52w": 0.814,
-        "price": 4375.0,
-        "change_1d": 1.16,
-        "change_5d": 1.39,
-        "change_20d": -5.71,
-        "data_date": "2026-06-23"
-      },
-      "institutional_data": {
-        "margin_change": 141
-      },
-      "financial_data": {
-        "eps": 17.55,
-        "eps_growth": -0.031991174848317615,
-        "revenue_growth": -0.33450353898941143
-      },
-      "industry_data": {
-        "rank": 1,
-        "total": 30,
-        "avg_ret_1d": -1.81,
-        "avg_ret_5d": 72.69,
-        "avg_ret_20d": 54.39
-      },
-      "score_detail": {
-        "base_score": 47.9,
-        "conviction_bonus": 0.0,
-        "veto_cap": 50,
-        "market_multiplier": 1.0,
-        "veto_reasons": [
-          "⚠️ 籌碼極弱，評分上限50分"
-        ],
-        "conviction_reasons": []
-      },
-      "key_points": [
-        "⚠️ 籌碼極弱，評分上限50分",
-        "✅ 站上 MA5",
-        "⚠️ EPS 小幅衰退 (-3%)",
-        "📊 現價 4375.0 (▲1.16%)"
       ],
       "patterns": []
     },
@@ -9458,7 +9568,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -456
+        "margin_change": 39
       },
       "financial_data": {
         "eps": 2.22,
@@ -9551,7 +9661,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -4
+        "margin_change": 5
       },
       "financial_data": {
         "eps": 1.79,
@@ -9643,7 +9753,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -3
+        "margin_change": -25
       },
       "financial_data": {
         "eps": -1.18,
@@ -9927,7 +10037,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -18
+        "margin_change": -8
       },
       "financial_data": {
         "eps": 1.51,
@@ -10019,7 +10129,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 111
+        "margin_change": -506
       },
       "financial_data": {
         "eps": 0.85,
@@ -10116,7 +10226,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 154
+        "margin_change": 77
       },
       "financial_data": {
         "eps": 75.95,
@@ -10393,7 +10503,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 7
+        "margin_change": -6
       },
       "financial_data": {
         "eps": 5.62,
@@ -10422,95 +10532,6 @@
         "✅ 站上 MA20",
         "⚠️ EPS 小幅衰退 (-7%)",
         "📊 現價 343.5 (▼0.72%)"
-      ],
-      "patterns": []
-    },
-    {
-      "stock_id": "5534",
-      "stock_name": "長虹",
-      "industry": "建材營造",
-      "market": "TWSE",
-      "composite_score": 45.5,
-      "grade": "C",
-      "technical_score": 78.0,
-      "fundamental_score": 40.0,
-      "institutional_score": 22.0,
-      "industry_score": 30.0,
-      "technical_signals": [
-        "✅ 站上 MA20",
-        "✅ 站上年線",
-        "✅ MACD 多頭",
-        "✅ RSI 強勢區 (60.7)",
-        "🚀 Stage2: 多頭趨勢確立（MA20↑ MA60 站穩）"
-      ],
-      "fundamental_signals": [
-        "❌ EPS 大幅衰退 (-78%)",
-        "🚀 營收大幅成長 (+453%)"
-      ],
-      "institutional_signals": [],
-      "industry_signals": [
-        "📉 產業近期弱勢 (-4.1%)"
-      ],
-      "indicators": {
-        "ma5": 81.7,
-        "ma10": 81.75,
-        "ma20": 78.34,
-        "ma60": 78.32,
-        "macd": 1.3023,
-        "macd_signal": 1.1243,
-        "macd_hist": 0.1781,
-        "rsi": 60.66,
-        "k": 44.65,
-        "d": 62.52,
-        "bb_upper": 86.29,
-        "bb_middle": 78.34,
-        "bb_lower": 70.39,
-        "bb_pct": 0.535,
-        "volume": 945072,
-        "volume_ma5": 2093569,
-        "volume_ratio": 0.41,
-        "ma20_slope": 1.58,
-        "ma60_slope": 1.06,
-        "stage": "stage2",
-        "high_52w": 85.2,
-        "low_52w": 73.6,
-        "proximity_52w": 0.926,
-        "price": 78.9,
-        "change_1d": 0.0,
-        "change_5d": -4.13,
-        "change_20d": 5.06,
-        "data_date": "2026-06-23"
-      },
-      "institutional_data": {
-        "margin_change": 278
-      },
-      "financial_data": {
-        "eps": 0.19,
-        "eps_growth": -0.7816091954022988,
-        "revenue_growth": 4.525877921790185
-      },
-      "industry_data": {
-        "rank": 16,
-        "total": 30,
-        "avg_ret_1d": 0.0,
-        "avg_ret_5d": -4.13,
-        "avg_ret_20d": 5.06
-      },
-      "score_detail": {
-        "base_score": 45.5,
-        "conviction_bonus": 0.0,
-        "veto_cap": 50,
-        "market_multiplier": 1.0,
-        "veto_reasons": [
-          "⚠️ 籌碼極弱，評分上限50分"
-        ],
-        "conviction_reasons": []
-      },
-      "key_points": [
-        "⚠️ 籌碼極弱，評分上限50分",
-        "✅ 站上 MA20",
-        "❌ EPS 大幅衰退 (-78%)",
-        "📊 現價 78.9 (▲0.00%)"
       ],
       "patterns": []
     },
@@ -10572,7 +10593,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 165
+        "margin_change": -1165
       },
       "financial_data": {
         "eps": 0.36,
@@ -10665,7 +10686,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 72
+        "margin_change": 13
       },
       "financial_data": {
         "eps": -0.43,
@@ -10761,7 +10782,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -135
+        "margin_change": 19
       },
       "financial_data": {
         "eps": 8.44,
@@ -10852,7 +10873,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -158
+        "margin_change": 393
       },
       "financial_data": {
         "eps": 5.5,
@@ -11123,7 +11144,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 2
+        "margin_change": -3
       },
       "financial_data": {
         "eps": 2.58,
@@ -11398,7 +11419,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 2329
+        "margin_change": -1060
       },
       "financial_data": {
         "eps": 1.66,
@@ -11569,7 +11590,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 30
+        "margin_change": -1
       },
       "financial_data": {
         "eps": 0.11,
@@ -11658,7 +11679,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -71
+        "margin_change": 20
       },
       "financial_data": {
         "eps": 3.85,
@@ -11749,7 +11770,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -34
+        "margin_change": -45
       },
       "financial_data": {
         "eps": 46.63,
@@ -11781,6 +11802,91 @@
         "✅ 站上 MA20",
         "⚠️ EPS 小幅衰退 (-3%)",
         "📊 現價 5000.0 (▼3.57%)"
+      ],
+      "patterns": []
+    },
+    {
+      "stock_id": "1453",
+      "stock_name": "大將",
+      "industry": "紡織纖維",
+      "market": "TWSE",
+      "composite_score": 40.1,
+      "grade": "C",
+      "technical_score": 58.0,
+      "fundamental_score": 50.0,
+      "institutional_score": 22.0,
+      "industry_score": 31.0,
+      "technical_signals": [
+        "✅ 站上 MA20",
+        "🚀 均線多頭排列",
+        "✅ MACD 多頭",
+        "✅ RSI 強勢區 (57.1)"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+58%)"
+      ],
+      "institutional_signals": [],
+      "industry_signals": [],
+      "indicators": {
+        "ma5": 11.73,
+        "ma10": 11.62,
+        "ma20": 11.47,
+        "ma60": 11.72,
+        "macd": 0.0424,
+        "macd_signal": -0.0008,
+        "macd_hist": 0.0432,
+        "rsi": 57.14,
+        "k": 50.54,
+        "d": 52.44,
+        "bb_upper": 11.99,
+        "bb_middle": 11.47,
+        "bb_lower": 10.95,
+        "bb_pct": 0.575,
+        "volume": 102505,
+        "volume_ma5": 95833,
+        "volume_ratio": 0.66,
+        "ma20_slope": 0.72,
+        "ma60_slope": -0.89,
+        "stage": "transition",
+        "high_52w": 14.0,
+        "low_52w": 11.1,
+        "proximity_52w": 0.825,
+        "price": 11.55,
+        "change_1d": -0.86,
+        "change_5d": -1.7,
+        "change_20d": 1.76,
+        "data_date": "2026-06-23"
+      },
+      "institutional_data": {
+        "margin_change": 0
+      },
+      "financial_data": {
+        "eps": -0.05,
+        "eps_growth": 0.5833333333333333,
+        "revenue_growth": 0.008064516129032258
+      },
+      "industry_data": {
+        "rank": 18,
+        "total": 30,
+        "avg_ret_1d": -0.96,
+        "avg_ret_5d": -1.29,
+        "avg_ret_20d": 3.38
+      },
+      "score_detail": {
+        "base_score": 40.1,
+        "conviction_bonus": 0.0,
+        "veto_cap": 50,
+        "market_multiplier": 1.0,
+        "veto_reasons": [
+          "⚠️ 籌碼極弱，評分上限50分"
+        ],
+        "conviction_reasons": []
+      },
+      "key_points": [
+        "⚠️ 籌碼極弱，評分上限50分",
+        "✅ 站上 MA20",
+        "🚀 EPS 高速成長 (+58%)",
+        "📊 現價 11.6 (▼0.86%)"
       ],
       "patterns": []
     },
@@ -11839,7 +11945,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 661
+        "margin_change": -603
       },
       "financial_data": {
         "eps": 3.06,
@@ -11924,7 +12030,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 14
+        "margin_change": 12
       },
       "financial_data": {
         "eps": 0.94,
@@ -12009,7 +12115,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -19
+        "margin_change": -11
       },
       "financial_data": {
         "eps": 1.31,
@@ -12191,7 +12297,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -35
+        "margin_change": -28
       },
       "financial_data": {
         "eps": 0.0,
@@ -12280,7 +12386,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 1109
+        "margin_change": 267
       },
       "financial_data": {
         "eps": 3.56,
@@ -12395,86 +12501,6 @@
         "🚀 均線多頭排列",
         "📈 營收成長 (+28%)",
         "📊 現價 64.1 (▼1.38%)"
-      ],
-      "patterns": []
-    },
-    {
-      "stock_id": "1453",
-      "stock_name": "大將",
-      "industry": "紡織纖維",
-      "market": "TWSE",
-      "composite_score": 37.9,
-      "grade": "D",
-      "technical_score": 58.0,
-      "fundamental_score": 35.0,
-      "institutional_score": 22.0,
-      "industry_score": 31.0,
-      "technical_signals": [
-        "✅ 站上 MA20",
-        "🚀 均線多頭排列",
-        "✅ MACD 多頭",
-        "✅ RSI 強勢區 (57.1)"
-      ],
-      "fundamental_signals": [],
-      "institutional_signals": [],
-      "industry_signals": [],
-      "indicators": {
-        "ma5": 11.73,
-        "ma10": 11.62,
-        "ma20": 11.47,
-        "ma60": 11.72,
-        "macd": 0.0424,
-        "macd_signal": -0.0008,
-        "macd_hist": 0.0432,
-        "rsi": 57.14,
-        "k": 50.54,
-        "d": 52.44,
-        "bb_upper": 11.99,
-        "bb_middle": 11.47,
-        "bb_lower": 10.95,
-        "bb_pct": 0.575,
-        "volume": 102505,
-        "volume_ma5": 95833,
-        "volume_ratio": 0.66,
-        "ma20_slope": 0.72,
-        "ma60_slope": -0.89,
-        "stage": "transition",
-        "high_52w": 14.0,
-        "low_52w": 11.1,
-        "proximity_52w": 0.825,
-        "price": 11.55,
-        "change_1d": -0.86,
-        "change_5d": -1.7,
-        "change_20d": 1.76,
-        "data_date": "2026-06-23"
-      },
-      "institutional_data": {
-        "margin_change": -7
-      },
-      "financial_data": {
-        "revenue_growth": 0.008064516129032258
-      },
-      "industry_data": {
-        "rank": 18,
-        "total": 30,
-        "avg_ret_1d": -0.96,
-        "avg_ret_5d": -1.29,
-        "avg_ret_20d": 3.38
-      },
-      "score_detail": {
-        "base_score": 37.9,
-        "conviction_bonus": 0.0,
-        "veto_cap": 50,
-        "market_multiplier": 1.0,
-        "veto_reasons": [
-          "⚠️ 籌碼極弱，評分上限50分"
-        ],
-        "conviction_reasons": []
-      },
-      "key_points": [
-        "⚠️ 籌碼極弱，評分上限50分",
-        "✅ 站上 MA20",
-        "📊 現價 11.6 (▼0.86%)"
       ],
       "patterns": []
     },
@@ -12638,7 +12664,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 380
+        "margin_change": 216
       },
       "financial_data": {
         "eps": 7.91,
@@ -12723,7 +12749,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -1
+        "margin_change": -45
       },
       "financial_data": {
         "eps": -0.21,
@@ -12811,7 +12837,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -161
+        "margin_change": -383
       },
       "financial_data": {
         "eps": 4.04,
@@ -12899,7 +12925,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 0
+        "margin_change": -1
       },
       "financial_data": {
         "eps": 0.48,
@@ -12986,7 +13012,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -7
+        "margin_change": 77
       },
       "financial_data": {
         "eps": 13.19,
@@ -13015,109 +13041,6 @@
         "✅ 站上年線",
         "❌ EPS 大幅衰退 (-23%)",
         "📊 現價 785.0 (▼0.38%)"
-      ],
-      "patterns": []
-    },
-    {
-      "stock_id": "3669",
-      "stock_name": "圓展",
-      "industry": "光電業",
-      "market": "TWSE",
-      "composite_score": 35,
-      "grade": "D",
-      "technical_score": 10.0,
-      "fundamental_score": 45.0,
-      "institutional_score": 41.0,
-      "industry_score": 70.0,
-      "technical_signals": [
-        "📈 MACD 動能增強",
-        "📉 RSI 超賣 (17.8)",
-        "✅ KD 多頭",
-        "🚫 Stage4: 下跌趨勢，嚴格迴避",
-        "📐 形態: 📊 低點持續墊高 (N字上升)"
-      ],
-      "fundamental_signals": [
-        "🚀 EPS 高速成長 (+6900%)",
-        "⚠️ 營收微幅下滑 (-6%)"
-      ],
-      "institutional_signals": [
-        "✅ 外資買超 (+2,696張)",
-        "✅ 投信買超 (+1,140張)",
-        "💡 融券多 (6,971張，潛在軋空)"
-      ],
-      "industry_signals": [
-        "✅ 產業表現強勢 (#6/30)",
-        "🚀 產業5日強勢 (+12.9%)",
-        "⚠️ 個股弱於產業 (-21.8%)"
-      ],
-      "indicators": {
-        "ma5": 35.34,
-        "ma10": 35.44,
-        "ma20": 37.66,
-        "ma60": 37.75,
-        "macd": -0.9348,
-        "macd_signal": -0.6369,
-        "macd_hist": -0.2979,
-        "rsi": 17.79,
-        "k": 36.15,
-        "d": 30.66,
-        "bb_upper": 42.9,
-        "bb_middle": 37.66,
-        "bb_lower": 32.41,
-        "bb_pct": 0.247,
-        "volume": 142292,
-        "volume_ma5": 208676,
-        "volume_ratio": 0.41,
-        "ma20_slope": -1.21,
-        "ma60_slope": 0.4,
-        "stage": "stage4",
-        "high_52w": 43.1,
-        "low_52w": 32.05,
-        "proximity_52w": 0.812,
-        "price": 35.0,
-        "change_1d": -2.37,
-        "change_5d": 0.0,
-        "change_20d": -9.91,
-        "data_date": "2026-06-23"
-      },
-      "institutional_data": {
-        "foreign_net": "2696",
-        "trust_net": "1140",
-        "dealer_net": "-277",
-        "foreign_3d": "-4152",
-        "foreign_10d": "-19253",
-        "margin_balance": "18236",
-        "margin_change": "-2910",
-        "short_balance": "6971"
-      },
-      "financial_data": {
-        "eps": 0.7,
-        "eps_growth": 69.0,
-        "revenue_growth": -0.055778735843426894
-      },
-      "industry_data": {
-        "rank": 6,
-        "total": 30,
-        "avg_ret_1d": 0.28,
-        "avg_ret_5d": 12.91,
-        "avg_ret_20d": 11.9
-      },
-      "score_detail": {
-        "base_score": 35.1,
-        "conviction_bonus": 0.0,
-        "veto_cap": 35,
-        "market_multiplier": 1.0,
-        "veto_reasons": [
-          "🚫 Stage4下跌趨勢，強制上限35分"
-        ],
-        "conviction_reasons": []
-      },
-      "key_points": [
-        "🚫 Stage4下跌趨勢，強制上限35分",
-        "📈 MACD 動能增強",
-        "✅ 外資買超 (+2,696張)",
-        "🚀 EPS 高速成長 (+6900%)",
-        "📊 現價 35.0 (▼2.37%)"
       ],
       "patterns": []
     },
@@ -13179,7 +13102,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 2
+        "margin_change": 6
       },
       "financial_data": {
         "eps": 4.15,
@@ -13269,7 +13192,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -37
+        "margin_change": -31
       },
       "financial_data": {
         "eps": 2.43,
@@ -13360,7 +13283,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -640
+        "margin_change": -668
       },
       "financial_data": {
         "eps": 0.68,
@@ -13447,7 +13370,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 0
+        "margin_change": -10
       },
       "financial_data": {
         "eps": -0.02,
@@ -13641,7 +13564,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 0
+        "margin_change": -1
       },
       "financial_data": {
         "eps": 1.17,
@@ -13729,7 +13652,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -1162
+        "margin_change": 488
       },
       "financial_data": {
         "eps": 0.41,
@@ -13814,7 +13737,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -55
+        "margin_change": 0
       },
       "financial_data": {
         "eps": 1.78,
@@ -13900,7 +13823,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -2
+        "margin_change": -3
       },
       "financial_data": {
         "eps": 0.02,
@@ -13988,7 +13911,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 1045
+        "margin_change": -516
       },
       "financial_data": {
         "eps": 0.23,
@@ -14074,7 +13997,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 1
+        "margin_change": -25
       },
       "financial_data": {
         "eps": 1.14,
@@ -14160,7 +14083,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -1
+        "margin_change": -3
       },
       "financial_data": {
         "eps": -0.36,
@@ -14246,7 +14169,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -38
+        "margin_change": -27
       },
       "financial_data": {
         "eps": 0.16,
@@ -14419,7 +14342,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 129
+        "margin_change": 11
       },
       "financial_data": {
         "eps": 1.23,
@@ -14509,7 +14432,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 3
+        "margin_change": -5
       },
       "financial_data": {
         "eps": 3.8,
@@ -14538,6 +14461,98 @@
         "✅ 站上 MA5",
         "🚀 EPS 高速成長 (+503%)",
         "📊 現價 152.0 (▲0.33%)"
+      ],
+      "patterns": []
+    },
+    {
+      "stock_id": "3669",
+      "stock_name": "圓展",
+      "industry": "光電業",
+      "market": "TWSE",
+      "composite_score": 28.4,
+      "grade": "D",
+      "technical_score": 10.0,
+      "fundamental_score": 45.0,
+      "institutional_score": 22.0,
+      "industry_score": 70.0,
+      "technical_signals": [
+        "📈 MACD 動能增強",
+        "📉 RSI 超賣 (17.8)",
+        "✅ KD 多頭",
+        "🚫 Stage4: 下跌趨勢，嚴格迴避",
+        "📐 形態: 📊 低點持續墊高 (N字上升)"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+6900%)",
+        "⚠️ 營收微幅下滑 (-6%)"
+      ],
+      "institutional_signals": [],
+      "industry_signals": [
+        "✅ 產業表現強勢 (#6/30)",
+        "🚀 產業5日強勢 (+12.9%)",
+        "⚠️ 個股弱於產業 (-21.8%)"
+      ],
+      "indicators": {
+        "ma5": 35.34,
+        "ma10": 35.44,
+        "ma20": 37.66,
+        "ma60": 37.75,
+        "macd": -0.9348,
+        "macd_signal": -0.6369,
+        "macd_hist": -0.2979,
+        "rsi": 17.79,
+        "k": 36.15,
+        "d": 30.66,
+        "bb_upper": 42.9,
+        "bb_middle": 37.66,
+        "bb_lower": 32.41,
+        "bb_pct": 0.247,
+        "volume": 142292,
+        "volume_ma5": 208676,
+        "volume_ratio": 0.41,
+        "ma20_slope": -1.21,
+        "ma60_slope": 0.4,
+        "stage": "stage4",
+        "high_52w": 43.1,
+        "low_52w": 32.05,
+        "proximity_52w": 0.812,
+        "price": 35.0,
+        "change_1d": -2.37,
+        "change_5d": 0.0,
+        "change_20d": -9.91,
+        "data_date": "2026-06-23"
+      },
+      "institutional_data": {
+        "margin_change": 16
+      },
+      "financial_data": {
+        "eps": 0.7,
+        "eps_growth": 69.0,
+        "revenue_growth": -0.055778735843426894
+      },
+      "industry_data": {
+        "rank": 6,
+        "total": 30,
+        "avg_ret_1d": 0.28,
+        "avg_ret_5d": 12.91,
+        "avg_ret_20d": 11.9
+      },
+      "score_detail": {
+        "base_score": 28.4,
+        "conviction_bonus": 0.0,
+        "veto_cap": 35,
+        "market_multiplier": 1.0,
+        "veto_reasons": [
+          "🚫 Stage4下跌趨勢，強制上限35分",
+          "⚠️ 籌碼極弱，評分上限50分"
+        ],
+        "conviction_reasons": []
+      },
+      "key_points": [
+        "🚫 Stage4下跌趨勢，強制上限35分",
+        "📈 MACD 動能增強",
+        "🚀 EPS 高速成長 (+6900%)",
+        "📊 現價 35.0 (▼2.37%)"
       ],
       "patterns": []
     },
@@ -14596,7 +14611,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 35
+        "margin_change": -4
       },
       "financial_data": {
         "eps": 1.41,
@@ -14684,7 +14699,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 580
+        "margin_change": 179
       },
       "financial_data": {
         "eps": 1.1,
@@ -15085,7 +15100,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 2
+        "margin_change": -13
       },
       "financial_data": {
         "eps": 21.37,
@@ -15278,7 +15293,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 166
+        "margin_change": 78
       },
       "financial_data": {
         "eps": 0.14,
@@ -15461,7 +15476,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -3
+        "margin_change": 15
       },
       "financial_data": {
         "eps": 0.25,
@@ -15548,7 +15563,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 39
+        "margin_change": -34
       },
       "financial_data": {
         "eps": 0.3,
@@ -15640,7 +15655,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 2486
+        "margin_change": -468
       },
       "financial_data": {
         "eps": 0.45,
@@ -15732,7 +15747,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 6
+        "margin_change": 311
       },
       "financial_data": {
         "eps": 3.84,
@@ -15823,7 +15838,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 178
+        "margin_change": -96
       },
       "financial_data": {
         "eps": -1.18,
@@ -15915,7 +15930,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -42
+        "margin_change": -10
       },
       "financial_data": {
         "eps": 1.2,
@@ -16006,7 +16021,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -158
+        "margin_change": 1323
       },
       "financial_data": {
         "eps": 0.47,
@@ -16096,7 +16111,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -1
+        "margin_change": 0
       },
       "financial_data": {
         "eps": 1.34,
@@ -16186,7 +16201,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 12
+        "margin_change": -33
       },
       "financial_data": {
         "eps": 4.17,
@@ -16275,7 +16290,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -9
+        "margin_change": -16
       },
       "financial_data": {
         "eps": 0.53,
@@ -16365,7 +16380,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 91
+        "margin_change": 145
       },
       "financial_data": {
         "eps": 0.58,
@@ -16459,7 +16474,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -386
+        "margin_change": -10
       },
       "financial_data": {
         "eps": -0.45,
@@ -17010,7 +17025,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 8
+        "margin_change": -3
       },
       "financial_data": {
         "eps": 0.53,
@@ -17103,7 +17118,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 13
+        "margin_change": 11
       },
       "financial_data": {
         "eps": -2.14,
@@ -17194,7 +17209,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 11
+        "margin_change": 9
       },
       "financial_data": {
         "eps": 0.08,
@@ -17287,7 +17302,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 33
+        "margin_change": 4
       },
       "financial_data": {
         "eps": -0.99,
@@ -17379,7 +17394,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -134
+        "margin_change": -319
       },
       "financial_data": {
         "eps": 2.73,
@@ -17469,7 +17484,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 36
+        "margin_change": -26
       },
       "financial_data": {
         "eps": 1.09,
@@ -17561,7 +17576,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -18
+        "margin_change": 16
       },
       "financial_data": {
         "eps": 0.25,
@@ -17651,7 +17666,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": 132
+        "margin_change": -27
       },
       "financial_data": {
         "eps": 0.13,
@@ -17836,7 +17851,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -2
+        "margin_change": -3
       },
       "financial_data": {
         "eps": 0.83,
@@ -17926,7 +17941,7 @@
         "data_date": "2026-06-23"
       },
       "institutional_data": {
-        "margin_change": -3
+        "margin_change": 0
       },
       "financial_data": {
         "eps": 0.59,
