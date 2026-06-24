@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-05-26",
-    "time": "10:55:33",
-    "total_analyzed": 73,
-    "top3": [
-      {
-        "stock_id": "2002",
-        "stock_name": "2002",
-        "score": 88.5,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "3661",
-        "stock_name": "3661",
-        "score": 86.8,
-        "grade": "A"
-      },
-      {
-        "stock_id": "3711",
-        "stock_name": "3711",
-        "score": 80.2,
-        "grade": "A"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-26",
     "time": "11:02:57",
     "total_analyzed": 73,
     "top3": [
@@ -745,6 +720,31 @@
         "stock_id": "6409",
         "stock_name": "旭隼",
         "score": 81.5,
+        "grade": "A"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-24",
+    "time": "10:35:49",
+    "total_analyzed": 176,
+    "top3": [
+      {
+        "stock_id": "6168",
+        "stock_name": "宏齊",
+        "score": 95.8,
+        "grade": "A+"
+      },
+      {
+        "stock_id": "2432",
+        "stock_name": "倚天",
+        "score": 87.0,
+        "grade": "A"
+      },
+      {
+        "stock_id": "2495",
+        "stock_name": "普安",
+        "score": 86.5,
         "grade": "A"
       }
     ]
