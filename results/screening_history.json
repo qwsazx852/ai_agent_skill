@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-05-26",
-    "time": "13:12:02",
-    "total_analyzed": 178,
-    "top3": [
-      {
-        "stock_id": "6456",
-        "stock_name": "GIS-KY",
-        "score": 93.8,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "2495",
-        "stock_name": "普安",
-        "score": 89.8,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "3231",
-        "stock_name": "緯創",
-        "score": 80.3,
-        "grade": "A"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-26",
     "time": "16:28:29",
     "total_analyzed": 178,
     "top3": [
@@ -746,6 +721,31 @@
         "stock_name": "保瑞",
         "score": 52.3,
         "grade": "C+"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "time": "12:18:08",
+    "total_analyzed": 175,
+    "top3": [
+      {
+        "stock_id": "6491",
+        "stock_name": "晶碩",
+        "score": 76.9,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6446",
+        "stock_name": "藥華藥",
+        "score": 63.6,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6472",
+        "stock_name": "保瑞",
+        "score": 62.8,
+        "grade": "B"
       }
     ]
   }
