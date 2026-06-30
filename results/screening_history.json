@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-05-27",
-    "time": "04:23:31",
-    "total_analyzed": 179,
-    "top3": [
-      {
-        "stock_id": "6277",
-        "stock_name": "宏正",
-        "score": 81.2,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6405",
-        "stock_name": "悅城",
-        "score": 80.2,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6412",
-        "stock_name": "群電",
-        "score": 75.0,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-27",
     "time": "11:24:21",
     "total_analyzed": 185,
     "top3": [
@@ -746,6 +721,31 @@
         "stock_name": "聯茂",
         "score": 70.6,
         "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-06-30",
+    "time": "15:14:23",
+    "total_analyzed": 176,
+    "top3": [
+      {
+        "stock_id": "6491",
+        "stock_name": "晶碩",
+        "score": 93.6,
+        "grade": "A+"
+      },
+      {
+        "stock_id": "6446",
+        "stock_name": "藥華藥",
+        "score": 69.2,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "5285",
+        "stock_name": "界霖",
+        "score": 66.4,
+        "grade": "B"
       }
     ]
   }
