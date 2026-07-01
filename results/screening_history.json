@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-05-27",
-    "time": "11:24:21",
-    "total_analyzed": 185,
-    "top3": [
-      {
-        "stock_id": "6456",
-        "stock_name": "GIS-KY",
-        "score": 90.6,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "6282",
-        "stock_name": "康舒",
-        "score": 87.9,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6552",
-        "stock_name": "易華電",
-        "score": 87.5,
-        "grade": "A"
-      }
-    ]
-  },
-  {
     "date": "2026-05-28",
     "time": "11:24:56",
     "total_analyzed": 176,
@@ -746,6 +721,31 @@
         "stock_name": "界霖",
         "score": 66.4,
         "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-07-01",
+    "time": "10:57:45",
+    "total_analyzed": 175,
+    "top3": [
+      {
+        "stock_id": "6197",
+        "stock_name": "佳必琪",
+        "score": 77.8,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6191",
+        "stock_name": "精成科",
+        "score": 77.6,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6196",
+        "stock_name": "帆宣",
+        "score": 70.3,
+        "grade": "B+"
       }
     ]
   }
