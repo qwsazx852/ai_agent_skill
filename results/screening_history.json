@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-05-29",
-    "time": "10:59:33",
-    "total_analyzed": 178,
-    "top3": [
-      {
-        "stock_id": "6282",
-        "stock_name": "康舒",
-        "score": 81.0,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6552",
-        "stock_name": "易華電",
-        "score": 80.3,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6277",
-        "stock_name": "宏正",
-        "score": 77.3,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
     "date": "2026-06-01",
     "time": "13:18:19",
     "total_analyzed": 181,
@@ -739,6 +714,31 @@
         "stock_id": "1326",
         "stock_name": "台化",
         "score": 89.7,
+        "grade": "A+"
+      },
+      {
+        "stock_id": "1467",
+        "stock_name": "南緯",
+        "score": 89.3,
+        "grade": "A+"
+      }
+    ]
+  },
+  {
+    "date": "2026-07-03",
+    "time": "10:18:53",
+    "total_analyzed": 300,
+    "top3": [
+      {
+        "stock_id": "1337",
+        "stock_name": "再生-KY",
+        "score": 93.5,
+        "grade": "A+"
+      },
+      {
+        "stock_id": "1307",
+        "stock_name": "三芳",
+        "score": 92.0,
         "grade": "A+"
       },
       {
