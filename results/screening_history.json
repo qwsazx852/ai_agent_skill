@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-06-03",
-    "time": "12:25:30",
-    "total_analyzed": 182,
-    "top3": [
-      {
-        "stock_id": "6456",
-        "stock_name": "GIS-KY",
-        "score": 91.4,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "6591",
-        "stock_name": "動力-KY",
-        "score": 86.8,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6409",
-        "stock_name": "旭隼",
-        "score": 84.9,
-        "grade": "A"
-      }
-    ]
-  },
-  {
     "date": "2026-06-04",
     "time": "10:51:16",
     "total_analyzed": 183,
@@ -746,6 +721,31 @@
         "stock_name": "亞弘電",
         "score": 65.9,
         "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-07-08",
+    "time": "09:59:21",
+    "total_analyzed": 300,
+    "top3": [
+      {
+        "stock_id": "2884",
+        "stock_name": "玉山金",
+        "score": 76.0,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "2498",
+        "stock_name": "宏達電",
+        "score": 72.5,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "1446",
+        "stock_name": "宏和",
+        "score": 70.8,
+        "grade": "B+"
       }
     ]
   }
