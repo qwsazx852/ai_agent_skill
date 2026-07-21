@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-06-16",
-    "time": "12:32:11",
-    "total_analyzed": 175,
-    "top3": [
-      {
-        "stock_id": "6446",
-        "stock_name": "藥華藥",
-        "score": 75.5,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6115",
-        "stock_name": "鎰勝",
-        "score": 70.8,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6464",
-        "stock_name": "台數科",
-        "score": 62.9,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "date": "2026-06-16",
     "time": "17:34:24",
     "total_analyzed": 175,
     "top3": [
@@ -746,6 +721,31 @@
         "stock_name": "天瀚",
         "score": 53.1,
         "grade": "C+"
+      }
+    ]
+  },
+  {
+    "date": "2026-07-21",
+    "time": "10:07:59",
+    "total_analyzed": 297,
+    "top3": [
+      {
+        "stock_id": "1476",
+        "stock_name": "儒鴻",
+        "score": 78.7,
+        "grade": "A"
+      },
+      {
+        "stock_id": "2615",
+        "stock_name": "萬海",
+        "score": 77.0,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "2884",
+        "stock_name": "玉山金",
+        "score": 74.1,
+        "grade": "B+"
       }
     ]
   }
