@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-06-16",
-    "time": "17:34:24",
-    "total_analyzed": 175,
-    "top3": [
-      {
-        "stock_id": "2527",
-        "stock_name": "宏璟",
-        "score": 87.3,
-        "grade": "A"
-      },
-      {
-        "stock_id": "2506",
-        "stock_name": "太設",
-        "score": 78.8,
-        "grade": "A"
-      },
-      {
-        "stock_id": "3052",
-        "stock_name": "夆典",
-        "score": 76.9,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
     "date": "2026-06-17",
     "time": "12:07:51",
     "total_analyzed": 174,
@@ -746,6 +721,31 @@
         "stock_name": "玉山金",
         "score": 74.1,
         "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-07-21",
+    "time": "14:36:10",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "6201",
+        "stock_name": "亞弘電",
+        "score": 62.5,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6969",
+        "stock_name": "成信實業*-創",
+        "score": 60.2,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6214",
+        "stock_name": "精誠",
+        "score": 54.3,
+        "grade": "C+"
       }
     ]
   }
