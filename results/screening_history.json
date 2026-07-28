@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-06-23",
-    "time": "10:49:41",
-    "total_analyzed": 179,
-    "top3": [
-      {
-        "stock_id": "6168",
-        "stock_name": "宏齊",
-        "score": 89.2,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "8070",
-        "stock_name": "長華*",
-        "score": 82.0,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6409",
-        "stock_name": "旭隼",
-        "score": 81.5,
-        "grade": "A"
-      }
-    ]
-  },
-  {
-    "date": "2026-06-23",
     "time": "15:36:31",
     "total_analyzed": 179,
     "top3": [
@@ -746,6 +721,31 @@
         "stock_name": "帝寶",
         "score": 52.2,
         "grade": "C+"
+      }
+    ]
+  },
+  {
+    "date": "2026-07-28",
+    "time": "10:15:01",
+    "total_analyzed": 300,
+    "top3": [
+      {
+        "stock_id": "2884",
+        "stock_name": "玉山金",
+        "score": 64.0,
+        "grade": "B"
+      },
+      {
+        "stock_id": "1413",
+        "stock_name": "宏洲",
+        "score": 63.9,
+        "grade": "B"
+      },
+      {
+        "stock_id": "1419",
+        "stock_name": "新紡",
+        "score": 63.2,
+        "grade": "B"
       }
     ]
   }
