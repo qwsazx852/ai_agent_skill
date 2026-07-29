@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-06-24",
-    "time": "10:35:49",
-    "total_analyzed": 176,
-    "top3": [
-      {
-        "stock_id": "6168",
-        "stock_name": "宏齊",
-        "score": 95.8,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "2432",
-        "stock_name": "倚天",
-        "score": 87.0,
-        "grade": "A"
-      },
-      {
-        "stock_id": "2495",
-        "stock_name": "普安",
-        "score": 86.5,
-        "grade": "A"
-      }
-    ]
-  },
-  {
     "date": "2026-06-25",
     "time": "10:29:27",
     "total_analyzed": 297,
@@ -746,6 +721,31 @@
         "stock_name": "裕日車",
         "score": 55.9,
         "grade": "C+"
+      }
+    ]
+  },
+  {
+    "date": "2026-07-29",
+    "time": "10:17:59",
+    "total_analyzed": 300,
+    "top3": [
+      {
+        "stock_id": "2884",
+        "stock_name": "玉山金",
+        "score": 67.5,
+        "grade": "B"
+      },
+      {
+        "stock_id": "1419",
+        "stock_name": "新紡",
+        "score": 65.8,
+        "grade": "B"
+      },
+      {
+        "stock_id": "2002",
+        "stock_name": "中鋼",
+        "score": 64.7,
+        "grade": "B"
       }
     ]
   }
