@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-06-25",
-    "time": "10:29:27",
-    "total_analyzed": 297,
-    "top3": [
-      {
-        "stock_id": "2008",
-        "stock_name": "高興昌",
-        "score": 79.3,
-        "grade": "A"
-      },
-      {
-        "stock_id": "1817",
-        "stock_name": "凱撒衛",
-        "score": 79.1,
-        "grade": "A"
-      },
-      {
-        "stock_id": "1718",
-        "stock_name": "中纖",
-        "score": 77.5,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
     "date": "2026-06-26",
     "time": "10:39:06",
     "total_analyzed": 175,
@@ -745,6 +720,31 @@
         "stock_id": "2002",
         "stock_name": "中鋼",
         "score": 64.7,
+        "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-07-30",
+    "time": "10:04:40",
+    "total_analyzed": 298,
+    "top3": [
+      {
+        "stock_id": "2884",
+        "stock_name": "玉山金",
+        "score": 73.1,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "1476",
+        "stock_name": "儒鴻",
+        "score": 66.5,
+        "grade": "B"
+      },
+      {
+        "stock_id": "2892",
+        "stock_name": "第一金",
+        "score": 65.7,
         "grade": "B"
       }
     ]
