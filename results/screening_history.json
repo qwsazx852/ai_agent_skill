@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-06-29",
-    "time": "12:18:08",
-    "total_analyzed": 175,
-    "top3": [
-      {
-        "stock_id": "6491",
-        "stock_name": "晶碩",
-        "score": 76.9,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6446",
-        "stock_name": "藥華藥",
-        "score": 63.6,
-        "grade": "B"
-      },
-      {
-        "stock_id": "6472",
-        "stock_name": "保瑞",
-        "score": 62.8,
-        "grade": "B"
-      }
-    ]
-  },
-  {
     "date": "2026-06-30",
     "time": "10:44:59",
     "total_analyzed": 175,
@@ -746,6 +721,31 @@
         "stock_name": "第一金",
         "score": 77.9,
         "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-08-03",
+    "time": "10:58:05",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "6491",
+        "stock_name": "晶碩",
+        "score": 62.2,
+        "grade": "B"
+      },
+      {
+        "stock_id": "5283",
+        "stock_name": "禾聯碩",
+        "score": 61.0,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6464",
+        "stock_name": "台數科",
+        "score": 58.5,
+        "grade": "B"
       }
     ]
   }
