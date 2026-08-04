@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-06-30",
-    "time": "10:44:59",
-    "total_analyzed": 175,
-    "top3": [
-      {
-        "stock_id": "6197",
-        "stock_name": "佳必琪",
-        "score": 81.1,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6191",
-        "stock_name": "精成科",
-        "score": 72.2,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6213",
-        "stock_name": "聯茂",
-        "score": 70.6,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
-    "date": "2026-06-30",
     "time": "15:14:23",
     "total_analyzed": 176,
     "top3": [
@@ -745,6 +720,31 @@
         "stock_id": "6464",
         "stock_name": "台數科",
         "score": 58.5,
+        "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-08-04",
+    "time": "10:19:08",
+    "total_analyzed": 300,
+    "top3": [
+      {
+        "stock_id": "2884",
+        "stock_name": "玉山金",
+        "score": 67.0,
+        "grade": "B"
+      },
+      {
+        "stock_id": "3231",
+        "stock_name": "緯創",
+        "score": 64.2,
+        "grade": "B"
+      },
+      {
+        "stock_id": "4938",
+        "stock_name": "和碩",
+        "score": 63.6,
         "grade": "B"
       }
     ]
