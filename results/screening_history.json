@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-07-01",
-    "time": "10:57:45",
-    "total_analyzed": 175,
-    "top3": [
-      {
-        "stock_id": "6197",
-        "stock_name": "佳必琪",
-        "score": 77.8,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6191",
-        "stock_name": "精成科",
-        "score": 77.6,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6196",
-        "stock_name": "帆宣",
-        "score": 70.3,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
     "date": "2026-07-02",
     "time": "10:20:54",
     "total_analyzed": 300,
@@ -746,6 +721,31 @@
         "stock_name": "藥華藥",
         "score": 56.3,
         "grade": "C+"
+      }
+    ]
+  },
+  {
+    "date": "2026-08-05",
+    "time": "10:16:15",
+    "total_analyzed": 300,
+    "top3": [
+      {
+        "stock_id": "2884",
+        "stock_name": "玉山金",
+        "score": 76.8,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "2008",
+        "stock_name": "高興昌",
+        "score": 75.9,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "2408",
+        "stock_name": "南亞科",
+        "score": 75.5,
+        "grade": "B+"
       }
     ]
   }
