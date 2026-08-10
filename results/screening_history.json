@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-07-06",
-    "time": "11:50:25",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "6197",
-        "stock_name": "佳必琪",
-        "score": 86.8,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6191",
-        "stock_name": "精成科",
-        "score": 78.3,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6201",
-        "stock_name": "亞弘電",
-        "score": 72.8,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
     "date": "2026-07-07",
     "time": "10:40:07",
     "total_analyzed": 175,
@@ -746,6 +721,31 @@
         "stock_name": "統新",
         "score": 67.8,
         "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-08-10",
+    "time": "09:01:12",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "5306",
+        "stock_name": "桂盟",
+        "score": 74.0,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6206",
+        "stock_name": "飛捷",
+        "score": 73.2,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6213",
+        "stock_name": "聯茂",
+        "score": 71.8,
+        "grade": "B+"
       }
     ]
   }
