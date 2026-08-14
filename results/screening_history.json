@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-07-10",
-    "time": "10:38:10",
-    "total_analyzed": 175,
-    "top3": [
-      {
-        "stock_id": "2495",
-        "stock_name": "普安",
-        "score": 77.2,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "2884",
-        "stock_name": "玉山金",
-        "score": 76.0,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "2498",
-        "stock_name": "宏達電",
-        "score": 72.1,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
     "date": "2026-07-13",
     "time": "10:42:41",
     "total_analyzed": 174,
@@ -745,6 +720,31 @@
         "stock_id": "6533",
         "stock_name": "晶心科",
         "score": 62.1,
+        "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-08-14",
+    "time": "08:48:02",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "6606",
+        "stock_name": "建德工業",
+        "score": 73.0,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6409",
+        "stock_name": "旭隼",
+        "score": 67.4,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6591",
+        "stock_name": "動力-KY",
+        "score": 60.2,
         "grade": "B"
       }
     ]
