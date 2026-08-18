@@ -1,6 +1,6 @@
 {
   "date": "2026-08-18",
-  "time": "08:15:47",
+  "time": "13:25:04",
   "total_analyzed": 174,
   "market_env": {
     "status": "bull",
@@ -894,7 +894,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -221
+        "margin_change": -184
       },
       "financial_data": {
         "eps": 0.33,
@@ -991,7 +991,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 49
+        "margin_change": -75
       },
       "financial_data": {
         "eps": 80.43,
@@ -1092,7 +1092,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -16
+        "margin_change": -53
       },
       "financial_data": {
         "eps": 2.41,
@@ -1185,7 +1185,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -37
+        "margin_change": 28
       },
       "financial_data": {
         "eps": 5.2,
@@ -1920,7 +1920,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -221
+        "margin_change": -184
       },
       "financial_data": {
         "eps": 0.33,
@@ -2017,7 +2017,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 49
+        "margin_change": -75
       },
       "financial_data": {
         "eps": 80.43,
@@ -2118,7 +2118,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -16
+        "margin_change": -53
       },
       "financial_data": {
         "eps": 2.41,
@@ -2211,7 +2211,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -37
+        "margin_change": 28
       },
       "financial_data": {
         "eps": 5.2,
@@ -2312,7 +2312,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -105
+        "margin_change": -1861
       },
       "financial_data": {
         "eps": 14.66,
@@ -2408,7 +2408,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -975
+        "margin_change": -379
       },
       "financial_data": {
         "eps": 7.43,
@@ -2499,7 +2499,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 62
+        "margin_change": -45
       },
       "financial_data": {
         "eps": 27.55,
@@ -2595,7 +2595,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 809
+        "margin_change": 389
       },
       "financial_data": {
         "eps": 3.14,
@@ -2689,7 +2689,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -3817
+        "margin_change": -909
       },
       "financial_data": {
         "eps": 0.73,
@@ -2783,7 +2783,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 48
+        "margin_change": -1099
       },
       "financial_data": {
         "eps": 0.63,
@@ -2877,7 +2877,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -235
+        "margin_change": 3
       },
       "financial_data": {
         "eps": 25.64,
@@ -2973,7 +2973,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -196
+        "margin_change": 152
       },
       "financial_data": {
         "eps": 27.25,
@@ -3068,7 +3068,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -5650
+        "margin_change": -3473
       },
       "financial_data": {
         "eps": 5.4,
@@ -3159,7 +3159,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 343
+        "margin_change": -214
       },
       "financial_data": {
         "eps": 1.48,
@@ -3249,7 +3249,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 195
+        "margin_change": 11
       },
       "financial_data": {
         "eps": 1.68,
@@ -3340,7 +3340,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 511
+        "margin_change": -719
       },
       "financial_data": {
         "eps": 2.14,
@@ -3431,7 +3431,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -125
+        "margin_change": 147
       },
       "financial_data": {
         "eps": 0.5,
@@ -3522,7 +3522,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 854
+        "margin_change": 187
       },
       "financial_data": {
         "eps": 0.61,
@@ -3615,7 +3615,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 7
+        "margin_change": -441
       },
       "financial_data": {
         "eps": 1.02,
@@ -3703,7 +3703,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 29
+        "margin_change": -57
       },
       "financial_data": {
         "eps": 0.36,
@@ -3795,7 +3795,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -535
+        "margin_change": -47
       },
       "financial_data": {
         "eps": 7.41,
@@ -3892,7 +3892,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 1927
+        "margin_change": 367
       },
       "financial_data": {
         "eps": 1.64,
@@ -3991,7 +3991,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 1885
+        "margin_change": -1319
       },
       "financial_data": {
         "eps": 4.11,
@@ -4088,7 +4088,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 292
+        "margin_change": 31
       },
       "financial_data": {
         "eps": 35.7,
@@ -4183,7 +4183,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 7
+        "margin_change": -6
       },
       "financial_data": {
         "eps": 1.77,
@@ -4276,7 +4276,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -82
+        "margin_change": 469
       },
       "financial_data": {
         "eps": 2.09,
@@ -4549,7 +4549,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 3
+        "margin_change": -3
       },
       "financial_data": {
         "eps": 1.43,
@@ -4637,7 +4637,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 6
+        "margin_change": 4
       },
       "financial_data": {
         "eps": 3.45,
@@ -4726,7 +4726,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -4
+        "margin_change": 3
       },
       "financial_data": {
         "eps": 4.82,
@@ -4817,7 +4817,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 0
+        "margin_change": -1
       },
       "financial_data": {
         "eps": 0.63,
@@ -4997,7 +4997,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 1
+        "margin_change": 2
       },
       "financial_data": {
         "eps": 6.03,
@@ -5087,7 +5087,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 90
+        "margin_change": -208
       },
       "financial_data": {
         "eps": 0.34,
@@ -5182,7 +5182,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -47
+        "margin_change": -93
       },
       "financial_data": {
         "eps": 0.75,
@@ -5274,7 +5274,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -25
+        "margin_change": 14
       },
       "financial_data": {
         "eps": 1.69,
@@ -5367,7 +5367,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 0
+        "margin_change": -10
       },
       "financial_data": {
         "eps": -0.18,
@@ -5572,7 +5572,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 48
+        "margin_change": -3
       },
       "financial_data": {
         "eps": 1.41,
@@ -5661,7 +5661,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 16
+        "margin_change": -20
       },
       "financial_data": {
         "eps": 13.35,
@@ -5837,7 +5837,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 70
+        "margin_change": -93
       },
       "financial_data": {
         "eps": 0.45,
@@ -5929,7 +5929,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -2
+        "margin_change": -3
       },
       "financial_data": {
         "eps": 0.78,
@@ -6017,7 +6017,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -63
+        "margin_change": 165
       },
       "financial_data": {
         "eps": -1.18,
@@ -6109,7 +6109,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 1403
+        "margin_change": -1270
       },
       "financial_data": {
         "eps": 0.18,
@@ -6198,7 +6198,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 324
+        "margin_change": 74
       },
       "financial_data": {
         "eps": 1.67,
@@ -6286,7 +6286,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 191
+        "margin_change": 405
       },
       "financial_data": {
         "eps": 0.74,
@@ -6380,7 +6380,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 229
+        "margin_change": -122
       },
       "financial_data": {
         "eps": 11.61,
@@ -6470,7 +6470,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -522
+        "margin_change": 334
       },
       "financial_data": {
         "eps": 4.72,
@@ -6649,7 +6649,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 395
+        "margin_change": -286
       },
       "financial_data": {
         "eps": 2.22,
@@ -6738,7 +6738,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 1396
+        "margin_change": 356
       },
       "financial_data": {
         "eps": 1.09,
@@ -6829,7 +6829,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 176
+        "margin_change": -25
       },
       "financial_data": {
         "eps": -1.36,
@@ -6921,7 +6921,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 16
+        "margin_change": -1
       },
       "financial_data": {
         "eps": -0.9,
@@ -7015,7 +7015,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -39
+        "margin_change": -93
       },
       "financial_data": {
         "eps": 17.55,
@@ -7104,7 +7104,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -19
+        "margin_change": 1
       },
       "financial_data": {
         "eps": 1.2,
@@ -7192,7 +7192,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -112
+        "margin_change": 8
       },
       "financial_data": {
         "eps": 0.03,
@@ -7465,7 +7465,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -6594
+        "margin_change": -1931
       },
       "financial_data": {
         "eps": 3.37,
@@ -7650,7 +7650,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 1698
+        "margin_change": 3
       },
       "financial_data": {
         "eps": 0.72,
@@ -7736,7 +7736,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -3
+        "margin_change": -1
       },
       "financial_data": {
         "eps": 1.47,
@@ -7825,7 +7825,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 11
+        "margin_change": -63
       },
       "financial_data": {
         "eps": 0.28,
@@ -7914,7 +7914,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -162
+        "margin_change": 88
       },
       "financial_data": {
         "eps": 3.55,
@@ -8001,7 +8001,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 1
+        "margin_change": 0
       },
       "financial_data": {
         "eps": 2.15,
@@ -8088,7 +8088,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 1
+        "margin_change": -1
       },
       "financial_data": {
         "eps": 0.02,
@@ -8174,7 +8174,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -2
+        "margin_change": 2
       },
       "financial_data": {
         "eps": 0.59,
@@ -8260,7 +8260,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 3
+        "margin_change": -1
       },
       "financial_data": {
         "eps": 1.51,
@@ -8350,7 +8350,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 6218
+        "margin_change": 1263
       },
       "financial_data": {
         "eps": 0.76,
@@ -8724,7 +8724,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -5
+        "margin_change": -18
       },
       "financial_data": {
         "eps": 6.14,
@@ -8811,7 +8811,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -32
+        "margin_change": -165
       },
       "financial_data": {
         "eps": 1.38,
@@ -8896,7 +8896,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -123
+        "margin_change": -201
       },
       "financial_data": {
         "eps": 0.12,
@@ -8982,7 +8982,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -24
+        "margin_change": -4
       },
       "financial_data": {
         "eps": 0.91,
@@ -9072,7 +9072,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 89
+        "margin_change": 21
       },
       "financial_data": {
         "eps": 9.68,
@@ -9159,7 +9159,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 126
+        "margin_change": -155
       },
       "financial_data": {
         "eps": 0.14,
@@ -9245,7 +9245,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 448
+        "margin_change": 245
       },
       "financial_data": {
         "eps": 4.27,
@@ -9336,7 +9336,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 14
+        "margin_change": -43
       },
       "financial_data": {
         "eps": -1.05,
@@ -9424,7 +9424,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 348
+        "margin_change": -428
       },
       "financial_data": {
         "eps": 1.04,
@@ -9453,103 +9453,6 @@
         "✅ 站上年線",
         "🚀 EPS 高速成長 (+190%)",
         "📊 現價 59.4 (▲0.17%)"
-      ],
-      "patterns": []
-    },
-    {
-      "stock_id": "6414",
-      "stock_name": "樺漢",
-      "industry": "電子工業",
-      "market": "TWSE",
-      "composite_score": 38.2,
-      "grade": "C",
-      "technical_score": 34.0,
-      "fundamental_score": 40.0,
-      "institutional_score": 47.0,
-      "industry_score": 26.0,
-      "technical_signals": [
-        "💡 接近布林下軌支撐",
-        "📐 形態: ⚠️ 今日大跌 (-6.7%)"
-      ],
-      "fundamental_signals": [
-        "⚠️ 營收微幅下滑 (-2%)",
-        "💎 高殖利率 (7.3%)"
-      ],
-      "institutional_signals": [
-        "✅ 投信買超 (+597張)"
-      ],
-      "industry_signals": [
-        "⚠️ 個股弱於產業 (-19.6%)"
-      ],
-      "indicators": {
-        "ma5": 424.1,
-        "ma10": 446.2,
-        "ma20": 448.92,
-        "ma60": 400.81,
-        "macd": 3.1038,
-        "macd_signal": 12.2206,
-        "macd_hist": -9.1167,
-        "rsi": 40.37,
-        "k": 22.0,
-        "d": 38.1,
-        "bb_upper": 515.55,
-        "bb_middle": 448.92,
-        "bb_lower": 382.3,
-        "bb_pct": 0.054,
-        "volume": 4137762,
-        "volume_ma5": 3124450,
-        "volume_ratio": 0.99,
-        "ma20_slope": 0.22,
-        "ma60_slope": 4.52,
-        "stage": "transition",
-        "high_52w": 503.0,
-        "low_52w": 254.46,
-        "proximity_52w": 0.774,
-        "price": 389.5,
-        "change_1d": -6.71,
-        "change_5d": -14.49,
-        "change_20d": -20.51,
-        "data_date": "2026-08-18"
-      },
-      "institutional_data": {
-        "foreign_net": "-439",
-        "trust_net": "597",
-        "dealer_net": "224",
-        "foreign_3d": "-4838",
-        "foreign_10d": "-3064",
-        "margin_balance": "4603",
-        "margin_change": "4135",
-        "short_balance": "2069"
-      },
-      "financial_data": {
-        "eps": 13.34,
-        "eps_growth": 0.0974,
-        "revenue_growth": -0.0193,
-        "roe": 0.0721,
-        "pe_ratio": 14.4,
-        "pb_ratio": 4.25,
-        "dividend_yield": 0.0726
-      },
-      "industry_data": {
-        "rank": 18,
-        "total": 32,
-        "avg_ret_1d": -0.69,
-        "avg_ret_5d": -1.72,
-        "avg_ret_20d": -0.87
-      },
-      "score_detail": {
-        "base_score": 38.2,
-        "conviction_bonus": 0.0,
-        "veto_cap": null,
-        "market_multiplier": 1.0,
-        "veto_reasons": [],
-        "conviction_reasons": []
-      },
-      "key_points": [
-        "💡 接近布林下軌支撐",
-        "✅ 投信買超 (+597張)",
-        "⚠️ 營收微幅下滑 (-2%)",
-        "📊 現價 389.5 (▼6.71%)"
       ],
       "patterns": []
     },
@@ -9609,7 +9512,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -8
+        "margin_change": 3
       },
       "financial_data": {
         "eps": 0.37,
@@ -9880,7 +9783,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 6
+        "margin_change": -8
       },
       "financial_data": {
         "eps": 0.19,
@@ -9964,7 +9867,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -14
+        "margin_change": 4
       },
       "financial_data": {
         "eps": 2.94,
@@ -10054,7 +9957,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -154
+        "margin_change": -176
       },
       "financial_data": {
         "eps": 15.28,
@@ -10137,7 +10040,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 8
+        "margin_change": 3
       },
       "financial_data": {
         "eps": 4.75,
@@ -10224,7 +10127,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 15
+        "margin_change": 1
       },
       "financial_data": {
         "eps": 0.05,
@@ -10309,7 +10212,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -13
+        "margin_change": 11
       },
       "financial_data": {
         "eps": 2.38,
@@ -10395,7 +10298,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 34
+        "margin_change": -43
       },
       "financial_data": {
         "eps": 10.4,
@@ -10485,7 +10388,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 8
+        "margin_change": 1
       },
       "financial_data": {
         "eps": 0.84,
@@ -10577,7 +10480,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -1
+        "margin_change": 0
       },
       "financial_data": {
         "eps": 2.61,
@@ -10667,7 +10570,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 4
+        "margin_change": -25
       },
       "financial_data": {
         "eps": 1.49,
@@ -10708,7 +10611,7 @@
       "composite_score": 35,
       "grade": "D",
       "technical_score": 24.0,
-      "fundamental_score": 92.0,
+      "fundamental_score": 65.0,
       "institutional_score": 62.0,
       "industry_score": 32.0,
       "technical_signals": [
@@ -10719,10 +10622,8 @@
         "📐 形態: 📊 低點持續墊高 (N字上升)"
       ],
       "fundamental_signals": [
-        "🚀 EPS 高速成長 (+66%)",
-        "🚀 營收大幅成長 (+38%)",
-        "🌟 ROE 優秀 (30.7%)",
-        "💎 高殖利率 (7.6%)"
+        "🚀 EPS 高速成長 (+114%)",
+        "🚀 營收大幅成長 (+42%)"
       ],
       "institutional_signals": [
         "✅ 外資買超 (+1,512張)"
@@ -10772,13 +10673,9 @@
         "short_balance": "2487"
       },
       "financial_data": {
-        "eps": 11.15,
-        "eps_growth": 0.6616,
-        "revenue_growth": 0.378,
-        "roe": 0.3071,
-        "pe_ratio": 15.7,
-        "pb_ratio": 4.64,
-        "dividend_yield": 0.0761
+        "eps": 0.09,
+        "eps_growth": 1.1428571428571428,
+        "revenue_growth": 0.42450613037389867
       },
       "industry_data": {
         "rank": 30,
@@ -10788,7 +10685,7 @@
         "avg_ret_20d": -8.27
       },
       "score_detail": {
-        "base_score": 48.7,
+        "base_score": 44.6,
         "conviction_bonus": 0.0,
         "veto_cap": 35,
         "market_multiplier": 1.0,
@@ -10801,7 +10698,7 @@
         "🚫 Stage4下跌趨勢，強制上限35分",
         "✅ 站上 MA20",
         "✅ 外資買超 (+1,512張)",
-        "🚀 EPS 高速成長 (+66%)",
+        "🚀 EPS 高速成長 (+114%)",
         "📊 現價 46.4 (▼0.32%)"
       ],
       "patterns": []
@@ -11076,7 +10973,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -67
+        "margin_change": -96
       },
       "financial_data": {
         "eps": 1.11,
@@ -11161,7 +11058,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -1
+        "margin_change": -18
       },
       "financial_data": {
         "eps": 0.83,
@@ -11190,111 +11087,6 @@
         "🚀 均線多頭排列",
         "❌ EPS 大幅衰退 (-68%)",
         "📊 現價 98.5 (▼0.71%)"
-      ],
-      "patterns": []
-    },
-    {
-      "stock_id": "6412",
-      "stock_name": "群電",
-      "industry": "電子工業",
-      "market": "TWSE",
-      "composite_score": 34.4,
-      "grade": "D",
-      "technical_score": 9.0,
-      "fundamental_score": 68.0,
-      "institutional_score": 49.0,
-      "industry_score": 26.0,
-      "technical_signals": [
-        "✅ MACD 多頭",
-        "💡 接近布林下軌支撐",
-        "🚫 Stage4: 下跌趨勢，嚴格迴避"
-      ],
-      "fundamental_signals": [
-        "🚀 EPS 高速成長 (+54%)",
-        "❌ 營收衰退 (-13%)",
-        "🌟 ROE 優秀 (33.4%)",
-        "💰 低股淨比 (PB=0.6x)",
-        "💎 高殖利率 (5.1%)"
-      ],
-      "institutional_signals": [
-        "✅ 投信買超 (+839張)",
-        "💡 融券多 (7,603張，潛在軋空)"
-      ],
-      "industry_signals": [
-        "⚠️ 個股弱於產業 (-5.6%)"
-      ],
-      "indicators": {
-        "ma5": 78.82,
-        "ma10": 78.8,
-        "ma20": 79.22,
-        "ma60": 87.6,
-        "macd": -1.9425,
-        "macd_signal": -2.2666,
-        "macd_hist": 0.3242,
-        "rsi": 48.37,
-        "k": 34.1,
-        "d": 46.0,
-        "bb_upper": 83.09,
-        "bb_middle": 79.22,
-        "bb_lower": 75.36,
-        "bb_pct": 0.199,
-        "volume": 758776,
-        "volume_ma5": 668400,
-        "volume_ratio": 0.76,
-        "ma20_slope": -0.63,
-        "ma60_slope": -2.03,
-        "stage": "stage4",
-        "high_52w": 101.83,
-        "low_52w": 69.45,
-        "proximity_52w": 0.755,
-        "price": 76.9,
-        "change_1d": -2.29,
-        "change_5d": -3.63,
-        "change_20d": -6.45,
-        "data_date": "2026-08-18"
-      },
-      "institutional_data": {
-        "foreign_net": "-301",
-        "trust_net": "839",
-        "dealer_net": "66",
-        "foreign_3d": "-7874",
-        "foreign_10d": "10529",
-        "margin_balance": "47458",
-        "margin_change": "-660",
-        "short_balance": "7603"
-      },
-      "financial_data": {
-        "eps": 14.49,
-        "eps_growth": 0.543,
-        "revenue_growth": -0.1256,
-        "roe": 0.3344,
-        "pe_ratio": 32.3,
-        "pb_ratio": 0.6,
-        "dividend_yield": 0.0513
-      },
-      "industry_data": {
-        "rank": 18,
-        "total": 32,
-        "avg_ret_1d": -0.69,
-        "avg_ret_5d": -1.72,
-        "avg_ret_20d": -0.87
-      },
-      "score_detail": {
-        "base_score": 34.4,
-        "conviction_bonus": 0.0,
-        "veto_cap": 35,
-        "market_multiplier": 1.0,
-        "veto_reasons": [
-          "🚫 Stage4下跌趨勢，強制上限35分"
-        ],
-        "conviction_reasons": []
-      },
-      "key_points": [
-        "🚫 Stage4下跌趨勢，強制上限35分",
-        "✅ MACD 多頭",
-        "✅ 投信買超 (+839張)",
-        "🚀 EPS 高速成長 (+54%)",
-        "📊 現價 76.9 (▼2.29%)"
       ],
       "patterns": []
     },
@@ -11353,7 +11145,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -46
+        "margin_change": -2
       },
       "financial_data": {
         "eps": 0.4,
@@ -11382,6 +11174,92 @@
         "✅ 站上年線",
         "🚀 EPS 高速成長 (+136%)",
         "📊 現價 19.9 (▼0.75%)"
+      ],
+      "patterns": []
+    },
+    {
+      "stock_id": "6414",
+      "stock_name": "樺漢",
+      "industry": "電子工業",
+      "market": "TWSE",
+      "composite_score": 33.2,
+      "grade": "D",
+      "technical_score": 34.0,
+      "fundamental_score": 65.0,
+      "institutional_score": 22.0,
+      "industry_score": 26.0,
+      "technical_signals": [
+        "💡 接近布林下軌支撐",
+        "📐 形態: ⚠️ 今日大跌 (-6.7%)"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+74%)",
+        "🚀 營收大幅成長 (+55%)"
+      ],
+      "institutional_signals": [],
+      "industry_signals": [
+        "⚠️ 個股弱於產業 (-19.6%)"
+      ],
+      "indicators": {
+        "ma5": 424.1,
+        "ma10": 446.2,
+        "ma20": 448.92,
+        "ma60": 400.81,
+        "macd": 3.1038,
+        "macd_signal": 12.2206,
+        "macd_hist": -9.1167,
+        "rsi": 40.37,
+        "k": 22.0,
+        "d": 38.1,
+        "bb_upper": 515.55,
+        "bb_middle": 448.92,
+        "bb_lower": 382.3,
+        "bb_pct": 0.054,
+        "volume": 4137762,
+        "volume_ma5": 3124450,
+        "volume_ratio": 0.99,
+        "ma20_slope": 0.22,
+        "ma60_slope": 4.52,
+        "stage": "transition",
+        "high_52w": 503.0,
+        "low_52w": 254.46,
+        "proximity_52w": 0.774,
+        "price": 389.5,
+        "change_1d": -6.71,
+        "change_5d": -14.49,
+        "change_20d": -20.51,
+        "data_date": "2026-08-18"
+      },
+      "institutional_data": {
+        "margin_change": 49
+      },
+      "financial_data": {
+        "eps": 7.15,
+        "eps_growth": 0.7396593673965937,
+        "revenue_growth": 0.5506782588700391
+      },
+      "industry_data": {
+        "rank": 18,
+        "total": 32,
+        "avg_ret_1d": -0.69,
+        "avg_ret_5d": -1.72,
+        "avg_ret_20d": -0.87
+      },
+      "score_detail": {
+        "base_score": 33.2,
+        "conviction_bonus": 0.0,
+        "veto_cap": 50,
+        "market_multiplier": 1.0,
+        "veto_reasons": [
+          "⚠️ 籌碼極弱，評分上限50分"
+        ],
+        "conviction_reasons": []
+      },
+      "key_points": [
+        "⚠️ 籌碼極弱，評分上限50分",
+        "💡 接近布林下軌支撐",
+        "🚀 EPS 高速成長 (+74%)",
+        "📊 現價 389.5 (▼6.71%)"
       ],
       "patterns": []
     },
@@ -11441,7 +11319,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -7
+        "margin_change": 1
       },
       "financial_data": {
         "eps": 1.17,
@@ -11528,7 +11406,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 51
+        "margin_change": -4
       },
       "financial_data": {
         "eps": 3.19,
@@ -11615,7 +11493,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -55
+        "margin_change": -3
       },
       "financial_data": {
         "eps": 1.31,
@@ -11701,7 +11579,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 21
+        "margin_change": 6
       },
       "financial_data": {
         "eps": 1.49,
@@ -12282,7 +12160,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -254
+        "margin_change": -386
       },
       "financial_data": {
         "eps": 4.8,
@@ -12480,7 +12358,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -6
+        "margin_change": 21
       },
       "financial_data": {
         "eps": 1.14,
@@ -12977,7 +12855,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -408
+        "margin_change": -28
       },
       "financial_data": {
         "eps": 1.49,
@@ -13062,7 +12940,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 0
+        "margin_change": -1
       },
       "financial_data": {
         "eps": 0.2,
@@ -13148,7 +13026,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 0
+        "margin_change": -6
       },
       "financial_data": {
         "eps": 2.89,
@@ -13240,7 +13118,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 380
+        "margin_change": -4465
       },
       "financial_data": {
         "eps": 3.39,
@@ -13329,7 +13207,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -19
+        "margin_change": 22
       },
       "financial_data": {
         "eps": 0.7,
@@ -13413,7 +13291,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -24
+        "margin_change": 24
       },
       "financial_data": {
         "eps": 7.42,
@@ -13502,7 +13380,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 2064
+        "margin_change": -3201
       },
       "financial_data": {
         "eps": 0.57,
@@ -13595,7 +13473,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -109
+        "margin_change": 440
       },
       "financial_data": {
         "eps": 2.04,
@@ -13684,7 +13562,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -36
+        "margin_change": -17
       },
       "financial_data": {
         "eps": 19.92,
@@ -13865,7 +13743,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -4
+        "margin_change": -1
       },
       "financial_data": {
         "eps": 0.12,
@@ -13955,7 +13833,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -205
+        "margin_change": 85
       },
       "financial_data": {
         "eps": -0.33,
@@ -14335,7 +14213,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -185
+        "margin_change": -1
       },
       "financial_data": {
         "eps": -0.27,
@@ -14424,7 +14302,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 0
+        "margin_change": -1
       },
       "financial_data": {
         "eps": 0.56,
@@ -14558,6 +14436,94 @@
         "⚠️ 投信賣超 (-962張)",
         "🚀 EPS 高速成長 (+74%)",
         "📊 現價 151.0 (▼0.98%)"
+      ],
+      "patterns": []
+    },
+    {
+      "stock_id": "6412",
+      "stock_name": "群電",
+      "industry": "電子工業",
+      "market": "TWSE",
+      "composite_score": 20.8,
+      "grade": "D",
+      "technical_score": 9.0,
+      "fundamental_score": 40.0,
+      "institutional_score": 22.0,
+      "industry_score": 26.0,
+      "technical_signals": [
+        "✅ MACD 多頭",
+        "💡 接近布林下軌支撐",
+        "🚫 Stage4: 下跌趨勢，嚴格迴避"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+74%)",
+        "❌ 營收衰退 (-13%)"
+      ],
+      "institutional_signals": [],
+      "industry_signals": [
+        "⚠️ 個股弱於產業 (-5.6%)"
+      ],
+      "indicators": {
+        "ma5": 78.82,
+        "ma10": 78.8,
+        "ma20": 79.22,
+        "ma60": 87.6,
+        "macd": -1.9425,
+        "macd_signal": -2.2666,
+        "macd_hist": 0.3242,
+        "rsi": 48.37,
+        "k": 34.1,
+        "d": 46.0,
+        "bb_upper": 83.09,
+        "bb_middle": 79.22,
+        "bb_lower": 75.36,
+        "bb_pct": 0.199,
+        "volume": 758776,
+        "volume_ma5": 668400,
+        "volume_ratio": 0.76,
+        "ma20_slope": -0.63,
+        "ma60_slope": -2.03,
+        "stage": "stage4",
+        "high_52w": 101.83,
+        "low_52w": 69.45,
+        "proximity_52w": 0.755,
+        "price": 76.9,
+        "change_1d": -2.29,
+        "change_5d": -3.63,
+        "change_20d": -6.45,
+        "data_date": "2026-08-18"
+      },
+      "institutional_data": {
+        "margin_change": 4
+      },
+      "financial_data": {
+        "eps": 2.03,
+        "eps_growth": 0.735042735042735,
+        "revenue_growth": -0.12994578660298
+      },
+      "industry_data": {
+        "rank": 18,
+        "total": 32,
+        "avg_ret_1d": -0.69,
+        "avg_ret_5d": -1.72,
+        "avg_ret_20d": -0.87
+      },
+      "score_detail": {
+        "base_score": 20.8,
+        "conviction_bonus": 0.0,
+        "veto_cap": 35,
+        "market_multiplier": 1.0,
+        "veto_reasons": [
+          "🚫 Stage4下跌趨勢，強制上限35分",
+          "⚠️ 籌碼極弱，評分上限50分"
+        ],
+        "conviction_reasons": []
+      },
+      "key_points": [
+        "🚫 Stage4下跌趨勢，強制上限35分",
+        "✅ MACD 多頭",
+        "🚀 EPS 高速成長 (+74%)",
+        "📊 現價 76.9 (▼2.29%)"
       ],
       "patterns": []
     },
@@ -14803,7 +14769,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 3
+        "margin_change": 0
       },
       "financial_data": {
         "eps": 0.19,
@@ -14980,7 +14946,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -297
+        "margin_change": 206
       },
       "financial_data": {
         "eps": -0.44,
@@ -15071,7 +15037,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 52
+        "margin_change": 29
       },
       "financial_data": {
         "eps": 17.68,
@@ -15158,7 +15124,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 5
+        "margin_change": 8
       },
       "financial_data": {
         "eps": 2.55,
@@ -15333,7 +15299,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 0
+        "margin_change": -1
       },
       "financial_data": {
         "eps": -0.57,
@@ -15519,7 +15485,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 41
+        "margin_change": 61
       },
       "financial_data": {
         "eps": 0.54,
@@ -15696,7 +15662,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -3
+        "margin_change": 2
       },
       "financial_data": {
         "eps": 0.53,
@@ -15786,7 +15752,7 @@
         "data_date": "2026-08-17"
       },
       "institutional_data": {
-        "margin_change": -1
+        "margin_change": 0
       },
       "financial_data": {
         "eps": -1.07,
@@ -15878,7 +15844,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -354
+        "margin_change": -360
       },
       "financial_data": {
         "eps": 0.23,
@@ -16232,7 +16198,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 1
+        "margin_change": 3
       },
       "financial_data": {
         "eps": 0.21,
@@ -16318,7 +16284,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -7
+        "margin_change": 4
       },
       "financial_data": {
         "eps": 0.18,
@@ -16410,7 +16376,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 2
+        "margin_change": 0
       },
       "financial_data": {
         "eps": -0.39,
@@ -16501,7 +16467,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 0
+        "margin_change": -1
       },
       "financial_data": {
         "eps": -1.99,
@@ -16593,7 +16559,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 6
+        "margin_change": 31
       },
       "financial_data": {
         "eps": 1.2,
@@ -16683,7 +16649,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -72
+        "margin_change": -3
       },
       "financial_data": {
         "eps": 0.82,
@@ -16773,7 +16739,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": 0
+        "margin_change": 40
       },
       "financial_data": {
         "eps": 3.11,
@@ -16953,7 +16919,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -2
+        "margin_change": 5
       },
       "financial_data": {
         "eps": -0.24,
@@ -17133,7 +17099,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -6
+        "margin_change": 3
       },
       "financial_data": {
         "eps": -0.39,
@@ -17226,7 +17192,7 @@
         "data_date": "2026-08-18"
       },
       "institutional_data": {
-        "margin_change": -37
+        "margin_change": -57
       },
       "financial_data": {
         "eps": -1.57,
