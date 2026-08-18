@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-07-14",
-    "time": "09:29:46",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "6863",
-        "stock_name": "永道-KY",
-        "score": 70.5,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6951",
-        "stock_name": "青新-創",
-        "score": 69.8,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "8411",
-        "stock_name": "福貞-KY",
-        "score": 65.6,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "date": "2026-07-14",
     "time": "14:26:01",
     "total_analyzed": 174,
     "top3": [
@@ -745,6 +720,31 @@
         "stock_id": "6605",
         "stock_name": "帝寶",
         "score": 62.8,
+        "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-08-18",
+    "time": "08:15:47",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "6409",
+        "stock_name": "旭隼",
+        "score": 85.9,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6606",
+        "stock_name": "建德工業",
+        "score": 78.8,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6605",
+        "stock_name": "帝寶",
+        "score": 61.3,
         "grade": "B"
       }
     ]
