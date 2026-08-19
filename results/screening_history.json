@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-07-15",
-    "time": "09:33:41",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "2432",
-        "stock_name": "倚天",
-        "score": 73.2,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "5306",
-        "stock_name": "桂盟",
-        "score": 70.3,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6951",
-        "stock_name": "青新-創",
-        "score": 70.0,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
     "date": "2026-07-16",
     "time": "09:49:35",
     "total_analyzed": 300,
@@ -745,6 +720,31 @@
         "stock_id": "6605",
         "stock_name": "帝寶",
         "score": 61.3,
+        "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-08-19",
+    "time": "08:15:59",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "6409",
+        "stock_name": "旭隼",
+        "score": 73.2,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6464",
+        "stock_name": "台數科",
+        "score": 65.2,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6969",
+        "stock_name": "成信實業*-創",
+        "score": 60.3,
         "grade": "B"
       }
     ]
