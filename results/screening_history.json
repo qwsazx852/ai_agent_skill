@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-07-17",
-    "time": "09:30:26",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "5306",
-        "stock_name": "桂盟",
-        "score": 62.0,
-        "grade": "B"
-      },
-      {
-        "stock_id": "1439",
-        "stock_name": "雋揚",
-        "score": 61.3,
-        "grade": "B"
-      },
-      {
-        "stock_id": "6951",
-        "stock_name": "青新-創",
-        "score": 59.4,
-        "grade": "B"
-      }
-    ]
-  },
-  {
     "date": "2026-07-20",
     "time": "10:30:26",
     "total_analyzed": 174,
@@ -746,6 +721,31 @@
         "stock_name": "台數科",
         "score": 65.3,
         "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-08-21",
+    "time": "08:19:47",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "6456",
+        "stock_name": "GIS-KY",
+        "score": 71.4,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6409",
+        "stock_name": "旭隼",
+        "score": 71.0,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6446",
+        "stock_name": "藥華藥",
+        "score": 68.8,
+        "grade": "B+"
       }
     ]
   }
