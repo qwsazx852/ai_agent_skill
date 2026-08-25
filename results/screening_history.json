@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-07-21",
-    "time": "10:07:59",
-    "total_analyzed": 297,
-    "top3": [
-      {
-        "stock_id": "1476",
-        "stock_name": "儒鴻",
-        "score": 78.7,
-        "grade": "A"
-      },
-      {
-        "stock_id": "2615",
-        "stock_name": "萬海",
-        "score": 77.0,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "2884",
-        "stock_name": "玉山金",
-        "score": 74.1,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
-    "date": "2026-07-21",
     "time": "14:36:10",
     "total_analyzed": 174,
     "top3": [
@@ -746,6 +721,31 @@
         "stock_name": "台數科",
         "score": 61.6,
         "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-08-25",
+    "time": "08:23:01",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "6409",
+        "stock_name": "旭隼",
+        "score": 78.2,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6456",
+        "stock_name": "GIS-KY",
+        "score": 77.2,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6446",
+        "stock_name": "藥華藥",
+        "score": 69.2,
+        "grade": "B+"
       }
     ]
   }
