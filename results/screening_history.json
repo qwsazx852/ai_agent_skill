@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-07-31",
-    "time": "10:17:27",
-    "total_analyzed": 300,
-    "top3": [
-      {
-        "stock_id": "2884",
-        "stock_name": "玉山金",
-        "score": 82.1,
-        "grade": "A"
-      },
-      {
-        "stock_id": "1439",
-        "stock_name": "雋揚",
-        "score": 79.5,
-        "grade": "A"
-      },
-      {
-        "stock_id": "2892",
-        "stock_name": "第一金",
-        "score": 77.9,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
     "date": "2026-08-03",
     "time": "10:58:05",
     "total_analyzed": 174,
@@ -745,6 +720,31 @@
         "stock_id": "6531",
         "stock_name": "愛普*",
         "score": 63.1,
+        "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-09-04",
+    "time": "12:16:21",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "6168",
+        "stock_name": "宏齊",
+        "score": 79.6,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6924",
+        "stock_name": "榮惠-KY創",
+        "score": 75.7,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6533",
+        "stock_name": "晶心科",
+        "score": 63.8,
         "grade": "B"
       }
     ]
