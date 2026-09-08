@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-08-04",
-    "time": "10:19:08",
-    "total_analyzed": 300,
-    "top3": [
-      {
-        "stock_id": "2884",
-        "stock_name": "玉山金",
-        "score": 67.0,
-        "grade": "B"
-      },
-      {
-        "stock_id": "3231",
-        "stock_name": "緯創",
-        "score": 64.2,
-        "grade": "B"
-      },
-      {
-        "stock_id": "4938",
-        "stock_name": "和碩",
-        "score": 63.6,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "date": "2026-08-04",
     "time": "15:04:27",
     "total_analyzed": 174,
     "top3": [
@@ -745,6 +720,31 @@
         "stock_id": "6924",
         "stock_name": "榮惠-KY創",
         "score": 63.8,
+        "grade": "B"
+      }
+    ]
+  },
+  {
+    "date": "2026-09-08",
+    "time": "12:17:50",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "6426",
+        "stock_name": "統新",
+        "score": 73.2,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "6924",
+        "stock_name": "榮惠-KY創",
+        "score": 63.8,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6969",
+        "stock_name": "成信實業*-創",
+        "score": 62.7,
         "grade": "B"
       }
     ]
