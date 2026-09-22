@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-08-18",
-    "time": "08:15:47",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "6409",
-        "stock_name": "旭隼",
-        "score": 85.9,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6606",
-        "stock_name": "建德工業",
-        "score": 78.8,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6605",
-        "stock_name": "帝寶",
-        "score": 61.3,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "date": "2026-08-18",
     "time": "13:25:04",
     "total_analyzed": 174,
     "top3": [
@@ -746,6 +721,31 @@
         "stock_name": "晶心科",
         "score": 69.4,
         "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-09-22",
+    "time": "12:50:15",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "6491",
+        "stock_name": "晶碩",
+        "score": 81.8,
+        "grade": "A"
+      },
+      {
+        "stock_id": "5285",
+        "stock_name": "界霖",
+        "score": 81.1,
+        "grade": "A"
+      },
+      {
+        "stock_id": "4961",
+        "stock_name": "天鈺",
+        "score": 79.8,
+        "grade": "A"
       }
     ]
   }
