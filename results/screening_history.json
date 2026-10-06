@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-09-01",
-    "time": "16:51:26",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "5871",
-        "stock_name": "中租-KY",
-        "score": 82.0,
-        "grade": "A"
-      },
-      {
-        "stock_id": "5469",
-        "stock_name": "瀚宇博",
-        "score": 78.2,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6257",
-        "stock_name": "矽格",
-        "score": 72.3,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
     "date": "2026-09-02",
     "time": "12:17:35",
     "total_analyzed": 174,
@@ -727,6 +702,31 @@
   {
     "date": "2026-10-06",
     "time": "14:28:33",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "6205",
+        "stock_name": "詮欣",
+        "score": 98.5,
+        "grade": "A+"
+      },
+      {
+        "stock_id": "6197",
+        "stock_name": "佳必琪",
+        "score": 94.2,
+        "grade": "A+"
+      },
+      {
+        "stock_id": "6239",
+        "stock_name": "力成",
+        "score": 88.5,
+        "grade": "A+"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-06",
+    "time": "18:33:52",
     "total_analyzed": 174,
     "top3": [
       {
