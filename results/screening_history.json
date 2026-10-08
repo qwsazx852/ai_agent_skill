@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-09-03",
-    "time": "12:15:36",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "6168",
-        "stock_name": "宏齊",
-        "score": 81.7,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6533",
-        "stock_name": "晶心科",
-        "score": 68.2,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6531",
-        "stock_name": "愛普*",
-        "score": 63.1,
-        "grade": "B"
-      }
-    ]
-  },
-  {
     "date": "2026-09-04",
     "time": "12:16:21",
     "total_analyzed": 174,
@@ -745,6 +720,31 @@
         "stock_id": "6525",
         "stock_name": "捷敏-KY",
         "score": 73.0,
+        "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-08",
+    "time": "14:57:18",
+    "total_analyzed": 174,
+    "top3": [
+      {
+        "stock_id": "5292",
+        "stock_name": "華懋",
+        "score": 81.2,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6924",
+        "stock_name": "榮惠-KY創",
+        "score": 71.5,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "4968",
+        "stock_name": "立積",
+        "score": 70.2,
         "grade": "B+"
       }
     ]
