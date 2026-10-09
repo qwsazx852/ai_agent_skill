@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-09-04",
-    "time": "12:16:21",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "6168",
-        "stock_name": "宏齊",
-        "score": 79.6,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6924",
-        "stock_name": "榮惠-KY創",
-        "score": 75.7,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6533",
-        "stock_name": "晶心科",
-        "score": 63.8,
-        "grade": "B"
-      }
-    ]
-  },
-  {
     "date": "2026-09-07",
     "time": "13:41:41",
     "total_analyzed": 174,
@@ -745,6 +720,31 @@
         "stock_id": "4968",
         "stock_name": "立積",
         "score": 70.2,
+        "grade": "B+"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-09",
+    "time": "14:41:20",
+    "total_analyzed": 173,
+    "top3": [
+      {
+        "stock_id": "6197",
+        "stock_name": "佳必琪",
+        "score": 99.2,
+        "grade": "A+"
+      },
+      {
+        "stock_id": "6205",
+        "stock_name": "詮欣",
+        "score": 78.0,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6230",
+        "stock_name": "尼得科超眾",
+        "score": 77.8,
         "grade": "B+"
       }
     ]
