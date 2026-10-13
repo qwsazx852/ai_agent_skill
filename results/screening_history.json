@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-09-08",
-    "time": "12:17:50",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "6426",
-        "stock_name": "統新",
-        "score": 73.2,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6924",
-        "stock_name": "榮惠-KY創",
-        "score": 63.8,
-        "grade": "B"
-      },
-      {
-        "stock_id": "6969",
-        "stock_name": "成信實業*-創",
-        "score": 62.7,
-        "grade": "B"
-      }
-    ]
-  },
-  {
-    "date": "2026-09-08",
     "time": "16:48:28",
     "total_analyzed": 174,
     "top3": [
@@ -746,6 +721,31 @@
         "stock_name": "尼得科超眾",
         "score": 82.2,
         "grade": "A"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-13",
+    "time": "15:17:02",
+    "total_analyzed": 173,
+    "top3": [
+      {
+        "stock_id": "6924",
+        "stock_name": "榮惠-KY創",
+        "score": 85.0,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6197",
+        "stock_name": "佳必琪",
+        "score": 79.5,
+        "grade": "A"
+      },
+      {
+        "stock_id": "6191",
+        "stock_name": "精成科",
+        "score": 74.8,
+        "grade": "B+"
       }
     ]
   }
