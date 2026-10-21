@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-09-16",
-    "time": "12:50:38",
-    "total_analyzed": 173,
-    "top3": [
-      {
-        "stock_id": "5283",
-        "stock_name": "禾聯碩",
-        "score": 69.0,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "5269",
-        "stock_name": "祥碩",
-        "score": 68.9,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "5244",
-        "stock_name": "弘凱",
-        "score": 64.8,
-        "grade": "B"
-      }
-    ]
-  },
-  {
     "date": "2026-09-17",
     "time": "12:47:08",
     "total_analyzed": 174,
@@ -745,6 +720,31 @@
         "stock_id": "6456",
         "stock_name": "GIS-KY",
         "score": 48.4,
+        "grade": "C+"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-21",
+    "time": "13:15:04",
+    "total_analyzed": 172,
+    "top3": [
+      {
+        "stock_id": "6456",
+        "stock_name": "GIS-KY",
+        "score": 68.8,
+        "grade": "B+"
+      },
+      {
+        "stock_id": "4989",
+        "stock_name": "榮科",
+        "score": 62.1,
+        "grade": "B"
+      },
+      {
+        "stock_id": "4976",
+        "stock_name": "佳凌",
+        "score": 57.2,
         "grade": "C+"
       }
     ]
