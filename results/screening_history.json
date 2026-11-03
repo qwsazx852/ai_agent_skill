@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-09-29",
-    "time": "14:21:51",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "4961",
-        "stock_name": "天鈺",
-        "score": 86.1,
-        "grade": "A"
-      },
-      {
-        "stock_id": "4960",
-        "stock_name": "誠美材",
-        "score": 79.0,
-        "grade": "A"
-      },
-      {
-        "stock_id": "4968",
-        "stock_name": "立積",
-        "score": 69.2,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
-    "date": "2026-09-29",
     "time": "18:13:11",
     "total_analyzed": 174,
     "top3": [
@@ -746,6 +721,31 @@
         "stock_name": "資拓宏宇",
         "score": 46.1,
         "grade": "C"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-03",
+    "time": "15:28:48",
+    "total_analyzed": 173,
+    "top3": [
+      {
+        "stock_id": "6446",
+        "stock_name": "藥華藥",
+        "score": 57.1,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "6464",
+        "stock_name": "台數科",
+        "score": 56.9,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "6467",
+        "stock_name": "泰合",
+        "score": 55.3,
+        "grade": "C+"
       }
     ]
   }
