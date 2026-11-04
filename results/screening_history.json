@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-09-30",
-    "time": "14:14:40",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "4960",
-        "stock_name": "誠美材",
-        "score": 82.6,
-        "grade": "A"
-      },
-      {
-        "stock_id": "4968",
-        "stock_name": "立積",
-        "score": 81.2,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6533",
-        "stock_name": "晶心科",
-        "score": 76.2,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
     "date": "2026-10-01",
     "time": "14:46:50",
     "total_analyzed": 174,
@@ -745,6 +720,31 @@
         "stock_id": "6464",
         "stock_name": "台數科",
         "score": 57.7,
+        "grade": "C+"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-04",
+    "time": "15:46:26",
+    "total_analyzed": 173,
+    "top3": [
+      {
+        "stock_id": "6446",
+        "stock_name": "藥華藥",
+        "score": 61.6,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6456",
+        "stock_name": "GIS-KY",
+        "score": 59.6,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6467",
+        "stock_name": "泰合",
+        "score": 56.2,
         "grade": "C+"
       }
     ]
