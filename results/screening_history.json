@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-10-01",
-    "time": "14:46:50",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "6491",
-        "stock_name": "晶碩",
-        "score": 92.4,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "5292",
-        "stock_name": "華懋",
-        "score": 92.0,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "6456",
-        "stock_name": "GIS-KY",
-        "score": 89.0,
-        "grade": "A+"
-      }
-    ]
-  },
-  {
     "date": "2026-10-02",
     "time": "14:09:17",
     "total_analyzed": 174,
@@ -745,6 +720,31 @@
         "stock_id": "6467",
         "stock_name": "泰合",
         "score": 56.2,
+        "grade": "C+"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-05",
+    "time": "15:49:06",
+    "total_analyzed": 173,
+    "top3": [
+      {
+        "stock_id": "6467",
+        "stock_name": "泰合",
+        "score": 55.4,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "5007",
+        "stock_name": "三星",
+        "score": 54.1,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "6491",
+        "stock_name": "晶碩",
+        "score": 48.9,
         "grade": "C+"
       }
     ]
