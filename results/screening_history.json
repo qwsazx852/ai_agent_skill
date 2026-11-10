@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-10-06",
-    "time": "18:33:52",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "6205",
-        "stock_name": "詮欣",
-        "score": 98.5,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "6197",
-        "stock_name": "佳必琪",
-        "score": 94.2,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "6239",
-        "stock_name": "力成",
-        "score": 88.5,
-        "grade": "A+"
-      }
-    ]
-  },
-  {
     "date": "2026-10-07",
     "time": "14:45:15",
     "total_analyzed": 174,
@@ -746,6 +721,31 @@
         "stock_name": "晶碩",
         "score": 53.8,
         "grade": "C+"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-10",
+    "time": "19:56:49",
+    "total_analyzed": 173,
+    "top3": [
+      {
+        "stock_id": "6582",
+        "stock_name": "申豐",
+        "score": 54.2,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "6467",
+        "stock_name": "泰合",
+        "score": 54.1,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "4977",
+        "stock_name": "眾達-KY",
+        "score": 42.3,
+        "grade": "C"
       }
     ]
   }
