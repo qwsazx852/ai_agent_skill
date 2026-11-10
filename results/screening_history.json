@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-10-06",
-    "time": "14:28:33",
-    "total_analyzed": 174,
-    "top3": [
-      {
-        "stock_id": "6205",
-        "stock_name": "詮欣",
-        "score": 98.5,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "6197",
-        "stock_name": "佳必琪",
-        "score": 94.2,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "6239",
-        "stock_name": "力成",
-        "score": 88.5,
-        "grade": "A+"
-      }
-    ]
-  },
-  {
-    "date": "2026-10-06",
     "time": "18:33:52",
     "total_analyzed": 174,
     "top3": [
@@ -745,6 +720,31 @@
         "stock_id": "6464",
         "stock_name": "台數科",
         "score": 56.4,
+        "grade": "C+"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-10",
+    "time": "15:47:46",
+    "total_analyzed": 173,
+    "top3": [
+      {
+        "stock_id": "1439",
+        "stock_name": "雋揚",
+        "score": 57.4,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "6689",
+        "stock_name": "伊雲谷",
+        "score": 57.3,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "6491",
+        "stock_name": "晶碩",
+        "score": 53.8,
         "grade": "C+"
       }
     ]
