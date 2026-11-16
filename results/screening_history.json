@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-10-12",
-    "time": "17:01:08",
-    "total_analyzed": 173,
-    "top3": [
-      {
-        "stock_id": "6197",
-        "stock_name": "佳必琪",
-        "score": 99.2,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "6205",
-        "stock_name": "詮欣",
-        "score": 95.9,
-        "grade": "A+"
-      },
-      {
-        "stock_id": "6230",
-        "stock_name": "尼得科超眾",
-        "score": 82.2,
-        "grade": "A"
-      }
-    ]
-  },
-  {
     "date": "2026-10-13",
     "time": "15:17:02",
     "total_analyzed": 173,
@@ -746,6 +721,31 @@
         "stock_name": "泰合",
         "score": 52.5,
         "grade": "C+"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-16",
+    "time": "17:28:30",
+    "total_analyzed": 173,
+    "top3": [
+      {
+        "stock_id": "6924",
+        "stock_name": "榮惠-KY創",
+        "score": 62.8,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6467",
+        "stock_name": "泰合",
+        "score": 55.5,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "5880",
+        "stock_name": "合庫金",
+        "score": 42.3,
+        "grade": "C"
       }
     ]
   }
