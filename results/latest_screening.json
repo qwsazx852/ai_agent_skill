@@ -1,6 +1,6 @@
 {
   "date": "2026-11-17",
-  "time": "17:05:18",
+  "time": "21:15:31",
   "total_analyzed": 173,
   "market_env": {
     "status": "bear",
@@ -68,8 +68,8 @@
       "description": "晶圓設備、化學品、研磨液、光罩",
       "avg_ret_1d": -3.24,
       "avg_ret_5d": 4.83,
-      "avg_score": 25.9,
-      "heat_score": 3.93,
+      "avg_score": 26.0,
+      "heat_score": 3.94,
       "active_count": 3,
       "active_stocks": [
         "6533",
@@ -5774,6 +5774,104 @@
       "patterns": []
     },
     {
+      "stock_id": "6438",
+      "stock_name": "迅得",
+      "industry": "其他電子業",
+      "market": "TWSE",
+      "composite_score": 28.4,
+      "grade": "D",
+      "technical_score": 19.0,
+      "fundamental_score": 50.0,
+      "institutional_score": 49.0,
+      "industry_score": 15.0,
+      "technical_signals": [
+        "✅ 站上 MA5",
+        "📈 MACD 動能增強",
+        "✅ KD 多頭",
+        "🚫 Stage4: 下跌趨勢，嚴格迴避"
+      ],
+      "fundamental_signals": [
+        "🚀 EPS 高速成長 (+156%)"
+      ],
+      "institutional_signals": [
+        "✅ 投信買超 (+1,694張)",
+        "💡 融券多 (5,475張，潛在軋空)"
+      ],
+      "industry_signals": [
+        "❌ 產業強度末段 (#30/32)",
+        "📉 產業近期弱勢 (-4.6%)"
+      ],
+      "indicators": {
+        "ma5": 140.4,
+        "ma10": 138.25,
+        "ma20": 151.0,
+        "ma60": 154.36,
+        "macd": -6.2299,
+        "macd_signal": -5.295,
+        "macd_hist": -0.9348,
+        "rsi": 35.29,
+        "k": 64.47,
+        "d": 47.69,
+        "bb_upper": 179.35,
+        "bb_middle": 151.0,
+        "bb_lower": 122.65,
+        "bb_pct": 0.341,
+        "volume": 700044,
+        "volume_ma5": 887305,
+        "volume_ratio": 0.83,
+        "ma20_slope": -4.58,
+        "ma60_slope": -0.82,
+        "stage": "stage4",
+        "high_52w": 182.0,
+        "low_52w": 126.5,
+        "proximity_52w": 0.78,
+        "price": 142.0,
+        "change_1d": -0.7,
+        "change_5d": 2.9,
+        "change_20d": -14.97,
+        "data_date": "2026-11-16"
+      },
+      "institutional_data": {
+        "foreign_net": "-475",
+        "trust_net": "1694",
+        "dealer_net": "676",
+        "foreign_3d": "-2145",
+        "foreign_10d": "-18360",
+        "margin_balance": "18846",
+        "margin_change": "-3660",
+        "short_balance": "5475"
+      },
+      "financial_data": {
+        "eps": 2.33,
+        "eps_growth": 1.5604395604395602
+      },
+      "industry_data": {
+        "rank": 30,
+        "total": 32,
+        "avg_ret_1d": -6.17,
+        "avg_ret_5d": -4.65,
+        "avg_ret_20d": -19.66
+      },
+      "score_detail": {
+        "base_score": 33.5,
+        "conviction_bonus": 0.0,
+        "veto_cap": 35,
+        "market_multiplier": 0.78,
+        "veto_reasons": [
+          "🚫 Stage4下跌趨勢，強制上限35分"
+        ],
+        "conviction_reasons": []
+      },
+      "key_points": [
+        "🚫 Stage4下跌趨勢，強制上限35分",
+        "✅ 站上 MA5",
+        "✅ 投信買超 (+1,694張)",
+        "🚀 EPS 高速成長 (+156%)",
+        "📊 現價 142.0 (▼0.70%)"
+      ],
+      "patterns": []
+    },
+    {
       "stock_id": "2615",
       "stock_name": "萬海",
       "industry": "航運",
@@ -5861,112 +5959,6 @@
         "✅ 站上 MA5",
         "🚀 EPS 高速成長 (+87%)",
         "📊 現價 109.5 (▲1.86%)"
-      ],
-      "patterns": []
-    },
-    {
-      "stock_id": "6438",
-      "stock_name": "迅得",
-      "industry": "其他電子業",
-      "market": "TWSE",
-      "composite_score": 28.1,
-      "grade": "D",
-      "technical_score": 19.0,
-      "fundamental_score": 48.0,
-      "institutional_score": 49.0,
-      "industry_score": 15.0,
-      "technical_signals": [
-        "✅ 站上 MA5",
-        "📈 MACD 動能增強",
-        "✅ KD 多頭",
-        "🚫 Stage4: 下跌趨勢，嚴格迴避"
-      ],
-      "fundamental_signals": [
-        "❌ EPS 大幅衰退 (-30%)",
-        "✅ 營收小幅成長 (+7%)",
-        "✅ ROE 良好 (15.9%)",
-        "💰 低股淨比 (PB=0.6x)"
-      ],
-      "institutional_signals": [
-        "✅ 投信買超 (+1,694張)",
-        "💡 融券多 (5,475張，潛在軋空)"
-      ],
-      "industry_signals": [
-        "❌ 產業強度末段 (#30/32)",
-        "📉 產業近期弱勢 (-4.6%)"
-      ],
-      "indicators": {
-        "ma5": 140.4,
-        "ma10": 138.25,
-        "ma20": 151.0,
-        "ma60": 154.36,
-        "macd": -6.2299,
-        "macd_signal": -5.295,
-        "macd_hist": -0.9348,
-        "rsi": 35.29,
-        "k": 64.47,
-        "d": 47.69,
-        "bb_upper": 179.35,
-        "bb_middle": 151.0,
-        "bb_lower": 122.65,
-        "bb_pct": 0.341,
-        "volume": 700044,
-        "volume_ma5": 887305,
-        "volume_ratio": 0.83,
-        "ma20_slope": -4.58,
-        "ma60_slope": -0.82,
-        "stage": "stage4",
-        "high_52w": 182.0,
-        "low_52w": 126.5,
-        "proximity_52w": 0.78,
-        "price": 142.0,
-        "change_1d": -0.7,
-        "change_5d": 2.9,
-        "change_20d": -14.97,
-        "data_date": "2026-11-16"
-      },
-      "institutional_data": {
-        "foreign_net": "-475",
-        "trust_net": "1694",
-        "dealer_net": "676",
-        "foreign_3d": "-2145",
-        "foreign_10d": "-18360",
-        "margin_balance": "18846",
-        "margin_change": "-3660",
-        "short_balance": "5475"
-      },
-      "financial_data": {
-        "eps": 18.55,
-        "eps_growth": -0.299,
-        "revenue_growth": 0.0749,
-        "roe": 0.1593,
-        "pe_ratio": 25.4,
-        "pb_ratio": 0.62,
-        "dividend_yield": 0.0008
-      },
-      "industry_data": {
-        "rank": 30,
-        "total": 32,
-        "avg_ret_1d": -6.17,
-        "avg_ret_5d": -4.65,
-        "avg_ret_20d": -19.66
-      },
-      "score_detail": {
-        "base_score": 33.2,
-        "conviction_bonus": 0.0,
-        "veto_cap": 35,
-        "market_multiplier": 0.78,
-        "veto_reasons": [
-          "🚫 Stage4下跌趨勢，強制上限35分"
-        ],
-        "conviction_reasons": []
-      },
-      "key_points": [
-        "🚫 Stage4下跌趨勢，強制上限35分",
-        "✅ 站上 MA5",
-        "✅ 投信買超 (+1,694張)",
-        "❌ EPS 大幅衰退 (-30%)",
-        "📊 現價 142.0 (▼0.70%)"
       ],
       "patterns": []
     },
