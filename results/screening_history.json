@@ -1,31 +1,6 @@
 [
   {
     "date": "2026-10-13",
-    "time": "15:17:02",
-    "total_analyzed": 173,
-    "top3": [
-      {
-        "stock_id": "6924",
-        "stock_name": "榮惠-KY創",
-        "score": 85.0,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6197",
-        "stock_name": "佳必琪",
-        "score": 79.5,
-        "grade": "A"
-      },
-      {
-        "stock_id": "6191",
-        "stock_name": "精成科",
-        "score": 74.8,
-        "grade": "B+"
-      }
-    ]
-  },
-  {
-    "date": "2026-10-13",
     "time": "19:28:30",
     "total_analyzed": 172,
     "top3": [
@@ -746,6 +721,31 @@
         "stock_name": "合庫金",
         "score": 42.3,
         "grade": "C"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-17",
+    "time": "17:05:18",
+    "total_analyzed": 173,
+    "top3": [
+      {
+        "stock_id": "6614",
+        "stock_name": "資拓宏宇",
+        "score": 60.9,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6924",
+        "stock_name": "榮惠-KY創",
+        "score": 59.2,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6446",
+        "stock_name": "藥華藥",
+        "score": 58.4,
+        "grade": "B"
       }
     ]
   }
