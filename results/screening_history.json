@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-10-15",
-    "time": "12:52:09",
-    "total_analyzed": 173,
-    "top3": [
-      {
-        "stock_id": "5292",
-        "stock_name": "華懋",
-        "score": 68.6,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "6924",
-        "stock_name": "榮惠-KY創",
-        "score": 68.2,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "5269",
-        "stock_name": "祥碩",
-        "score": 66.6,
-        "grade": "B"
-      }
-    ]
-  },
-  {
     "date": "2026-10-16",
     "time": "12:44:41",
     "total_analyzed": 173,
@@ -739,6 +714,31 @@
         "stock_id": "6467",
         "stock_name": "泰合",
         "score": 43.9,
+        "grade": "C"
+      },
+      {
+        "stock_id": "4977",
+        "stock_name": "眾達-KY",
+        "score": 42.3,
+        "grade": "C"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-19",
+    "time": "16:48:57",
+    "total_analyzed": 173,
+    "top3": [
+      {
+        "stock_id": "6614",
+        "stock_name": "資拓宏宇",
+        "score": 60.9,
+        "grade": "B"
+      },
+      {
+        "stock_id": "6924",
+        "stock_name": "榮惠-KY創",
+        "score": 46.0,
         "grade": "C"
       },
       {
