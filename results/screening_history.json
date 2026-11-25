@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-10-21",
-    "time": "13:15:04",
-    "total_analyzed": 172,
-    "top3": [
-      {
-        "stock_id": "6456",
-        "stock_name": "GIS-KY",
-        "score": 68.8,
-        "grade": "B+"
-      },
-      {
-        "stock_id": "4989",
-        "stock_name": "榮科",
-        "score": 62.1,
-        "grade": "B"
-      },
-      {
-        "stock_id": "4976",
-        "stock_name": "佳凌",
-        "score": 57.2,
-        "grade": "C+"
-      }
-    ]
-  },
-  {
     "date": "2026-10-22",
     "time": "13:12:34",
     "total_analyzed": 173,
@@ -733,6 +708,31 @@
         "stock_id": "6614",
         "stock_name": "資拓宏宇",
         "score": 56.4,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "2412",
+        "stock_name": "中華電",
+        "score": 42.3,
+        "grade": "C"
+      },
+      {
+        "stock_id": "3661",
+        "stock_name": "世芯-KY",
+        "score": 42.3,
+        "grade": "C"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-25",
+    "time": "18:11:39",
+    "total_analyzed": 173,
+    "top3": [
+      {
+        "stock_id": "5007",
+        "stock_name": "三星",
+        "score": 53.8,
         "grade": "C+"
       },
       {
