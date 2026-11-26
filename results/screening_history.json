@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-10-22",
-    "time": "13:12:34",
-    "total_analyzed": 173,
-    "top3": [
-      {
-        "stock_id": "6924",
-        "stock_name": "榮惠-KY創",
-        "score": 55.5,
-        "grade": "C+"
-      },
-      {
-        "stock_id": "5880",
-        "stock_name": "合庫金",
-        "score": 42.3,
-        "grade": "C"
-      },
-      {
-        "stock_id": "2002",
-        "stock_name": "中鋼",
-        "score": 42.3,
-        "grade": "C"
-      }
-    ]
-  },
-  {
     "date": "2026-10-23",
     "time": "12:52:17",
     "total_analyzed": 173,
@@ -744,6 +719,31 @@
       {
         "stock_id": "3661",
         "stock_name": "世芯-KY",
+        "score": 42.3,
+        "grade": "C"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-26",
+    "time": "17:54:23",
+    "total_analyzed": 172,
+    "top3": [
+      {
+        "stock_id": "5522",
+        "stock_name": "遠雄",
+        "score": 57.3,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "5521",
+        "stock_name": "工信",
+        "score": 56.7,
+        "grade": "C+"
+      },
+      {
+        "stock_id": "2412",
+        "stock_name": "中華電",
         "score": 42.3,
         "grade": "C"
       }
